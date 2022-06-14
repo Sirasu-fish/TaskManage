@@ -18,17 +18,20 @@ namespace TaskManege
         DAndDArea status;
         int sizeChangeAreaWidth;
         Cursor defaultCursor;
+        Control sizeChangeParent;
+        Size lastMouseDownSizeParent;
 
         /// <param name="mouseListner">マウス入力を受け取るコントロール</param>
         /// <param name="sizeChangeCtrl">マウス入力によってサイズが変更されるコントロール</param>
         /// <param name="sizeChangeArea">上下左右のサイズ変更が有効になる範囲を指定</param>
         /// <param name="sizeChangeAreaWidth">サイズ変更が有効になる範囲の幅を指定</param>
-        public DAndDSizeChanger(Control mouseListner, Control sizeChangeCtrl, DAndDArea sizeChangeArea, int sizeChangeAreaWidth)
+        public DAndDSizeChanger(Control mouseListner, Control sizeChangeCtrl, DAndDArea sizeChangeArea, int sizeChangeAreaWidth, Control sizeChangeParent = null)
         {
             this.mouseListner = mouseListner;
             this.sizeChangeCtrl = sizeChangeCtrl;
             this.sizeChangeAreaWidth = sizeChangeAreaWidth;
             this.sizeChangeArea = sizeChangeArea;
+            this.sizeChangeParent = sizeChangeParent;
             defaultCursor = mouseListner.Cursor;
 
             mouseListner.MouseDown += new MouseEventHandler(mouseListner_MouseDown);
@@ -40,6 +43,7 @@ namespace TaskManege
         {
             lastMouseDownPoint = e.Location;
             lastMouseDownSize = sizeChangeCtrl.Size;
+            lastMouseDownSizeParent = sizeChangeParent.Size;
 
             //動作を決定
             status = DAndDArea.None;
@@ -122,6 +126,10 @@ namespace TaskManege
                     else
                     {
                         sizeChangeCtrl.Height = lastMouseDownSize.Height + diffY;
+                        if (sizeChangeParent.Enabled == true)
+                        {
+                            sizeChangeParent.Height = lastMouseDownSizeParent.Height + diffY;
+                        }
                     }
                 }
                 if ((status & DAndDArea.Left) == DAndDArea.Left)

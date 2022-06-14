@@ -12,7 +12,6 @@ namespace TaskManege
 {
     public partial class MainForm : Form
     {
-        TaskForm taskForm = new TaskForm();
         private int clickpanel = -1;
         private int menu = 1;
         lib.Setting setting = new lib.Setting();
@@ -32,6 +31,13 @@ namespace TaskManege
         Color sub_color = white;
         Color submain_color = subdark;
         Color subsub_color = subwhite;
+
+        // メモの保存先パス
+        string memo1_path = "";
+        string memo2_path = "";
+        string memo3_path = "";
+        string memo4_path = "";
+        string memo5_path = "";
 
         // コンストラクタ
         public MainForm()
@@ -1672,7 +1678,7 @@ namespace TaskManege
                     break;
             }
 
-            RefrectMoveControl();
+            RefrectMoveControl(); //要素順反映
         }
         private void menu2_2_panel_top_button_movedown_Click(object sender, EventArgs e)
         {
@@ -1692,7 +1698,7 @@ namespace TaskManege
                     break;
             }
 
-            RefrectMoveControl();
+            RefrectMoveControl(); //要素順反映
         }
 
         // menu2_2 ファイルを開くダイアログを開く
@@ -1723,6 +1729,47 @@ namespace TaskManege
                 {
                     break;
                 }
+            }
+        }
+
+        // キー押下時のイベント
+        private void menu2_2_panel_main_panel1_table_memo_text_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
+            {
+                SaveMemo(memo1_path, this.menu2_2_panel_main_panel1_table_memo_text.Text);
+            }
+        }
+
+        private void menu2_2_panel_main_panel2_table_memo_text_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
+            {
+                SaveMemo(memo2_path, this.menu2_2_panel_main_panel1_table_memo_text.Text);
+            }
+        }
+
+        private void menu2_2_panel_main_panel3_table_memo_text_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
+            {
+                SaveMemo(memo3_path, this.menu2_2_panel_main_panel1_table_memo_text.Text);
+            }
+        }
+
+        private void menu2_2_panel_main_panel4_table_memo_text_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
+            {
+                SaveMemo(memo4_path, this.menu2_2_panel_main_panel1_table_memo_text.Text);
+            }
+        }
+
+        private void menu2_2_panel_main_panel5_table_memo_text_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
+            {
+                SaveMemo(memo5_path, this.menu2_2_panel_main_panel1_table_memo_text.Text);
             }
         }
 
@@ -4099,14 +4146,14 @@ namespace TaskManege
             return false;
         }
 
-        // menu2 panel3 のメモのサイズ変更イベント定義
+        // menu2 panel2 のメモのサイズ変更イベント定義
         private void SetSizeChanger()
         {
-            menu2_2_panel_main_table_memo1_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel1_table_memo_text, this.menu2_2_panel_main_panel1, DAndDArea.Bottom, 12);
-            menu2_2_panel_main_table_memo2_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel2_table_memo_text, this.menu2_2_panel_main_panel2, DAndDArea.Bottom, 12);
-            menu2_2_panel_main_table_memo3_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel3_table_memo_text, this.menu2_2_panel_main_panel3, DAndDArea.Bottom, 12);
-            menu2_2_panel_main_table_memo4_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel4_table_memo_text, this.menu2_2_panel_main_panel4, DAndDArea.Bottom, 12);
-            menu2_2_panel_main_table_memo5_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel5_table_memo_text, this.menu2_2_panel_main_panel5, DAndDArea.Bottom, 12);
+            menu2_2_panel_main_table_memo1_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel1_table_memo_text, this.menu2_2_panel_main_panel1, DAndDArea.Bottom, 12, this.menu2_2);
+            menu2_2_panel_main_table_memo2_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel2_table_memo_text, this.menu2_2_panel_main_panel2, DAndDArea.Bottom, 12, this.menu2_2);
+            menu2_2_panel_main_table_memo3_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel3_table_memo_text, this.menu2_2_panel_main_panel3, DAndDArea.Bottom, 12, this.menu2_2);
+            menu2_2_panel_main_table_memo4_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel4_table_memo_text, this.menu2_2_panel_main_panel4, DAndDArea.Bottom, 12, this.menu2_2);
+            menu2_2_panel_main_table_memo5_sizeChanger = new DAndDSizeChanger(this.menu2_2_panel_main_panel5_table_memo_text, this.menu2_2_panel_main_panel5, DAndDArea.Bottom, 12, this.menu2_2);
             this_sizeChanger = new DAndDSizeChanger(this, this, DAndDArea.All, 24);
         }
 
@@ -4153,6 +4200,27 @@ namespace TaskManege
         }
 
         
+
+        // メモを保存する時の関数
+        private Boolean SaveMemo(string path, string text)
+        {
+            if (path == "")
+            {
+                
+            }
+            else
+            {
+                //FileUtil.WriteFileLine(path, text, false, true);
+            }
+
+
+
+            return true;
+        }
+
+        
+
+
 
 
 

@@ -68,11 +68,11 @@ namespace TaskManege
         /// <param name="filename">ファイル名</param>
         /// <param name="filedata">ファイルに書き込むデータ</param>
         /// <param name="overwrite">上書きするかどうか true:上書きしない false:上書きする</param>
-        public Boolean WriteFileLine(string filename, List<string> filedata, Boolean overwrite)
+        public Boolean WriteFileLine(string filename, List<string> filedata, Boolean overwrite, Boolean createflg)
         {
             try
             {
-                if (!ExistsFile(filename))
+                if (!ExistsFile(filename) && createflg == true) //ファイルの存在チェック
                 {
                     CreateFile(filename);
                 }

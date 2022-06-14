@@ -18,6 +18,5 @@ D:\download\2022\other\TaskManage\TaskManege\obj\Debug\net5.0-windows\TaskManege
 D:\download\2022\other\TaskManage\TaskManege\obj\Debug\net5.0-windows\TaskManege.genruntimeconfig.cache
 D:\download\2022\other\TaskManage\TaskManege\obj\Debug\net5.0-windows\TaskManege.csproj.AssemblyReference.cache
 D:\download\2022\other\TaskManage\TaskManege\obj\Debug\net5.0-windows\TaskManege.Properties.Resources.resources
-D:\download\2022\other\TaskManage\TaskManege\obj\Debug\net5.0-windows\TaskManege.ResultForm.resources
 D:\download\2022\other\TaskManage\TaskManege\obj\Debug\net5.0-windows\TaskManege.PanelEx.resources
 D:\download\2022\other\TaskManage\TaskManege\obj\Debug\net5.0-windows\TaskManege.Circlelabel.resources

@@ -23,7 +23,7 @@ namespace TaskManege.lib
         public string memo_name3 = ""; //メモファイル名3
         public string memo_name4 = ""; //メモファイル名4
         public string memo_name5 = ""; //メモファイル名5
-        public int order = 0;
+        public int order = 0; //menu2 並び順
 
         /// <summary>
         /// 設定を読み込む
@@ -253,7 +253,7 @@ namespace TaskManege.lib
             list.Add(order.ToString());
 
             FileUtil fu = new FileUtil();
-            fu.WriteFileLine(filename, list, false);
+            fu.WriteFileLine(filename, list, false, true);
         }
     }
 }

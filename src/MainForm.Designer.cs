@@ -329,7 +329,6 @@ namespace TaskManege
         private Button menu2_2_panel_main_panel5_table_memo_panel_top_button_save;
         private TextBox menu2_2_panel_main_panel5_table_memo_panel_top_text;
         private TextBox menu2_2_panel_main_panel5_table_memo_text;
-        private Panel menu2_2_panel_margin;
         private Panel menu2_2_panel_top;
         private Button menu2_2_panel_top_button_add;
         private Button menu2_2_panel_top_button_movedown;
@@ -679,7 +678,6 @@ namespace TaskManege
             this.menu2_3_panel_main_panel1_button_delete = new System.Windows.Forms.Button();
             this.menu2_3_panel_main_panel1_label1 = new System.Windows.Forms.Label();
             this.menu2_2 = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_margin = new System.Windows.Forms.Panel();
             this.menu2_2_panel = new TaskManege.PanelEx();
             this.menu2_2_panel_top = new System.Windows.Forms.Panel();
             this.menu2_2_panel_top_button_open = new System.Windows.Forms.Button();
@@ -1331,7 +1329,7 @@ namespace TaskManege
             this.menu1.Dock = System.Windows.Forms.DockStyle.Top;
             this.menu1.Location = new System.Drawing.Point(0, 34);
             this.menu1.Name = "menu1";
-            this.menu1.Size = new System.Drawing.Size(682, 445);
+            this.menu1.Size = new System.Drawing.Size(682, 0);
             this.menu1.TabIndex = 1;
             // 
             // menu1_table_calender
@@ -1407,7 +1405,7 @@ namespace TaskManege
             this.menu1_table_calender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.menu1_table_calender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.menu1_table_calender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
-            this.menu1_table_calender.Size = new System.Drawing.Size(658, 402);
+            this.menu1_table_calender.Size = new System.Drawing.Size(658, 0);
             this.menu1_table_calender.TabIndex = 1;
             // 
             // menu1_table_calender_panel_day1
@@ -1450,7 +1448,7 @@ namespace TaskManege
             this.menu1_table_calender_panel_day42.Location = new System.Drawing.Point(565, 336);
             this.menu1_table_calender_panel_day42.Margin = new System.Windows.Forms.Padding(1);
             this.menu1_table_calender_panel_day42.Name = "menu1_table_calender_panel_day42";
-            this.menu1_table_calender_panel_day42.Size = new System.Drawing.Size(92, 65);
+            this.menu1_table_calender_panel_day42.Size = new System.Drawing.Size(92, 61);
             this.menu1_table_calender_panel_day42.TabIndex = 90;
             this.menu1_table_calender_panel_day42.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day42_MouseClick);
             this.menu1_table_calender_panel_day42.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day42_DoubleClick);
@@ -1479,7 +1477,7 @@ namespace TaskManege
             this.menu1_table_calender_panel_day41.Location = new System.Drawing.Point(471, 336);
             this.menu1_table_calender_panel_day41.Margin = new System.Windows.Forms.Padding(1);
             this.menu1_table_calender_panel_day41.Name = "menu1_table_calender_panel_day41";
-            this.menu1_table_calender_panel_day41.Size = new System.Drawing.Size(92, 65);
+            this.menu1_table_calender_panel_day41.Size = new System.Drawing.Size(92, 61);
             this.menu1_table_calender_panel_day41.TabIndex = 89;
             this.menu1_table_calender_panel_day41.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day41_MouseClick);
             this.menu1_table_calender_panel_day41.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day41_DoubleClick);
@@ -1508,7 +1506,7 @@ namespace TaskManege
             this.menu1_table_calender_panel_day40.Location = new System.Drawing.Point(377, 336);
             this.menu1_table_calender_panel_day40.Margin = new System.Windows.Forms.Padding(1);
             this.menu1_table_calender_panel_day40.Name = "menu1_table_calender_panel_day40";
-            this.menu1_table_calender_panel_day40.Size = new System.Drawing.Size(92, 65);
+            this.menu1_table_calender_panel_day40.Size = new System.Drawing.Size(92, 61);
             this.menu1_table_calender_panel_day40.TabIndex = 88;
             this.menu1_table_calender_panel_day40.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day40_MouseClick);
             this.menu1_table_calender_panel_day40.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day40_DoubleClick);
@@ -1537,7 +1535,7 @@ namespace TaskManege
             this.menu1_table_calender_panel_day39.Location = new System.Drawing.Point(283, 336);
             this.menu1_table_calender_panel_day39.Margin = new System.Windows.Forms.Padding(1);
             this.menu1_table_calender_panel_day39.Name = "menu1_table_calender_panel_day39";
-            this.menu1_table_calender_panel_day39.Size = new System.Drawing.Size(92, 65);
+            this.menu1_table_calender_panel_day39.Size = new System.Drawing.Size(92, 61);
             this.menu1_table_calender_panel_day39.TabIndex = 87;
             this.menu1_table_calender_panel_day39.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day39_MouseClick);
             this.menu1_table_calender_panel_day39.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day39_DoubleClick);
@@ -1566,7 +1564,7 @@ namespace TaskManege
             this.menu1_table_calender_panel_day38.Location = new System.Drawing.Point(189, 336);
             this.menu1_table_calender_panel_day38.Margin = new System.Windows.Forms.Padding(1);
             this.menu1_table_calender_panel_day38.Name = "menu1_table_calender_panel_day38";
-            this.menu1_table_calender_panel_day38.Size = new System.Drawing.Size(92, 65);
+            this.menu1_table_calender_panel_day38.Size = new System.Drawing.Size(92, 61);
             this.menu1_table_calender_panel_day38.TabIndex = 86;
             this.menu1_table_calender_panel_day38.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day38_MouseClick);
             this.menu1_table_calender_panel_day38.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day38_DoubleClick);
@@ -1595,7 +1593,7 @@ namespace TaskManege
             this.menu1_table_calender_panel_day37.Location = new System.Drawing.Point(95, 336);
             this.menu1_table_calender_panel_day37.Margin = new System.Windows.Forms.Padding(1);
             this.menu1_table_calender_panel_day37.Name = "menu1_table_calender_panel_day37";
-            this.menu1_table_calender_panel_day37.Size = new System.Drawing.Size(92, 65);
+            this.menu1_table_calender_panel_day37.Size = new System.Drawing.Size(92, 61);
             this.menu1_table_calender_panel_day37.TabIndex = 85;
             this.menu1_table_calender_panel_day37.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day37_MouseClick);
             this.menu1_table_calender_panel_day37.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day37_DoubleClick);
@@ -1624,7 +1622,7 @@ namespace TaskManege
             this.menu1_table_calender_panel_day36.Location = new System.Drawing.Point(1, 336);
             this.menu1_table_calender_panel_day36.Margin = new System.Windows.Forms.Padding(1);
             this.menu1_table_calender_panel_day36.Name = "menu1_table_calender_panel_day36";
-            this.menu1_table_calender_panel_day36.Size = new System.Drawing.Size(92, 65);
+            this.menu1_table_calender_panel_day36.Size = new System.Drawing.Size(92, 61);
             this.menu1_table_calender_panel_day36.TabIndex = 84;
             this.menu1_table_calender_panel_day36.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day36_MouseClick);
             this.menu1_table_calender_panel_day36.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day36_DoubleClick);
@@ -2740,17 +2738,17 @@ namespace TaskManege
             this.menu2.Controls.Add(this.menu2_2);
             this.menu2.Controls.Add(this.menu2_1);
             this.menu2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2.Location = new System.Drawing.Point(0, 479);
+            this.menu2.Location = new System.Drawing.Point(0, 34);
             this.menu2.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.menu2.Name = "menu2";
-            this.menu2.Size = new System.Drawing.Size(682, 811);
+            this.menu2.Size = new System.Drawing.Size(682, 1256);
             this.menu2.TabIndex = 3;
             // 
             // menu2_3
             // 
             this.menu2_3.Controls.Add(this.menu2_3_panel);
             this.menu2_3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_3.Location = new System.Drawing.Point(0, 1620);
+            this.menu2_3.Location = new System.Drawing.Point(0, 1450);
             this.menu2_3.Name = "menu2_3";
             this.menu2_3.Size = new System.Drawing.Size(665, 942);
             this.menu2_3.TabIndex = 10;
@@ -3832,32 +3830,23 @@ namespace TaskManege
             // 
             // menu2_2
             // 
-            this.menu2_2.Controls.Add(this.menu2_2_panel_margin);
             this.menu2_2.Controls.Add(this.menu2_2_panel);
             this.menu2_2.Dock = System.Windows.Forms.DockStyle.Top;
             this.menu2_2.Location = new System.Drawing.Point(0, 950);
             this.menu2_2.Name = "menu2_2";
-            this.menu2_2.Size = new System.Drawing.Size(665, 670);
+            this.menu2_2.Size = new System.Drawing.Size(665, 500);
             this.menu2_2.TabIndex = 9;
-            // 
-            // menu2_2_panel_margin
-            // 
-            this.menu2_2_panel_margin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_2_panel_margin.Location = new System.Drawing.Point(1, 650);
-            this.menu2_2_panel_margin.Name = "menu2_2_panel_margin";
-            this.menu2_2_panel_margin.Size = new System.Drawing.Size(663, 8);
-            this.menu2_2_panel_margin.TabIndex = 6;
             // 
             // menu2_2_panel
             // 
+            this.menu2_2_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.menu2_2_panel.BorderColor = System.Drawing.Color.Black;
             this.menu2_2_panel.Controls.Add(this.menu2_2_panel_top);
             this.menu2_2_panel.Controls.Add(this.menu2_2_panel_main);
-            this.menu2_2_panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.menu2_2_panel.Location = new System.Drawing.Point(0, 0);
             this.menu2_2_panel.Name = "menu2_2_panel";
-            this.menu2_2_panel.Size = new System.Drawing.Size(665, 564);
+            this.menu2_2_panel.Size = new System.Drawing.Size(665, 540);
             this.menu2_2_panel.TabIndex = 3;
             // 
             // menu2_2_panel_top
@@ -3971,7 +3960,7 @@ namespace TaskManege
             this.menu2_2_panel_main.Controls.Add(this.menu2_2_panel_main_panel1);
             this.menu2_2_panel_main.Location = new System.Drawing.Point(1, 33);
             this.menu2_2_panel_main.Name = "menu2_2_panel_main";
-            this.menu2_2_panel_main.Size = new System.Drawing.Size(663, 531);
+            this.menu2_2_panel_main.Size = new System.Drawing.Size(663, 507);
             this.menu2_2_panel_main.TabIndex = 5;
             // 
             // menu2_2_panel_main_panel5
@@ -4013,6 +4002,7 @@ namespace TaskManege
             this.menu2_2_panel_main_panel5_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.menu2_2_panel_main_panel5_table_memo_text.Size = new System.Drawing.Size(653, 77);
             this.menu2_2_panel_main_panel5_table_memo_text.TabIndex = 0;
+            this.menu2_2_panel_main_panel5_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel5_table_memo_text_KeyDown);
             // 
             // menu2_2_panel_main_panel5_table_memo_panel_top
             // 
@@ -4108,6 +4098,7 @@ namespace TaskManege
             this.menu2_2_panel_main_panel4_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.menu2_2_panel_main_panel4_table_memo_text.Size = new System.Drawing.Size(653, 77);
             this.menu2_2_panel_main_panel4_table_memo_text.TabIndex = 0;
+            this.menu2_2_panel_main_panel4_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel4_table_memo_text_KeyDown);
             // 
             // menu2_2_panel_main_panel4_table_memo_panel_top
             // 
@@ -4203,6 +4194,7 @@ namespace TaskManege
             this.menu2_2_panel_main_panel3_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.menu2_2_panel_main_panel3_table_memo_text.Size = new System.Drawing.Size(653, 77);
             this.menu2_2_panel_main_panel3_table_memo_text.TabIndex = 0;
+            this.menu2_2_panel_main_panel3_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel3_table_memo_text_KeyDown);
             // 
             // menu2_2_panel_main_panel3_table_memo_panel_top
             // 
@@ -4298,6 +4290,7 @@ namespace TaskManege
             this.menu2_2_panel_main_panel2_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.menu2_2_panel_main_panel2_table_memo_text.Size = new System.Drawing.Size(653, 77);
             this.menu2_2_panel_main_panel2_table_memo_text.TabIndex = 0;
+            this.menu2_2_panel_main_panel2_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel2_table_memo_text_KeyDown);
             // 
             // menu2_2_panel_main_panel2_table_memo_panel_top
             // 
@@ -4393,6 +4386,7 @@ namespace TaskManege
             this.menu2_2_panel_main_panel1_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.menu2_2_panel_main_panel1_table_memo_text.Size = new System.Drawing.Size(653, 77);
             this.menu2_2_panel_main_panel1_table_memo_text.TabIndex = 0;
+            this.menu2_2_panel_main_panel1_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel1_table_memo_text_KeyDown);
             // 
             // menu2_2_panel_main_panel1_table_memo_panel_top
             // 
@@ -6215,9 +6209,9 @@ namespace TaskManege
             this.menu3.Controls.Add(this.menu3_panel_main);
             this.menu3.Controls.Add(this.menu3_panel_top);
             this.menu3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu3.Location = new System.Drawing.Point(0, 479);
+            this.menu3.Location = new System.Drawing.Point(0, 34);
             this.menu3.Name = "menu3";
-            this.menu3.Size = new System.Drawing.Size(682, 200);
+            this.menu3.Size = new System.Drawing.Size(682, 0);
             this.menu3.TabIndex = 4;
             // 
             // menu3_panel_main
@@ -6225,7 +6219,7 @@ namespace TaskManege
             this.menu3_panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menu3_panel_main.Location = new System.Drawing.Point(0, 64);
             this.menu3_panel_main.Name = "menu3_panel_main";
-            this.menu3_panel_main.Size = new System.Drawing.Size(682, 136);
+            this.menu3_panel_main.Size = new System.Drawing.Size(682, 0);
             this.menu3_panel_main.TabIndex = 1;
             // 
             // menu3_panel_top
@@ -6349,9 +6343,9 @@ namespace TaskManege
             this.menutask.Controls.Add(this.menutask_button_save);
             this.menutask.Controls.Add(this.menutask_table1);
             this.menutask.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menutask.Location = new System.Drawing.Point(0, 748);
+            this.menutask.Location = new System.Drawing.Point(0, 1290);
             this.menutask.Name = "menutask";
-            this.menutask.Size = new System.Drawing.Size(682, 307);
+            this.menutask.Size = new System.Drawing.Size(682, 0);
             this.menutask.TabIndex = 32;
             // 
             // menutask_button_close
@@ -6483,7 +6477,7 @@ namespace TaskManege
             // menutask_button_save
             // 
             this.menutask_button_save.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menutask_button_save.Location = new System.Drawing.Point(0, 279);
+            this.menutask_button_save.Location = new System.Drawing.Point(0, -28);
             this.menutask_button_save.Name = "menutask_button_save";
             this.menutask_button_save.Size = new System.Drawing.Size(682, 28);
             this.menutask_button_save.TabIndex = 1;
@@ -6537,9 +6531,9 @@ namespace TaskManege
             this.menuachieve.Controls.Add(this.menuachieve_table1);
             this.menuachieve.Controls.Add(this.menuachieve_button_save);
             this.menuachieve.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menuachieve.Location = new System.Drawing.Point(0, 1055);
+            this.menuachieve.Location = new System.Drawing.Point(0, 1290);
             this.menuachieve.Name = "menuachieve";
-            this.menuachieve.Size = new System.Drawing.Size(682, 235);
+            this.menuachieve.Size = new System.Drawing.Size(682, 0);
             this.menuachieve.TabIndex = 1;
             // 
             // menuachieve_table4
@@ -6705,7 +6699,7 @@ namespace TaskManege
             // menuachieve_button_save
             // 
             this.menuachieve_button_save.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menuachieve_button_save.Location = new System.Drawing.Point(0, 203);
+            this.menuachieve_button_save.Location = new System.Drawing.Point(0, -32);
             this.menuachieve_button_save.Name = "menuachieve_button_save";
             this.menuachieve_button_save.Size = new System.Drawing.Size(682, 32);
             this.menuachieve_button_save.TabIndex = 0;
