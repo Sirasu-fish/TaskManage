@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace TaskManege
+namespace TaskManage
 {
     class FileUtil
     {
@@ -68,6 +68,7 @@ namespace TaskManege
         /// <param name="filename">ファイル名</param>
         /// <param name="filedata">ファイルに書き込むデータ</param>
         /// <param name="overwrite">上書きするかどうか true:上書きしない false:上書きする</param>
+        /// <param name="createflg">ファイルが存在しない時 true:作成する false:作成しない</param>
         public Boolean WriteFileLine(string filename, List<string> filedata, Boolean overwrite, Boolean createflg)
         {
             try
@@ -82,6 +83,26 @@ namespace TaskManege
                     {
                         writer.WriteLine(item);
                     }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public Boolean WriteFileLine(string filename, string text, Boolean overwrite, Boolean createflg)
+        {
+            try
+            {
+                if (!ExistsFile(filename) && createflg == true) //ファイルの存在チェック
+                {
+                    CreateFile(filename);
+                }
+                using (StreamWriter writer = new StreamWriter(foldername + "\\" + filename + ".txt", false, Encoding.GetEncoding("UTF-8")))
+                {
+                    writer.Write(text);
                 }
             }
             catch

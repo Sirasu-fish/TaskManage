@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TaskManege
+namespace TaskManage
 {
     public partial class MainForm : Form
     {
-        private int clickpanel = -1;
-        private int menu = 1;
-        lib.Setting setting = new lib.Setting();
+        private int clickpanel = -1; //カレンダーでクリックされたパネル
+        private int menu = 1; //閲覧中のメニュー
+        lib.Setting setting = new lib.Setting(); //設定項目クラス
+
         DAndDSizeChanger menu2_2_panel_main_table_memo1_sizeChanger;
         DAndDSizeChanger menu2_2_panel_main_table_memo2_sizeChanger;
         DAndDSizeChanger menu2_2_panel_main_table_memo3_sizeChanger;
@@ -23,10 +24,10 @@ namespace TaskManege
         DAndDSizeChanger this_sizeChanger;
         DAndDMoveForm common_MoveForm;
 
-        static readonly Color dark = Color.FromArgb(40, 40, 40);
-        static readonly Color white = Color.FromArgb(240, 240, 240);
-        static readonly Color subdark = Color.FromArgb(80, 80, 80);
-        static readonly Color subwhite = Color.FromArgb(220, 220, 220);
+        static readonly Color dark = Color.FromArgb(40, 40, 40); //ダークモード 基本色
+        static readonly Color white = Color.FromArgb(240, 240, 240); //ライトモード 基本色
+        static readonly Color subdark = Color.FromArgb(80, 80, 80); //ダークモード サブ色
+        static readonly Color subwhite = Color.FromArgb(220, 220, 220); //ライトモード サブ色
         Color main_color = dark;
         Color sub_color = white;
         Color submain_color = subdark;
@@ -39,6 +40,16 @@ namespace TaskManege
         string memo4_path = "";
         string memo5_path = "";
 
+        // menu2の高さ初期値
+        int menu2_1_panel_o = 936;
+        int menu2_1_o = 944;
+        int menu2_2_panel_o = 562;
+        int menu2_2_o = 570;
+        int menu2_3_panel_o = 934;
+        int menu2_3_o = 942;
+        int menu2_1_panel_c = 34;
+
+
         // コンストラクタ
         public MainForm()
         {
@@ -46,6 +57,8 @@ namespace TaskManege
             InitializeComponent();
             // フォームロード時の設定
             MainForm_Load();
+
+            lib.BaseSetting baseSetting = new lib.BaseSetting();
         }
 
         /*
@@ -2428,7 +2441,9 @@ namespace TaskManege
         // フォームロード時の動作
         private void MainForm_Load()
         {
+            //タスクの初期化
             Inittask();
+            //実績の初期化
             InitAchieve();
             // commonをタイトルバー化する
             SetMoveForm();
@@ -2515,8 +2530,8 @@ namespace TaskManege
             if (setting.menu2_open2)
             {
                 this.menu2_2_panel_main.Visible = true;
-                this.menu2_2_panel.Height = 1002;
-                this.menu2_2.Height = 1010;
+                this.menu2_2_panel.Height = 562;
+                this.menu2_2.Height = 570;
             }
             else
             {
@@ -4199,26 +4214,24 @@ namespace TaskManege
             }
         }
 
-        
 
         // メモを保存する時の関数
         private Boolean SaveMemo(string path, string text)
         {
+            FileUtil fu = new FileUtil();
             if (path == "")
             {
                 
             }
             else
             {
-                //FileUtil.WriteFileLine(path, text, false, true);
+                fu.WriteFileLine(path, text, false, true);
             }
-
-
 
             return true;
         }
 
-        
+
 
 
 
@@ -4233,5 +4246,11 @@ namespace TaskManege
         * menu2 end
         * □□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□ 
         */
+
+        /*
+         * ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+         * price
+         * ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+         */
     }
 }

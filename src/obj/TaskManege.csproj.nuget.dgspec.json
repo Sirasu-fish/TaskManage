@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\download\\2022\\other\\git\\TaskManage\\src\\TaskManege.csproj": {}
+    "D:\\download\\2022\\other\\sourcetree\\TaskManage\\src\\TaskManege.csproj": {}
   },
   "projects": {
-    "D:\\download\\2022\\other\\git\\TaskManage\\src\\TaskManege.csproj": {
+    "D:\\download\\2022\\other\\sourcetree\\TaskManage\\src\\TaskManege.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\download\\2022\\other\\git\\TaskManage\\src\\TaskManege.csproj",
+        "projectUniqueName": "D:\\download\\2022\\other\\sourcetree\\TaskManage\\src\\TaskManege.csproj",
         "projectName": "TaskManege",
-        "projectPath": "D:\\download\\2022\\other\\git\\TaskManage\\src\\TaskManege.csproj",
+        "projectPath": "D:\\download\\2022\\other\\sourcetree\\TaskManage\\src\\TaskManege.csproj",
         "packagesPath": "C:\\Users\\Chisato\\.nuget\\packages\\",
-        "outputPath": "D:\\download\\2022\\other\\git\\TaskManage\\src\\obj\\",
+        "outputPath": "D:\\download\\2022\\other\\sourcetree\\TaskManage\\src\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
