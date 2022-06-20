@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics;
 
 namespace TaskManage
 {
@@ -15,25 +16,47 @@ namespace TaskManage
         /// ファイルを1行ずつ読み込み,ファイルが存在しない場合は空のファイルを作成する
         /// </summary>
         /// <param name="filename">ファイル名</param>
+        /// <param name="createflg">ファイルが存在しない場合 true:作成 false:作成しない</param>
         /// <returns>ファイルの文字列の配列 List</returns>
-        public List<string> ReadFileLine(string filename)
+        public List<string> ReadFileLine(string filename, Boolean createflg = false)
         {
             List<string> list = new List<string>();
 
-            if (ExistsFile(filename))
+            if (!ExistsFile(filename) && createflg)
             {
-            }
-            else
-            {
+                Debug.WriteLine("readfileline_1");
                 CreateFile(filename);
                 return list;
             }
 
-            using (StreamReader sr = new StreamReader(foldername + "\\" + filename + ".txt", Encoding.GetEncoding("UTF-8")))
+            using (StreamReader sr = new StreamReader(filename + ".txt", Encoding.GetEncoding("UTF-8")))
             {
                 string line = "";
                 // 1個飛ばしになっているので、なんとかする
                 while((line = sr.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+            }
+            return list;
+        }
+
+        public List<string> ReadFileLine2(string filename, Boolean createflg = false)
+        {
+            List<string> list = new List<string>();
+
+            if (!ExistsFile(filename) && createflg)
+            {
+                Debug.WriteLine("readfileline_1");
+                CreateFile(filename);
+                return list;
+            }
+
+            using (StreamReader sr = new StreamReader(filename, Encoding.GetEncoding("UTF-8")))
+            {
+                string line = "";
+                // 1個飛ばしになっているので、なんとかする
+                while ((line = sr.ReadLine()) != null)
                 {
                     list.Add(line);
                 }

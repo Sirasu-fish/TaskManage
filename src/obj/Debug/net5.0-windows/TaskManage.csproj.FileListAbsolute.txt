@@ -3,7 +3,6 @@ D:\download\2022\other\sourcetree\TaskManage\src\bin\Debug\net5.0-windows\TaskMa
 D:\download\2022\other\sourcetree\TaskManage\src\bin\Debug\net5.0-windows\TaskManage.runtimeconfig.json
 D:\download\2022\other\sourcetree\TaskManage\src\bin\Debug\net5.0-windows\TaskManage.runtimeconfig.dev.json
 D:\download\2022\other\sourcetree\TaskManage\src\bin\Debug\net5.0-windows\TaskManage.dll
-D:\download\2022\other\sourcetree\TaskManage\src\bin\Debug\net5.0-windows\ref\TaskManage.dll
 D:\download\2022\other\sourcetree\TaskManage\src\bin\Debug\net5.0-windows\TaskManage.pdb
 D:\download\2022\other\sourcetree\TaskManage\src\obj\Debug\net5.0-windows\TaskManage.Properties.Resources.resources
 D:\download\2022\other\sourcetree\TaskManage\src\obj\Debug\net5.0-windows\TaskManage.csproj.GenerateResource.cache
@@ -19,3 +18,4 @@ D:\download\2022\other\sourcetree\TaskManage\src\obj\Debug\net5.0-windows\TaskMa
 D:\download\2022\other\sourcetree\TaskManage\src\obj\Debug\net5.0-windows\TaskManage.Circlelabel.resources
 D:\download\2022\other\sourcetree\TaskManage\src\obj\Debug\net5.0-windows\TaskManage.PanelEx.resources
 D:\download\2022\other\sourcetree\TaskManage\src\obj\Debug\net5.0-windows\TaskManage.MainForm.resources
+D:\download\2022\other\sourcetree\TaskManage\src\bin\Debug\net5.0-windows\ref\TaskManage.dll

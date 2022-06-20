@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace TaskManage
+namespace control_lib
 {
     class DAndDMoveForm
     {
