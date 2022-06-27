@@ -43,7 +43,10 @@ namespace TaskManage
         {
             lastMouseDownPoint = e.Location;
             lastMouseDownSize = sizeChangeCtrl.Size;
-            lastMouseDownSizeParent = sizeChangeParent.Size;
+            if (!(sizeChangeParent == null))
+            {
+                lastMouseDownSizeParent = sizeChangeParent.Size;
+            }
 
             //動作を決定
             status = DAndDArea.None;
@@ -126,7 +129,7 @@ namespace TaskManage
                     else
                     {
                         sizeChangeCtrl.Height = lastMouseDownSize.Height + diffY;
-                        if (sizeChangeParent.Enabled == true)
+                        if (!(sizeChangeParent == null) && sizeChangeParent.Enabled == true)
                         {
                             sizeChangeParent.Height = lastMouseDownSizeParent.Height + diffY;
                         }

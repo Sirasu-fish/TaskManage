@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TaskManage.controls_event
 {
@@ -707,7 +703,7 @@ namespace TaskManage.controls_event
             {
                 form.menutask_table1_text.Text = "";
                 form.menutask_table2_check.Checked = false;
-                //form.menutask_table2_text1 = 
+                //form.menutask_table2_text1 =
                 //form.menutask_table2_text2 =
                 form.menutask_table3_text.Text = "";
             }

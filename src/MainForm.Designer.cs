@@ -1433,7 +1433,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day1.Name = "menu1_table_calender_label_day1";
             this.menu1_table_calender_label_day1.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day1.TabIndex = 50;
-            this.menu1_table_calender_label_day1.Text = "1";
             this.menu1_table_calender_label_day1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day1_MouseClick);
             this.menu1_table_calender_label_day1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day1_DoubleClick);
@@ -1462,7 +1461,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day42.Name = "menu1_table_calender_label_day42";
             this.menu1_table_calender_label_day42.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day42.TabIndex = 48;
-            this.menu1_table_calender_label_day42.Text = "label42";
             this.menu1_table_calender_label_day42.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day42.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day42_MouseClick);
             this.menu1_table_calender_label_day42.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day42_DoubleClick);
@@ -1491,7 +1489,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day41.Name = "menu1_table_calender_label_day41";
             this.menu1_table_calender_label_day41.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day41.TabIndex = 47;
-            this.menu1_table_calender_label_day41.Text = "label41";
             this.menu1_table_calender_label_day41.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day41.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day41_MouseClick);
             this.menu1_table_calender_label_day41.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day41_DoubleClick);
@@ -1520,7 +1517,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day40.Name = "menu1_table_calender_label_day40";
             this.menu1_table_calender_label_day40.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day40.TabIndex = 46;
-            this.menu1_table_calender_label_day40.Text = "label40";
             this.menu1_table_calender_label_day40.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day40.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day40_MouseClick);
             this.menu1_table_calender_label_day40.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day40_DoubleClick);
@@ -1549,7 +1545,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day39.Name = "menu1_table_calender_label_day39";
             this.menu1_table_calender_label_day39.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day39.TabIndex = 45;
-            this.menu1_table_calender_label_day39.Text = "label39";
             this.menu1_table_calender_label_day39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day39.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day39_MouseClick);
             this.menu1_table_calender_label_day39.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day39_DoubleClick);
@@ -1578,7 +1573,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day38.Name = "menu1_table_calender_label_day38";
             this.menu1_table_calender_label_day38.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day38.TabIndex = 44;
-            this.menu1_table_calender_label_day38.Text = "label38";
             this.menu1_table_calender_label_day38.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day38.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day38_MouseClick);
             this.menu1_table_calender_label_day38.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day38_DoubleClick);
@@ -1607,7 +1601,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day37.Name = "menu1_table_calender_label_day37";
             this.menu1_table_calender_label_day37.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day37.TabIndex = 43;
-            this.menu1_table_calender_label_day37.Text = "label37";
             this.menu1_table_calender_label_day37.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day37.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day37_MouseClick);
             this.menu1_table_calender_label_day37.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day37_DoubleClick);
@@ -1637,7 +1630,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day36.Name = "menu1_table_calender_label_day36";
             this.menu1_table_calender_label_day36.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day36.TabIndex = 42;
-            this.menu1_table_calender_label_day36.Text = "label36";
             this.menu1_table_calender_label_day36.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day36.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day36_MouseClick);
             this.menu1_table_calender_label_day36.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day36_DoubleClick);
@@ -1666,7 +1658,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day35.Name = "menu1_table_calender_label_day35";
             this.menu1_table_calender_label_day35.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day35.TabIndex = 41;
-            this.menu1_table_calender_label_day35.Text = "label35";
             this.menu1_table_calender_label_day35.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day35.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day35_MouseClick);
             this.menu1_table_calender_label_day35.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day35_DoubleClick);
@@ -1695,7 +1686,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day34.Name = "menu1_table_calender_label_day34";
             this.menu1_table_calender_label_day34.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day34.TabIndex = 40;
-            this.menu1_table_calender_label_day34.Text = "label34";
             this.menu1_table_calender_label_day34.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day34.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day34_MouseClick);
             this.menu1_table_calender_label_day34.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day34_DoubleClick);
@@ -1724,7 +1714,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day33.Name = "menu1_table_calender_label_day33";
             this.menu1_table_calender_label_day33.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day33.TabIndex = 39;
-            this.menu1_table_calender_label_day33.Text = "label33";
             this.menu1_table_calender_label_day33.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day33.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day33_MouseClick);
             this.menu1_table_calender_label_day33.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day33_DoubleClick);
@@ -1753,7 +1742,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day32.Name = "menu1_table_calender_label_day32";
             this.menu1_table_calender_label_day32.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day32.TabIndex = 38;
-            this.menu1_table_calender_label_day32.Text = "label32";
             this.menu1_table_calender_label_day32.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day32.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day32_MouseClick);
             this.menu1_table_calender_label_day32.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day32_DoubleClick);
@@ -1782,7 +1770,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day31.Name = "menu1_table_calender_label_day31";
             this.menu1_table_calender_label_day31.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day31.TabIndex = 37;
-            this.menu1_table_calender_label_day31.Text = "label31";
             this.menu1_table_calender_label_day31.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day31.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day31_MouseClick);
             this.menu1_table_calender_label_day31.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day31_DoubleClick);
@@ -1811,7 +1798,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day30.Name = "menu1_table_calender_label_day30";
             this.menu1_table_calender_label_day30.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day30.TabIndex = 36;
-            this.menu1_table_calender_label_day30.Text = "label30";
             this.menu1_table_calender_label_day30.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day30.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day30_MouseClick);
             this.menu1_table_calender_label_day30.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day30_DoubleClick);
@@ -1840,7 +1826,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day29.Name = "menu1_table_calender_label_day29";
             this.menu1_table_calender_label_day29.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day29.TabIndex = 35;
-            this.menu1_table_calender_label_day29.Text = "label29";
             this.menu1_table_calender_label_day29.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day29.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day29_MouseClick);
             this.menu1_table_calender_label_day29.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day29_DoubleClick);
@@ -1869,7 +1854,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day28.Name = "menu1_table_calender_label_day28";
             this.menu1_table_calender_label_day28.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day28.TabIndex = 34;
-            this.menu1_table_calender_label_day28.Text = "label28";
             this.menu1_table_calender_label_day28.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day28.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day28_MouseClick);
             this.menu1_table_calender_label_day28.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day28_DoubleClick);
@@ -1898,7 +1882,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day27.Name = "menu1_table_calender_label_day27";
             this.menu1_table_calender_label_day27.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day27.TabIndex = 33;
-            this.menu1_table_calender_label_day27.Text = "label27";
             this.menu1_table_calender_label_day27.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day27.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day27_MouseClick);
             this.menu1_table_calender_label_day27.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day27_DoubleClick);
@@ -1927,7 +1910,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day26.Name = "menu1_table_calender_label_day26";
             this.menu1_table_calender_label_day26.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day26.TabIndex = 32;
-            this.menu1_table_calender_label_day26.Text = "label26";
             this.menu1_table_calender_label_day26.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day26.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day26_MouseClick);
             this.menu1_table_calender_label_day26.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day26_DoubleClick);
@@ -1956,7 +1938,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day25.Name = "menu1_table_calender_label_day25";
             this.menu1_table_calender_label_day25.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day25.TabIndex = 31;
-            this.menu1_table_calender_label_day25.Text = "label25";
             this.menu1_table_calender_label_day25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day25.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day25_MouseClick);
             this.menu1_table_calender_label_day25.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day25_DoubleClick);
@@ -1985,7 +1966,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day24.Name = "menu1_table_calender_label_day24";
             this.menu1_table_calender_label_day24.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day24.TabIndex = 30;
-            this.menu1_table_calender_label_day24.Text = "label24";
             this.menu1_table_calender_label_day24.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day24.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day24_MouseClick);
             this.menu1_table_calender_label_day24.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day24_DoubleClick);
@@ -2014,7 +1994,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day23.Name = "menu1_table_calender_label_day23";
             this.menu1_table_calender_label_day23.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day23.TabIndex = 29;
-            this.menu1_table_calender_label_day23.Text = "label23";
             this.menu1_table_calender_label_day23.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day23.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day23_MouseClick);
             this.menu1_table_calender_label_day23.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day23_DoubleClick);
@@ -2043,7 +2022,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day22.Name = "menu1_table_calender_label_day22";
             this.menu1_table_calender_label_day22.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day22.TabIndex = 28;
-            this.menu1_table_calender_label_day22.Text = "label22";
             this.menu1_table_calender_label_day22.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day22.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day22_MouseClick);
             this.menu1_table_calender_label_day22.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day22_DoubleClick);
@@ -2072,7 +2050,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day21.Name = "menu1_table_calender_label_day21";
             this.menu1_table_calender_label_day21.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day21.TabIndex = 27;
-            this.menu1_table_calender_label_day21.Text = "label21";
             this.menu1_table_calender_label_day21.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day21.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day21_MouseClick);
             this.menu1_table_calender_label_day21.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day21_DoubleClick);
@@ -2101,7 +2078,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day20.Name = "menu1_table_calender_label_day20";
             this.menu1_table_calender_label_day20.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day20.TabIndex = 26;
-            this.menu1_table_calender_label_day20.Text = "label20";
             this.menu1_table_calender_label_day20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day20.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day20_MouseClick);
             this.menu1_table_calender_label_day20.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day20_DoubleClick);
@@ -2131,7 +2107,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day19.Name = "menu1_table_calender_label_day19";
             this.menu1_table_calender_label_day19.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day19.TabIndex = 25;
-            this.menu1_table_calender_label_day19.Text = "label19";
             this.menu1_table_calender_label_day19.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day19.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day19_MouseClick);
             this.menu1_table_calender_label_day19.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day19_DoubleClick);
@@ -2162,7 +2137,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day18.Name = "menu1_table_calender_label_day18";
             this.menu1_table_calender_label_day18.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day18.TabIndex = 24;
-            this.menu1_table_calender_label_day18.Text = "label18";
             this.menu1_table_calender_label_day18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day18.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day18_MouseClick);
             this.menu1_table_calender_label_day18.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day18_DoubleClick);
@@ -2191,7 +2165,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day17.Name = "menu1_table_calender_label_day17";
             this.menu1_table_calender_label_day17.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day17.TabIndex = 23;
-            this.menu1_table_calender_label_day17.Text = "label17";
             this.menu1_table_calender_label_day17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day17.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day17_MouseClick);
             this.menu1_table_calender_label_day17.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day17_DoubleClick);
@@ -2220,7 +2193,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day16.Name = "menu1_table_calender_label_day16";
             this.menu1_table_calender_label_day16.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day16.TabIndex = 22;
-            this.menu1_table_calender_label_day16.Text = "label16";
             this.menu1_table_calender_label_day16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day16.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day16_MouseClick);
             this.menu1_table_calender_label_day16.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day16_DoubleClick);
@@ -2249,7 +2221,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day15.Name = "menu1_table_calender_label_day15";
             this.menu1_table_calender_label_day15.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day15.TabIndex = 21;
-            this.menu1_table_calender_label_day15.Text = "label15";
             this.menu1_table_calender_label_day15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day15.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day15_MouseClick);
             this.menu1_table_calender_label_day15.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day15_DoubleClick);
@@ -2278,7 +2249,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day14.Name = "menu1_table_calender_label_day14";
             this.menu1_table_calender_label_day14.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day14.TabIndex = 20;
-            this.menu1_table_calender_label_day14.Text = "14";
             this.menu1_table_calender_label_day14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day14.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day14_MouseClick);
             this.menu1_table_calender_label_day14.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day14_DoubleClick);
@@ -2308,7 +2278,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day13.Name = "menu1_table_calender_label_day13";
             this.menu1_table_calender_label_day13.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day13.TabIndex = 19;
-            this.menu1_table_calender_label_day13.Text = "13";
             this.menu1_table_calender_label_day13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day13.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day13_MouseClick);
             this.menu1_table_calender_label_day13.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day13_DoubleClick);
@@ -2337,7 +2306,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day12.Name = "menu1_table_calender_label_day12";
             this.menu1_table_calender_label_day12.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day12.TabIndex = 18;
-            this.menu1_table_calender_label_day12.Text = "12";
             this.menu1_table_calender_label_day12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day12.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day12_MouseClick);
             this.menu1_table_calender_label_day12.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day12_DoubleClick);
@@ -2366,7 +2334,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day11.Name = "menu1_table_calender_label_day11";
             this.menu1_table_calender_label_day11.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day11.TabIndex = 17;
-            this.menu1_table_calender_label_day11.Text = "11";
             this.menu1_table_calender_label_day11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day11.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day11_MouseClick);
             this.menu1_table_calender_label_day11.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day11_DoubleClick);
@@ -2396,7 +2363,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day8.Name = "menu1_table_calender_label_day8";
             this.menu1_table_calender_label_day8.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day8.TabIndex = 14;
-            this.menu1_table_calender_label_day8.Text = "8";
             this.menu1_table_calender_label_day8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day8_MouseClick);
             this.menu1_table_calender_label_day8.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day8_DoubleClick);
@@ -2426,7 +2392,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day7.Name = "menu1_table_calender_label_day7";
             this.menu1_table_calender_label_day7.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day7.TabIndex = 13;
-            this.menu1_table_calender_label_day7.Text = "7";
             this.menu1_table_calender_label_day7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day7_MouseClick);
             this.menu1_table_calender_label_day7.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day7_DoubleClick);
@@ -2456,7 +2421,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day6.Name = "menu1_table_calender_label_day6";
             this.menu1_table_calender_label_day6.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day6.TabIndex = 12;
-            this.menu1_table_calender_label_day6.Text = "6";
             this.menu1_table_calender_label_day6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day6_MouseClick);
             this.menu1_table_calender_label_day6.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day6_DoubleClick);
@@ -2487,7 +2451,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day5.Name = "menu1_table_calender_label_day5";
             this.menu1_table_calender_label_day5.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day5.TabIndex = 11;
-            this.menu1_table_calender_label_day5.Text = "5";
             this.menu1_table_calender_label_day5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day5_MouseClick);
             this.menu1_table_calender_label_day5.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day5_DoubleClick);
@@ -2519,7 +2482,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day4.Name = "menu1_table_calender_label_day4";
             this.menu1_table_calender_label_day4.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day4.TabIndex = 10;
-            this.menu1_table_calender_label_day4.Text = "4";
             this.menu1_table_calender_label_day4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day4_MouseClick);
             this.menu1_table_calender_label_day4.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day4_DoubleClick);
@@ -2550,7 +2512,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day3.Name = "menu1_table_calender_label_day3";
             this.menu1_table_calender_label_day3.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day3.TabIndex = 9;
-            this.menu1_table_calender_label_day3.Text = "3";
             this.menu1_table_calender_label_day3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day3_MouseClick);
             this.menu1_table_calender_label_day3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day3_DoubleClick);
@@ -2665,7 +2626,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day2.Name = "menu1_table_calender_label_day2";
             this.menu1_table_calender_label_day2.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day2.TabIndex = 8;
-            this.menu1_table_calender_label_day2.Text = "2";
             this.menu1_table_calender_label_day2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day2_MouseClick);
             this.menu1_table_calender_label_day2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day2_DoubleClick);
@@ -2694,7 +2654,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day9.Name = "menu1_table_calender_label_day9";
             this.menu1_table_calender_label_day9.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day9.TabIndex = 15;
-            this.menu1_table_calender_label_day9.Text = "9";
             this.menu1_table_calender_label_day9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day9_MouseClick);
             this.menu1_table_calender_label_day9.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day9_DoubleClick);
@@ -2723,7 +2682,6 @@ namespace TaskManage
             this.menu1_table_calender_label_day10.Name = "menu1_table_calender_label_day10";
             this.menu1_table_calender_label_day10.Size = new System.Drawing.Size(78, 15);
             this.menu1_table_calender_label_day10.TabIndex = 16;
-            this.menu1_table_calender_label_day10.Text = "10";
             this.menu1_table_calender_label_day10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu1_table_calender_label_day10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day10_MouseClick);
             this.menu1_table_calender_label_day10.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day10_DoubleClick);
@@ -3037,7 +2995,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel22_label1.Name = "menu2_3_panel_main_panel22_label1";
             this.menu2_3_panel_main_panel22_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel22_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel22_label1.Text = "label19";
             this.menu2_3_panel_main_panel22_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel22_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel22_label1_Click);
             // 
@@ -3113,7 +3070,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel20_label1.Name = "menu2_3_panel_main_panel20_label1";
             this.menu2_3_panel_main_panel20_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel20_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel20_label1.Text = "label19";
             this.menu2_3_panel_main_panel20_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel20_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel20_label1_Click);
             // 
@@ -3151,7 +3107,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel19_label1.Name = "menu2_3_panel_main_panel19_label1";
             this.menu2_3_panel_main_panel19_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel19_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel19_label1.Text = "label19";
             this.menu2_3_panel_main_panel19_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel19_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel19_label1_Click);
             // 
@@ -3189,7 +3144,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel18_label1.Name = "menu2_3_panel_main_panel18_label1";
             this.menu2_3_panel_main_panel18_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel18_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel18_label1.Text = "label19";
             this.menu2_3_panel_main_panel18_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel18_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel18_label1_Click);
             // 
@@ -3227,7 +3181,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel17_label1.Name = "menu2_3_panel_main_panel17_label1";
             this.menu2_3_panel_main_panel17_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel17_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel17_label1.Text = "label19";
             this.menu2_3_panel_main_panel17_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel17_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel17_label1_Click);
             // 
@@ -3265,7 +3218,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel16_label1.Name = "menu2_3_panel_main_panel16_label1";
             this.menu2_3_panel_main_panel16_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel16_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel16_label1.Text = "label19";
             this.menu2_3_panel_main_panel16_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel16_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel16_label1_Click);
             // 
@@ -3303,7 +3255,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel15_label1.Name = "menu2_3_panel_main_panel15_label1";
             this.menu2_3_panel_main_panel15_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel15_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel15_label1.Text = "label19";
             this.menu2_3_panel_main_panel15_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel15_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel15_label1_Click);
             // 
@@ -3341,7 +3292,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel14_label1.Name = "menu2_3_panel_main_panel14_label1";
             this.menu2_3_panel_main_panel14_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel14_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel14_label1.Text = "label19";
             this.menu2_3_panel_main_panel14_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel14_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel14_label1_Click);
             // 
@@ -3379,7 +3329,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel13_label1.Name = "menu2_3_panel_main_panel13_label1";
             this.menu2_3_panel_main_panel13_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel13_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel13_label1.Text = "label19";
             this.menu2_3_panel_main_panel13_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel13_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel13_label1_Click);
             // 
@@ -3417,7 +3366,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel12_label1.Name = "menu2_3_panel_main_panel12_label1";
             this.menu2_3_panel_main_panel12_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel12_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel12_label1.Text = "label76";
             this.menu2_3_panel_main_panel12_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel12_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel12_label1_Click);
             // 
@@ -3455,7 +3403,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel11_label1.Name = "menu2_3_panel_main_panel11_label1";
             this.menu2_3_panel_main_panel11_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel11_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel11_label1.Text = "label19";
             this.menu2_3_panel_main_panel11_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel11_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel11_label1_Click);
             // 
@@ -3493,7 +3440,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel10_label1.Name = "menu2_3_panel_main_panel10_label1";
             this.menu2_3_panel_main_panel10_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel10_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel10_label1.Text = "label80";
             this.menu2_3_panel_main_panel10_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel10_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel10_label1_Click);
             // 
@@ -3531,7 +3477,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel9_label1.Name = "menu2_3_panel_main_panel9_label1";
             this.menu2_3_panel_main_panel9_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel9_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel9_label1.Text = "label82";
             this.menu2_3_panel_main_panel9_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel9_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel9_label1_Click);
             // 
@@ -3569,7 +3514,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel8_label1.Name = "menu2_3_panel_main_panel8_label1";
             this.menu2_3_panel_main_panel8_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel8_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel8_label1.Text = "label84";
             this.menu2_3_panel_main_panel8_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel8_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel8_label1_Click);
             // 
@@ -3607,7 +3551,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel7_label1.Name = "menu2_3_panel_main_panel7_label1";
             this.menu2_3_panel_main_panel7_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel7_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel7_label1.Text = "label86";
             this.menu2_3_panel_main_panel7_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel7_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel7_label1_Click);
             // 
@@ -3642,7 +3585,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel6_label1.Name = "menu2_3_panel_main_panel6_label1";
             this.menu2_3_panel_main_panel6_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel6_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel6_label1.Text = "label88";
             this.menu2_3_panel_main_panel6_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel6_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel6_label1_Click);
             // 
@@ -3677,7 +3619,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel5_label1.Name = "menu2_3_panel_main_panel5_label1";
             this.menu2_3_panel_main_panel5_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel5_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel5_label1.Text = "label90";
             this.menu2_3_panel_main_panel5_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel5_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel5_label1_Click);
             // 
@@ -3712,7 +3653,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel4_label1.Name = "menu2_3_panel_main_panel4_label1";
             this.menu2_3_panel_main_panel4_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel4_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel4_label1.Text = "label92";
             this.menu2_3_panel_main_panel4_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel4_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel4_label1_Click);
             // 
@@ -3750,7 +3690,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel3_label1.Name = "menu2_3_panel_main_panel3_label1";
             this.menu2_3_panel_main_panel3_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel3_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel3_label1.Text = "label94";
             this.menu2_3_panel_main_panel3_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel3_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel3_label1_Click);
             // 
@@ -3788,7 +3727,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel2_label1.Name = "menu2_3_panel_main_panel2_label1";
             this.menu2_3_panel_main_panel2_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel2_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel2_label1.Text = "label96";
             this.menu2_3_panel_main_panel2_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel2_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel2_label1_Click);
             // 
@@ -3823,7 +3761,6 @@ namespace TaskManage
             this.menu2_3_panel_main_panel1_label1.Name = "menu2_3_panel_main_panel1_label1";
             this.menu2_3_panel_main_panel1_label1.Size = new System.Drawing.Size(621, 30);
             this.menu2_3_panel_main_panel1_label1.TabIndex = 0;
-            this.menu2_3_panel_main_panel1_label1.Text = "label1";
             this.menu2_3_panel_main_panel1_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_3_panel_main_panel1_label1.Click += new System.EventHandler(this.menu2_3_panel_main_panel1_label1_Click);
             // 
@@ -4772,7 +4709,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel23_label1.Name = "menu2_1_panel_main_panel23_label1";
             this.menu2_1_panel_main_panel23_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel23_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel23_label1.Text = "label19";
             this.menu2_1_panel_main_panel23_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel23_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel23_label1_Click);
             // 
@@ -4784,7 +4720,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel23_label2.Name = "menu2_1_panel_main_panel23_label2";
             this.menu2_1_panel_main_panel23_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel23_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel23_label2.Text = "label20";
             this.menu2_1_panel_main_panel23_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel23_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel23_label2_Click);
             // 
@@ -4836,7 +4771,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel22_label1.Name = "menu2_1_panel_main_panel22_label1";
             this.menu2_1_panel_main_panel22_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel22_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel22_label1.Text = "label19";
             this.menu2_1_panel_main_panel22_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel22_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel22_label1_Click);
             // 
@@ -4848,7 +4782,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel22_label2.Name = "menu2_1_panel_main_panel22_label2";
             this.menu2_1_panel_main_panel22_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel22_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel22_label2.Text = "label20";
             this.menu2_1_panel_main_panel22_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel22_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel22_label2_Click);
             // 
@@ -4900,7 +4833,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel21_label1.Name = "menu2_1_panel_main_panel21_label1";
             this.menu2_1_panel_main_panel21_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel21_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel21_label1.Text = "label19";
             this.menu2_1_panel_main_panel21_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel21_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel21_label1_Click);
             // 
@@ -4912,7 +4844,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel21_label2.Name = "menu2_1_panel_main_panel21_label2";
             this.menu2_1_panel_main_panel21_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel21_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel21_label2.Text = "label20";
             this.menu2_1_panel_main_panel21_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel21_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel21_label2_Click);
             // 
@@ -4964,7 +4895,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel20_label1.Name = "menu2_1_panel_main_panel20_label1";
             this.menu2_1_panel_main_panel20_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel20_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel20_label1.Text = "label19";
             this.menu2_1_panel_main_panel20_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel20_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel20_label1_Click);
             // 
@@ -4976,7 +4906,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel20_label2.Name = "menu2_1_panel_main_panel20_label2";
             this.menu2_1_panel_main_panel20_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel20_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel20_label2.Text = "label20";
             this.menu2_1_panel_main_panel20_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel20_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel20_label2_Click);
             // 
@@ -5028,7 +4957,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel19_label1.Name = "menu2_1_panel_main_panel19_label1";
             this.menu2_1_panel_main_panel19_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel19_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel19_label1.Text = "label19";
             this.menu2_1_panel_main_panel19_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel19_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel19_label1_Click);
             // 
@@ -5040,7 +4968,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel19_label2.Name = "menu2_1_panel_main_panel19_label2";
             this.menu2_1_panel_main_panel19_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel19_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel19_label2.Text = "label20";
             this.menu2_1_panel_main_panel19_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel19_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel19_label2_Click);
             // 
@@ -5092,7 +5019,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel18_label1.Name = "menu2_1_panel_main_panel18_label1";
             this.menu2_1_panel_main_panel18_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel18_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel18_label1.Text = "label19";
             this.menu2_1_panel_main_panel18_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel18_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel18_label1_Click);
             // 
@@ -5104,7 +5030,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel18_label2.Name = "menu2_1_panel_main_panel18_label2";
             this.menu2_1_panel_main_panel18_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel18_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel18_label2.Text = "label20";
             this.menu2_1_panel_main_panel18_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel18_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel18_label2_Click);
             // 
@@ -5156,7 +5081,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel17_label1.Name = "menu2_1_panel_main_panel17_label1";
             this.menu2_1_panel_main_panel17_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel17_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel17_label1.Text = "label19";
             this.menu2_1_panel_main_panel17_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel17_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel17_label1_Click);
             // 
@@ -5168,7 +5092,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel17_label2.Name = "menu2_1_panel_main_panel17_label2";
             this.menu2_1_panel_main_panel17_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel17_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel17_label2.Text = "label20";
             this.menu2_1_panel_main_panel17_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel17_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel17_label2_Click);
             // 
@@ -5220,7 +5143,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel16_label1.Name = "menu2_1_panel_main_panel16_label1";
             this.menu2_1_panel_main_panel16_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel16_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel16_label1.Text = "label19";
             this.menu2_1_panel_main_panel16_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel16_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel16_label1_Click);
             // 
@@ -5232,7 +5154,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel16_label2.Name = "menu2_1_panel_main_panel16_label2";
             this.menu2_1_panel_main_panel16_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel16_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel16_label2.Text = "label20";
             this.menu2_1_panel_main_panel16_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel16_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel16_label2_Click);
             // 
@@ -5284,7 +5205,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel15_label1.Name = "menu2_1_panel_main_panel15_label1";
             this.menu2_1_panel_main_panel15_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel15_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel15_label1.Text = "label19";
             this.menu2_1_panel_main_panel15_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel15_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel15_label1_Click);
             // 
@@ -5296,7 +5216,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel15_label2.Name = "menu2_1_panel_main_panel15_label2";
             this.menu2_1_panel_main_panel15_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel15_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel15_label2.Text = "label20";
             this.menu2_1_panel_main_panel15_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel15_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel15_label2_Click);
             // 
@@ -5348,7 +5267,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel14_label1.Name = "menu2_1_panel_main_panel14_label1";
             this.menu2_1_panel_main_panel14_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel14_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel14_label1.Text = "label19";
             this.menu2_1_panel_main_panel14_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel14_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel14_label1_Click);
             // 
@@ -5360,7 +5278,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel14_label2.Name = "menu2_1_panel_main_panel14_label2";
             this.menu2_1_panel_main_panel14_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel14_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel14_label2.Text = "label20";
             this.menu2_1_panel_main_panel14_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel14_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel14_label2_Click);
             // 
@@ -5412,7 +5329,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel13_label1.Name = "menu2_1_panel_main_panel13_label1";
             this.menu2_1_panel_main_panel13_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel13_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel13_label1.Text = "label19";
             this.menu2_1_panel_main_panel13_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel13_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel13_label1_Click);
             // 
@@ -5424,7 +5340,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel13_label2.Name = "menu2_1_panel_main_panel13_label2";
             this.menu2_1_panel_main_panel13_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel13_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel13_label2.Text = "label20";
             this.menu2_1_panel_main_panel13_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel13_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel13_label2_Click);
             // 
@@ -5476,7 +5391,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel12_label1.Name = "menu2_1_panel_main_panel12_label1";
             this.menu2_1_panel_main_panel12_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel12_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel12_label1.Text = "label19";
             this.menu2_1_panel_main_panel12_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel12_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel12_label1_Click);
             // 
@@ -5488,7 +5402,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel12_label2.Name = "menu2_1_panel_main_panel12_label2";
             this.menu2_1_panel_main_panel12_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel12_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel12_label2.Text = "label20";
             this.menu2_1_panel_main_panel12_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel12_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel12_label2_Click);
             // 
@@ -5540,7 +5453,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel11_label1.Name = "menu2_1_panel_main_panel11_label1";
             this.menu2_1_panel_main_panel11_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel11_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel11_label1.Text = "label19";
             this.menu2_1_panel_main_panel11_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel11_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel11_label1_Click);
             // 
@@ -5552,7 +5464,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel11_label2.Name = "menu2_1_panel_main_panel11_label2";
             this.menu2_1_panel_main_panel11_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel11_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel11_label2.Text = "label20";
             this.menu2_1_panel_main_panel11_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel11_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel11_label2_Click);
             // 
@@ -5604,7 +5515,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel10_label1.Name = "menu2_1_panel_main_panel10_label1";
             this.menu2_1_panel_main_panel10_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel10_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel10_label1.Text = "label17";
             this.menu2_1_panel_main_panel10_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel10_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel10_label1_Click);
             // 
@@ -5616,7 +5526,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel10_label2.Name = "menu2_1_panel_main_panel10_label2";
             this.menu2_1_panel_main_panel10_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel10_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel10_label2.Text = "label18";
             this.menu2_1_panel_main_panel10_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel10_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel10_label2_Click);
             // 
@@ -5668,7 +5577,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel9_label1.Name = "menu2_1_panel_main_panel9_label1";
             this.menu2_1_panel_main_panel9_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel9_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel9_label1.Text = "label15";
             this.menu2_1_panel_main_panel9_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel9_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel9_label1_Click);
             // 
@@ -5680,7 +5588,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel9_label2.Name = "menu2_1_panel_main_panel9_label2";
             this.menu2_1_panel_main_panel9_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel9_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel9_label2.Text = "label16";
             this.menu2_1_panel_main_panel9_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel9_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel9_label2_Click);
             // 
@@ -5732,7 +5639,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel8_label1.Name = "menu2_1_panel_main_panel8_label1";
             this.menu2_1_panel_main_panel8_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel8_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel8_label1.Text = "label13";
             this.menu2_1_panel_main_panel8_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel8_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel8_label1_Click);
             // 
@@ -5744,7 +5650,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel8_label2.Name = "menu2_1_panel_main_panel8_label2";
             this.menu2_1_panel_main_panel8_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel8_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel8_label2.Text = "label14";
             this.menu2_1_panel_main_panel8_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel8_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel8_label2_Click);
             // 
@@ -5796,7 +5701,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel7_label1.Name = "menu2_1_panel_main_panel7_label1";
             this.menu2_1_panel_main_panel7_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel7_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel7_label1.Text = "label11";
             this.menu2_1_panel_main_panel7_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel7_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel7_label1_Click);
             // 
@@ -5808,7 +5712,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel7_label2.Name = "menu2_1_panel_main_panel7_label2";
             this.menu2_1_panel_main_panel7_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel7_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel7_label2.Text = "label12";
             this.menu2_1_panel_main_panel7_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel7_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel7_label2_Click);
             // 
@@ -5860,7 +5763,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel6_label1.Name = "menu2_1_panel_main_panel6_label1";
             this.menu2_1_panel_main_panel6_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel6_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel6_label1.Text = "label9";
             this.menu2_1_panel_main_panel6_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel6_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel6_label1_Click);
             // 
@@ -5872,7 +5774,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel6_label2.Name = "menu2_1_panel_main_panel6_label2";
             this.menu2_1_panel_main_panel6_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel6_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel6_label2.Text = "label10";
             this.menu2_1_panel_main_panel6_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel6_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel6_label2_Click);
             // 
@@ -5924,7 +5825,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel5_label1.Name = "menu2_1_panel_main_panel5_label1";
             this.menu2_1_panel_main_panel5_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel5_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel5_label1.Text = "label7";
             this.menu2_1_panel_main_panel5_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel5_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel5_label1_Click);
             // 
@@ -5936,7 +5836,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel5_label2.Name = "menu2_1_panel_main_panel5_label2";
             this.menu2_1_panel_main_panel5_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel5_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel5_label2.Text = "label8";
             this.menu2_1_panel_main_panel5_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel5_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel5_label2_Click);
             // 
@@ -5988,7 +5887,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel4_label1.Name = "menu2_1_panel_main_panel4_label1";
             this.menu2_1_panel_main_panel4_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel4_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel4_label1.Text = "label5";
             this.menu2_1_panel_main_panel4_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel4_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel4_label1_Click);
             // 
@@ -6000,7 +5898,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel4_label2.Name = "menu2_1_panel_main_panel4_label2";
             this.menu2_1_panel_main_panel4_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel4_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel4_label2.Text = "label6";
             this.menu2_1_panel_main_panel4_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel4_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel4_label2_Click);
             // 
@@ -6052,7 +5949,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel3_label1.Name = "menu2_1_panel_main_panel3_label1";
             this.menu2_1_panel_main_panel3_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel3_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel3_label1.Text = "label3";
             this.menu2_1_panel_main_panel3_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel3_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel3_label1_Click);
             // 
@@ -6064,7 +5960,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel3_label2.Name = "menu2_1_panel_main_panel3_label2";
             this.menu2_1_panel_main_panel3_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel3_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel3_label2.Text = "label4";
             this.menu2_1_panel_main_panel3_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel3_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel3_label2_Click);
             // 
@@ -6117,7 +6012,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel2_label1.Name = "menu2_1_panel_main_panel2_label1";
             this.menu2_1_panel_main_panel2_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel2_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel2_label1.Text = "label1";
             this.menu2_1_panel_main_panel2_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel2_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel2_label1_Click);
             // 
@@ -6129,7 +6023,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel2_label2.Name = "menu2_1_panel_main_panel2_label2";
             this.menu2_1_panel_main_panel2_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel2_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel2_label2.Text = "label2";
             this.menu2_1_panel_main_panel2_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel2_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel2_label2_Click);
             // 
@@ -6157,7 +6050,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel1_label1.Name = "menu2_1_panel_main_panel1_label1";
             this.menu2_1_panel_main_panel1_label1.Size = new System.Drawing.Size(512, 30);
             this.menu2_1_panel_main_panel1_label1.TabIndex = 0;
-            this.menu2_1_panel_main_panel1_label1.Text = "label1";
             this.menu2_1_panel_main_panel1_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu2_1_panel_main_panel1_label1.Click += new System.EventHandler(this.menu2_1_panel_main_panel1_label1_Click);
             // 
@@ -6199,7 +6091,6 @@ namespace TaskManage
             this.menu2_1_panel_main_panel1_label2.Name = "menu2_1_panel_main_panel1_label2";
             this.menu2_1_panel_main_panel1_label2.Size = new System.Drawing.Size(76, 30);
             this.menu2_1_panel_main_panel1_label2.TabIndex = 3;
-            this.menu2_1_panel_main_panel1_label2.Text = "99/99 - 99/99";
             this.menu2_1_panel_main_panel1_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.menu2_1_panel_main_panel1_label2.Click += new System.EventHandler(this.menu2_1_panel_main_panel1_label2_Click);
             // 
@@ -6268,9 +6159,8 @@ namespace TaskManage
             this.menu3_panel_top_label_title.AutoSize = true;
             this.menu3_panel_top_label_title.Location = new System.Drawing.Point(282, 29);
             this.menu3_panel_top_label_title.Name = "menu3_panel_top_label_title";
-            this.menu3_panel_top_label_title.Size = new System.Drawing.Size(38, 15);
+            this.menu3_panel_top_label_title.Size = new System.Drawing.Size(0, 15);
             this.menu3_panel_top_label_title.TabIndex = 0;
-            this.menu3_panel_top_label_title.Text = "label1";
             // 
             // tooltip
             // 

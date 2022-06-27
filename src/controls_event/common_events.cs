@@ -1,25 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TaskManage.controls_event
 {
     class common_events
     {
-        static readonly Color dark = Color.FromArgb(40, 40, 40); //ダークモード 基本色
-        static readonly Color white = Color.FromArgb(240, 240, 240); //ライトモード 基本色
-        static readonly Color subdark = Color.FromArgb(80, 80, 80); //ダークモード サブ色
-        static readonly Color subwhite = Color.FromArgb(220, 220, 220); //ライトモード サブ色
-        private static Color main_color = dark;
-        private static Color sub_color = white;
-        private static Color submain_color = subdark;
-        private static Color subsub_color = subwhite;
-        private static int menu = -1;
-
         // ダブルクリック時の動作
         public static void common_MouseDoubleClick(MainForm form)
         {
@@ -97,7 +83,7 @@ namespace TaskManage.controls_event
             {
                 Properties.Settings.Default.common_mode = false;
             }
-            ChangeDarkMode(form, Properties.Settings.Default.common_mode);
+            ChangeDarkMode(form);
         }
 
         // 前メニューへ移動する時の動作
@@ -105,222 +91,222 @@ namespace TaskManage.controls_event
         {
 
             form.common_panel_setting.Visible = false;
-            menu -= 1;
-            ChangeMenu(form, menu);
+            Main.Common_Var.menu -= 1;
+            ChangeMenu(form);
         }
 
         // 次メニューへ移動する時の動作
         public static void common_button_nextmenu_Click(MainForm form)
         {
             form.common_panel_setting.Visible = false;
-            menu += 1;
-            ChangeMenu(form, menu);
+            Main.Common_Var.menu += 1;
+            ChangeMenu(form);
         }
 
         // private
         #region private
 
         // 表示モード切り替え
-        private static void ChangeDarkMode(MainForm form, Boolean darkmode)
+        public static void ChangeDarkMode(MainForm form)
         {
-            if (darkmode)
+            if (Properties.Settings.Default.common_mode)
             {
-                main_color = dark;
-                sub_color = white;
-                submain_color = subdark;
-                subsub_color = subwhite;
+                Main.Common_Var.main_color = Properties.Settings.Default.dark;
+                Main.Common_Var.sub_color = Properties.Settings.Default.white;
+                Main.Common_Var.submain_color = Properties.Settings.Default.subdark;
+                Main.Common_Var.subsub_color = Properties.Settings.Default.subwhite;
             }
             else
             {
-                main_color = white;
-                sub_color = dark;
-                submain_color = subwhite;
-                subsub_color = subdark;
+                Main.Common_Var.main_color = Properties.Settings.Default.white;
+                Main.Common_Var.sub_color = Properties.Settings.Default.dark;
+                Main.Common_Var.submain_color = Properties.Settings.Default.subwhite;
+                Main.Common_Var.subsub_color = Properties.Settings.Default.subdark;
             }
 
             // 全体
-            form.BackColor = main_color;
+            form.BackColor = Main.Common_Var.main_color;
 
             // common
-            form.common_panel_setting_table_setting.BackColor = main_color;
-            form.common_panel_setting.BackColor = sub_color;
-            form.common_panel_setting_table_label1.ForeColor = sub_color;
-            form.common_panel_setting_table_label2.ForeColor = sub_color;
-            form.common_panel_setting_table_label3.ForeColor = sub_color;
+            form.common_panel_setting_table_setting.BackColor = Main.Common_Var.main_color;
+            form.common_panel_setting.BackColor = Main.Common_Var.sub_color;
+            form.common_panel_setting_table_label1.ForeColor = Main.Common_Var.sub_color;
+            form.common_panel_setting_table_label2.ForeColor = Main.Common_Var.sub_color;
+            form.common_panel_setting_table_label3.ForeColor = Main.Common_Var.sub_color;
 
             // 〇menu1
             // カレンダーの日にちの背景色を変更
-            form.menu1_panel_calendertop_panel_yearmonth_label_year.ForeColor = sub_color;
-            form.menu1_panel_calendertop_panel_yearmonth_label_month.ForeColor = sub_color;
+            form.menu1_panel_calendertop_panel_yearmonth_label_year.ForeColor = Main.Common_Var.sub_color;
+            form.menu1_panel_calendertop_panel_yearmonth_label_month.ForeColor = Main.Common_Var.sub_color;
 
-            form.menu1_table_calender_panel_day1.BackColor = submain_color;
-            form.menu1_table_calender_panel_day2.BackColor = submain_color;
-            form.menu1_table_calender_panel_day3.BackColor = submain_color;
-            form.menu1_table_calender_panel_day4.BackColor = submain_color;
-            form.menu1_table_calender_panel_day5.BackColor = submain_color;
-            form.menu1_table_calender_panel_day6.BackColor = submain_color;
-            form.menu1_table_calender_panel_day7.BackColor = submain_color;
-            form.menu1_table_calender_panel_day8.BackColor = submain_color;
-            form.menu1_table_calender_panel_day9.BackColor = submain_color;
-            form.menu1_table_calender_panel_day10.BackColor = submain_color;
-            form.menu1_table_calender_panel_day11.BackColor = submain_color;
-            form.menu1_table_calender_panel_day12.BackColor = submain_color;
-            form.menu1_table_calender_panel_day13.BackColor = submain_color;
-            form.menu1_table_calender_panel_day14.BackColor = submain_color;
-            form.menu1_table_calender_panel_day15.BackColor = submain_color;
-            form.menu1_table_calender_panel_day16.BackColor = submain_color;
-            form.menu1_table_calender_panel_day17.BackColor = submain_color;
-            form.menu1_table_calender_panel_day18.BackColor = submain_color;
-            form.menu1_table_calender_panel_day19.BackColor = submain_color;
-            form.menu1_table_calender_panel_day20.BackColor = submain_color;
-            form.menu1_table_calender_panel_day21.BackColor = submain_color;
-            form.menu1_table_calender_panel_day22.BackColor = submain_color;
-            form.menu1_table_calender_panel_day23.BackColor = submain_color;
-            form.menu1_table_calender_panel_day24.BackColor = submain_color;
-            form.menu1_table_calender_panel_day25.BackColor = submain_color;
-            form.menu1_table_calender_panel_day26.BackColor = submain_color;
-            form.menu1_table_calender_panel_day27.BackColor = submain_color;
-            form.menu1_table_calender_panel_day28.BackColor = submain_color;
-            form.menu1_table_calender_panel_day29.BackColor = submain_color;
-            form.menu1_table_calender_panel_day30.BackColor = submain_color;
-            form.menu1_table_calender_panel_day31.BackColor = submain_color;
-            form.menu1_table_calender_panel_day32.BackColor = submain_color;
-            form.menu1_table_calender_panel_day33.BackColor = submain_color;
-            form.menu1_table_calender_panel_day34.BackColor = submain_color;
-            form.menu1_table_calender_panel_day35.BackColor = submain_color;
-            form.menu1_table_calender_panel_day36.BackColor = submain_color;
-            form.menu1_table_calender_panel_day37.BackColor = submain_color;
-            form.menu1_table_calender_panel_day38.BackColor = submain_color;
-            form.menu1_table_calender_panel_day39.BackColor = submain_color;
-            form.menu1_table_calender_panel_day40.BackColor = submain_color;
-            form.menu1_table_calender_panel_day41.BackColor = submain_color;
-            form.menu1_table_calender_panel_day42.BackColor = submain_color;
+            form.menu1_table_calender_panel_day1.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day2.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day3.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day4.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day5.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day6.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day7.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day8.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day9.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day10.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day11.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day12.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day13.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day14.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day15.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day16.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day17.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day18.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day19.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day20.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day21.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day22.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day23.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day24.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day25.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day26.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day27.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day28.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day29.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day30.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day31.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day32.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day33.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day34.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day35.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day36.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day37.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day38.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day39.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day40.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day41.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day42.BackColor = Main.Common_Var.submain_color;
 
             // カレンダーの曜日の文字色を変更
-            form.menu1_table_calender_label_sunday.ForeColor = sub_color;
-            form.menu1_table_calender_label_monday.ForeColor = sub_color;
-            form.menu1_table_calender_label_tuesday.ForeColor = sub_color;
-            form.menu1_table_calender_label_wednesday.ForeColor = sub_color;
-            form.menu1_table_calender_label_thursday.ForeColor = sub_color;
-            form.menu1_table_calender_label_friday.ForeColor = sub_color;
-            form.menu1_table_calender_label_saturday.ForeColor = sub_color;
+            form.menu1_table_calender_label_sunday.ForeColor = Main.Common_Var.sub_color;
+            form.menu1_table_calender_label_monday.ForeColor = Main.Common_Var.sub_color;
+            form.menu1_table_calender_label_tuesday.ForeColor = Main.Common_Var.sub_color;
+            form.menu1_table_calender_label_wednesday.ForeColor = Main.Common_Var.sub_color;
+            form.menu1_table_calender_label_thursday.ForeColor = Main.Common_Var.sub_color;
+            form.menu1_table_calender_label_friday.ForeColor = Main.Common_Var.sub_color;
+            form.menu1_table_calender_label_saturday.ForeColor = Main.Common_Var.sub_color;
 
             int year = DateTime.Now.Year; // 問題あり　月変更後モード変えるとおかしい
             int month = DateTime.Now.Month; // 問題あり　月変更後モード変えるとおかしい
             Set_Day(form, year, month);
 
             // menu2
-            form.menu2_1_panel_top_label_title.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel1_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel1_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel2_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel2_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel3_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel3_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel4_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel4_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel5_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel5_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel6_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel6_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel7_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel7_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel8_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel8_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel9_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel9_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel10_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel10_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel11_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel11_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel12_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel12_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel13_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel13_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel14_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel14_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel15_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel15_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel16_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel16_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel17_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel17_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel18_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel18_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel19_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel19_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel20_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel20_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel21_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel21_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel22_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel22_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel23_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel23_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel24_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel24_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel25_label1.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel25_label2.ForeColor = sub_color;
-            form.menu2_1_panel_main_panel1.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel2.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel3.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel4.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel5.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel6.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel7.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel8.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel9.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel10.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel11.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel12.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel13.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel14.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel15.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel16.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel17.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel18.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel19.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel20.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel21.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel22.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel23.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel24.BorderColor = sub_color;
-            form.menu2_1_panel_main_panel25.BorderColor = sub_color;
+            form.menu2_1_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel1_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel1_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel2_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel2_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel3_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel3_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel4_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel4_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel5_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel5_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel6_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel6_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel7_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel7_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel8_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel8_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel9_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel9_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel10_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel10_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel11_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel11_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel12_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel12_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel13_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel13_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel14_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel14_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel15_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel15_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel16_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel16_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel17_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel17_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel18_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel18_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel19_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel19_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel20_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel20_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel21_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel21_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel22_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel22_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel23_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel23_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel24_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel24_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel25_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel25_label2.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel1.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel2.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel3.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel4.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel5.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel6.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel7.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel8.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel9.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel10.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel11.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel12.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel13.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel14.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel15.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel16.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel17.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel18.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel19.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel20.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel21.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel22.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel23.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel24.BorderColor = Main.Common_Var.sub_color;
+            form.menu2_1_panel_main_panel25.BorderColor = Main.Common_Var.sub_color;
 
-            form.menu2_2_panel_top_label_title.ForeColor = sub_color;
+            form.menu2_2_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
 
-            form.menu2_3_panel_top_label_title.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel1_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel2_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel3_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel4_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel5_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel6_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel7_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel8_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel9_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel10_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel11_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel12_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel13_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel14_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel15_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel16_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel17_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel18_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel19_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel20_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel21_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel22_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel23_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel24_label1.ForeColor = sub_color;
-            form.menu2_3_panel_main_panel25_label1.ForeColor = sub_color;
+            form.menu2_3_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel1_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel2_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel3_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel4_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel5_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel6_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel7_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel8_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel9_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel10_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel11_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel12_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel13_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel14_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel15_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel16_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel17_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel18_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel19_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel20_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel21_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel22_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel23_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel24_label1.ForeColor = Main.Common_Var.sub_color;
+            form.menu2_3_panel_main_panel25_label1.ForeColor = Main.Common_Var.sub_color;
         }
 
         // メニュー切り替え
-        private static void ChangeMenu(MainForm form, int menu)
+        public static void ChangeMenu(MainForm form)
         {
-            switch (menu)
+            switch (Main.Common_Var.menu)
             {
                 case 1: //メイン画面
                     form.menu1.Visible = true;
@@ -349,11 +335,15 @@ namespace TaskManage.controls_event
                     form.common_button_prevmenu.Visible = true;
                     form.common_button_nextmenu.Visible = false;
                     break;
+                default:
+                    Main.Common_Var.menu = 1;
+                    ChangeMenu(form);
+                    break;
             }
         }
 
         // カレンダーに日にちをセット
-        private static void Set_Day(MainForm form, int year, int month)
+        public static void Set_Day(MainForm form, int year, int month)
         {
             DateTime today = DateTime.Now;
             int[] days = new int[42];
@@ -365,9 +355,9 @@ namespace TaskManage.controls_event
             DayOfWeek firstdate = firstday.DayOfWeek;
 
             Color today_color = Color.FromArgb(255, 128, 0);
-            Color panel_color = submain_color;
-            Color main_text_color = sub_color;
-            Color sub_text_color = subsub_color;
+            Color panel_color = Main.Common_Var.submain_color;
+            Color main_text_color = Main.Common_Var.sub_color;
+            Color sub_text_color = Main.Common_Var.subsub_color;
 
             Font main_font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             Font sub_font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -806,48 +796,48 @@ namespace TaskManage.controls_event
             }
 
             // カレンダーの日にちの背景色を変更
-            form.menu1_table_calender_panel_day1.BackColor = submain_color;
-            form.menu1_table_calender_panel_day2.BackColor = submain_color;
-            form.menu1_table_calender_panel_day3.BackColor = submain_color;
-            form.menu1_table_calender_panel_day4.BackColor = submain_color;
-            form.menu1_table_calender_panel_day5.BackColor = submain_color;
-            form.menu1_table_calender_panel_day6.BackColor = submain_color;
-            form.menu1_table_calender_panel_day7.BackColor = submain_color;
-            form.menu1_table_calender_panel_day8.BackColor = submain_color;
-            form.menu1_table_calender_panel_day9.BackColor = submain_color;
-            form.menu1_table_calender_panel_day10.BackColor = submain_color;
-            form.menu1_table_calender_panel_day11.BackColor = submain_color;
-            form.menu1_table_calender_panel_day12.BackColor = submain_color;
-            form.menu1_table_calender_panel_day13.BackColor = submain_color;
-            form.menu1_table_calender_panel_day14.BackColor = submain_color;
-            form.menu1_table_calender_panel_day15.BackColor = submain_color;
-            form.menu1_table_calender_panel_day16.BackColor = submain_color;
-            form.menu1_table_calender_panel_day17.BackColor = submain_color;
-            form.menu1_table_calender_panel_day18.BackColor = submain_color;
-            form.menu1_table_calender_panel_day19.BackColor = submain_color;
-            form.menu1_table_calender_panel_day20.BackColor = submain_color;
-            form.menu1_table_calender_panel_day21.BackColor = submain_color;
-            form.menu1_table_calender_panel_day22.BackColor = submain_color;
-            form.menu1_table_calender_panel_day23.BackColor = submain_color;
-            form.menu1_table_calender_panel_day24.BackColor = submain_color;
-            form.menu1_table_calender_panel_day25.BackColor = submain_color;
-            form.menu1_table_calender_panel_day26.BackColor = submain_color;
-            form.menu1_table_calender_panel_day27.BackColor = submain_color;
-            form.menu1_table_calender_panel_day28.BackColor = submain_color;
-            form.menu1_table_calender_panel_day29.BackColor = submain_color;
-            form.menu1_table_calender_panel_day30.BackColor = submain_color;
-            form.menu1_table_calender_panel_day31.BackColor = submain_color;
-            form.menu1_table_calender_panel_day32.BackColor = submain_color;
-            form.menu1_table_calender_panel_day33.BackColor = submain_color;
-            form.menu1_table_calender_panel_day34.BackColor = submain_color;
-            form.menu1_table_calender_panel_day35.BackColor = submain_color;
-            form.menu1_table_calender_panel_day36.BackColor = submain_color;
-            form.menu1_table_calender_panel_day37.BackColor = submain_color;
-            form.menu1_table_calender_panel_day38.BackColor = submain_color;
-            form.menu1_table_calender_panel_day39.BackColor = submain_color;
-            form.menu1_table_calender_panel_day40.BackColor = submain_color;
-            form.menu1_table_calender_panel_day41.BackColor = submain_color;
-            form.menu1_table_calender_panel_day42.BackColor = submain_color;
+            form.menu1_table_calender_panel_day1.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day2.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day3.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day4.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day5.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day6.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day7.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day8.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day9.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day10.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day11.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day12.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day13.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day14.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day15.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day16.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day17.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day18.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day19.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day20.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day21.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day22.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day23.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day24.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day25.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day26.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day27.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day28.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day29.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day30.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day31.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day32.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day33.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day34.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day35.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day36.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day37.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day38.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day39.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day40.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day41.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day42.BackColor = Main.Common_Var.submain_color;
 
             // 現在日がカレンダーに存在する場合はパネルの色を変更する
             switch (today_int)

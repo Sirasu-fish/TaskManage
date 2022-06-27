@@ -1,26 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TaskManage.controls_event
 {
     class menu1_events
     {
-        private static int clickpanel = -1; //カレンダーでクリックされたパネル //MainForm.csで宣言して共有する
-
-        static readonly Color dark = Color.FromArgb(40, 40, 40); //ダークモード 基本色
-        static readonly Color white = Color.FromArgb(240, 240, 240); //ライトモード 基本色
-        static readonly Color subdark = Color.FromArgb(80, 80, 80); //ダークモード サブ色
-        static readonly Color subwhite = Color.FromArgb(220, 220, 220); //ライトモード サブ色
-        private static Color main_color = dark;
-        private static Color sub_color = white;
-        private static Color submain_color = subdark;
-        private static Color subsub_color = subwhite;
-
         public static void menu1_panel_calendertop_button_prevmonth_Click(MainForm form)
         {
             int year = 0;
@@ -740,9 +725,6 @@ namespace TaskManage.controls_event
         }
 
 
-
-
-
         //private
         #region private
 
@@ -755,7 +737,7 @@ namespace TaskManage.controls_event
 
             int r = panel.ClientRectangle.Right - 1;
             int b = panel.ClientRectangle.Bottom - 1;
-            pen = new Pen(subsub_color);
+            pen = new Pen(Main.Common_Var.subsub_color);
             g.DrawLine(pen, 0, 0, r, 0);
             g.DrawLine(pen, 0, 0, 0, b);
             g.DrawLine(pen, r, 0, r, b);
@@ -765,178 +747,178 @@ namespace TaskManage.controls_event
         // 日付ホバーが外れた時の動作
         private static void NoOverMouse(MainForm form)
         {
-            if (clickpanel != 0)
+            if (Main.Common_Var.clickpanel != 0)
             {
                 form.menu1_table_calender_panel_day1.Refresh();
             }
-            if (clickpanel != 1)
+            if (Main.Common_Var.clickpanel != 1)
             {
                 form.menu1_table_calender_panel_day2.Refresh();
             }
-            if (clickpanel != 2)
+            if (Main.Common_Var.clickpanel != 2)
             {
                 form.menu1_table_calender_panel_day3.Refresh();
             }
-            if (clickpanel != 3)
+            if (Main.Common_Var.clickpanel != 3)
             {
                 form.menu1_table_calender_panel_day4.Refresh();
             }
-            if (clickpanel != 4)
+            if (Main.Common_Var.clickpanel != 4)
             {
                 form.menu1_table_calender_panel_day5.Refresh();
             }
-            if (clickpanel != 5)
+            if (Main.Common_Var.clickpanel != 5)
             {
                 form.menu1_table_calender_panel_day6.Refresh();
             }
-            if (clickpanel != 6)
+            if (Main.Common_Var.clickpanel != 6)
             {
                 form.menu1_table_calender_panel_day7.Refresh();
             }
-            if (clickpanel != 7)
+            if (Main.Common_Var.clickpanel != 7)
             {
                 form.menu1_table_calender_panel_day8.Refresh();
             }
-            if (clickpanel != 8)
+            if (Main.Common_Var.clickpanel != 8)
             {
                 form.menu1_table_calender_panel_day9.Refresh();
             }
-            if (clickpanel != 9)
+            if (Main.Common_Var.clickpanel != 9)
             {
                 form.menu1_table_calender_panel_day10.Refresh();
             }
-            if (clickpanel != 10)
+            if (Main.Common_Var.clickpanel != 10)
             {
                 form.menu1_table_calender_panel_day11.Refresh();
             }
-            if (clickpanel != 11)
+            if (Main.Common_Var.clickpanel != 11)
             {
                 form.menu1_table_calender_panel_day12.Refresh();
             }
-            if (clickpanel != 12)
+            if (Main.Common_Var.clickpanel != 12)
             {
                 form.menu1_table_calender_panel_day13.Refresh();
             }
-            if (clickpanel != 13)
+            if (Main.Common_Var.clickpanel != 13)
             {
                 form.menu1_table_calender_panel_day14.Refresh();
             }
-            if (clickpanel != 14)
+            if (Main.Common_Var.clickpanel != 14)
             {
                 form.menu1_table_calender_panel_day15.Refresh();
             }
-            if (clickpanel != 15)
+            if (Main.Common_Var.clickpanel != 15)
             {
                 form.menu1_table_calender_panel_day16.Refresh();
             }
-            if (clickpanel != 16)
+            if (Main.Common_Var.clickpanel != 16)
             {
                 form.menu1_table_calender_panel_day17.Refresh();
             }
-            if (clickpanel != 17)
+            if (Main.Common_Var.clickpanel != 17)
             {
                 form.menu1_table_calender_panel_day18.Refresh();
             }
-            if (clickpanel != 18)
+            if (Main.Common_Var.clickpanel != 18)
             {
                 form.menu1_table_calender_panel_day19.Refresh();
             }
-            if (clickpanel != 19)
+            if (Main.Common_Var.clickpanel != 19)
             {
                 form.menu1_table_calender_panel_day20.Refresh();
             }
-            if (clickpanel != 20)
+            if (Main.Common_Var.clickpanel != 20)
             {
                 form.menu1_table_calender_panel_day21.Refresh();
             }
-            if (clickpanel != 21)
+            if (Main.Common_Var.clickpanel != 21)
             {
                 form.menu1_table_calender_panel_day22.Refresh();
             }
-            if (clickpanel != 22)
+            if (Main.Common_Var.clickpanel != 22)
             {
                 form.menu1_table_calender_panel_day23.Refresh();
             }
-            if (clickpanel != 23)
+            if (Main.Common_Var.clickpanel != 23)
             {
                 form.menu1_table_calender_panel_day24.Refresh();
             }
-            if (clickpanel != 24)
+            if (Main.Common_Var.clickpanel != 24)
             {
                 form.menu1_table_calender_panel_day25.Refresh();
             }
-            if (clickpanel != 25)
+            if (Main.Common_Var.clickpanel != 25)
             {
                 form.menu1_table_calender_panel_day26.Refresh();
             }
-            if (clickpanel != 26)
+            if (Main.Common_Var.clickpanel != 26)
             {
                 form.menu1_table_calender_panel_day27.Refresh();
             }
-            if (clickpanel != 27)
+            if (Main.Common_Var.clickpanel != 27)
             {
                 form.menu1_table_calender_panel_day28.Refresh();
             }
-            if (clickpanel != 28)
+            if (Main.Common_Var.clickpanel != 28)
             {
                 form.menu1_table_calender_panel_day29.Refresh();
             }
-            if (clickpanel != 29)
+            if (Main.Common_Var.clickpanel != 29)
             {
                 form.menu1_table_calender_panel_day30.Refresh();
             }
-            if (clickpanel != 30)
+            if (Main.Common_Var.clickpanel != 30)
             {
                 form.menu1_table_calender_panel_day31.Refresh();
             }
-            if (clickpanel != 31)
+            if (Main.Common_Var.clickpanel != 31)
             {
                 form.menu1_table_calender_panel_day32.Refresh();
             }
-            if (clickpanel != 32)
+            if (Main.Common_Var.clickpanel != 32)
             {
                 form.menu1_table_calender_panel_day33.Refresh();
             }
-            if (clickpanel != 33)
+            if (Main.Common_Var.clickpanel != 33)
             {
                 form.menu1_table_calender_panel_day34.Refresh();
             }
-            if (clickpanel != 34)
+            if (Main.Common_Var.clickpanel != 34)
             {
                 form.menu1_table_calender_panel_day35.Refresh();
             }
-            if (clickpanel != 35)
+            if (Main.Common_Var.clickpanel != 35)
             {
                 form.menu1_table_calender_panel_day36.Refresh();
             }
-            if (clickpanel != 36)
+            if (Main.Common_Var.clickpanel != 36)
             {
                 form.menu1_table_calender_panel_day37.Refresh();
             }
-            if (clickpanel != 37)
+            if (Main.Common_Var.clickpanel != 37)
             {
                 form.menu1_table_calender_panel_day38.Refresh();
             }
-            if (clickpanel != 38)
+            if (Main.Common_Var.clickpanel != 38)
             {
                 form.menu1_table_calender_panel_day39.Refresh();
             }
-            if (clickpanel != 39)
+            if (Main.Common_Var.clickpanel != 39)
             {
                 form.menu1_table_calender_panel_day40.Refresh();
             }
-            if (clickpanel != 40)
+            if (Main.Common_Var.clickpanel != 40)
             {
                 form.menu1_table_calender_panel_day41.Refresh();
             }
-            if (clickpanel != 41)
+            if (Main.Common_Var.clickpanel != 41)
             {
                 form.menu1_table_calender_panel_day42.Refresh();
             }
 
             Panel panel = new Panel();
 
-            switch (clickpanel)
+            switch (Main.Common_Var.clickpanel)
             {
                 case 0:
                     panel = form.menu1_table_calender_panel_day1;
@@ -1126,14 +1108,14 @@ namespace TaskManage.controls_event
             form.menu1_table_calender_panel_day41.Refresh();
             form.menu1_table_calender_panel_day42.Refresh();
 
-            clickpanel = panel_num;
+            Main.Common_Var.clickpanel = panel_num;
 
             Graphics g = panel.CreateGraphics();
             Pen pen;
 
             int r = panel.ClientRectangle.Right - 1;
             int b = panel.ClientRectangle.Bottom - 1;
-            pen = new Pen(sub_color);
+            pen = new Pen(Main.Common_Var.sub_color);
             g.DrawLine(pen, 0, 0, r, 0);
             g.DrawLine(pen, 0, 0, 0, b);
             g.DrawLine(pen, r, 0, r, b);
@@ -1233,9 +1215,9 @@ namespace TaskManage.controls_event
             DayOfWeek firstdate = firstday.DayOfWeek;
 
             Color today_color = Color.FromArgb(255, 128, 0);
-            Color panel_color = submain_color;
-            Color main_text_color = sub_color;
-            Color sub_text_color = subsub_color;
+            Color panel_color = Main.Common_Var.submain_color;
+            Color main_text_color = Main.Common_Var.sub_color;
+            Color sub_text_color = Main.Common_Var.subsub_color;
 
             Font main_font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             Font sub_font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1674,48 +1656,48 @@ namespace TaskManage.controls_event
             }
 
             // カレンダーの日にちの背景色を変更
-            form.menu1_table_calender_panel_day1.BackColor = submain_color;
-            form.menu1_table_calender_panel_day2.BackColor = submain_color;
-            form.menu1_table_calender_panel_day3.BackColor = submain_color;
-            form.menu1_table_calender_panel_day4.BackColor = submain_color;
-            form.menu1_table_calender_panel_day5.BackColor = submain_color;
-            form.menu1_table_calender_panel_day6.BackColor = submain_color;
-            form.menu1_table_calender_panel_day7.BackColor = submain_color;
-            form.menu1_table_calender_panel_day8.BackColor = submain_color;
-            form.menu1_table_calender_panel_day9.BackColor = submain_color;
-            form.menu1_table_calender_panel_day10.BackColor = submain_color;
-            form.menu1_table_calender_panel_day11.BackColor = submain_color;
-            form.menu1_table_calender_panel_day12.BackColor = submain_color;
-            form.menu1_table_calender_panel_day13.BackColor = submain_color;
-            form.menu1_table_calender_panel_day14.BackColor = submain_color;
-            form.menu1_table_calender_panel_day15.BackColor = submain_color;
-            form.menu1_table_calender_panel_day16.BackColor = submain_color;
-            form.menu1_table_calender_panel_day17.BackColor = submain_color;
-            form.menu1_table_calender_panel_day18.BackColor = submain_color;
-            form.menu1_table_calender_panel_day19.BackColor = submain_color;
-            form.menu1_table_calender_panel_day20.BackColor = submain_color;
-            form.menu1_table_calender_panel_day21.BackColor = submain_color;
-            form.menu1_table_calender_panel_day22.BackColor = submain_color;
-            form.menu1_table_calender_panel_day23.BackColor = submain_color;
-            form.menu1_table_calender_panel_day24.BackColor = submain_color;
-            form.menu1_table_calender_panel_day25.BackColor = submain_color;
-            form.menu1_table_calender_panel_day26.BackColor = submain_color;
-            form.menu1_table_calender_panel_day27.BackColor = submain_color;
-            form.menu1_table_calender_panel_day28.BackColor = submain_color;
-            form.menu1_table_calender_panel_day29.BackColor = submain_color;
-            form.menu1_table_calender_panel_day30.BackColor = submain_color;
-            form.menu1_table_calender_panel_day31.BackColor = submain_color;
-            form.menu1_table_calender_panel_day32.BackColor = submain_color;
-            form.menu1_table_calender_panel_day33.BackColor = submain_color;
-            form.menu1_table_calender_panel_day34.BackColor = submain_color;
-            form.menu1_table_calender_panel_day35.BackColor = submain_color;
-            form.menu1_table_calender_panel_day36.BackColor = submain_color;
-            form.menu1_table_calender_panel_day37.BackColor = submain_color;
-            form.menu1_table_calender_panel_day38.BackColor = submain_color;
-            form.menu1_table_calender_panel_day39.BackColor = submain_color;
-            form.menu1_table_calender_panel_day40.BackColor = submain_color;
-            form.menu1_table_calender_panel_day41.BackColor = submain_color;
-            form.menu1_table_calender_panel_day42.BackColor = submain_color;
+            form.menu1_table_calender_panel_day1.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day2.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day3.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day4.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day5.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day6.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day7.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day8.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day9.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day10.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day11.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day12.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day13.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day14.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day15.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day16.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day17.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day18.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day19.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day20.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day21.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day22.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day23.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day24.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day25.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day26.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day27.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day28.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day29.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day30.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day31.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day32.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day33.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day34.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day35.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day36.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day37.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day38.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day39.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day40.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day41.BackColor = Main.Common_Var.submain_color;
+            form.menu1_table_calender_panel_day42.BackColor = Main.Common_Var.submain_color;
 
             // 現在日がカレンダーに存在する場合はパネルの色を変更する
             switch (today_int)

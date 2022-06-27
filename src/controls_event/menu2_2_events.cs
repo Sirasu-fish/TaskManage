@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TaskManage.controls_event
@@ -251,7 +247,7 @@ namespace TaskManage.controls_event
 
         }
 
-        // private 
+        // private
         #region private
 
         // メモを保存する時の関数

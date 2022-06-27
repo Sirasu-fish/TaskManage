@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Diagnostics;
 
 namespace TaskManage
 {
@@ -24,7 +21,7 @@ namespace TaskManage
 
             if (!ExistsFile(filename) && createflg)
             {
-                Debug.WriteLine("readfileline_1");
+                //Debug.WriteLine("readfileline_1");
                 CreateFile(filename);
                 return list;
             }
@@ -47,7 +44,6 @@ namespace TaskManage
 
             if (!ExistsFile(filename) && createflg)
             {
-                Debug.WriteLine("readfileline_1");
                 CreateFile(filename);
                 return list;
             }
