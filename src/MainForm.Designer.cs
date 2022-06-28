@@ -3959,6 +3959,7 @@ namespace TaskManage
             this.menu2_2_panel_main_panel5_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menu2_2_panel_main_panel5_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
             this.menu2_2_panel_main_panel5_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel5_table_memo_panel_top_text";
+            this.menu2_2_panel_main_panel5_table_memo_panel_top_text.ReadOnly = true;
             this.menu2_2_panel_main_panel5_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
             this.menu2_2_panel_main_panel5_table_memo_panel_top_text.TabIndex = 4;
             // 
@@ -4055,6 +4056,7 @@ namespace TaskManage
             this.menu2_2_panel_main_panel4_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menu2_2_panel_main_panel4_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
             this.menu2_2_panel_main_panel4_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel4_table_memo_panel_top_text";
+            this.menu2_2_panel_main_panel4_table_memo_panel_top_text.ReadOnly = true;
             this.menu2_2_panel_main_panel4_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
             this.menu2_2_panel_main_panel4_table_memo_panel_top_text.TabIndex = 4;
             // 
@@ -4151,6 +4153,7 @@ namespace TaskManage
             this.menu2_2_panel_main_panel3_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menu2_2_panel_main_panel3_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
             this.menu2_2_panel_main_panel3_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel3_table_memo_panel_top_text";
+            this.menu2_2_panel_main_panel3_table_memo_panel_top_text.ReadOnly = true;
             this.menu2_2_panel_main_panel3_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
             this.menu2_2_panel_main_panel3_table_memo_panel_top_text.TabIndex = 4;
             // 
@@ -4247,6 +4250,7 @@ namespace TaskManage
             this.menu2_2_panel_main_panel2_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menu2_2_panel_main_panel2_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
             this.menu2_2_panel_main_panel2_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel2_table_memo_panel_top_text";
+            this.menu2_2_panel_main_panel2_table_memo_panel_top_text.ReadOnly = true;
             this.menu2_2_panel_main_panel2_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
             this.menu2_2_panel_main_panel2_table_memo_panel_top_text.TabIndex = 4;
             // 
@@ -4343,6 +4347,7 @@ namespace TaskManage
             this.menu2_2_panel_main_panel1_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menu2_2_panel_main_panel1_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
             this.menu2_2_panel_main_panel1_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel1_table_memo_panel_top_text";
+            this.menu2_2_panel_main_panel1_table_memo_panel_top_text.ReadOnly = true;
             this.menu2_2_panel_main_panel1_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
             this.menu2_2_panel_main_panel1_table_memo_panel_top_text.TabIndex = 4;
             // 

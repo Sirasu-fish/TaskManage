@@ -2,124 +2,30 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 
 namespace TaskManage
 {
     class FileUtil
     {
-        string foldername = "datas";
-
-        /// <summary>
-        /// ファイルを1行ずつ読み込み,ファイルが存在しない場合は空のファイルを作成する
-        /// </summary>
-        /// <param name="filename">ファイル名</param>
-        /// <param name="createflg">ファイルが存在しない場合 true:作成 false:作成しない</param>
-        /// <returns>ファイルの文字列の配列 List</returns>
-        public List<string> ReadFileLine(string filename, Boolean createflg = false)
-        {
-            List<string> list = new List<string>();
-
-            if (!ExistsFile(filename) && createflg)
-            {
-                //Debug.WriteLine("readfileline_1");
-                CreateFile(filename);
-                return list;
-            }
-
-            using (StreamReader sr = new StreamReader(filename + ".txt", Encoding.GetEncoding("UTF-8")))
-            {
-                string line = "";
-                // 1個飛ばしになっているので、なんとかする
-                while((line = sr.ReadLine()) != null)
-                {
-                    list.Add(line);
-                }
-            }
-            return list;
-        }
-
-        public List<string> ReadFileLine2(string filename, Boolean createflg = false)
-        {
-            List<string> list = new List<string>();
-
-            if (!ExistsFile(filename) && createflg)
-            {
-                CreateFile(filename);
-                return list;
-            }
-
-            using (StreamReader sr = new StreamReader(filename, Encoding.GetEncoding("UTF-8")))
-            {
-                string line = "";
-                // 1個飛ばしになっているので、なんとかする
-                while ((line = sr.ReadLine()) != null)
-                {
-                    list.Add(line);
-                }
-            }
-            return list;
-        }
-
         /// <summary>
         /// ファイルを全て読み込み,ファイルが存在しない場合は空のファイルを作成する
         /// </summary>
-        /// <param name="filename">ファイル名</param>
+        /// <param name="path">パス</param>
         /// <returns>ファイルの文字列 string</returns>
-        public string ReadFileAll(string filename)
+        public string ReadFileAll(string path)
         {
-            if (ExistsFile(filename))
-            {
-            }
-            else
-            {
-                CreateFile(filename);
-                return "";
-            }
-            using (StreamReader sr = new StreamReader(foldername + "\\" + filename + ".txt", Encoding.GetEncoding("UTF-8")))
+            using (StreamReader sr = new StreamReader(path, Encoding.GetEncoding("UTF-8")))
             {
                 return sr.ReadToEnd();
             }
         }
 
-        /// <summary>
-        /// ファイルに書き込みを行う 行,ファイルが存在しない場合はスキップ
-        /// </summary>
-        /// <param name="filename">ファイル名</param>
-        /// <param name="filedata">ファイルに書き込むデータ</param>
-        /// <param name="overwrite">上書きするかどうか true:上書きしない false:上書きする</param>
-        /// <param name="createflg">ファイルが存在しない時 true:作成する false:作成しない</param>
-        public Boolean WriteFileLine(string filename, List<string> filedata, Boolean overwrite, Boolean createflg)
+        public Boolean WriteFileLine(string path, string text)
         {
             try
             {
-                if (!ExistsFile(filename) && createflg == true) //ファイルの存在チェック
-                {
-                    CreateFile(filename);
-                }
-                using (StreamWriter writer = new StreamWriter(foldername + "\\" + filename + ".txt", false, Encoding.GetEncoding("UTF-8")))
-                {
-                    foreach (string item in filedata)
-                    {
-                        writer.WriteLine(item);
-                    }
-                }
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public Boolean WriteFileLine(string filename, string text, Boolean overwrite, Boolean createflg)
-        {
-            try
-            {
-                if (!ExistsFile(filename) && createflg == true) //ファイルの存在チェック
-                {
-                    CreateFile(filename);
-                }
-                using (StreamWriter writer = new StreamWriter(foldername + "\\" + filename + ".txt", false, Encoding.GetEncoding("UTF-8")))
+                using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("UTF-8")))
                 {
                     writer.Write(text);
                 }
@@ -131,64 +37,56 @@ namespace TaskManage
             return true;
         }
 
-        /// <summary>
-        /// ファイルに書き込みを行う 全て,ファイルが存在しない場合はファイルを作成してから書き込み
-        /// </summary>
-        /// <param name="filename">ファイル名</param>
-        /// <param name="filedata">ファイルに書き込む文字列</param>
-        /// <param name="overwrite">上書きするかどうか true:上書きしない false:上書きする</param>
-        public Boolean WriteFileAll(string filename, string filedata, Boolean overwrite)
+        public Boolean OpenDialog(string text, int num)
         {
-            try
-            {
-                if (!ExistsFile(filename))
-                {
-                    CreateFile(filename);
-                }
-                using (StreamWriter writer = new StreamWriter(foldername + "\\" + filename + ".txt", false, Encoding.GetEncoding("UTF-8")))
-                {
-                    writer.Write(filedata);
-                }
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
-        }
+            SaveFileDialog sfd = new SaveFileDialog();
 
-        public Boolean ExistsFile(string filename)
-        {
-            if (System.IO.File.Exists(foldername + "\\" + filename + ".txt"))
-            {
-                return true;
-            }
-            else
-            {
-                return false ;
-            }
-        }
+            // ファイル名で表示される文字列
+            sfd.FileName = num.ToString() +  ".txt";
+            // ファイルの種類　に表示される選択肢
+            sfd.Filter = "TXTファイル(*.txt)|*.txt|すべてのファイル(*.*)|*.*";
+            // TXTファイル
+            sfd.FilterIndex = 1;
+            // タイトルを設定する
+            sfd.Title = "保存先を設定してください。";
+            // ダイアログボックスを閉じる前に現在のディレクトリを復元するようにする
+            sfd.RestoreDirectory = true;
+            // すでに存在するファイル名を指定したとき警告する
+            sfd.OverwritePrompt = true;
+            // 存在しないパスが指定されたとき警告を表示する
+            sfd.CheckPathExists = true;
 
-        /// <summary>
-        /// テキストファイルを作成する
-        /// </summary>
-        /// <param name="filename">ファイル名</param>
-        /// <returns>true:正常 false:異常</returns>
-        public Boolean CreateFile(string filename)
-        {
-            try
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
-                if (ExistsFile(filename))
+                System.IO.Stream stream;
+                stream = sfd.OpenFile();
+
+                if (stream != null)
                 {
-                    return false;
+                    System.IO.StreamWriter sw = new System.IO.StreamWriter(stream);
+                    sw.Write(text);
+                    sw.Close();
+                    stream.Close();
+                    switch (num)
+                    {
+                        case 1:
+                            Properties.Settings.Default.memo_path1 = sfd.FileName;
+                            break;
+                        case 2:
+                            Properties.Settings.Default.memo_path2 = sfd.FileName;
+                            break;
+                        case 3:
+                            Properties.Settings.Default.memo_path3 = sfd.FileName;
+                            break;
+                        case 4:
+                            Properties.Settings.Default.memo_path4 = sfd.FileName;
+                            break;
+                        case 5:
+                            Properties.Settings.Default.memo_path5 = sfd.FileName;
+                            break;
+                    }
+                    Properties.Settings.Default.Save();
                 }
-                using (FileStream fx = File.Create(foldername + "\\" + filename + ".txt"))
-                {
-                }
-            }
-            catch
-            {
-                return false;
             }
 
             return true;

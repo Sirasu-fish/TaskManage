@@ -132,6 +132,35 @@ namespace TaskManage.Main
             else
             {
             }
+
+            FileUtil fu = new FileUtil();
+            // メモ1展開
+            if (Properties.Settings.Default.memo_path1 != "")
+            {
+                form.menu2_2_panel_main_panel1_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path1;
+                form.menu2_2_panel_main_panel1_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path1);
+            }
+            if (Properties.Settings.Default.memo_path2 != "")
+            {
+                form.menu2_2_panel_main_panel2_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path2;
+                form.menu2_2_panel_main_panel2_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path2);
+            }
+            if (Properties.Settings.Default.memo_path3 != "")
+            {
+                form.menu2_2_panel_main_panel3_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path3;
+                form.menu2_2_panel_main_panel3_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path3);
+            }
+            if (Properties.Settings.Default.memo_path4 != "")
+            {
+                form.menu2_2_panel_main_panel4_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path4;
+                form.menu2_2_panel_main_panel4_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path4);
+            }
+            if (Properties.Settings.Default.memo_path5 != "")
+            {
+                form.menu2_2_panel_main_panel5_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path5;
+                form.menu2_2_panel_main_panel5_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path5);
+            }
+
         }
 
         // commonをタイトルバーにする初期化
