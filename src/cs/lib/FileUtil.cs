@@ -37,7 +37,7 @@ namespace TaskManage
             return true;
         }
 
-        public Boolean OpenDialog(string text, int num)
+        public Boolean OpenDialog(MainForm form, string text, int num)
         {
             SaveFileDialog sfd = new SaveFileDialog();
 
@@ -71,18 +71,23 @@ namespace TaskManage
                     {
                         case 1:
                             Properties.Settings.Default.memo_path1 = sfd.FileName;
+                            form.menu2_2_panel_main_panel1_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path1;
                             break;
                         case 2:
                             Properties.Settings.Default.memo_path2 = sfd.FileName;
+                            form.menu2_2_panel_main_panel2_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path2;
                             break;
                         case 3:
                             Properties.Settings.Default.memo_path3 = sfd.FileName;
+                            form.menu2_2_panel_main_panel3_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path3;
                             break;
                         case 4:
                             Properties.Settings.Default.memo_path4 = sfd.FileName;
+                            form.menu2_2_panel_main_panel4_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path4;
                             break;
                         case 5:
                             Properties.Settings.Default.memo_path5 = sfd.FileName;
+                            form.menu2_2_panel_main_panel5_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path5;
                             break;
                     }
                     Properties.Settings.Default.Save();

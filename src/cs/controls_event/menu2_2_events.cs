@@ -98,7 +98,7 @@ namespace TaskManage.controls_event
         {
             if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
             {
-                SaveMemo(Properties.Settings.Default.memo_path1, form.menu2_2_panel_main_panel1_table_memo_text.Text, 1);
+                SaveMemo(form, Properties.Settings.Default.memo_path1, form.menu2_2_panel_main_panel1_table_memo_text.Text, 1);
             }
         }
 
@@ -106,7 +106,7 @@ namespace TaskManage.controls_event
         {
             if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
             {
-                SaveMemo(Properties.Settings.Default.memo_path2, form.menu2_2_panel_main_panel1_table_memo_text.Text, 2);
+                SaveMemo(form, Properties.Settings.Default.memo_path2, form.menu2_2_panel_main_panel1_table_memo_text.Text, 2);
             }
         }
 
@@ -114,7 +114,7 @@ namespace TaskManage.controls_event
         {
             if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
             {
-                SaveMemo(Properties.Settings.Default.memo_path3, form.menu2_2_panel_main_panel1_table_memo_text.Text, 3);
+                SaveMemo(form, Properties.Settings.Default.memo_path3, form.menu2_2_panel_main_panel1_table_memo_text.Text, 3);
             }
         }
 
@@ -122,7 +122,7 @@ namespace TaskManage.controls_event
         {
             if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
             {
-                SaveMemo(Properties.Settings.Default.memo_path4, form.menu2_2_panel_main_panel1_table_memo_text.Text, 4);
+                SaveMemo(form, Properties.Settings.Default.memo_path4, form.menu2_2_panel_main_panel1_table_memo_text.Text, 4);
             }
         }
 
@@ -130,30 +130,30 @@ namespace TaskManage.controls_event
         {
             if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
             {
-                SaveMemo(Properties.Settings.Default.memo_path5, form.menu2_2_panel_main_panel1_table_memo_text.Text, 5);
+                SaveMemo(form, Properties.Settings.Default.memo_path5, form.menu2_2_panel_main_panel1_table_memo_text.Text, 5);
             }
         }
 
         //保存ボタン
         public static void menu2_2_panel_main_panel1_table_memo_panel_top_button_save_Click(MainForm form)
         {
-            SaveMemo(Properties.Settings.Default.memo_path1, form.menu2_2_panel_main_panel1_table_memo_text.Text, 1);
+            SaveMemo(form, Properties.Settings.Default.memo_path1, form.menu2_2_panel_main_panel1_table_memo_text.Text, 1);
         }
         public static void menu2_2_panel_main_panel2_table_memo_panel_top_button_save_Click(MainForm form)
         {
-            SaveMemo(Properties.Settings.Default.memo_path2, form.menu2_2_panel_main_panel2_table_memo_text.Text, 2);
+            SaveMemo(form, Properties.Settings.Default.memo_path2, form.menu2_2_panel_main_panel2_table_memo_text.Text, 2);
         }
         public static void menu2_2_panel_main_panel3_table_memo_panel_top_button_save_Click(MainForm form)
         {
-            SaveMemo(Properties.Settings.Default.memo_path3, form.menu2_2_panel_main_panel3_table_memo_text.Text, 3);
+            SaveMemo(form, Properties.Settings.Default.memo_path3, form.menu2_2_panel_main_panel3_table_memo_text.Text, 3);
         }
         public static void menu2_2_panel_main_panel4_table_memo_panel_top_button_save_Click(MainForm form)
         {
-            SaveMemo(Properties.Settings.Default.memo_path4, form.menu2_2_panel_main_panel4_table_memo_text.Text, 4);
+            SaveMemo(form, Properties.Settings.Default.memo_path4, form.menu2_2_panel_main_panel4_table_memo_text.Text, 4);
         }
         public static void menu2_2_panel_main_panel5_table_memo_panel_top_button_save_Click(MainForm form)
         {
-            SaveMemo(Properties.Settings.Default.memo_path5, form.menu2_2_panel_main_panel5_table_memo_text.Text, 5);
+            SaveMemo(form, Properties.Settings.Default.memo_path5, form.menu2_2_panel_main_panel5_table_memo_text.Text, 5);
         }
         public static void menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax_Click(MainForm form)
         {
@@ -220,39 +220,59 @@ namespace TaskManage.controls_event
                 form.menu2_2_panel_main_panel5.Height = 28;
             }
         }
+
+        // 閉じるボタン
         public static void menu2_2_panel_main_panel1_table_memo_panel_top_button_close_Click(MainForm form)
         {
-
+            Properties.Settings.Default.memo_path1 = "";
+            Properties.Settings.Default.Save();
+            form.menu2_2_panel_main_panel1_table_memo_panel_top_text.Text = "";
+            form.menu2_2_panel_main_panel1_table_memo_text.Text = "";
         }
         public static void menu2_2_panel_main_panel2_table_memo_panel_top_button_close_Click(MainForm form)
         {
-
+            Properties.Settings.Default.memo_path2 = "";
+            Properties.Settings.Default.Save();
+            form.menu2_2_panel_main_panel2_table_memo_panel_top_text.Text = "";
+            form.menu2_2_panel_main_panel2_table_memo_text.Text = "";
         }
         public static void menu2_2_panel_main_panel3_table_memo_panel_top_button_close_Click(MainForm form)
         {
-
+            Properties.Settings.Default.memo_path3 = "";
+            Properties.Settings.Default.Save();
+            form.menu2_2_panel_main_panel3_table_memo_panel_top_text.Text = "";
+            form.menu2_2_panel_main_panel3_table_memo_text.Text = "";
         }
         public static void menu2_2_panel_main_panel4_table_memo_panel_top_button_close_Click(MainForm form)
         {
-
+            Properties.Settings.Default.memo_path4 = "";
+            Properties.Settings.Default.Save();
+            form.menu2_2_panel_main_panel4_table_memo_panel_top_text.Text = "";
+            form.menu2_2_panel_main_panel4_table_memo_text.Text = "";
         }
         public static void menu2_2_panel_main_panel5_table_memo_panel_top_button_close_Click(MainForm form)
         {
-
+            Properties.Settings.Default.memo_path5 = "";
+            Properties.Settings.Default.Save();
+            form.menu2_2_panel_main_panel5_table_memo_panel_top_text.Text = "";
+            form.menu2_2_panel_main_panel5_table_memo_text.Text = "";
         }
 
         // private
         #region private
 
+
+
+
         // メモを保存する時の関数
-        private static Boolean SaveMemo(string path, string text, int num)
+        private static Boolean SaveMemo(MainForm form, string path, string text, int num)
         {
             FileUtil fu = new FileUtil();
 
             // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
             if (path == "")
             {
-                fu.OpenDialog(text, num);
+                fu.OpenDialog(form, text, num);
             }
             // パスが空ではない時 = 既存ファイルなので、上書き保存
             else
@@ -261,6 +281,19 @@ namespace TaskManage.controls_event
             }
 
             return true;
+        }
+
+        private static Boolean CloseMemo(int num)
+        {
+            switch (num)
+            {
+                case 1:
+                    Properties.Settings.Default.memo_path1 = "";
+                    break;
+            }
+
+
+            return false;
         }
 
         #endregion private
