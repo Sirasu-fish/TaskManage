@@ -89,211 +89,81 @@ namespace TaskManage.controls_event
             FileUtil fu = new FileUtil();
             string filename = "";
             filename = DateTime.Now.ToString("yyyyMMdd") + "_";
-
-
         }
 
         // キー押下時のイベント
-        public static void menu2_2_panel_main_panel1_table_memo_text_KeyDown(MainForm form, KeyEventArgs e)
+        public static void menu2_2_panel_main_panel_table_memo_text_KeyDown(object sender, MainForm form, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
             {
-                SaveMemo(form, Properties.Settings.Default.memo_path1, form.menu2_2_panel_main_panel1_table_memo_text.Text, 1);
-            }
-        }
-
-        public static void menu2_2_panel_main_panel2_table_memo_text_KeyDown(MainForm form, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
-            {
-                SaveMemo(form, Properties.Settings.Default.memo_path2, form.menu2_2_panel_main_panel1_table_memo_text.Text, 2);
-            }
-        }
-
-        public static void menu2_2_panel_main_panel3_table_memo_text_KeyDown(MainForm form, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
-            {
-                SaveMemo(form, Properties.Settings.Default.memo_path3, form.menu2_2_panel_main_panel1_table_memo_text.Text, 3);
-            }
-        }
-
-        public static void menu2_2_panel_main_panel4_table_memo_text_KeyDown(MainForm form, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
-            {
-                SaveMemo(form, Properties.Settings.Default.memo_path4, form.menu2_2_panel_main_panel1_table_memo_text.Text, 4);
-            }
-        }
-
-        public static void menu2_2_panel_main_panel5_table_memo_text_KeyDown(MainForm form, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
-            {
-                SaveMemo(form, Properties.Settings.Default.memo_path5, form.menu2_2_panel_main_panel1_table_memo_text.Text, 5);
+                SaveMemo(form, ((TextBox)sender).Text, int.Parse(((TextBox)sender).Name));
             }
         }
 
         //保存ボタン
-        public static void menu2_2_panel_main_panel1_table_memo_panel_top_button_save_Click(MainForm form)
+        public static void menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click(object sender, MainForm form)
         {
-            SaveMemo(form, Properties.Settings.Default.memo_path1, form.menu2_2_panel_main_panel1_table_memo_text.Text, 1);
+            SaveMemo(form, form.menu2_2_panel_main_panel_table_memo_text[int.Parse(((Button)sender).Name)].Text, int.Parse(((Button)sender).Name));
         }
-        public static void menu2_2_panel_main_panel2_table_memo_panel_top_button_save_Click(MainForm form)
+
+        // 最小化、最大化ボタン
+        public static void menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click(object sender, MainForm form)
         {
-            SaveMemo(form, Properties.Settings.Default.memo_path2, form.menu2_2_panel_main_panel2_table_memo_text.Text, 2);
-        }
-        public static void menu2_2_panel_main_panel3_table_memo_panel_top_button_save_Click(MainForm form)
-        {
-            SaveMemo(form, Properties.Settings.Default.memo_path3, form.menu2_2_panel_main_panel3_table_memo_text.Text, 3);
-        }
-        public static void menu2_2_panel_main_panel4_table_memo_panel_top_button_save_Click(MainForm form)
-        {
-            SaveMemo(form, Properties.Settings.Default.memo_path4, form.menu2_2_panel_main_panel4_table_memo_text.Text, 4);
-        }
-        public static void menu2_2_panel_main_panel5_table_memo_panel_top_button_save_Click(MainForm form)
-        {
-            SaveMemo(form, Properties.Settings.Default.memo_path5, form.menu2_2_panel_main_panel5_table_memo_text.Text, 5);
-        }
-        public static void menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax_Click(MainForm form)
-        {
-            if (form.menu2_2_panel_main_panel1_table_memo_text.Visible == false)
+            int i = int.Parse(((Button)sender).Name);
+            if (form.menu2_2_panel_main_panel_table_memo_text[i].Visible == false)
             {
-                form.menu2_2_panel_main_panel1_table_memo_text.Visible = true;
-                form.menu2_2_panel_main_panel1.Height = 106;
+                form.menu2_2_panel_main_panel_table_memo_text[i].Visible = true;
+                form.menu2_2_panel_main_panel[i].Height = 106;
             }
             else
             {
-                form.menu2_2_panel_main_panel1_table_memo_text.Visible = false;
-                form.menu2_2_panel_main_panel1.Height = 28;
-            }
-        }
-        public static void menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax_Click(MainForm form)
-        {
-            if (form.menu2_2_panel_main_panel2_table_memo_text.Visible == false)
-            {
-                form.menu2_2_panel_main_panel2_table_memo_text.Visible = true;
-                form.menu2_2_panel_main_panel2.Height = 106;
-            }
-            else
-            {
-                form.menu2_2_panel_main_panel2_table_memo_text.Visible = false;
-                form.menu2_2_panel_main_panel2.Height = 28;
-            }
-        }
-        public static void menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax_Click(MainForm form)
-        {
-            if (form.menu2_2_panel_main_panel3_table_memo_text.Visible == false)
-            {
-                form.menu2_2_panel_main_panel3_table_memo_text.Visible = true;
-                form.menu2_2_panel_main_panel3.Height = 106;
-            }
-            else
-            {
-                form.menu2_2_panel_main_panel3_table_memo_text.Visible = false;
-                form.menu2_2_panel_main_panel3.Height = 28;
-            }
-        }
-        public static void menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax_Click(MainForm form)
-        {
-            if (form.menu2_2_panel_main_panel4_table_memo_text.Visible == false)
-            {
-                form.menu2_2_panel_main_panel4_table_memo_text.Visible = true;
-                form.menu2_2_panel_main_panel4.Height = 106;
-            }
-            else
-            {
-                form.menu2_2_panel_main_panel4_table_memo_text.Visible = false;
-                form.menu2_2_panel_main_panel4.Height = 28;
-            }
-        }
-        public static void menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax_Click(MainForm form)
-        {
-            if (form.menu2_2_panel_main_panel5_table_memo_text.Visible == false)
-            {
-                form.menu2_2_panel_main_panel5_table_memo_text.Visible = true;
-                form.menu2_2_panel_main_panel5.Height = 106;
-            }
-            else
-            {
-                form.menu2_2_panel_main_panel5_table_memo_text.Visible = false;
-                form.menu2_2_panel_main_panel5.Height = 28;
+                form.menu2_2_panel_main_panel_table_memo_text[i].Visible = false;
+                form.menu2_2_panel_main_panel[i].Height = 28;
             }
         }
 
         // 閉じるボタン
-        public static void menu2_2_panel_main_panel1_table_memo_panel_top_button_close_Click(MainForm form)
+        public static void menu2_2_panel_main_panel1_table_memo_panel_top_button_close_Click(object sender, MainForm form)
         {
-            Properties.Settings.Default.memo_path1 = "";
+            int i = int.Parse(((Button)sender).Name);
+
+            string[] path = new string[99];
+            Properties.Settings.Default.memo_path.CopyTo(path, 0);
+            path[i] = "";
+            //Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+            Properties.Settings.Default.memo_path.AddRange(path);
             Properties.Settings.Default.Save();
-            form.menu2_2_panel_main_panel1_table_memo_panel_top_text.Text = "";
-            form.menu2_2_panel_main_panel1_table_memo_text.Text = "";
+            form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = "";
+            form.menu2_2_panel_main_panel_table_memo_text[i].Text = "";
         }
-        public static void menu2_2_panel_main_panel2_table_memo_panel_top_button_close_Click(MainForm form)
-        {
-            Properties.Settings.Default.memo_path2 = "";
-            Properties.Settings.Default.Save();
-            form.menu2_2_panel_main_panel2_table_memo_panel_top_text.Text = "";
-            form.menu2_2_panel_main_panel2_table_memo_text.Text = "";
-        }
-        public static void menu2_2_panel_main_panel3_table_memo_panel_top_button_close_Click(MainForm form)
-        {
-            Properties.Settings.Default.memo_path3 = "";
-            Properties.Settings.Default.Save();
-            form.menu2_2_panel_main_panel3_table_memo_panel_top_text.Text = "";
-            form.menu2_2_panel_main_panel3_table_memo_text.Text = "";
-        }
-        public static void menu2_2_panel_main_panel4_table_memo_panel_top_button_close_Click(MainForm form)
-        {
-            Properties.Settings.Default.memo_path4 = "";
-            Properties.Settings.Default.Save();
-            form.menu2_2_panel_main_panel4_table_memo_panel_top_text.Text = "";
-            form.menu2_2_panel_main_panel4_table_memo_text.Text = "";
-        }
-        public static void menu2_2_panel_main_panel5_table_memo_panel_top_button_close_Click(MainForm form)
-        {
-            Properties.Settings.Default.memo_path5 = "";
-            Properties.Settings.Default.Save();
-            form.menu2_2_panel_main_panel5_table_memo_panel_top_text.Text = "";
-            form.menu2_2_panel_main_panel5_table_memo_text.Text = "";
-        }
+
+
+
 
         // private
         #region private
 
-
-
-
         // メモを保存する時の関数
-        private static Boolean SaveMemo(MainForm form, string path, string text, int num)
+        private static Boolean SaveMemo(MainForm form, string text, int num)
         {
             FileUtil fu = new FileUtil();
 
+            string[] paths = new string[99];
+            Properties.Settings.Default.memo_path.CopyTo(paths, 0);
+            string path = paths[num];
+
             // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
-            if (path == "")
+            if (String.IsNullOrEmpty(path))
             {
                 fu.OpenDialog(form, text, num);
             }
             // パスが空ではない時 = 既存ファイルなので、上書き保存
             else
             {
-                fu.WriteFileLine(path, text);
+                fu.WriteFile(path, text);
             }
 
             return true;
-        }
-
-        private static Boolean CloseMemo(int num)
-        {
-            switch (num)
-            {
-                case 1:
-                    Properties.Settings.Default.memo_path1 = "";
-                    break;
-            }
-
-
-            return false;
         }
 
         #endregion private

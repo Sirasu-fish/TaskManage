@@ -37,18 +37,6 @@ namespace TaskManage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int menu2_fontsize {
-            get {
-                return ((int)(this["menu2_fontsize"]));
-            }
-            set {
-                this["menu2_fontsize"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool menu2_memowrap {
             get {
@@ -121,66 +109,6 @@ namespace TaskManage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string memo_path1 {
-            get {
-                return ((string)(this["memo_path1"]));
-            }
-            set {
-                this["memo_path1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string memo_path2 {
-            get {
-                return ((string)(this["memo_path2"]));
-            }
-            set {
-                this["memo_path2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string memo_path3 {
-            get {
-                return ((string)(this["memo_path3"]));
-            }
-            set {
-                this["memo_path3"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string memo_path4 {
-            get {
-                return ((string)(this["memo_path4"]));
-            }
-            set {
-                this["memo_path4"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string memo_path5 {
-            get {
-                return ((string)(this["memo_path5"]));
-            }
-            set {
-                this["memo_path5"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int order {
             get {
@@ -236,6 +164,17 @@ namespace TaskManage.Properties {
             }
             set {
                 this["menu"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection memo_path {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["memo_path"]));
+            }
+            set {
+                this["memo_path"] = value;
             }
         }
     }

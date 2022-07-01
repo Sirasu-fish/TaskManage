@@ -1340,85 +1340,21 @@ namespace TaskManage
         {
             controls_event.menu2_2_events.menu2_2_panel_top_button_add_Click(this);
         }
-        private void menu2_2_panel_main_panel1_table_memo_text_KeyDown(object sender, KeyEventArgs e)
+        private void menu2_2_panel_main_panel_table_memo_text_KeyDown(object sender, KeyEventArgs e)
         {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel1_table_memo_text_KeyDown(this, e);
+            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_text_KeyDown(sender, this, e);
         }
-        private void menu2_2_panel_main_panel2_table_memo_text_KeyDown(object sender, KeyEventArgs e)
+        private void menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click(object sender, EventArgs e)
         {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel2_table_memo_text_KeyDown(this, e);
+            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click(sender, this);
         }
-        private void menu2_2_panel_main_panel3_table_memo_text_KeyDown(object sender, KeyEventArgs e)
+        private void menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click(object sender, EventArgs e)
         {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel3_table_memo_text_KeyDown(this, e);
+            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click(sender, this);
         }
-        private void menu2_2_panel_main_panel4_table_memo_text_KeyDown(object sender, KeyEventArgs e)
+        private void menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click(object sender, EventArgs e)
         {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel4_table_memo_text_KeyDown(this, e);
-        }
-        private void menu2_2_panel_main_panel5_table_memo_text_KeyDown(object sender, KeyEventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel5_table_memo_text_KeyDown(this, e);
-        }
-        private void menu2_2_panel_main_panel1_table_memo_panel_top_button_save_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel1_table_memo_panel_top_button_save_Click(this);
-        }
-        private void menu2_2_panel_main_panel2_table_memo_panel_top_button_save_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel2_table_memo_panel_top_button_save_Click(this);
-        }
-        private void menu2_2_panel_main_panel3_table_memo_panel_top_button_save_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel3_table_memo_panel_top_button_save_Click(this);
-        }
-        private void menu2_2_panel_main_panel4_table_memo_panel_top_button_save_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel4_table_memo_panel_top_button_save_Click(this);
-        }
-        private void menu2_2_panel_main_panel5_table_memo_panel_top_button_save_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel5_table_memo_panel_top_button_save_Click(this);
-        }
-        private void menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax_Click(this);
-        }
-        private void menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax_Click(this);
-        }
-        private void menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax_Click(this);
-        }
-        private void menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel4_table_memo_panel_top_button_save_Click(this);
-        }
-        private void menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax_Click(this);
-        }
-        private void menu2_2_panel_main_panel1_table_memo_panel_top_button_close_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel1_table_memo_panel_top_button_close_Click(this);
-        }
-        private void menu2_2_panel_main_panel2_table_memo_panel_top_button_close_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel2_table_memo_panel_top_button_close_Click(this);
-        }
-        private void menu2_2_panel_main_panel3_table_memo_panel_top_button_close_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel3_table_memo_panel_top_button_close_Click(this);
-        }
-        private void menu2_2_panel_main_panel4_table_memo_panel_top_button_close_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel4_table_memo_panel_top_button_close_Click(this);
-        }
-        private void menu2_2_panel_main_panel5_table_memo_panel_top_button_close_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel5_table_memo_panel_top_button_close_Click(this);
+            controls_event.menu2_2_events.menu2_2_panel_main_panel1_table_memo_panel_top_button_close_Click(sender, this);
         }
         #endregion Event menu2 2
 

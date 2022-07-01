@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
@@ -21,7 +20,7 @@ namespace TaskManage
             }
         }
 
-        public Boolean WriteFileLine(string path, string text)
+        public Boolean WriteFile(string path, string text)
         {
             try
             {
@@ -67,29 +66,14 @@ namespace TaskManage
                     sw.Write(text);
                     sw.Close();
                     stream.Close();
-                    switch (num)
-                    {
-                        case 1:
-                            Properties.Settings.Default.memo_path1 = sfd.FileName;
-                            form.menu2_2_panel_main_panel1_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path1;
-                            break;
-                        case 2:
-                            Properties.Settings.Default.memo_path2 = sfd.FileName;
-                            form.menu2_2_panel_main_panel2_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path2;
-                            break;
-                        case 3:
-                            Properties.Settings.Default.memo_path3 = sfd.FileName;
-                            form.menu2_2_panel_main_panel3_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path3;
-                            break;
-                        case 4:
-                            Properties.Settings.Default.memo_path4 = sfd.FileName;
-                            form.menu2_2_panel_main_panel4_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path4;
-                            break;
-                        case 5:
-                            Properties.Settings.Default.memo_path5 = sfd.FileName;
-                            form.menu2_2_panel_main_panel5_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path5;
-                            break;
-                    }
+
+                    string[] path = new string[99];
+                    Properties.Settings.Default.memo_path.CopyTo(path, 0);
+                    path[num] = sfd.FileName;
+                    Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+                    Properties.Settings.Default.memo_path.AddRange(path);
+
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = path[num];
                     Properties.Settings.Default.Save();
                 }
             }

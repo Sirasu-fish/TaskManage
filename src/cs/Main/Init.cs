@@ -4,14 +4,6 @@ namespace TaskManage.Main
 {
     internal class Init
     {
-        private static DAndDSizeChanger menu2_2_panel_main_table_memo1_sizeChanger;
-        private static DAndDSizeChanger menu2_2_panel_main_table_memo2_sizeChanger;
-        private static DAndDSizeChanger menu2_2_panel_main_table_memo3_sizeChanger;
-        private static DAndDSizeChanger menu2_2_panel_main_table_memo4_sizeChanger;
-        private static DAndDSizeChanger menu2_2_panel_main_table_memo5_sizeChanger;
-        private static DAndDSizeChanger this_sizeChanger;
-        private static DAndDMoveForm common_MoveForm;
-
         public void initialize(MainForm form)
         {
 
@@ -19,6 +11,8 @@ namespace TaskManage.Main
             SetMoveForm(form);
             // 設定を反映
             RefrectSetting(form);
+
+
             // メニュー切り替え
             controls_event.common_events.ChangeMenu(form);
             // 表示モード切り替え
@@ -29,6 +23,20 @@ namespace TaskManage.Main
             Set_NowDay(form);
             Set_NowYearMonth(form);
         }
+
+
+
+        // private
+        #region private
+
+        private static DAndDSizeChanger[] menu2_2_panel_main_table_memo_sizeChanger = new DAndDSizeChanger[99];
+        private static DAndDSizeChanger this_sizeChanger;
+        private static DAndDMoveForm common_MoveForm;
+
+
+
+
+        #endregion private
 
         // 設定を反映
         private void RefrectSetting(MainForm form)
@@ -43,34 +51,24 @@ namespace TaskManage.Main
                 form.common_panel_setting_table_check1.Checked = false;
             }
 
-            // メモ文字サイズ
-            if (Properties.Settings.Default.menu2_fontsize != 0)
-            {
-
-            }
-            else
-            {
-
-            }
-
             // メモ折り返し
             if (Properties.Settings.Default.menu2_memowrap)
             {
                 form.common_panel_setting_table_check3.Checked = true;
-                form.menu2_2_panel_main_panel1_table_memo_text.WordWrap = true;
-                form.menu2_2_panel_main_panel2_table_memo_text.WordWrap = true;
-                form.menu2_2_panel_main_panel3_table_memo_text.WordWrap = true;
-                form.menu2_2_panel_main_panel4_table_memo_text.WordWrap = true;
-                form.menu2_2_panel_main_panel5_table_memo_text.WordWrap = true;
+                //form.menu2_2_panel_main_panel1_table_memo_text.WordWrap = true;
+                //form.menu2_2_panel_main_panel2_table_memo_text.WordWrap = true;
+                //form.menu2_2_panel_main_panel3_table_memo_text.WordWrap = true;
+                //form.menu2_2_panel_main_panel4_table_memo_text.WordWrap = true;
+                //form.menu2_2_panel_main_panel5_table_memo_text.WordWrap = true;
             }
             else
             {
                 form.common_panel_setting_table_check3.Checked = false;
-                form.menu2_2_panel_main_panel1_table_memo_text.WordWrap = false;
-                form.menu2_2_panel_main_panel2_table_memo_text.WordWrap = false;
-                form.menu2_2_panel_main_panel3_table_memo_text.WordWrap = false;
-                form.menu2_2_panel_main_panel4_table_memo_text.WordWrap = false;
-                form.menu2_2_panel_main_panel5_table_memo_text.WordWrap = false;
+                //form.menu2_2_panel_main_panel1_table_memo_text.WordWrap = false;
+                //form.menu2_2_panel_main_panel2_table_memo_text.WordWrap = false;
+                //form.menu2_2_panel_main_panel3_table_memo_text.WordWrap = false;
+                //form.menu2_2_panel_main_panel4_table_memo_text.WordWrap = false;
+                //form.menu2_2_panel_main_panel5_table_memo_text.WordWrap = false;
             }
 
             // menu2 1 開いているか
@@ -87,19 +85,7 @@ namespace TaskManage.Main
                 form.menu2_1.Height = 42;
             }
 
-            // menu2 2 開いているか
-            if (Properties.Settings.Default.menu2_open2)
-            {
-                form.menu2_2_panel_main.Visible = true;
-                form.menu2_2_panel.Height = 562;
-                form.menu2_2.Height = 570;
-            }
-            else
-            {
-                form.menu2_2_panel_main.Visible = false;
-                form.menu2_2_panel.Height = 34;
-                form.menu2_2.Height = 42;
-            }
+
 
             // menu2 3 開いているか
             if (Properties.Settings.Default.menu2_open3)
@@ -133,35 +119,72 @@ namespace TaskManage.Main
             {
             }
 
-            FileUtil fu = new FileUtil();
-            // メモ1展開
-            if (Properties.Settings.Default.memo_path1 != "")
+            SetMenu2_2(form);
+        }
+
+        private void SetMenu2_2(MainForm form)
+        {
+            // menu2 2 開いているか
+            if (Properties.Settings.Default.menu2_open2)
             {
-                form.menu2_2_panel_main_panel1_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path1;
-                form.menu2_2_panel_main_panel1_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path1);
+                form.menu2_2_panel_main.Visible = true;
+                form.menu2_2_panel.Height = 562;
+                form.menu2_2.Height = 570;
             }
-            if (Properties.Settings.Default.memo_path2 != "")
+            else
             {
-                form.menu2_2_panel_main_panel2_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path2;
-                form.menu2_2_panel_main_panel2_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path2);
-            }
-            if (Properties.Settings.Default.memo_path3 != "")
-            {
-                form.menu2_2_panel_main_panel3_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path3;
-                form.menu2_2_panel_main_panel3_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path3);
-            }
-            if (Properties.Settings.Default.memo_path4 != "")
-            {
-                form.menu2_2_panel_main_panel4_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path4;
-                form.menu2_2_panel_main_panel4_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path4);
-            }
-            if (Properties.Settings.Default.memo_path5 != "")
-            {
-                form.menu2_2_panel_main_panel5_table_memo_panel_top_text.Text = Properties.Settings.Default.memo_path5;
-                form.menu2_2_panel_main_panel5_table_memo_text.Text = fu.ReadFileAll(Properties.Settings.Default.memo_path5);
+                form.menu2_2_panel_main.Visible = false;
+                form.menu2_2_panel.Height = 34;
+                form.menu2_2.Height = 42;
             }
 
+            FileUtil fu = new FileUtil();
+            // メモ展開
+            if (Properties.Settings.Default.memo_path == null)
+            {
+                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.memo_path.AddRange(new string[99]);
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                if (Properties.Settings.Default.memo_path.Count > 99)
+                {
+                    Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+                    Properties.Settings.Default.memo_path.AddRange(new string[99]);
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    string[] paths = new string[99];
+                    Properties.Settings.Default.memo_path.CopyTo(paths, 0);
+                    int num = 0;
+                    for (int i = 0; i < paths.Length; i++)
+                    {
+                        if (String.IsNullOrEmpty(paths[i]))
+                        {
+                            num++;
+                        }
+                    }
+                    Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+                    Properties.Settings.Default.memo_path.AddRange(paths);
+                    Properties.Settings.Default.Save();
+                }
+            }
+
+            string[] path = new string[99];
+            Properties.Settings.Default.memo_path.CopyTo(path, 0);
+            for (int i = 0; i < path.Length; i++)
+            {
+                if (!String.IsNullOrEmpty(path[i]))
+                {
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = path[i];
+                    form.menu2_2_panel_main_panel_table_memo_text[i].Text = fu.ReadFileAll(path[i]);
+                    form.menu2_2_panel_main_panel[i].Visible = false;
+                }
+            }
         }
+
 
         // commonをタイトルバーにする初期化
         private void SetMoveForm(MainForm form)
@@ -172,11 +195,10 @@ namespace TaskManage.Main
         // menu2 panel2 のメモのサイズ変更イベント定義
         private void SetSizeChanger(MainForm form)
         {
-            menu2_2_panel_main_table_memo1_sizeChanger = new DAndDSizeChanger(form.menu2_2_panel_main_panel1_table_memo_text, form.menu2_2_panel_main_panel1, DAndDArea.Bottom, 12, form.menu2_2);
-            menu2_2_panel_main_table_memo2_sizeChanger = new DAndDSizeChanger(form.menu2_2_panel_main_panel2_table_memo_text, form.menu2_2_panel_main_panel2, DAndDArea.Bottom, 12, form.menu2_2);
-            menu2_2_panel_main_table_memo3_sizeChanger = new DAndDSizeChanger(form.menu2_2_panel_main_panel3_table_memo_text, form.menu2_2_panel_main_panel3, DAndDArea.Bottom, 12, form.menu2_2);
-            menu2_2_panel_main_table_memo4_sizeChanger = new DAndDSizeChanger(form.menu2_2_panel_main_panel4_table_memo_text, form.menu2_2_panel_main_panel4, DAndDArea.Bottom, 12, form.menu2_2);
-            menu2_2_panel_main_table_memo5_sizeChanger = new DAndDSizeChanger(form.menu2_2_panel_main_panel5_table_memo_text, form.menu2_2_panel_main_panel5, DAndDArea.Bottom, 12, form.menu2_2);
+            for (int i = 0; i < menu2_2_panel_main_table_memo_sizeChanger.Length; i++)
+            {
+                menu2_2_panel_main_table_memo_sizeChanger[i] = new DAndDSizeChanger(form.menu2_2_panel_main_panel_table_memo_text[i], form.menu2_2_panel_main_panel[i], DAndDArea.Bottom, 12, form.menu2_2);
+            }
             this_sizeChanger = new DAndDSizeChanger(form, form, DAndDArea.All, 24);
         }
 

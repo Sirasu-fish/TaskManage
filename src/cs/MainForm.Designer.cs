@@ -289,46 +289,16 @@ namespace TaskManage
         public Panel menu2_2;
         public PanelEx menu2_2_panel;
         public Panel menu2_2_panel_main;
-        public Panel menu2_2_panel_main_panel1;
-        public TableLayoutPanel menu2_2_panel_main_panel1_table_memo;
-        public Panel menu2_2_panel_main_panel1_table_memo_panel_top;
-        public Button menu2_2_panel_main_panel1_table_memo_panel_top_button_close;
-        public Button menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax;
-        public Button menu2_2_panel_main_panel1_table_memo_panel_top_button_save;
-        public TextBox menu2_2_panel_main_panel1_table_memo_panel_top_text;
-        public TextBox menu2_2_panel_main_panel1_table_memo_text;
-        public Panel menu2_2_panel_main_panel2;
-        public TableLayoutPanel menu2_2_panel_main_panel2_table_memo;
-        public Panel menu2_2_panel_main_panel2_table_memo_panel_top;
-        public Button menu2_2_panel_main_panel2_table_memo_panel_top_button_close;
-        public Button menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax;
-        public Button menu2_2_panel_main_panel2_table_memo_panel_top_button_save;
-        public TextBox menu2_2_panel_main_panel2_table_memo_panel_top_text;
-        public TextBox menu2_2_panel_main_panel2_table_memo_text;
-        public Panel menu2_2_panel_main_panel3;
-        public TableLayoutPanel menu2_2_panel_main_panel3_table_memo;
-        public Panel menu2_2_panel_main_panel3_table_memo_panel_top;
-        public Button menu2_2_panel_main_panel3_table_memo_panel_top_button_close;
-        public Button menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax;
-        public Button menu2_2_panel_main_panel3_table_memo_panel_top_button_save;
-        public TextBox menu2_2_panel_main_panel3_table_memo_panel_top_text;
-        public TextBox menu2_2_panel_main_panel3_table_memo_text;
-        public Panel menu2_2_panel_main_panel4;
-        public TableLayoutPanel menu2_2_panel_main_panel4_table_memo;
-        public Panel menu2_2_panel_main_panel4_table_memo_panel_top;
-        public Button menu2_2_panel_main_panel4_table_memo_panel_top_button_close;
-        public Button menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax;
-        public Button menu2_2_panel_main_panel4_table_memo_panel_top_button_save;
-        public TextBox menu2_2_panel_main_panel4_table_memo_panel_top_text;
-        public TextBox menu2_2_panel_main_panel4_table_memo_text;
-        public Panel menu2_2_panel_main_panel5;
-        public TableLayoutPanel menu2_2_panel_main_panel5_table_memo;
-        public Panel menu2_2_panel_main_panel5_table_memo_panel_top;
-        public Button menu2_2_panel_main_panel5_table_memo_panel_top_button_close;
-        public Button menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax;
-        public Button menu2_2_panel_main_panel5_table_memo_panel_top_button_save;
-        public TextBox menu2_2_panel_main_panel5_table_memo_panel_top_text;
-        public TextBox menu2_2_panel_main_panel5_table_memo_text;
+
+        public Panel[] menu2_2_panel_main_panel;
+        public TableLayoutPanel[] menu2_2_panel_main_panel_table_memo;
+        public TextBox[] menu2_2_panel_main_panel_table_memo_text;
+        public Panel[] menu2_2_panel_main_panel_table_memo_panel_top;
+        public Button[] menu2_2_panel_main_panel_table_memo_panel_top_button_close;
+        public Button[] menu2_2_panel_main_panel_table_memo_panel_top_button_minmax;
+        public Button[] menu2_2_panel_main_panel_table_memo_panel_top_button_save;
+        public TextBox[] menu2_2_panel_main_panel_table_memo_panel_top_text;
+
         public Panel menu2_2_panel_top;
         public Button menu2_2_panel_top_button_add;
         public Button menu2_2_panel_top_button_movedown;
@@ -687,46 +657,28 @@ namespace TaskManage
             this.menu2_2_panel_top_button_openclose = new System.Windows.Forms.Button();
             this.menu2_2_panel_top_label_title = new System.Windows.Forms.Label();
             this.menu2_2_panel_main = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel5 = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel5_table_memo = new System.Windows.Forms.TableLayoutPanel();
-            this.menu2_2_panel_main_panel5_table_memo_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel5_table_memo_panel_top = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel4 = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel4_table_memo = new System.Windows.Forms.TableLayoutPanel();
-            this.menu2_2_panel_main_panel4_table_memo_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel4_table_memo_panel_top = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel3 = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel3_table_memo = new System.Windows.Forms.TableLayoutPanel();
-            this.menu2_2_panel_main_panel3_table_memo_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel3_table_memo_panel_top = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel2 = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel2_table_memo = new System.Windows.Forms.TableLayoutPanel();
-            this.menu2_2_panel_main_panel2_table_memo_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel2_table_memo_panel_top = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel1 = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel1_table_memo = new System.Windows.Forms.TableLayoutPanel();
-            this.menu2_2_panel_main_panel1_table_memo_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel1_table_memo_panel_top = new System.Windows.Forms.Panel();
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_text = new System.Windows.Forms.TextBox();
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax = new System.Windows.Forms.Button();
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close = new System.Windows.Forms.Button();
+
+            this.menu2_2_panel_main_panel = new System.Windows.Forms.Panel[99];
+            this.menu2_2_panel_main_panel_table_memo = new System.Windows.Forms.TableLayoutPanel[99];
+            this.menu2_2_panel_main_panel_table_memo_text = new System.Windows.Forms.TextBox[99];
+            this.menu2_2_panel_main_panel_table_memo_panel_top = new System.Windows.Forms.Panel[99];
+            this.menu2_2_panel_main_panel_table_memo_panel_top_text = new System.Windows.Forms.TextBox[99];
+            this.menu2_2_panel_main_panel_table_memo_panel_top_button_save = new System.Windows.Forms.Button[99];
+            this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax = new System.Windows.Forms.Button[99];
+            this.menu2_2_panel_main_panel_table_memo_panel_top_button_close = new System.Windows.Forms.Button[99];
+
+            for (int i = menu2_2_panel_main_panel.Length - 1; i >= 0 ; i--)
+            {
+                this.menu2_2_panel_main_panel[i] = new System.Windows.Forms.Panel();
+                this.menu2_2_panel_main_panel_table_memo[i] = new System.Windows.Forms.TableLayoutPanel();
+                this.menu2_2_panel_main_panel_table_memo_text[i] = new System.Windows.Forms.TextBox();
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i] = new System.Windows.Forms.Panel();
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i] = new System.Windows.Forms.TextBox();
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i] = new System.Windows.Forms.Button();
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i] = new System.Windows.Forms.Button();
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i] = new System.Windows.Forms.Button();
+            }
+
             this.menu2_1 = new System.Windows.Forms.Panel();
             this.menu2_1_panel_margin = new System.Windows.Forms.Panel();
             this.menu2_1_panel = new TaskManage.PanelEx();
@@ -987,21 +939,6 @@ namespace TaskManage
             this.menu2_2_panel.SuspendLayout();
             this.menu2_2_panel_top.SuspendLayout();
             this.menu2_2_panel_main.SuspendLayout();
-            this.menu2_2_panel_main_panel5.SuspendLayout();
-            this.menu2_2_panel_main_panel5_table_memo.SuspendLayout();
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.SuspendLayout();
-            this.menu2_2_panel_main_panel4.SuspendLayout();
-            this.menu2_2_panel_main_panel4_table_memo.SuspendLayout();
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.SuspendLayout();
-            this.menu2_2_panel_main_panel3.SuspendLayout();
-            this.menu2_2_panel_main_panel3_table_memo.SuspendLayout();
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.SuspendLayout();
-            this.menu2_2_panel_main_panel2.SuspendLayout();
-            this.menu2_2_panel_main_panel2_table_memo.SuspendLayout();
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.SuspendLayout();
-            this.menu2_2_panel_main_panel1.SuspendLayout();
-            this.menu2_2_panel_main_panel1_table_memo.SuspendLayout();
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.SuspendLayout();
             this.menu2_1.SuspendLayout();
             this.menu2_1_panel.SuspendLayout();
             this.menu2_1_panel_top.SuspendLayout();
@@ -1031,6 +968,20 @@ namespace TaskManage
             this.menu2_1_panel_main_panel3.SuspendLayout();
             this.menu2_1_panel_main_panel2.SuspendLayout();
             this.menu2_1_panel_main_panel1.SuspendLayout();
+            
+            for (int i = 0; i < menu2_2_panel_main_panel.Length; i++)
+            {
+                this.menu2_2_panel_main_panel[i].SuspendLayout();
+            }
+            for (int i = 0; i < menu2_2_panel_main_panel_table_memo.Length; i++)
+            {
+                this.menu2_2_panel_main_panel_table_memo[i].SuspendLayout();
+            }
+            for (int i = 0; i < menu2_2_panel_main_panel_table_memo_panel_top.Length; i++)
+            {
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].SuspendLayout();
+            }
+
             this.menu3.SuspendLayout();
             this.menu3_panel_top.SuspendLayout();
             this.menutask.SuspendLayout();
@@ -3889,500 +3840,138 @@ namespace TaskManage
             this.menu2_2_panel_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_2_panel_main.Controls.Add(this.menu2_2_panel_main_panel5);
-            this.menu2_2_panel_main.Controls.Add(this.menu2_2_panel_main_panel4);
-            this.menu2_2_panel_main.Controls.Add(this.menu2_2_panel_main_panel3);
-            this.menu2_2_panel_main.Controls.Add(this.menu2_2_panel_main_panel2);
-            this.menu2_2_panel_main.Controls.Add(this.menu2_2_panel_main_panel1);
+            for (int i = menu2_2_panel_main_panel.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main.Controls.Add(this.menu2_2_panel_main_panel[i]);
+            }
             this.menu2_2_panel_main.Location = new System.Drawing.Point(1, 33);
             this.menu2_2_panel_main.Name = "menu2_2_panel_main";
             this.menu2_2_panel_main.Size = new System.Drawing.Size(663, 540);
             this.menu2_2_panel_main.TabIndex = 5;
-            // 
-            // menu2_2_panel_main_panel5
-            // 
-            this.menu2_2_panel_main_panel5.Controls.Add(this.menu2_2_panel_main_panel5_table_memo);
-            this.menu2_2_panel_main_panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_2_panel_main_panel5.Location = new System.Drawing.Point(0, 424);
-            this.menu2_2_panel_main_panel5.Name = "menu2_2_panel_main_panel5";
-            this.menu2_2_panel_main_panel5.Size = new System.Drawing.Size(663, 106);
-            this.menu2_2_panel_main_panel5.TabIndex = 13;
-            // 
-            // menu2_2_panel_main_panel5_table_memo
-            // 
-            this.menu2_2_panel_main_panel5_table_memo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_2_panel_main_panel5_table_memo.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menu2_2_panel_main_panel5_table_memo.ColumnCount = 1;
-            this.menu2_2_panel_main_panel5_table_memo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menu2_2_panel_main_panel5_table_memo.Controls.Add(this.menu2_2_panel_main_panel5_table_memo_text, 0, 1);
-            this.menu2_2_panel_main_panel5_table_memo.Controls.Add(this.menu2_2_panel_main_panel5_table_memo_panel_top, 0, 0);
-            this.menu2_2_panel_main_panel5_table_memo.Location = new System.Drawing.Point(4, 0);
-            this.menu2_2_panel_main_panel5_table_memo.Name = "menu2_2_panel_main_panel5_table_memo";
-            this.menu2_2_panel_main_panel5_table_memo.RowCount = 2;
-            this.menu2_2_panel_main_panel5_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.menu2_2_panel_main_panel5_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.menu2_2_panel_main_panel5_table_memo.Size = new System.Drawing.Size(655, 102);
-            this.menu2_2_panel_main_panel5_table_memo.TabIndex = 8;
-            // 
-            // menu2_2_panel_main_panel5_table_memo_text
-            // 
-            this.menu2_2_panel_main_panel5_table_memo_text.AcceptsReturn = true;
-            this.menu2_2_panel_main_panel5_table_memo_text.AcceptsTab = true;
-            this.menu2_2_panel_main_panel5_table_memo_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel5_table_memo_text.Location = new System.Drawing.Point(1, 24);
-            this.menu2_2_panel_main_panel5_table_memo_text.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel5_table_memo_text.Multiline = true;
-            this.menu2_2_panel_main_panel5_table_memo_text.Name = "menu2_2_panel_main_panel5_table_memo_text";
-            this.menu2_2_panel_main_panel5_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.menu2_2_panel_main_panel5_table_memo_text.Size = new System.Drawing.Size(653, 77);
-            this.menu2_2_panel_main_panel5_table_memo_text.TabIndex = 0;
-            this.menu2_2_panel_main_panel5_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel5_table_memo_text_KeyDown);
-            // 
-            // menu2_2_panel_main_panel5_table_memo_panel_top
-            // 
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel5_table_memo_panel_top_text);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.Location = new System.Drawing.Point(1, 1);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.Name = "menu2_2_panel_main_panel5_table_memo_panel_top";
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.Size = new System.Drawing.Size(653, 22);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.TabIndex = 1;
-            // 
-            // menu2_2_panel_main_panel5_table_memo_panel_top_text
-            // 
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_text.BackColor = System.Drawing.SystemColors.Control;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel5_table_memo_panel_top_text";
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_text.ReadOnly = true;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_text.TabIndex = 4;
-            // 
-            // menu2_2_panel_main_panel5_table_memo_panel_top_button_save
-            // 
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save.Location = new System.Drawing.Point(557, 0);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save.Name = "menu2_2_panel_main_panel5_table_memo_panel_top_button_save";
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save.TabIndex = 3;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save.Click += new System.EventHandler(this.menu2_2_panel_main_panel5_table_memo_panel_top_button_save_Click);
-            // 
-            // menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax
-            // 
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax.Location = new System.Drawing.Point(589, 0);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax.Name = "menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax";
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax.TabIndex = 2;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax.Click += new System.EventHandler(this.menu2_2_panel_main_panel5_table_memo_panel_top_button_minmax_Click);
-            // 
-            // menu2_2_panel_main_panel5_table_memo_panel_top_button_close
-            // 
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close.Location = new System.Drawing.Point(621, 0);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close.Name = "menu2_2_panel_main_panel5_table_memo_panel_top_button_close";
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close.TabIndex = 1;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close.Click += new System.EventHandler(this.menu2_2_panel_main_panel5_table_memo_panel_top_button_close_Click);
-            // 
-            // menu2_2_panel_main_panel4
-            // 
-            this.menu2_2_panel_main_panel4.Controls.Add(this.menu2_2_panel_main_panel4_table_memo);
-            this.menu2_2_panel_main_panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_2_panel_main_panel4.Location = new System.Drawing.Point(0, 318);
-            this.menu2_2_panel_main_panel4.Name = "menu2_2_panel_main_panel4";
-            this.menu2_2_panel_main_panel4.Size = new System.Drawing.Size(663, 106);
-            this.menu2_2_panel_main_panel4.TabIndex = 12;
-            // 
-            // menu2_2_panel_main_panel4_table_memo
-            // 
-            this.menu2_2_panel_main_panel4_table_memo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_2_panel_main_panel4_table_memo.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menu2_2_panel_main_panel4_table_memo.ColumnCount = 1;
-            this.menu2_2_panel_main_panel4_table_memo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menu2_2_panel_main_panel4_table_memo.Controls.Add(this.menu2_2_panel_main_panel4_table_memo_text, 0, 1);
-            this.menu2_2_panel_main_panel4_table_memo.Controls.Add(this.menu2_2_panel_main_panel4_table_memo_panel_top, 0, 0);
-            this.menu2_2_panel_main_panel4_table_memo.Location = new System.Drawing.Point(4, 0);
-            this.menu2_2_panel_main_panel4_table_memo.Name = "menu2_2_panel_main_panel4_table_memo";
-            this.menu2_2_panel_main_panel4_table_memo.RowCount = 2;
-            this.menu2_2_panel_main_panel4_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.menu2_2_panel_main_panel4_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.menu2_2_panel_main_panel4_table_memo.Size = new System.Drawing.Size(655, 102);
-            this.menu2_2_panel_main_panel4_table_memo.TabIndex = 7;
-            // 
-            // menu2_2_panel_main_panel4_table_memo_text
-            // 
-            this.menu2_2_panel_main_panel4_table_memo_text.AcceptsReturn = true;
-            this.menu2_2_panel_main_panel4_table_memo_text.AcceptsTab = true;
-            this.menu2_2_panel_main_panel4_table_memo_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel4_table_memo_text.Location = new System.Drawing.Point(1, 24);
-            this.menu2_2_panel_main_panel4_table_memo_text.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel4_table_memo_text.Multiline = true;
-            this.menu2_2_panel_main_panel4_table_memo_text.Name = "menu2_2_panel_main_panel4_table_memo_text";
-            this.menu2_2_panel_main_panel4_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.menu2_2_panel_main_panel4_table_memo_text.Size = new System.Drawing.Size(653, 77);
-            this.menu2_2_panel_main_panel4_table_memo_text.TabIndex = 0;
-            this.menu2_2_panel_main_panel4_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel4_table_memo_text_KeyDown);
-            // 
-            // menu2_2_panel_main_panel4_table_memo_panel_top
-            // 
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel4_table_memo_panel_top_text);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.Location = new System.Drawing.Point(1, 1);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.Name = "menu2_2_panel_main_panel4_table_memo_panel_top";
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.Size = new System.Drawing.Size(653, 22);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.TabIndex = 1;
-            // 
-            // menu2_2_panel_main_panel4_table_memo_panel_top_text
-            // 
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_text.BackColor = System.Drawing.SystemColors.Control;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel4_table_memo_panel_top_text";
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_text.ReadOnly = true;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_text.TabIndex = 4;
-            // 
-            // menu2_2_panel_main_panel4_table_memo_panel_top_button_save
-            // 
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save.Location = new System.Drawing.Point(557, 0);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save.Name = "menu2_2_panel_main_panel4_table_memo_panel_top_button_save";
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save.TabIndex = 3;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save.Click += new System.EventHandler(this.menu2_2_panel_main_panel4_table_memo_panel_top_button_save_Click);
-            // 
-            // menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax
-            // 
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax.Location = new System.Drawing.Point(589, 0);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax.Name = "menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax";
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax.TabIndex = 2;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax.Click += new System.EventHandler(this.menu2_2_panel_main_panel4_table_memo_panel_top_button_minmax_Click);
-            // 
-            // menu2_2_panel_main_panel4_table_memo_panel_top_button_close
-            // 
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close.Location = new System.Drawing.Point(621, 0);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close.Name = "menu2_2_panel_main_panel4_table_memo_panel_top_button_close";
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close.TabIndex = 1;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close.Click += new System.EventHandler(this.menu2_2_panel_main_panel4_table_memo_panel_top_button_close_Click);
-            // 
-            // menu2_2_panel_main_panel3
-            // 
-            this.menu2_2_panel_main_panel3.Controls.Add(this.menu2_2_panel_main_panel3_table_memo);
-            this.menu2_2_panel_main_panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_2_panel_main_panel3.Location = new System.Drawing.Point(0, 212);
-            this.menu2_2_panel_main_panel3.Name = "menu2_2_panel_main_panel3";
-            this.menu2_2_panel_main_panel3.Size = new System.Drawing.Size(663, 106);
-            this.menu2_2_panel_main_panel3.TabIndex = 11;
-            // 
-            // menu2_2_panel_main_panel3_table_memo
-            // 
-            this.menu2_2_panel_main_panel3_table_memo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_2_panel_main_panel3_table_memo.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menu2_2_panel_main_panel3_table_memo.ColumnCount = 1;
-            this.menu2_2_panel_main_panel3_table_memo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menu2_2_panel_main_panel3_table_memo.Controls.Add(this.menu2_2_panel_main_panel3_table_memo_text, 0, 1);
-            this.menu2_2_panel_main_panel3_table_memo.Controls.Add(this.menu2_2_panel_main_panel3_table_memo_panel_top, 0, 0);
-            this.menu2_2_panel_main_panel3_table_memo.Location = new System.Drawing.Point(4, 0);
-            this.menu2_2_panel_main_panel3_table_memo.Name = "menu2_2_panel_main_panel3_table_memo";
-            this.menu2_2_panel_main_panel3_table_memo.RowCount = 2;
-            this.menu2_2_panel_main_panel3_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.menu2_2_panel_main_panel3_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.menu2_2_panel_main_panel3_table_memo.Size = new System.Drawing.Size(655, 102);
-            this.menu2_2_panel_main_panel3_table_memo.TabIndex = 6;
-            // 
-            // menu2_2_panel_main_panel3_table_memo_text
-            // 
-            this.menu2_2_panel_main_panel3_table_memo_text.AcceptsReturn = true;
-            this.menu2_2_panel_main_panel3_table_memo_text.AcceptsTab = true;
-            this.menu2_2_panel_main_panel3_table_memo_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel3_table_memo_text.Location = new System.Drawing.Point(1, 24);
-            this.menu2_2_panel_main_panel3_table_memo_text.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel3_table_memo_text.Multiline = true;
-            this.menu2_2_panel_main_panel3_table_memo_text.Name = "menu2_2_panel_main_panel3_table_memo_text";
-            this.menu2_2_panel_main_panel3_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.menu2_2_panel_main_panel3_table_memo_text.Size = new System.Drawing.Size(653, 77);
-            this.menu2_2_panel_main_panel3_table_memo_text.TabIndex = 0;
-            this.menu2_2_panel_main_panel3_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel3_table_memo_text_KeyDown);
-            // 
-            // menu2_2_panel_main_panel3_table_memo_panel_top
-            // 
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel3_table_memo_panel_top_text);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.Location = new System.Drawing.Point(1, 1);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.Name = "menu2_2_panel_main_panel3_table_memo_panel_top";
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.Size = new System.Drawing.Size(653, 22);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.TabIndex = 1;
-            // 
-            // menu2_2_panel_main_panel3_table_memo_panel_top_text
-            // 
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_text.BackColor = System.Drawing.SystemColors.Control;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel3_table_memo_panel_top_text";
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_text.ReadOnly = true;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_text.TabIndex = 4;
-            // 
-            // menu2_2_panel_main_panel3_table_memo_panel_top_button_save
-            // 
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save.Location = new System.Drawing.Point(557, 0);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save.Name = "menu2_2_panel_main_panel3_table_memo_panel_top_button_save";
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save.TabIndex = 3;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save.Click += new System.EventHandler(this.menu2_2_panel_main_panel3_table_memo_panel_top_button_save_Click);
-            // 
-            // menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax
-            // 
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax.Location = new System.Drawing.Point(589, 0);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax.Name = "menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax";
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax.TabIndex = 2;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax.Click += new System.EventHandler(this.menu2_2_panel_main_panel3_table_memo_panel_top_button_minmax_Click);
-            // 
-            // menu2_2_panel_main_panel3_table_memo_panel_top_button_close
-            // 
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close.Location = new System.Drawing.Point(621, 0);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close.Name = "menu2_2_panel_main_panel3_table_memo_panel_top_button_close";
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close.TabIndex = 1;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close.Click += new System.EventHandler(this.menu2_2_panel_main_panel3_table_memo_panel_top_button_close_Click);
-            // 
-            // menu2_2_panel_main_panel2
-            // 
-            this.menu2_2_panel_main_panel2.Controls.Add(this.menu2_2_panel_main_panel2_table_memo);
-            this.menu2_2_panel_main_panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_2_panel_main_panel2.Location = new System.Drawing.Point(0, 106);
-            this.menu2_2_panel_main_panel2.Name = "menu2_2_panel_main_panel2";
-            this.menu2_2_panel_main_panel2.Size = new System.Drawing.Size(663, 106);
-            this.menu2_2_panel_main_panel2.TabIndex = 10;
-            // 
-            // menu2_2_panel_main_panel2_table_memo
-            // 
-            this.menu2_2_panel_main_panel2_table_memo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_2_panel_main_panel2_table_memo.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menu2_2_panel_main_panel2_table_memo.ColumnCount = 1;
-            this.menu2_2_panel_main_panel2_table_memo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menu2_2_panel_main_panel2_table_memo.Controls.Add(this.menu2_2_panel_main_panel2_table_memo_text, 0, 1);
-            this.menu2_2_panel_main_panel2_table_memo.Controls.Add(this.menu2_2_panel_main_panel2_table_memo_panel_top, 0, 0);
-            this.menu2_2_panel_main_panel2_table_memo.Location = new System.Drawing.Point(4, 0);
-            this.menu2_2_panel_main_panel2_table_memo.Name = "menu2_2_panel_main_panel2_table_memo";
-            this.menu2_2_panel_main_panel2_table_memo.RowCount = 2;
-            this.menu2_2_panel_main_panel2_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.menu2_2_panel_main_panel2_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.menu2_2_panel_main_panel2_table_memo.Size = new System.Drawing.Size(655, 102);
-            this.menu2_2_panel_main_panel2_table_memo.TabIndex = 5;
-            // 
-            // menu2_2_panel_main_panel2_table_memo_text
-            // 
-            this.menu2_2_panel_main_panel2_table_memo_text.AcceptsReturn = true;
-            this.menu2_2_panel_main_panel2_table_memo_text.AcceptsTab = true;
-            this.menu2_2_panel_main_panel2_table_memo_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel2_table_memo_text.Location = new System.Drawing.Point(1, 24);
-            this.menu2_2_panel_main_panel2_table_memo_text.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel2_table_memo_text.Multiline = true;
-            this.menu2_2_panel_main_panel2_table_memo_text.Name = "menu2_2_panel_main_panel2_table_memo_text";
-            this.menu2_2_panel_main_panel2_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.menu2_2_panel_main_panel2_table_memo_text.Size = new System.Drawing.Size(653, 77);
-            this.menu2_2_panel_main_panel2_table_memo_text.TabIndex = 0;
-            this.menu2_2_panel_main_panel2_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel2_table_memo_text_KeyDown);
-            // 
-            // menu2_2_panel_main_panel2_table_memo_panel_top
-            // 
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel2_table_memo_panel_top_text);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.Location = new System.Drawing.Point(1, 1);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.Name = "menu2_2_panel_main_panel2_table_memo_panel_top";
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.Size = new System.Drawing.Size(653, 22);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.TabIndex = 1;
-            // 
-            // menu2_2_panel_main_panel2_table_memo_panel_top_text
-            // 
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_text.BackColor = System.Drawing.SystemColors.Control;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel2_table_memo_panel_top_text";
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_text.ReadOnly = true;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_text.TabIndex = 4;
-            // 
-            // menu2_2_panel_main_panel2_table_memo_panel_top_button_save
-            // 
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save.Location = new System.Drawing.Point(557, 0);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save.Name = "menu2_2_panel_main_panel2_table_memo_panel_top_button_save";
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save.TabIndex = 3;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save.Click += new System.EventHandler(this.menu2_2_panel_main_panel2_table_memo_panel_top_button_save_Click);
-            // 
-            // menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax
-            // 
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax.Location = new System.Drawing.Point(589, 0);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax.Name = "menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax";
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax.TabIndex = 2;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax.Click += new System.EventHandler(this.menu2_2_panel_main_panel2_table_memo_panel_top_button_minmax_Click);
-            // 
-            // menu2_2_panel_main_panel2_table_memo_panel_top_button_close
-            // 
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close.Location = new System.Drawing.Point(621, 0);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close.Name = "menu2_2_panel_main_panel2_table_memo_panel_top_button_close";
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close.TabIndex = 1;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close.Click += new System.EventHandler(this.menu2_2_panel_main_panel2_table_memo_panel_top_button_close_Click);
-            // 
-            // menu2_2_panel_main_panel1
-            // 
-            this.menu2_2_panel_main_panel1.Controls.Add(this.menu2_2_panel_main_panel1_table_memo);
-            this.menu2_2_panel_main_panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_2_panel_main_panel1.Location = new System.Drawing.Point(0, 0);
-            this.menu2_2_panel_main_panel1.Name = "menu2_2_panel_main_panel1";
-            this.menu2_2_panel_main_panel1.Size = new System.Drawing.Size(663, 106);
-            this.menu2_2_panel_main_panel1.TabIndex = 9;
-            // 
-            // menu2_2_panel_main_panel1_table_memo
-            // 
-            this.menu2_2_panel_main_panel1_table_memo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_2_panel_main_panel1_table_memo.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menu2_2_panel_main_panel1_table_memo.ColumnCount = 1;
-            this.menu2_2_panel_main_panel1_table_memo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menu2_2_panel_main_panel1_table_memo.Controls.Add(this.menu2_2_panel_main_panel1_table_memo_text, 0, 1);
-            this.menu2_2_panel_main_panel1_table_memo.Controls.Add(this.menu2_2_panel_main_panel1_table_memo_panel_top, 0, 0);
-            this.menu2_2_panel_main_panel1_table_memo.Location = new System.Drawing.Point(4, 0);
-            this.menu2_2_panel_main_panel1_table_memo.Name = "menu2_2_panel_main_panel1_table_memo";
-            this.menu2_2_panel_main_panel1_table_memo.RowCount = 2;
-            this.menu2_2_panel_main_panel1_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.menu2_2_panel_main_panel1_table_memo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.menu2_2_panel_main_panel1_table_memo.Size = new System.Drawing.Size(655, 102);
-            this.menu2_2_panel_main_panel1_table_memo.TabIndex = 4;
-            // 
-            // menu2_2_panel_main_panel1_table_memo_text
-            // 
-            this.menu2_2_panel_main_panel1_table_memo_text.AcceptsReturn = true;
-            this.menu2_2_panel_main_panel1_table_memo_text.AcceptsTab = true;
-            this.menu2_2_panel_main_panel1_table_memo_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel1_table_memo_text.Location = new System.Drawing.Point(1, 24);
-            this.menu2_2_panel_main_panel1_table_memo_text.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel1_table_memo_text.Multiline = true;
-            this.menu2_2_panel_main_panel1_table_memo_text.Name = "menu2_2_panel_main_panel1_table_memo_text";
-            this.menu2_2_panel_main_panel1_table_memo_text.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.menu2_2_panel_main_panel1_table_memo_text.Size = new System.Drawing.Size(653, 77);
-            this.menu2_2_panel_main_panel1_table_memo_text.TabIndex = 0;
-            this.menu2_2_panel_main_panel1_table_memo_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel1_table_memo_text_KeyDown);
-            // 
-            // menu2_2_panel_main_panel1_table_memo_panel_top
-            // 
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel1_table_memo_panel_top_text);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.Controls.Add(this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.Location = new System.Drawing.Point(1, 1);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.Name = "menu2_2_panel_main_panel1_table_memo_panel_top";
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.Size = new System.Drawing.Size(653, 22);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.TabIndex = 1;
-            // 
-            // menu2_2_panel_main_panel1_table_memo_panel_top_text
-            // 
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_text.BackColor = System.Drawing.SystemColors.Control;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_text.Name = "menu2_2_panel_main_panel1_table_memo_panel_top_text";
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_text.ReadOnly = true;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_text.Size = new System.Drawing.Size(557, 23);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_text.TabIndex = 4;
-            // 
-            // menu2_2_panel_main_panel1_table_memo_panel_top_button_save
-            // 
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save.Location = new System.Drawing.Point(557, 0);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save.Name = "menu2_2_panel_main_panel1_table_memo_panel_top_button_save";
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save.TabIndex = 3;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save.Click += new System.EventHandler(this.menu2_2_panel_main_panel1_table_memo_panel_top_button_save_Click);
+
+
+            //
+            // menu2_2_panel_main_panel
+            //
+            for (int i = menu2_2_panel_main_panel.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main_panel[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo[i]);
+                this.menu2_2_panel_main_panel[i].Dock = System.Windows.Forms.DockStyle.Top;
+                this.menu2_2_panel_main_panel[i].Location = new System.Drawing.Point(0, 0);
+                this.menu2_2_panel_main_panel[i].Name = "menu2_2_panel_main_panel1";
+                this.menu2_2_panel_main_panel[i].Size = new System.Drawing.Size(663, 106);
+                this.menu2_2_panel_main_panel[i].TabIndex = 9;
+            }
+            //
+            // menu2_2_panel_main_panel_table_memo
+            //
+            for (int i = menu2_2_panel_main_panel_table_memo.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main_panel_table_memo[i].Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                | System.Windows.Forms.AnchorStyles.Left)
+                | System.Windows.Forms.AnchorStyles.Right)));
+                this.menu2_2_panel_main_panel_table_memo[i].CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+                this.menu2_2_panel_main_panel_table_memo[i].ColumnCount = 1;
+                this.menu2_2_panel_main_panel_table_memo[i].ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+                this.menu2_2_panel_main_panel_table_memo[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_text[i], 0, 1);
+                this.menu2_2_panel_main_panel_table_memo[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top[i], 0, 0);
+                this.menu2_2_panel_main_panel_table_memo[i].Location = new System.Drawing.Point(4, 0);
+                this.menu2_2_panel_main_panel_table_memo[i].Name = "menu2_2_panel_main_panel1_table_memo";
+                this.menu2_2_panel_main_panel_table_memo[i].RowCount = 2;
+                this.menu2_2_panel_main_panel_table_memo[i].RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+                this.menu2_2_panel_main_panel_table_memo[i].RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
+                this.menu2_2_panel_main_panel_table_memo[i].Size = new System.Drawing.Size(655, 102);
+                this.menu2_2_panel_main_panel_table_memo[i].TabIndex = 4;
+            }
+            //
+            // menu2_2_panel_main_panel_table_memo_text
+            //
+            for (int i = menu2_2_panel_main_panel_table_memo_text.Length - 1; i >= 0 ; i--)
+            {
+                this.menu2_2_panel_main_panel_table_memo_text[i].AcceptsReturn = true;
+                this.menu2_2_panel_main_panel_table_memo_text[i].AcceptsTab = true;
+                this.menu2_2_panel_main_panel_table_memo_text[i].Dock = System.Windows.Forms.DockStyle.Fill;
+                this.menu2_2_panel_main_panel_table_memo_text[i].Location = new System.Drawing.Point(1, 24);
+                this.menu2_2_panel_main_panel_table_memo_text[i].Margin = new System.Windows.Forms.Padding(0);
+                this.menu2_2_panel_main_panel_table_memo_text[i].Multiline = true;
+                this.menu2_2_panel_main_panel_table_memo_text[i].Name = i.ToString();
+                this.menu2_2_panel_main_panel_table_memo_text[i].ScrollBars = System.Windows.Forms.ScrollBars.Both;
+                this.menu2_2_panel_main_panel_table_memo_text[i].Size = new System.Drawing.Size(653, 77);
+                this.menu2_2_panel_main_panel_table_memo_text[i].TabIndex = 0;
+                this.menu2_2_panel_main_panel_table_memo_text[i].KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel_table_memo_text_KeyDown);
+            }
+            //
+            // menu2_2_panel_main_panel_table_memo_panel_top
+            //
+            for (int i = menu2_2_panel_main_panel_table_memo_panel_top.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_text[i]);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i]);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i]);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i]);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Dock = System.Windows.Forms.DockStyle.Fill;
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Location = new System.Drawing.Point(1, 1);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Margin = new System.Windows.Forms.Padding(0);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Name = "menu2_2_panel_main_panel1_table_memo_panel_top";
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Size = new System.Drawing.Size(653, 22);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].TabIndex = 1;
+            }
+            //
+            // menu2_2_panel_main_panel_table_memo_panel_top_text
+            //
+            for (int i = menu2_2_panel_main_panel_table_memo_panel_top_text.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].BackColor = System.Drawing.SystemColors.Control;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Dock = System.Windows.Forms.DockStyle.Fill;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Location = new System.Drawing.Point(0, 0);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Name = "menu2_2_panel_main_panel1_table_memo_panel_top_text";
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].ReadOnly = true;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Size = new System.Drawing.Size(557, 23);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].TabIndex = 4;
+            }
+            //
+            // menu2_2_panel_main_panel_table_memo_panel_top_button_save
+            //
+            for (int i = menu2_2_panel_main_panel_table_memo_panel_top_button_save.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Dock = System.Windows.Forms.DockStyle.Right;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Location = new System.Drawing.Point(557, 0);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Name = i.ToString();
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Size = new System.Drawing.Size(32, 22);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].TabIndex = 3;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].UseVisualStyleBackColor = true;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click);
+            }
             // 
             // menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax
             // 
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax.Location = new System.Drawing.Point(589, 0);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax.Name = "menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax";
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax.TabIndex = 2;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax.Click += new System.EventHandler(this.menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax_Click);
-            // 
-            // menu2_2_panel_main_panel1_table_memo_panel_top_button_close
-            // 
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close.Location = new System.Drawing.Point(621, 0);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close.Name = "menu2_2_panel_main_panel1_table_memo_panel_top_button_close";
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close.Size = new System.Drawing.Size(32, 22);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close.TabIndex = 1;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close.Click += new System.EventHandler(this.menu2_2_panel_main_panel1_table_memo_panel_top_button_close_Click);
+            for (int i = menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Dock = System.Windows.Forms.DockStyle.Right;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Location = new System.Drawing.Point(589, 0);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Name = i.ToString();
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Size = new System.Drawing.Size(32, 22);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].TabIndex = 2;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].UseVisualStyleBackColor = true;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click);
+            }
+            //
+            // menu2_2_panel_main_panel_table_memo_panel_top_button_close
+            //
+            for (int i = menu2_2_panel_main_panel_table_memo_panel_top_button_close.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Dock = System.Windows.Forms.DockStyle.Right;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Location = new System.Drawing.Point(621, 0);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Name = "menu2_2_panel_main_panel1_table_memo_panel_top_button_close";
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Size = new System.Drawing.Size(32, 22);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].TabIndex = 1;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].UseVisualStyleBackColor = true;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click);
+            }
+             
             // 
             // menu2_1
             // 
@@ -6706,31 +6295,17 @@ namespace TaskManage
             this.menu2_2_panel.ResumeLayout(false);
             this.menu2_2_panel_top.ResumeLayout(false);
             this.menu2_2_panel_main.ResumeLayout(false);
-            this.menu2_2_panel_main_panel5.ResumeLayout(false);
-            this.menu2_2_panel_main_panel5_table_memo.ResumeLayout(false);
-            this.menu2_2_panel_main_panel5_table_memo.PerformLayout();
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.ResumeLayout(false);
-            this.menu2_2_panel_main_panel5_table_memo_panel_top.PerformLayout();
-            this.menu2_2_panel_main_panel4.ResumeLayout(false);
-            this.menu2_2_panel_main_panel4_table_memo.ResumeLayout(false);
-            this.menu2_2_panel_main_panel4_table_memo.PerformLayout();
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.ResumeLayout(false);
-            this.menu2_2_panel_main_panel4_table_memo_panel_top.PerformLayout();
-            this.menu2_2_panel_main_panel3.ResumeLayout(false);
-            this.menu2_2_panel_main_panel3_table_memo.ResumeLayout(false);
-            this.menu2_2_panel_main_panel3_table_memo.PerformLayout();
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.ResumeLayout(false);
-            this.menu2_2_panel_main_panel3_table_memo_panel_top.PerformLayout();
-            this.menu2_2_panel_main_panel2.ResumeLayout(false);
-            this.menu2_2_panel_main_panel2_table_memo.ResumeLayout(false);
-            this.menu2_2_panel_main_panel2_table_memo.PerformLayout();
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.ResumeLayout(false);
-            this.menu2_2_panel_main_panel2_table_memo_panel_top.PerformLayout();
-            this.menu2_2_panel_main_panel1.ResumeLayout(false);
-            this.menu2_2_panel_main_panel1_table_memo.ResumeLayout(false);
-            this.menu2_2_panel_main_panel1_table_memo.PerformLayout();
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.ResumeLayout(false);
-            this.menu2_2_panel_main_panel1_table_memo_panel_top.PerformLayout();
+
+            for (int i = menu2_2_panel_main_panel.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main_panel[i].ResumeLayout(false);
+            }
+            for (int i = menu2_2_panel_main_panel_table_memo.Length - 1; i >= 0; i--)
+            {
+                this.menu2_2_panel_main_panel_table_memo[i].ResumeLayout(false);
+                this.menu2_2_panel_main_panel_table_memo[i].PerformLayout();
+            }
+
             this.menu2_1.ResumeLayout(false);
             this.menu2_1_panel.ResumeLayout(false);
             this.menu2_1_panel_top.ResumeLayout(false);
