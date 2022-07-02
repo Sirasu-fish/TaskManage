@@ -12,11 +12,6 @@ namespace TaskManage.Main
             // 設定を反映
             RefrectSetting(form);
 
-
-            // メニュー切り替え
-            controls_event.common_events.ChangeMenu(form);
-            // 表示モード切り替え
-            controls_event.common_events.ChangeDarkMode(form);
             // menu2 panel3 のメモのサイズ変更イベント定義
             SetSizeChanger(form);
 
@@ -33,13 +28,45 @@ namespace TaskManage.Main
         private static DAndDSizeChanger this_sizeChanger;
         private static DAndDMoveForm common_MoveForm;
 
-
-
-
-        #endregion private
-
         // 設定を反映
         private void RefrectSetting(MainForm form)
+        {
+            SetForm(form);
+
+            SetCommon(form);
+
+            SetMenu2_1(form);
+
+            SetMenu2_2(form);
+
+            SetMenu2_3(form);
+        }
+
+        // Form 設定反映
+        private void SetForm(MainForm form)
+        {
+            // フォームサイズ x
+            if (Properties.Settings.Default.form_x != 0)
+            {
+                form.Width = Properties.Settings.Default.form_x;
+            }
+            else
+            {
+                form.Width = 200;
+            }
+
+            // フォームサイズ y
+            if (Properties.Settings.Default.form_y != 0)
+            {
+                form.Height = Properties.Settings.Default.form_y;
+            }
+            else
+            {
+                form.Height = 600;
+            }
+        }
+
+        private void SetCommon(MainForm form)
         {
             // ダークモード
             if (Properties.Settings.Default.common_mode)
@@ -50,27 +77,15 @@ namespace TaskManage.Main
             {
                 form.common_panel_setting_table_check1.Checked = false;
             }
+            // メニュー切り替え
+            controls_event.common_events.ChangeMenu(form);
+            // 表示モード切り替え
+            controls_event.common_events.ChangeDarkMode(form);
+        }
 
-            // メモ折り返し
-            if (Properties.Settings.Default.menu2_memowrap)
-            {
-                form.common_panel_setting_table_check3.Checked = true;
-                //form.menu2_2_panel_main_panel1_table_memo_text.WordWrap = true;
-                //form.menu2_2_panel_main_panel2_table_memo_text.WordWrap = true;
-                //form.menu2_2_panel_main_panel3_table_memo_text.WordWrap = true;
-                //form.menu2_2_panel_main_panel4_table_memo_text.WordWrap = true;
-                //form.menu2_2_panel_main_panel5_table_memo_text.WordWrap = true;
-            }
-            else
-            {
-                form.common_panel_setting_table_check3.Checked = false;
-                //form.menu2_2_panel_main_panel1_table_memo_text.WordWrap = false;
-                //form.menu2_2_panel_main_panel2_table_memo_text.WordWrap = false;
-                //form.menu2_2_panel_main_panel3_table_memo_text.WordWrap = false;
-                //form.menu2_2_panel_main_panel4_table_memo_text.WordWrap = false;
-                //form.menu2_2_panel_main_panel5_table_memo_text.WordWrap = false;
-            }
-
+        // Menu2_1 設定反映
+        private void SetMenu2_1(MainForm form)
+        {
             // menu2 1 開いているか
             if (Properties.Settings.Default.menu2_open1)
             {
@@ -84,44 +99,9 @@ namespace TaskManage.Main
                 form.menu2_1_panel.Height = 34;
                 form.menu2_1.Height = 42;
             }
-
-
-
-            // menu2 3 開いているか
-            if (Properties.Settings.Default.menu2_open3)
-            {
-                form.menu2_3_panel_main.Visible = true;
-                form.menu2_3_panel.Height = 934;
-                form.menu2_3.Height = 942;
-            }
-            else
-            {
-                form.menu2_3_panel_main.Visible = false;
-                form.menu2_3_panel.Height = 34;
-                form.menu2_3.Height = 42;
-            }
-
-            // フォームサイズ x
-            if (Properties.Settings.Default.form_x != 0)
-            {
-                form.Width = Properties.Settings.Default.form_x;
-            }
-            else
-            {
-            }
-
-            // フォームサイズ y
-            if (Properties.Settings.Default.form_y != 0)
-            {
-                form.Height = Properties.Settings.Default.form_y;
-            }
-            else
-            {
-            }
-
-            SetMenu2_2(form);
         }
 
+        // Menu2_2 設定反映
         private void SetMenu2_2(MainForm form)
         {
             // menu2 2 開いているか
@@ -138,9 +118,9 @@ namespace TaskManage.Main
                 form.menu2_2.Height = 42;
             }
 
-            FileUtil fu = new FileUtil();
+
             // メモ展開
-            if (Properties.Settings.Default.memo_path == null)
+            if (Properties.Settings.Default.memo_path == null || Properties.Settings.Default.memo_path.Count > 99) //pathがない場合は初期化 or pathが100以上ある場合は初期化
             {
                 Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
                 Properties.Settings.Default.memo_path.AddRange(new string[99]);
@@ -148,40 +128,60 @@ namespace TaskManage.Main
             }
             else
             {
-                if (Properties.Settings.Default.memo_path.Count > 99)
-                {
-                    Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                    Properties.Settings.Default.memo_path.AddRange(new string[99]);
-                    Properties.Settings.Default.Save();
-                }
-                else
-                {
-                    string[] paths = new string[99];
-                    Properties.Settings.Default.memo_path.CopyTo(paths, 0);
-                    int num = 0;
-                    for (int i = 0; i < paths.Length; i++)
-                    {
-                        if (String.IsNullOrEmpty(paths[i]))
-                        {
-                            num++;
-                        }
-                    }
-                    Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                    Properties.Settings.Default.memo_path.AddRange(paths);
-                    Properties.Settings.Default.Save();
-                }
+                string[] paths = new string[99];
+                Properties.Settings.Default.memo_path.CopyTo(paths, 0);
+                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.memo_path.AddRange(paths);
+                Properties.Settings.Default.Save();
             }
 
+            FileUtil fu = new FileUtil();
             string[] path = new string[99];
             Properties.Settings.Default.memo_path.CopyTo(path, 0);
             for (int i = 0; i < path.Length; i++)
             {
                 if (!String.IsNullOrEmpty(path[i]))
                 {
-                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = path[i];
-                    form.menu2_2_panel_main_panel_table_memo_text[i].Text = fu.ReadFileAll(path[i]);
-                    form.menu2_2_panel_main_panel[i].Visible = false;
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = path[i]; // タイトル
+                    form.menu2_2_panel_main_panel_table_memo_text[i].Text = fu.ReadFileAll(path[i]); // 内容
+                    form.menu2_2_panel_main_panel[i].Visible = false; // 非表示
                 }
+            }
+
+            // メモ折り返し
+            if (Properties.Settings.Default.menu2_memowrap)
+            {
+                form.common_panel_setting_table_check3.Checked = true;
+                for (int i = 0; i < path.Length; i++)
+                {
+                    form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = true;
+                }
+            }
+            else
+            {
+                form.common_panel_setting_table_check3.Checked = false;
+                for (int i = 0; i < path.Length; i++)
+                {
+                    form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = false;
+                }
+            }
+        }
+
+        // Menu2_3 設定反映
+        private void SetMenu2_3(MainForm form)
+        {
+            // menu2 3 開いているか
+            if (Properties.Settings.Default.menu2_open3)
+            {
+                form.menu2_3_panel_main.Visible = true;
+                form.menu2_3_panel.Height = 934;
+                form.menu2_3.Height = 942;
+            }
+            else
+            {
+                form.menu2_3_panel_main.Visible = false;
+                form.menu2_3_panel.Height = 34;
+                form.menu2_3.Height = 42;
             }
         }
 
@@ -227,5 +227,10 @@ namespace TaskManage.Main
             form.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedItem = year.ToString();
             form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
+
+
+        #endregion private
+
+
     }
 }
