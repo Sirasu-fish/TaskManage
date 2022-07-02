@@ -144,6 +144,9 @@ namespace TaskManage.Main
                 {
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = path[i]; // タイトル
                     form.menu2_2_panel_main_panel_table_memo_text[i].Text = fu.ReadFileAll(path[i]); // 内容
+                }
+                else
+                {
                     form.menu2_2_panel_main_panel[i].Visible = false; // 非表示
                 }
             }
