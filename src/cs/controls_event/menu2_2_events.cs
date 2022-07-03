@@ -77,8 +77,31 @@ namespace TaskManage.controls_event
             ofd.Title = "ファイルを選択してください";
             ofd.RestoreDirectory = true;
 
+            FileUtil fu = new FileUtil();
+
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                string[] path = new string[99];
+                Properties.Settings.Default.memo_path.CopyTo(path, 0);
+                for (int i = 0; i < path.Length; i++)
+                {
+                    if (path[i] == ofd.FileName)
+                    {
+                        form.menu2_2_panel_main_panel_table_memo_text[i].Text = fu.ReadFileAll(ofd.FileName);
+                        break;
+                    }
+                    if (string.IsNullOrEmpty(path[i]))
+                    {
+                        form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = ofd.FileName;
+                        form.menu2_2_panel_main_panel_table_memo_text[i].Text = fu.ReadFileAll(ofd.FileName);
+                        form.menu2_2_panel_main_panel[i].Visible = true;
+                        path[i] = ofd.FileName;
+                        Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+                        Properties.Settings.Default.memo_path.AddRange(path);
+                        Properties.Settings.Default.Save();
+                        break;
+                    }
+                }
 
             }
         }
@@ -130,7 +153,7 @@ namespace TaskManage.controls_event
             string[] path = new string[99];
             Properties.Settings.Default.memo_path.CopyTo(path, 0);
             path[i] = "";
-            //Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+            Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
             Properties.Settings.Default.memo_path.AddRange(path);
             Properties.Settings.Default.Save();
             form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = "";

@@ -37,9 +37,7 @@ namespace TaskManage
         public Panel common_panel_setting;
         public CheckBox common_panel_setting_table_check1;
         public CheckBox common_panel_setting_table_check3;
-        public ComboBox common_panel_setting_table_combo2;
         public Label common_panel_setting_table_label1;
-        public Label common_panel_setting_table_label2;
         public Label common_panel_setting_table_label3;
         public TableLayoutPanel common_panel_setting_table_setting;
 
@@ -47,7 +45,6 @@ namespace TaskManage
         public PanelEx menu1;
         public Panel menu1_panel_calendertop;
         public Button menu1_panel_calendertop_button_nextmonth;
-        public Button menu1_panel_calendertop_button_onoff;
         public Button menu1_panel_calendertop_button_prevmonth;
         public Panel menu1_panel_calendertop_panel_yearmonth;
         public ComboBox menu1_panel_calendertop_panel_yearmonth_combo_month;
@@ -183,7 +180,6 @@ namespace TaskManage
             this.common_button_setting = new System.Windows.Forms.Button();
             this.common_button_nextmenu = new System.Windows.Forms.Button();
             this.menu1_panel_calendertop = new System.Windows.Forms.Panel();
-            this.menu1_panel_calendertop_button_onoff = new System.Windows.Forms.Button();
             this.menu1_panel_calendertop_panel_yearmonth = new System.Windows.Forms.Panel();
             this.menu1_panel_calendertop_panel_yearmonth_combo_year = new System.Windows.Forms.ComboBox();
             this.menu1_panel_calendertop_panel_yearmonth_label_month = new System.Windows.Forms.Label();
@@ -194,11 +190,9 @@ namespace TaskManage
             this.common_panel_setting = new System.Windows.Forms.Panel();
             this.common_panel_setting_table_setting = new System.Windows.Forms.TableLayoutPanel();
             this.common_panel_setting_table_check1 = new System.Windows.Forms.CheckBox();
-            this.common_panel_setting_table_combo2 = new System.Windows.Forms.ComboBox();
             this.common_panel_setting_table_check3 = new System.Windows.Forms.CheckBox();
             this.common_panel_setting_table_label3 = new System.Windows.Forms.Label();
             this.common_panel_setting_table_label1 = new System.Windows.Forms.Label();
-            this.common_panel_setting_table_label2 = new System.Windows.Forms.Label();
             this.menu1 = new TaskManage.PanelEx();
             this.menu1_table_calender = new System.Windows.Forms.TableLayoutPanel();
 
@@ -477,7 +471,6 @@ namespace TaskManage
             // 
             this.menu1_panel_calendertop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_button_onoff);
             this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth);
             this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_button_nextmonth);
             this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_button_prevmonth);
@@ -485,15 +478,6 @@ namespace TaskManage
             this.menu1_panel_calendertop.Name = "menu1_panel_calendertop";
             this.menu1_panel_calendertop.Size = new System.Drawing.Size(680, 37);
             this.menu1_panel_calendertop.TabIndex = 0;
-            // 
-            // menu1_panel_calendertop_button_onoff
-            // 
-            this.menu1_panel_calendertop_button_onoff.Location = new System.Drawing.Point(3, 3);
-            this.menu1_panel_calendertop_button_onoff.Name = "menu1_panel_calendertop_button_onoff";
-            this.menu1_panel_calendertop_button_onoff.Size = new System.Drawing.Size(52, 31);
-            this.menu1_panel_calendertop_button_onoff.TabIndex = 2;
-            this.menu1_panel_calendertop_button_onoff.Text = "on/off";
-            this.menu1_panel_calendertop_button_onoff.UseVisualStyleBackColor = true;
             // 
             // menu1_panel_calendertop_panel_yearmonth
             // 
@@ -593,7 +577,7 @@ namespace TaskManage
             this.common_panel_setting.Controls.Add(this.common_panel_setting_table_setting);
             this.common_panel_setting.Location = new System.Drawing.Point(3, 38);
             this.common_panel_setting.Name = "common_panel_setting";
-            this.common_panel_setting.Size = new System.Drawing.Size(214, 96);
+            this.common_panel_setting.Size = new System.Drawing.Size(150, 96);
             this.common_panel_setting.TabIndex = 2;
             this.common_panel_setting.Visible = false;
             // 
@@ -601,21 +585,18 @@ namespace TaskManage
             // 
             this.common_panel_setting_table_setting.BackColor = System.Drawing.Color.Transparent;
             this.common_panel_setting_table_setting.ColumnCount = 2;
-            this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_check1, 1, 0);
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_combo2, 1, 1);
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_check3, 1, 2);
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_label3, 0, 2);
+            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_check3, 1, 1);
+            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_label3, 0, 1);
             this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_label1, 0, 0);
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_label2, 0, 1);
             this.common_panel_setting_table_setting.Location = new System.Drawing.Point(4, 3);
             this.common_panel_setting_table_setting.Name = "common_panel_setting_table_setting";
-            this.common_panel_setting_table_setting.RowCount = 3;
-            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.common_panel_setting_table_setting.Size = new System.Drawing.Size(206, 90);
+            this.common_panel_setting_table_setting.RowCount = 2;
+            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.common_panel_setting_table_setting.Size = new System.Drawing.Size(142, 90);
             this.common_panel_setting_table_setting.TabIndex = 2;
             // 
             // common_panel_setting_table_check1
@@ -629,15 +610,6 @@ namespace TaskManage
             this.common_panel_setting_table_check1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.common_panel_setting_table_check1.UseVisualStyleBackColor = true;
             this.common_panel_setting_table_check1.CheckedChanged += new System.EventHandler(this.common_panel_setting_table_check1_CheckedChanged);
-            // 
-            // common_panel_setting_table_combo2
-            // 
-            this.common_panel_setting_table_combo2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.common_panel_setting_table_combo2.FormattingEnabled = true;
-            this.common_panel_setting_table_combo2.Location = new System.Drawing.Point(106, 33);
-            this.common_panel_setting_table_combo2.Name = "common_panel_setting_table_combo2";
-            this.common_panel_setting_table_combo2.Size = new System.Drawing.Size(97, 23);
-            this.common_panel_setting_table_combo2.TabIndex = 4;
             // 
             // common_panel_setting_table_check3
             // 
@@ -671,17 +643,6 @@ namespace TaskManage
             this.common_panel_setting_table_label1.TabIndex = 0;
             this.common_panel_setting_table_label1.Text = "ダークモード";
             this.common_panel_setting_table_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // common_panel_setting_table_label2
-            // 
-            this.common_panel_setting_table_label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.common_panel_setting_table_label2.AutoSize = true;
-            this.common_panel_setting_table_label2.Location = new System.Drawing.Point(3, 37);
-            this.common_panel_setting_table_label2.Name = "common_panel_setting_table_label2";
-            this.common_panel_setting_table_label2.Size = new System.Drawing.Size(86, 15);
-            this.common_panel_setting_table_label2.TabIndex = 1;
-            this.common_panel_setting_table_label2.Text = "メモの文字サイズ";
-            this.common_panel_setting_table_label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // menu1
             // 
@@ -1284,7 +1245,7 @@ namespace TaskManage
                 this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].UseVisualStyleBackColor = true;
                 this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click);
             }
-             
+
             // 
             // menu2_1
             // 
@@ -2098,7 +2059,6 @@ namespace TaskManage
             this.ResumeLayout(false);
 
         }
-
 
         #endregion
 

@@ -35,6 +35,8 @@ namespace TaskManage.Main
 
             SetCommon(form);
 
+            SetMenu2(form);
+
             SetMenu2_1(form);
 
             SetMenu2_2(form);
@@ -46,7 +48,7 @@ namespace TaskManage.Main
         private void SetForm(MainForm form)
         {
             // フォームサイズ x
-            if (Properties.Settings.Default.form_x != 0)
+            if (Properties.Settings.Default.form_x <= 0)
             {
                 form.Width = Properties.Settings.Default.form_x;
             }
@@ -56,7 +58,7 @@ namespace TaskManage.Main
             }
 
             // フォームサイズ y
-            if (Properties.Settings.Default.form_y != 0)
+            if (Properties.Settings.Default.form_y <= 0)
             {
                 form.Height = Properties.Settings.Default.form_y;
             }
@@ -81,6 +83,12 @@ namespace TaskManage.Main
             controls_event.common_events.ChangeMenu(form);
             // 表示モード切り替え
             controls_event.common_events.ChangeDarkMode(form);
+        }
+
+        // Menu2 設定反映
+        private void SetMenu2(MainForm form)
+        {
+            controls_event.menu2_events.RefrectMoveControl(form);
         }
 
         // Menu2_1 設定反映

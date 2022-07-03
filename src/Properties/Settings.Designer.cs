@@ -177,5 +177,16 @@ namespace TaskManage.Properties {
                 this["memo_path"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection memo_height {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["memo_height"]));
+            }
+            set {
+                this["memo_height"] = value;
+            }
+        }
     }
 }

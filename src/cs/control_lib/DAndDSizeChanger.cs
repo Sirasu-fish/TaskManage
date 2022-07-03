@@ -132,6 +132,8 @@ namespace TaskManage
                         if (!(sizeChangeParent == null) && sizeChangeParent.Enabled == true)
                         {
                             sizeChangeParent.Height = lastMouseDownSizeParent.Height + diffY;
+                            Properties.Settings.Default.form_y = sizeChangeParent.Height;
+                            Properties.Settings.Default.Save();
                         }
                     }
                 }
@@ -140,10 +142,15 @@ namespace TaskManage
                     int w = sizeChangeCtrl.Width;
                     sizeChangeCtrl.Width -= diffX;
                     sizeChangeCtrl.Left += w - sizeChangeCtrl.Width;
+
+                    Properties.Settings.Default.form_x = sizeChangeCtrl.Width;
+                    Properties.Settings.Default.Save();
                 }
                 if ((status & DAndDArea.Right) == DAndDArea.Right)
                 {
                     sizeChangeCtrl.Width = lastMouseDownSize.Width + diffX;
+                    Properties.Settings.Default.form_x = sizeChangeCtrl.Width;
+                    Properties.Settings.Default.Save();
                 }
             }
         }

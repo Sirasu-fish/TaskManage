@@ -131,7 +131,6 @@ namespace TaskManage.controls_event
             form.common_panel_setting_table_setting.BackColor = Main.Common_Var.main_color;
             form.common_panel_setting.BackColor = Main.Common_Var.sub_color;
             form.common_panel_setting_table_label1.ForeColor = Main.Common_Var.sub_color;
-            form.common_panel_setting_table_label2.ForeColor = Main.Common_Var.sub_color;
             form.common_panel_setting_table_label3.ForeColor = Main.Common_Var.sub_color;
 
             // 〇menu1
@@ -153,8 +152,8 @@ namespace TaskManage.controls_event
             form.menu1_table_calender_label_friday.ForeColor = Main.Common_Var.sub_color;
             form.menu1_table_calender_label_saturday.ForeColor = Main.Common_Var.sub_color;
 
-            int year = DateTime.Now.Year; // 問題あり　月変更後モード変えるとおかしい
-            int month = DateTime.Now.Month; // 問題あり　月変更後モード変えるとおかしい
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
             Set_Day(form, year, month);
 
             // menu2
