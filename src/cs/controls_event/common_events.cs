@@ -170,31 +170,11 @@ namespace TaskManage.controls_event
             form.menu2_2_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
 
             form.menu2_3_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel1_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel2_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel3_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel4_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel5_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel6_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel7_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel8_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel9_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel10_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel11_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel12_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel13_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel14_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel15_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel16_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel17_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel18_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel19_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel20_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel21_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel22_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel23_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel24_label1.ForeColor = Main.Common_Var.sub_color;
-            form.menu2_3_panel_main_panel25_label1.ForeColor = Main.Common_Var.sub_color;
+
+            for (int i = 0; i < form.menu2_3_panel_main_panel_label1.Length; i++)
+            {
+                form.menu2_3_panel_main_panel_label1[i].ForeColor = Main.Common_Var.sub_color;
+            }
         }
 
         // メニュー切り替え
