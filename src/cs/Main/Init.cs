@@ -48,7 +48,7 @@ namespace TaskManage.Main
         private void SetForm(MainForm form)
         {
             // フォームサイズ x
-            if (Properties.Settings.Default.form_x <= 0)
+            if (Properties.Settings.Default.form_x >= 0)
             {
                 form.Width = Properties.Settings.Default.form_x;
             }
@@ -56,9 +56,9 @@ namespace TaskManage.Main
             {
                 form.Width = 200;
             }
-
+            Properties.Settings.Default.form_x = form.Width;
             // フォームサイズ y
-            if (Properties.Settings.Default.form_y <= 0)
+            if (Properties.Settings.Default.form_y >= 0)
             {
                 form.Height = Properties.Settings.Default.form_y;
             }
@@ -66,6 +66,8 @@ namespace TaskManage.Main
             {
                 form.Height = 600;
             }
+            Properties.Settings.Default.form_y = form.Height;
+            Properties.Settings.Default.Save();
         }
 
         private void SetCommon(MainForm form)
@@ -112,6 +114,11 @@ namespace TaskManage.Main
         // Menu2_2 設定反映
         private void SetMenu2_2(MainForm form)
         {
+            for (int i = 0; i < Common_Var.memo_save.Length; i++)
+            {
+                Common_Var.memo_save[i] = false;
+            }
+
             // menu2 2 開いているか
             if (Properties.Settings.Default.menu2_open2)
             {
@@ -152,6 +159,8 @@ namespace TaskManage.Main
                 {
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = path[i]; // タイトル
                     form.menu2_2_panel_main_panel_table_memo_text[i].Text = fu.ReadFileAll(path[i]); // 内容
+                    form.menu2_2_panel_main_panel[i].Visible = true; // 非表示
+                    Common_Var.memo_save[i] = true;
                 }
                 else
                 {

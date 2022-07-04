@@ -95,6 +95,7 @@ namespace TaskManage.controls_event
                         form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = ofd.FileName;
                         form.menu2_2_panel_main_panel_table_memo_text[i].Text = fu.ReadFileAll(ofd.FileName);
                         form.menu2_2_panel_main_panel[i].Visible = true;
+                        Main.Common_Var.memo_save[i] = true;
                         path[i] = ofd.FileName;
                         Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
                         Properties.Settings.Default.memo_path.AddRange(path);
@@ -102,16 +103,25 @@ namespace TaskManage.controls_event
                         break;
                     }
                 }
-
             }
         }
 
-        // 新規メモ帳を開く
+        // メモの追加
         public static void menu2_2_panel_top_button_add_Click(MainForm form)
         {
             FileUtil fu = new FileUtil();
             string filename = "";
-            filename = DateTime.Now.ToString("yyyyMMdd") + "_";
+
+            for (int i = 0; i < form.menu2_2_panel_main_panel_table_memo_panel_top_text.Length; i++)
+            {
+                if (form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text == "")
+                {
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = filename + " *";
+                    form.menu2_2_panel_main_panel_table_memo_text[i].Text = "";
+                    form.menu2_2_panel_main_panel[i].Visible = true;
+                    break;
+                }
+            }
         }
 
         // キー押下時のイベント
@@ -120,6 +130,16 @@ namespace TaskManage.controls_event
             if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
             {
                 SaveMemo(form, ((TextBox)sender).Text, int.Parse(((TextBox)sender).Name));
+            }
+        }
+
+        // テキスト変更時イベント
+        public static void menu2_2_panel_main_panel_table_memo_text_TextChanged(object sender, MainForm form)
+        {
+            if (Main.Common_Var.memo_save[int.Parse(((TextBox)sender).Name)] == true)
+            {
+                form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].Text += " *";
+                Main.Common_Var.memo_save[int.Parse(((TextBox)sender).Name)] = false;
             }
         }
 
@@ -146,9 +166,70 @@ namespace TaskManage.controls_event
         }
 
         // 閉じるボタン
-        public static void menu2_2_panel_main_panel1_table_memo_panel_top_button_close_Click(object sender, MainForm form)
+        public static void menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click(object sender, MainForm form)
         {
             int i = int.Parse(((Button)sender).Name);
+
+            // 変更したファイルを保存していない時
+            if (Main.Common_Var.memo_save[i] == false)
+            {
+                FileUtil fu = new FileUtil();
+
+                string[] paths = new string[99];
+                Properties.Settings.Default.memo_path.CopyTo(paths, 0);
+                string save_path = paths[i];
+
+                // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
+                if (String.IsNullOrEmpty(save_path))
+                {
+                    if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[i].Text, i))
+                    {
+                        Main.Common_Var.memo_save[i] = true;
+                        form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = Properties.Settings.Default.memo_path[i];
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                // パスが空ではない時 = 既存ファイル
+                else
+                {
+                    switch (fu.ShowOverrideFileMessage())
+                    {
+                        case DialogResult.Yes: // はい
+                            if (fu.IsAbleWrite(save_path)) //書き込み可能な時
+                            {
+                                if (fu.WriteFile(save_path, form.menu2_2_panel_main_panel_table_memo_text[i].Text))
+                                {
+                                    Main.Common_Var.memo_save[i] = true;
+                                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = Properties.Settings.Default.memo_path[i];
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[i].Text, i))
+                                {
+                                    Main.Common_Var.memo_save[i] = true;
+                                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = Properties.Settings.Default.memo_path[i];
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
+                            break;
+                        case DialogResult.No: // いいえ
+                            break;
+                        case DialogResult.Cancel: // キャンセル
+                            return;
+                    }
+                }
+            }
 
             string[] path = new string[99];
             Properties.Settings.Default.memo_path.CopyTo(path, 0);
@@ -158,10 +239,8 @@ namespace TaskManage.controls_event
             Properties.Settings.Default.Save();
             form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = "";
             form.menu2_2_panel_main_panel_table_memo_text[i].Text = "";
+            form.menu2_2_panel_main_panel[i].Visible = false;
         }
-
-
-
 
         // private
         #region private
@@ -175,15 +254,28 @@ namespace TaskManage.controls_event
             Properties.Settings.Default.memo_path.CopyTo(paths, 0);
             string path = paths[num];
 
+            if (!String.IsNullOrEmpty(path) && Main.Common_Var.memo_save[num] == true) // 空じゃないかつ、変更されていない場合は保存する必要がないためスキップ
+            {
+                return true;
+            }
+
             // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
             if (String.IsNullOrEmpty(path))
             {
-                fu.OpenDialog(form, text, num);
+                if (fu.OpenDialog(form, text, num))
+                {
+                    Main.Common_Var.memo_save[num] = true;
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = Properties.Settings.Default.memo_path[num];
+                }
             }
             // パスが空ではない時 = 既存ファイルなので、上書き保存
             else
             {
-                fu.WriteFile(path, text);
+                if (fu.WriteFile(path, text))
+                {
+                    Main.Common_Var.memo_save[num] = true;
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = Properties.Settings.Default.memo_path[num];
+                }
             }
 
             return true;

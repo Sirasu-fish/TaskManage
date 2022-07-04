@@ -42,6 +42,7 @@
                     form.menu2.Controls.Add(form.menu2_3);
                     break;
             }
+            Properties.Settings.Default.Save();
         }
 
     }

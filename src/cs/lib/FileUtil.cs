@@ -8,18 +8,60 @@ namespace TaskManage
     class FileUtil
     {
         /// <summary>
-        /// ファイルを全て読み込み,ファイルが存在しない場合は空のファイルを作成する
+        /// ファイルを読み込み
         /// </summary>
-        /// <param name="path">パス</param>
+        /// <param name="path">ファイルのパス</param>
         /// <returns>ファイルの文字列 string</returns>
         public string ReadFileAll(string path)
         {
-            using (StreamReader sr = new StreamReader(path, Encoding.GetEncoding("UTF-8")))
+            try
             {
-                return sr.ReadToEnd();
+                using (StreamReader sr = new StreamReader(path, Encoding.GetEncoding("UTF-8")))
+                {
+                    return sr.ReadToEnd();
+                }
+            }
+            catch
+            {
+                return "";
             }
         }
 
+        /// <summary>
+        /// ファイル未保存時メッセージボックス
+        /// </summary>
+        /// <returns></returns>
+        public DialogResult ShowOverrideFileMessage()
+        {
+            return MessageBox.Show("変更を保存しますか？","確認",MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+        }
+
+        /// <summary>
+        /// ファイルが書き込み可能かチェック
+        /// </summary>
+        /// <param name="path">ファイルのパス</param>
+        /// <returns>true:書き込み可能 false:書き込み不可orファイルが存在しない</returns>
+        public Boolean IsAbleWrite(string path)
+        {
+            try
+            {
+                using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Write))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// ファイルに書き込み
+        /// </summary>
+        /// <param name="path">ファイルのパス</param>
+        /// <param name="text">書き込み内容</param>
+        /// <returns>true:書き込み成功 false:書き込み失敗</returns>
         public Boolean WriteFile(string path, string text)
         {
             try
@@ -28,14 +70,21 @@ namespace TaskManage
                 {
                     writer.Write(text);
                 }
+                return true;
             }
             catch
             {
                 return false;
             }
-            return true;
         }
 
+        /// <summary>
+        /// 「名前を付けて保存」ダイアログを表示
+        /// </summary>
+        /// <param name="form">フォーム</param>
+        /// <param name="text">書き込み内容</param>
+        /// <param name="num">trye:書き込み成功 false:書き込み失敗</param>
+        /// <returns></returns>
         public Boolean OpenDialog(MainForm form, string text, int num)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -55,7 +104,7 @@ namespace TaskManage
             // 存在しないパスが指定されたとき警告を表示する
             sfd.CheckPathExists = true;
 
-            if (sfd.ShowDialog() == DialogResult.OK)
+            if (sfd.ShowDialog() == DialogResult.OK) // OKを押した時
             {
                 System.IO.Stream stream;
                 stream = sfd.OpenFile();
@@ -76,6 +125,10 @@ namespace TaskManage
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = path[num];
                     Properties.Settings.Default.Save();
                 }
+            }
+            else // OKを押していない時
+            {
+                return false;
             }
 
             return true;

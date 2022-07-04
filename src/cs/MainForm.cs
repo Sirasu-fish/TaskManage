@@ -225,6 +225,10 @@ namespace TaskManage
         {
             controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_text_KeyDown(sender, this, e);
         }
+        private void menu2_2_panel_main_panel_table_memo_text_TextChanged(object sender, EventArgs e)
+        {
+            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_text_TextChanged(sender, this);
+        }
         private void menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click(object sender, EventArgs e)
         {
             controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click(sender, this);
@@ -235,7 +239,7 @@ namespace TaskManage
         }
         private void menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click(object sender, EventArgs e)
         {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel1_table_memo_panel_top_button_close_Click(sender, this);
+            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click(sender, this);
         }
         #endregion Event menu2 2
 
