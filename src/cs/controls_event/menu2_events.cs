@@ -5,6 +5,11 @@
         //要素順反映
         public static void RefrectMoveControl(MainForm form)
         {
+            form.menu2.SuspendLayout();
+            form.menu2_1.SuspendLayout();
+            form.menu2_2.SuspendLayout();
+            form.menu2_3.SuspendLayout();
+
             form.menu2.Controls.Remove(form.menu2_1);
             form.menu2.Controls.Remove(form.menu2_2);
             form.menu2.Controls.Remove(form.menu2_3);
@@ -43,7 +48,11 @@
                     break;
             }
             Properties.Settings.Default.Save();
-        }
 
+            form.menu2.ResumeLayout();
+            form.menu2_1.ResumeLayout();
+            form.menu2_2.ResumeLayout();
+            form.menu2_3.ResumeLayout();
+        }
     }
 }
