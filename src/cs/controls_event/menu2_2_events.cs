@@ -6,7 +6,7 @@ namespace TaskManage.controls_event
     class menu2_2_events
     {
         // menu2 panel2を開いたり閉じたりする時の動作
-        public static void menu2_2_panel_top_button_openclose_Click(MainForm form)
+        public static void menu2_2_panel_top_button_openclose_Click(object sender, EventArgs e, MainForm form)
         {
             if (form.menu2_2_panel_main.Visible == false)
             {
@@ -26,50 +26,68 @@ namespace TaskManage.controls_event
         }
 
         // 要素順を入れ替える
-        public static void menu2_2_panel_top_button_moveup_Click(MainForm form)
+        public static void menu2_2_panel_top_button_moveup_Click(object sender, EventArgs e, MainForm form)
         {
-            switch (Properties.Settings.Default.order)
-            {
-                case 123:
-                    Properties.Settings.Default.order = 213;
-                    break;
-                case 132:
-                    Properties.Settings.Default.order = 123;
-                    break;
-                case 312:
-                    Properties.Settings.Default.order = 321;
-                    break;
-                case 321:
-                    Properties.Settings.Default.order = 213;
-                    break;
-            }
+            string[] order = new string[Main.Common_Const.menu2_num];
+            Properties.Settings.Default.order.CopyTo(order, 0);
+            int order_num = -1;
 
-            menu2_events.RefrectMoveControl(form); //要素順反映
+            for (int i = 0; i < Main.Common_Const.menu2_num; i++)
+            {
+                if (order[i] == "2")
+                {
+                    order_num = i;
+                    break;
+                }
+            }
+            if (!(order_num <= 0))
+            {
+                string tmp;
+                // 入れ替え
+                tmp = order[order_num - 1];
+                order[order_num - 1] = order[order_num];
+                order[order_num] = tmp;
+
+                Properties.Settings.Default.order = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.order.AddRange(order);
+                Properties.Settings.Default.Save();
+
+                menu2_events.RefrectMoveControl(form);
+            }
         }
 
-        public static void menu2_2_panel_top_button_movedown_Click(MainForm form)
+        public static void menu2_2_panel_top_button_movedown_Click(object sender, EventArgs e, MainForm form)
         {
-            switch (Properties.Settings.Default.order)
-            {
-                case 123:
-                    Properties.Settings.Default.order = 132;
-                    break;
-                case 213:
-                    Properties.Settings.Default.order = 123;
-                    break;
-                case 231:
-                    Properties.Settings.Default.order = 321;
-                    break;
-                case 321:
-                    Properties.Settings.Default.order = 312;
-                    break;
-            }
+            string[] order = new string[Main.Common_Const.menu2_num];
+            Properties.Settings.Default.order.CopyTo(order, 0);
+            int order_num = -1;
 
-            menu2_events.RefrectMoveControl(form); //要素順反映
+            for (int i = 0; i < Main.Common_Const.menu2_num; i++)
+            {
+                if (order[i] == "2")
+                {
+                    order_num = i;
+                    break;
+                }
+            }
+            if (!(order_num >= Main.Common_Const.menu2_num - 1))
+            {
+                string tmp;
+                // 入れ替え
+                tmp = order[order_num + 1];
+                order[order_num + 1] = order[order_num];
+                order[order_num] = tmp;
+
+                Properties.Settings.Default.order = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.order.AddRange(order);
+                Properties.Settings.Default.Save();
+
+                menu2_events.RefrectMoveControl(form);
+            }
         }
 
         // menu2_2 ファイルを開くダイアログを開く
-        public static void menu2_2_panel_top_button_open_Click(MainForm form)
+        public static void menu2_2_panel_top_button_open_Click(object sender, EventArgs e, MainForm form)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "txtファイル(*.txt;*.log;*.oml)|*.txt;*.log;*.oml";
@@ -81,7 +99,7 @@ namespace TaskManage.controls_event
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                string[] path = new string[99];
+                string[] path = new string[Main.Common_Const.memo_num];
                 Properties.Settings.Default.memo_path.CopyTo(path, 0);
                 for (int i = 0; i < path.Length; i++)
                 {
@@ -107,7 +125,7 @@ namespace TaskManage.controls_event
         }
 
         // メモの追加
-        public static void menu2_2_panel_top_button_add_Click(MainForm form)
+        public static void menu2_2_panel_top_button_add_Click(object sender, EventArgs e, MainForm form)
         {
             FileUtil fu = new FileUtil();
             string filename = "";
@@ -125,7 +143,7 @@ namespace TaskManage.controls_event
         }
 
         // キー押下時のイベント
-        public static void menu2_2_panel_main_panel_table_memo_text_KeyDown(object sender, MainForm form, KeyEventArgs e)
+        public static void menu2_2_panel_main_panel_table_memo_text_KeyDown(object sender, KeyEventArgs e, MainForm form)
         {
             if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
             {
@@ -134,7 +152,7 @@ namespace TaskManage.controls_event
         }
 
         // テキスト変更時イベント
-        public static void menu2_2_panel_main_panel_table_memo_text_TextChanged(object sender, MainForm form)
+        public static void menu2_2_panel_main_panel_table_memo_text_TextChanged(object sender, EventArgs e, MainForm form)
         {
             if (Main.Common_Var.memo_save[int.Parse(((TextBox)sender).Name)] == true)
             {
@@ -144,13 +162,13 @@ namespace TaskManage.controls_event
         }
 
         //保存ボタン
-        public static void menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click(object sender, MainForm form)
+        public static void menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click(object sender, EventArgs e, MainForm form)
         {
             SaveMemo(form, form.menu2_2_panel_main_panel_table_memo_text[int.Parse(((Button)sender).Name)].Text, int.Parse(((Button)sender).Name));
         }
 
         // 最小化、最大化ボタン
-        public static void menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click(object sender, MainForm form)
+        public static void menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click(object sender, EventArgs e, MainForm form)
         {
             int i = int.Parse(((Button)sender).Name);
             if (form.menu2_2_panel_main_panel_table_memo_text[i].Visible == false)
@@ -166,7 +184,7 @@ namespace TaskManage.controls_event
         }
 
         // 閉じるボタン
-        public static void menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click(object sender, MainForm form)
+        public static void menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click(object sender, EventArgs e, MainForm form)
         {
             int i = int.Parse(((Button)sender).Name);
 
@@ -175,7 +193,7 @@ namespace TaskManage.controls_event
             {
                 FileUtil fu = new FileUtil();
 
-                string[] paths = new string[99];
+                string[] paths = new string[Main.Common_Const.memo_num];
                 Properties.Settings.Default.memo_path.CopyTo(paths, 0);
                 string save_path = paths[i];
 
@@ -231,7 +249,7 @@ namespace TaskManage.controls_event
                 }
             }
 
-            string[] path = new string[99];
+            string[] path = new string[Main.Common_Const.memo_num];
             Properties.Settings.Default.memo_path.CopyTo(path, 0);
             path[i] = "";
             Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
@@ -250,7 +268,7 @@ namespace TaskManage.controls_event
         {
             FileUtil fu = new FileUtil();
 
-            string[] paths = new string[99];
+            string[] paths = new string[Main.Common_Const.memo_num];
             Properties.Settings.Default.memo_path.CopyTo(paths, 0);
             string path = paths[num];
 

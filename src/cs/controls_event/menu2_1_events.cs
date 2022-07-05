@@ -7,7 +7,7 @@ namespace TaskManage.controls_event
     class menu2_1_events
     {
         // menu2 panel1を開いたり閉じたりする時の動作
-        public static void menu2_1_panel_top_button_openclose_Click(MainForm form)
+        public static void menu2_1_panel_top_button_openclose_Click(object sender, EventArgs e, MainForm form)
         {
             if (form.menu2_1_panel_main.Visible == false)
             {
@@ -27,94 +27,112 @@ namespace TaskManage.controls_event
         }
 
         // 要素順を入れ替える
-        public static void menu2_1_panel_top_button_moveup_Click(MainForm form)
+        public static void menu2_1_panel_top_button_moveup_Click(object sender, EventArgs e, MainForm form)
         {
-            switch (Properties.Settings.Default.order)
-            {
-                case 213:
-                    Properties.Settings.Default.order = 123;
-                    break;
-                case 231:
-                    Properties.Settings.Default.order = 213;
-                    break;
-                case 312:
-                    Properties.Settings.Default.order = 132;
-                    break;
-                case 321:
-                    Properties.Settings.Default.order = 312;
-                    break;
-            }
+            string[] order = new string[Main.Common_Const.menu2_num];
+            Properties.Settings.Default.order.CopyTo(order, 0);
+            int order_num = -1;
 
-            menu2_events.RefrectMoveControl(form);
+            for (int i = 0; i < Main.Common_Const.menu2_num; i++)
+            {
+                if (order[i] == "1")
+                {
+                    order_num = i;
+                    break;
+                }
+            }
+            if (!(order_num <= 0))
+            {
+                string tmp;
+                // 入れ替え
+                tmp = order[order_num - 1];
+                order[order_num - 1] = order[order_num];
+                order[order_num] = tmp;
+
+                Properties.Settings.Default.order = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.order.AddRange(order);
+                Properties.Settings.Default.Save();
+
+                menu2_events.RefrectMoveControl(form);
+            }
         }
 
-        public static void menu2_1_panel_top_button_movedown_Click(MainForm form)
+        public static void menu2_1_panel_top_button_movedown_Click(object sender, EventArgs e, MainForm form)
         {
-            switch (Properties.Settings.Default.order)
-            {
-                case 123:
-                    Properties.Settings.Default.order = 213;
-                    break;
-                case 132:
-                    Properties.Settings.Default.order = 312;
-                    break;
-                case 213:
-                    Properties.Settings.Default.order = 231;
-                    break;
-                case 312:
-                    Properties.Settings.Default.order = 321;
-                    break;
-            }
+            string[] order = new string[Main.Common_Const.menu2_num];
+            Properties.Settings.Default.order.CopyTo(order, 0);
+            int order_num = -1;
 
-            menu2_events.RefrectMoveControl(form);
+            for (int i = 0; i < Main.Common_Const.menu2_num; i++)
+            {
+                if (order[i] == "1")
+                {
+                    order_num = i;
+                    break;
+                }
+            }
+            if (!(order_num >= Main.Common_Const.menu2_num - 1))
+            {
+                string tmp;
+                // 入れ替え
+                tmp = order[order_num + 1];
+                order[order_num + 1] = order[order_num];
+                order[order_num] = tmp;
+
+                Properties.Settings.Default.order = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.order.AddRange(order);
+                Properties.Settings.Default.Save();
+
+                menu2_events.RefrectMoveControl(form);
+            }
         }
 
         // タスク削除ボタンホバー時
-        public static void menu2_1_panel_main_panel_button_delete_MouseEnter(object sender, MainForm form)
+        public static void menu2_1_panel_main_panel_button_delete_MouseEnter(object sender, EventArgs e, MainForm form)
         {
             form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 255, 128, 128);
         }
         // タスク削除ボタンホバーが離れた時
-        public static void menu2_1_panel_main_panel_button_delete_MouseLeave(object sender, MainForm form)
+        public static void menu2_1_panel_main_panel_button_delete_MouseLeave(object sender, EventArgs e, MainForm form)
         {
             form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
         }
         // タスク完了ボタンホバー時
-        public static void menu2_1_panel_main_panel_button_finish_MouseEnter(object sender, MainForm form)
+        public static void menu2_1_panel_main_panel_button_finish_MouseEnter(object sender, EventArgs e, MainForm form)
         {
             form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 128, 255, 128);
         }
         // タスク完了ボタンホバーが離れた時
-        public static void menu2_1_panel_main_panel_button_finish_MouseLeave(object sender, MainForm form)
+        public static void menu2_1_panel_main_panel_button_finish_MouseLeave(object sender, EventArgs e, MainForm form)
         {
             form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
         }
 
         // menu2 panel1のタスクを追加するボタン
-        public static void menu2_1_panel_top_button_add_Click(object sender, MainForm form)
+        public static void menu2_1_panel_top_button_add_Click(object sender, EventArgs e, MainForm form)
         {
             OpenTask(form, -1);
         }
         //タスク完了ボタン
-        public static void menu2_1_panel_main_panel_button_finish_Click(object sender, MainForm form)
+        public static void menu2_1_panel_main_panel_button_finish_Click(object sender, EventArgs e, MainForm form)
         {
 
         }
         //タスク削除ボタン
-        public static void menu2_1_panel_main_panel_button_delete_Click(object sender, MainForm form)
+        public static void menu2_1_panel_main_panel_button_delete_Click(object sender, EventArgs e, MainForm form)
         {
             RemoveTask(int.Parse(((Button)sender).Name));
         }
         //タスククリック時
-        public static void menu2_1_panel_main_panel_Click(object sender, MainForm form)
+        public static void menu2_1_panel_main_panel_Click(object sender, EventArgs e, MainForm form)
         {
             OpenTask(form, int.Parse(((Panel)sender).Name));
         }
-        public static void menu2_1_panel_main_panel_label1_Click(object sender, MainForm form)
+        public static void menu2_1_panel_main_panel_label1_Click(object sender, EventArgs e, MainForm form)
         {
             OpenTask(form, int.Parse(((Label)sender).Name));
         }
-        public static void menu2_1_panel_main_panel_label2_Click(object sender, MainForm form)
+        public static void menu2_1_panel_main_panel_label2_Click(object sender, EventArgs e, MainForm form)
         {
             OpenTask(form, int.Parse(((Label)sender).Name));
         }

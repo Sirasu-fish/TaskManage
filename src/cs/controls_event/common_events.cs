@@ -7,7 +7,7 @@ namespace TaskManage.controls_event
     class common_events
     {
         // ダブルクリック時の動作
-        public static void common_MouseDoubleClick(MainForm form)
+        public static void common_MouseDoubleClick(object sender, MouseEventArgs e, MainForm form)
         {
             if (form.WindowState == FormWindowState.Maximized)
             {
@@ -20,13 +20,13 @@ namespace TaskManage.controls_event
         }
 
         // 最小化ボタン
-        public static void common_button_min_MouseClick(MainForm form)
+        public static void common_button_min_MouseClick(object sender, MouseEventArgs e, MainForm form)
         {
             form.WindowState = FormWindowState.Minimized;
         }
 
         // 最大化ボタン
-        public static void common_button_max_MouseClick(MainForm form)
+        public static void common_button_max_MouseClick(object sender, MouseEventArgs e, MainForm form)
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             if (form.WindowState == FormWindowState.Maximized)
@@ -42,25 +42,25 @@ namespace TaskManage.controls_event
         }
 
         // 閉じるボタン
-        public static void common_button_close_MouseClick(MainForm form)
+        public static void common_button_close_MouseClick(object sender, MouseEventArgs e, MainForm form)
         {
             form.Close();
         }
 
         // 閉じるボタンホバー時の動作
-        public static void common_button_close_MouseEnter(MainForm form)
+        public static void common_button_close_MouseEnter(object sender, EventArgs e, MainForm form)
         {
             form.common_button_close.BackColor = Color.FromArgb(50, 255, 128, 128);
         }
 
         // 閉じるボタンLeave時の動作
-        public static void common_button_close_MouseLeave(MainForm form)
+        public static void common_button_close_MouseLeave(object sender, EventArgs e, MainForm form)
         {
             form.common_button_close.BackColor = Color.Transparent;
         }
 
         // 設定ボタン押下
-        public static void common_button_setting_Click(MainForm form)
+        public static void common_button_setting_Click(object sender, EventArgs e, MainForm form)
         {
             if (form.common_panel_setting.Visible == false)
             {
@@ -73,7 +73,7 @@ namespace TaskManage.controls_event
         }
 
         // ダークモード切り替え
-        public static void common_panel_setting_table_check1_CheckedChanged(MainForm form)
+        public static void common_panel_setting_table_check1_CheckedChanged(object sender, EventArgs e, MainForm form)
         {
             if (form.common_panel_setting_table_check1.Checked)
             {
@@ -87,7 +87,7 @@ namespace TaskManage.controls_event
         }
 
         // 前メニューへ移動する時の動作
-        public static void common_button_prevmenu_Click(MainForm form)
+        public static void common_button_prevmenu_Click(object sender, EventArgs e, MainForm form)
         {
 
             form.common_panel_setting.Visible = false;
@@ -96,7 +96,7 @@ namespace TaskManage.controls_event
         }
 
         // 次メニューへ移動する時の動作
-        public static void common_button_nextmenu_Click(MainForm form)
+        public static void common_button_nextmenu_Click(object sender, EventArgs e, MainForm form)
         {
             form.common_panel_setting.Visible = false;
             Main.Common_Var.menu += 1;
@@ -159,7 +159,7 @@ namespace TaskManage.controls_event
             // menu2
             form.menu2_1_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
 
-            for (int i = 0; i < form.menu2_1_panel_main_panel_label1.Length; i++)
+            for (int i = 0; i < Main.Common_Const.task_num; i++)
             {
                 form.menu2_1_panel_main_panel_label1[i].ForeColor = Main.Common_Var.sub_color;
                 form.menu2_1_panel_main_panel_label2[i].ForeColor = Main.Common_Var.sub_color;
@@ -167,13 +167,6 @@ namespace TaskManage.controls_event
             }
 
             form.menu2_2_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
-
-            form.menu2_3_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
-
-            for (int i = 0; i < form.menu2_3_panel_main_panel_label1.Length; i++)
-            {
-                form.menu2_3_panel_main_panel_label1[i].ForeColor = Main.Common_Var.sub_color;
-            }
         }
 
         // メニュー切り替え

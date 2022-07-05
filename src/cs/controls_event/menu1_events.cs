@@ -6,7 +6,7 @@ namespace TaskManage.controls_event
 {
     class menu1_events
     {
-        public static void menu1_panel_calendertop_button_prevmonth_Click(MainForm form)
+        public static void menu1_panel_calendertop_button_prevmonth_Click(object sender, EventArgs e, MainForm form)
         {
             int year = 0;
             int month = 0;
@@ -22,7 +22,7 @@ namespace TaskManage.controls_event
             form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
 
-        public static void menu1_panel_calendertop_button_nextmonth_Click(MainForm form)
+        public static void menu1_panel_calendertop_button_nextmonth_Click(object sender, EventArgs e, MainForm form)
         {
             int year = 0;
             int month = 0;
@@ -37,49 +37,49 @@ namespace TaskManage.controls_event
             form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
 
-        public static void menu1_panel_calendertop_panel_yearmonth_combo_year_SelectedIndexChanged(MainForm form)
+        public static void menu1_panel_calendertop_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e, MainForm form)
         {
             Change_YearMonth(form);
         }
-        public static void menu1_panel_calendertop_panel_yearmonth_combo_month_SelectedIndexChanged(MainForm form)
+        public static void menu1_panel_calendertop_panel_yearmonth_combo_month_SelectedIndexChanged(object sender, EventArgs e, MainForm form)
         {
             Change_YearMonth(form);
         }
 
         //日付ホバー時
 
-        public static void menu1_table_calender_panel_day_MouseEnter(object sender, MainForm form)
+        public static void menu1_table_calender_panel_day_MouseEnter(object sender, EventArgs e, MainForm form)
         {
             OverMouse(form.menu1_table_calender_panel_day[int.Parse(((Panel)sender).Name)]);
         }
-        public static void menu1_table_calender_label_day_MouseEnter(object sender, MainForm form)
+        public static void menu1_table_calender_label_day_MouseEnter(object sender, EventArgs e, MainForm form)
         {
             OverMouse(form.menu1_table_calender_panel_day[int.Parse(((Label)sender).Name)]);
         }
         //日付ホバーが離れた時
-        public static void menu1_table_calender_panel_day_MouseLeave(MainForm form)
+        public static void menu1_table_calender_panel_day_MouseLeave(object sender, EventArgs e, MainForm form)
         {
             NoOverMouse(form);
         }
 
-        public static void menu1_table_calender_label_day_MouseLeave(MainForm form)
+        public static void menu1_table_calender_label_day_MouseLeave(object sender, EventArgs e, MainForm form)
         {
             NoOverMouse(form);
         }
         //日付クリック
-        public static void menu1_table_calender_panel_day_MouseClick(object sender, MainForm form)
+        public static void menu1_table_calender_panel_day_MouseClick(object sender, EventArgs e, MainForm form)
         {
             ClickPanel(form, form.menu1_table_calender_panel_day[int.Parse(((Panel)sender).Name)], int.Parse(((Panel)sender).Name));
         }
-        public static void menu1_table_calender_label_day_MouseClick(object sender, MainForm form)
+        public static void menu1_table_calender_label_day_MouseClick(object sender, EventArgs e, MainForm form)
         {
             ClickPanel(form, form.menu1_table_calender_panel_day[int.Parse(((Label)sender).Name)], int.Parse(((Label)sender).Name));
         }
-        public static void menu1_table_calender_panel_day_DoubleClick(object sender, MainForm form)
+        public static void menu1_table_calender_panel_day_DoubleClick(object sender, EventArgs e, MainForm form)
         {
             OpenTaskFromPanel(int.Parse(((Panel)sender).Name), form.menu1_table_calender_label_day[int.Parse(((Panel)sender).Name)].Text);
         }
-        public static void menu1_table_calender_label_day_DoubleClick(object sender, MainForm form)
+        public static void menu1_table_calender_label_day_DoubleClick(object sender, EventArgs e, MainForm form)
         {
             OpenTaskFromPanel(int.Parse(((Label)sender).Name), form.menu1_table_calender_label_day[int.Parse(((Label)sender).Name)].Text);
         }

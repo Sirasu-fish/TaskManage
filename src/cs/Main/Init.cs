@@ -6,7 +6,6 @@ namespace TaskManage.Main
     {
         public void initialize(MainForm form)
         {
-
             // commonをタイトルバー化する
             SetMoveForm(form);
             // 設定を反映
@@ -40,8 +39,6 @@ namespace TaskManage.Main
             SetMenu2_1(form);
 
             SetMenu2_2(form);
-
-            SetMenu2_3(form);
         }
 
         // Form 設定反映
@@ -135,15 +132,15 @@ namespace TaskManage.Main
 
 
             // メモ展開
-            if (Properties.Settings.Default.memo_path == null || Properties.Settings.Default.memo_path.Count > 99) //pathがない場合は初期化 or pathが100以上ある場合は初期化
+            if (Properties.Settings.Default.memo_path == null || Properties.Settings.Default.memo_path.Count > Common_Const.memo_num) //pathがない場合は初期化 or pathが100以上ある場合は初期化
             {
                 Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_path.AddRange(new string[99]);
+                Properties.Settings.Default.memo_path.AddRange(new string[Common_Const.memo_num]);
                 Properties.Settings.Default.Save();
             }
             else
             {
-                string[] paths = new string[99];
+                string[] paths = new string[Common_Const.memo_num];
                 Properties.Settings.Default.memo_path.CopyTo(paths, 0);
                 Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
                 Properties.Settings.Default.memo_path.AddRange(paths);
@@ -151,7 +148,7 @@ namespace TaskManage.Main
             }
 
             FileUtil fu = new FileUtil();
-            string[] path = new string[99];
+            string[] path = new string[Common_Const.memo_num];
             Properties.Settings.Default.memo_path.CopyTo(path, 0);
             for (int i = 0; i < path.Length; i++)
             {
@@ -186,25 +183,6 @@ namespace TaskManage.Main
                 }
             }
         }
-
-        // Menu2_3 設定反映
-        private void SetMenu2_3(MainForm form)
-        {
-            // menu2 3 開いているか
-            if (Properties.Settings.Default.menu2_open3)
-            {
-                form.menu2_3_panel_main.Visible = true;
-                form.menu2_3_panel.Height = 934;
-                form.menu2_3.Height = 942;
-            }
-            else
-            {
-                form.menu2_3_panel_main.Visible = false;
-                form.menu2_3_panel.Height = 34;
-                form.menu2_3.Height = 42;
-            }
-        }
-
 
         // commonをタイトルバーにする初期化
         private void SetMoveForm(MainForm form)

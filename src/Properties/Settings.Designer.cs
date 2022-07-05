@@ -73,18 +73,6 @@ namespace TaskManage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool menu2_open3 {
-            get {
-                return ((bool)(this["menu2_open3"]));
-            }
-            set {
-                this["menu2_open3"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int form_x {
             get {
@@ -109,10 +97,12 @@ namespace TaskManage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int order {
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsd=\"http://www.w3." +
+            "org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n  <s" +
+            "tring>1</string>\r\n  <string>2</string>\r\n</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection order {
             get {
-                return ((int)(this["order"]));
+                return ((global::System.Collections.Specialized.StringCollection)(this["order"]));
             }
             set {
                 this["order"] = value;
