@@ -178,5 +178,82 @@ namespace TaskManage.Properties {
                 this["memo_height"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection task_name {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["task_name"]));
+            }
+            set {
+                this["task_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection task_memo {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["task_memo"]));
+            }
+            set {
+                this["task_memo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection done_name {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["done_name"]));
+            }
+            set {
+                this["done_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection done_memo {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["done_memo"]));
+            }
+            set {
+                this["done_memo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection done_prog {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["done_prog"]));
+            }
+            set {
+                this["done_prog"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection done_time {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["done_time"]));
+            }
+            set {
+                this["done_time"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection done_day {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["done_day"]));
+            }
+            set {
+                this["done_day"] = value;
+            }
+        }
     }
 }

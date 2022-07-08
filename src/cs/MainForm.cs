@@ -243,6 +243,28 @@ namespace TaskManage
         }
         #endregion Event menu2 2
 
+        #region Event menu3
+        private void menu3_panel_top_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controls_event.menu3_events.menu3_panel_top_panel_yearmonth_combo_year_SelectedIndexChanged(sender, e, this);
+        }
+
+        private void menu3_panel_top_panel_yearmonth_combo_month_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controls_event.menu3_events.menu3_panel_top_panel_yearmonth_combo_month_SelectedIndexChanged(sender, e, this);
+        }
+
+        private void menu3_panel_top_button_nextmonth_Click(object sender, EventArgs e)
+        {
+            controls_event.menu3_events.menu3_panel_top_button_nextmonth_Click(sender, e, this);
+        }
+
+        private void menu3_panel_top_button_prevmonth_Click(object sender, EventArgs e)
+        {
+            controls_event.menu3_events.menu3_panel_top_button_prevmonth_Click(sender, e, this);
+        }
+        #endregion Event menu3
+
         // Event menutask
         #region Event menutask
         private void menutask_button_close_Click(object sender, EventArgs e)

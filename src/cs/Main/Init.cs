@@ -6,6 +6,8 @@ namespace TaskManage.Main
     {
         public void initialize(MainForm form)
         {
+            // 設定値の初期化
+            SetPropertiesValue();
             // commonをタイトルバー化する
             SetMoveForm(form);
             // 設定を反映
@@ -18,14 +20,160 @@ namespace TaskManage.Main
             Set_NowYearMonth(form);
         }
 
-
-
         // private
         #region private
 
         private static DAndDSizeChanger[] menu2_2_panel_main_table_memo_sizeChanger = new DAndDSizeChanger[99];
         private static DAndDSizeChanger this_sizeChanger;
         private static DAndDMoveForm common_MoveForm;
+
+        private void SetPropertiesValue()
+        {
+            // フォームサイズ x
+            if (Properties.Settings.Default.form_x < 100)
+            {
+                Properties.Settings.Default.form_x = 100;
+            }
+            // フォームサイズ y
+            if (Properties.Settings.Default.form_y < 100)
+            {
+                Properties.Settings.Default.form_y = 100;
+            }
+
+            // メニュー
+            if (Properties.Settings.Default.menu < 1 || 3 < Properties.Settings.Default.menu)
+            {
+                Properties.Settings.Default.menu = 1;
+            }
+
+            // メモのパス
+            if (Properties.Settings.Default.memo_path == null || Properties.Settings.Default.memo_path.Count > Common_Const.memo_num) //null or 指定数以上ある場合は初期化
+            {
+                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.memo_path.AddRange(new string[Common_Const.memo_num]);
+            }
+            else
+            {
+                string[] tmp = new string[Common_Const.memo_num];
+                Properties.Settings.Default.memo_path.CopyTo(tmp, 0);
+                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.memo_path.AddRange(tmp);
+            }
+
+            // メモの高さ
+            if (Properties.Settings.Default.memo_height == null || Properties.Settings.Default.memo_height.Count > Common_Const.memo_num) //null or 指定数以上ある場合は初期化
+            {
+                Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.memo_height.AddRange(new string[Common_Const.memo_num]);
+            }
+            else
+            {
+                string[] tmp = new string[Common_Const.memo_num];
+                Properties.Settings.Default.memo_height.CopyTo(tmp, 0);
+                Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.memo_height.AddRange(tmp);
+            }
+
+            // タスク名
+            if (Properties.Settings.Default.task_name == null || Properties.Settings.Default.task_name.Count > Common_Const.task_num) //null or 指定数以上ある場合は初期化
+            {
+                Properties.Settings.Default.task_name = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.task_name.AddRange(new string[Common_Const.task_num]);
+            }
+            else
+            {
+                string[] tmp = new string[Common_Const.task_num];
+                Properties.Settings.Default.task_name.CopyTo(tmp, 0);
+                Properties.Settings.Default.task_name = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.task_name.AddRange(tmp);
+            }
+
+            // タスク備考
+            if (Properties.Settings.Default.task_memo == null || Properties.Settings.Default.task_memo.Count > Common_Const.task_num) //null or 指定数以上ある場合は初期化
+            {
+                Properties.Settings.Default.task_memo = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.task_memo.AddRange(new string[Common_Const.task_num]);
+            }
+            else
+            {
+                string[] tmp = new string[Common_Const.task_num];
+                Properties.Settings.Default.task_memo.CopyTo(tmp, 0);
+                Properties.Settings.Default.task_memo = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.task_memo.AddRange(tmp);
+            }
+
+            // 実績名
+            if (Properties.Settings.Default.done_name == null || Properties.Settings.Default.done_name.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
+            {
+                Properties.Settings.Default.done_name = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_name.AddRange(new string[Common_Const.done_num]);
+            }
+            else
+            {
+                string[] tmp = new string[Common_Const.done_num];
+                Properties.Settings.Default.done_name.CopyTo(tmp, 0);
+                Properties.Settings.Default.done_name = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_name.AddRange(tmp);
+            }
+
+            // 実績備考
+            if (Properties.Settings.Default.done_memo == null || Properties.Settings.Default.done_memo.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
+            {
+                Properties.Settings.Default.done_memo = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_memo.AddRange(new string[Common_Const.done_num]);
+            }
+            else
+            {
+                string[] tmp = new string[Common_Const.done_num];
+                Properties.Settings.Default.done_memo.CopyTo(tmp, 0);
+                Properties.Settings.Default.done_memo = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_memo.AddRange(tmp);
+            }
+
+            // 実績進捗
+            if (Properties.Settings.Default.done_prog == null || Properties.Settings.Default.done_prog.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
+            {
+                Properties.Settings.Default.done_prog = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_prog.AddRange(new string[Common_Const.done_num]);
+            }
+            else
+            {
+                string[] tmp = new string[Common_Const.done_num];
+                Properties.Settings.Default.done_prog.CopyTo(tmp, 0);
+                Properties.Settings.Default.done_prog = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_prog.AddRange(tmp);
+            }
+
+            // 実績時間
+            if (Properties.Settings.Default.done_time == null || Properties.Settings.Default.done_time.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
+            {
+                Properties.Settings.Default.done_time = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_time.AddRange(new string[Common_Const.done_num]);
+            }
+            else
+            {
+                string[] tmp = new string[Common_Const.done_num];
+                Properties.Settings.Default.done_time.CopyTo(tmp, 0);
+                Properties.Settings.Default.done_time = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_time.AddRange(tmp);
+            }
+
+            // 実績日
+            if (Properties.Settings.Default.done_day == null || Properties.Settings.Default.done_day.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
+            {
+                Properties.Settings.Default.done_day = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_day.AddRange(new string[Common_Const.done_num]);
+            }
+            else
+            {
+                string[] tmp = new string[Common_Const.done_num];
+                Properties.Settings.Default.done_day.CopyTo(tmp, 0);
+                Properties.Settings.Default.done_day = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_day.AddRange(tmp);
+            }
+
+            Properties.Settings.Default.Save();
+        }
 
         // 設定を反映
         private void RefrectSetting(MainForm form)
@@ -44,27 +192,8 @@ namespace TaskManage.Main
         // Form 設定反映
         private void SetForm(MainForm form)
         {
-            // フォームサイズ x
-            if (Properties.Settings.Default.form_x >= 0)
-            {
-                form.Width = Properties.Settings.Default.form_x;
-            }
-            else
-            {
-                form.Width = 200;
-            }
-            Properties.Settings.Default.form_x = form.Width;
-            // フォームサイズ y
-            if (Properties.Settings.Default.form_y >= 0)
-            {
-                form.Height = Properties.Settings.Default.form_y;
-            }
-            else
-            {
-                form.Height = 600;
-            }
-            Properties.Settings.Default.form_y = form.Height;
-            Properties.Settings.Default.Save();
+            form.Width = Properties.Settings.Default.form_x;
+            form.Height = Properties.Settings.Default.form_y;
         }
 
         private void SetCommon(MainForm form)
@@ -128,23 +257,6 @@ namespace TaskManage.Main
                 form.menu2_2_panel_main.Visible = false;
                 form.menu2_2_panel.Height = 34;
                 form.menu2_2.Height = 42;
-            }
-
-
-            // メモ展開
-            if (Properties.Settings.Default.memo_path == null || Properties.Settings.Default.memo_path.Count > Common_Const.memo_num) //pathがない場合は初期化 or pathが100以上ある場合は初期化
-            {
-                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_path.AddRange(new string[Common_Const.memo_num]);
-                Properties.Settings.Default.Save();
-            }
-            else
-            {
-                string[] paths = new string[Common_Const.memo_num];
-                Properties.Settings.Default.memo_path.CopyTo(paths, 0);
-                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_path.AddRange(paths);
-                Properties.Settings.Default.Save();
             }
 
             FileUtil fu = new FileUtil();
