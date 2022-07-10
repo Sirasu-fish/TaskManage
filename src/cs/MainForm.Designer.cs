@@ -74,7 +74,6 @@ namespace TaskManage
         public Button[] menu2_1_panel_main_panel_button_finish;
         public Label[] menu2_1_panel_main_panel_label1;
         public Label[] menu2_1_panel_main_panel_label2;
-        public Panel menu2_1_panel_margin;
         public Panel menu2_1_panel_top;
         public Button menu2_1_panel_top_button_add;
         public Button menu2_1_panel_top_button_movedown;
@@ -210,7 +209,6 @@ namespace TaskManage
 
             this.menu2 = new System.Windows.Forms.Panel();
             this.menu2_1 = new System.Windows.Forms.Panel();
-            this.menu2_1_panel_margin = new System.Windows.Forms.Panel();
             this.menu2_1_panel = new TaskManage.PanelEx();
             this.menu2_1_panel_top = new System.Windows.Forms.Panel();
             this.menu2_1_panel_top_label_num = new TaskManage.Circlelabel();
@@ -405,7 +403,7 @@ namespace TaskManage
             this.common.Controls.Add(this.common_button_setting);
             this.common.Controls.Add(this.common_button_nextmenu);
             this.common.Dock = System.Windows.Forms.DockStyle.Top;
-            this.common.Size = new System.Drawing.Size(682, 34);
+            this.common.Size = new System.Drawing.Size(Main.Common_Const.form_x, 34);
             this.common.Margin = new System.Windows.Forms.Padding(0);
             this.common.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.common_MouseDoubleClick);
             // 
@@ -417,7 +415,7 @@ namespace TaskManage
             this.common_button_prevmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.common_button_prevmenu.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.common_button_prevmenu.Image = ((System.Drawing.Image)(resources.GetObject("common_button_prevmenu.Image")));
-            this.common_button_prevmenu.Location = new System.Drawing.Point(471, 1);
+            this.common_button_prevmenu.Location = new System.Drawing.Point(Main.Common_Const.form_x - 42 * 5, 1);
             this.common_button_prevmenu.Margin = new System.Windows.Forms.Padding(0);
             this.common_button_prevmenu.Size = new System.Drawing.Size(42, 32);
             this.tooltip.SetToolTip(this.common_button_prevmenu, "前のメニューに移動");
@@ -446,100 +444,57 @@ namespace TaskManage
             this.common_button_nextmenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.common_button_nextmenu.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.common_button_nextmenu.Image = ((System.Drawing.Image)(resources.GetObject("common_button_nextmenu.Image")));
-            this.common_button_nextmenu.Location = new System.Drawing.Point(513, 1);
+            this.common_button_nextmenu.Location = new System.Drawing.Point(Main.Common_Const.form_x - 42 * 4, 1);
             this.common_button_nextmenu.Margin = new System.Windows.Forms.Padding(0);
             this.common_button_nextmenu.Size = new System.Drawing.Size(42, 32);
             this.tooltip.SetToolTip(this.common_button_nextmenu, "次のメニューに移動");
             this.common_button_nextmenu.UseVisualStyleBackColor = false;
             this.common_button_nextmenu.Click += new System.EventHandler(this.common_button_nextmenu_Click);
             // 
-            // menu1_panel_calendertop
+            // common_button_close
             // 
-            this.menu1_panel_calendertop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth);
-            this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_button_nextmonth);
-            this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_button_prevmonth);
-            this.menu1_panel_calendertop.Location = new System.Drawing.Point(1, 1);
-            this.menu1_panel_calendertop.Size = new System.Drawing.Size(680, 37);
+            this.common_button_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.common_button_close.BackColor = System.Drawing.Color.Transparent;
+            this.common_button_close.FlatAppearance.BorderSize = 0;
+            this.common_button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.common_button_close.ForeColor = System.Drawing.Color.Red;
+            this.common_button_close.Image = ((System.Drawing.Image)(resources.GetObject("common_button_close.Image")));
+            this.common_button_close.Location = new System.Drawing.Point(Main.Common_Const.form_x - 42 * 1, 1);
+            this.common_button_close.Margin = new System.Windows.Forms.Padding(0);
+            this.common_button_close.Size = new System.Drawing.Size(42, 32);
+            this.tooltip.SetToolTip(this.common_button_close, "閉じる");
+            this.common_button_close.UseVisualStyleBackColor = false;
+            this.common_button_close.MouseClick += new System.Windows.Forms.MouseEventHandler(this.common_button_close_MouseClick);
+            this.common_button_close.MouseEnter += new System.EventHandler(this.common_button_close_MouseEnter);
+            this.common_button_close.MouseLeave += new System.EventHandler(this.common_button_close_MouseLeave);
             // 
-            // menu1_panel_calendertop_panel_yearmonth
+            // common_button_max
             // 
-            this.menu1_panel_calendertop_panel_yearmonth.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.menu1_panel_calendertop_panel_yearmonth.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth_combo_year);
-            this.menu1_panel_calendertop_panel_yearmonth.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth_label_month);
-            this.menu1_panel_calendertop_panel_yearmonth.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth_combo_month);
-            this.menu1_panel_calendertop_panel_yearmonth.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth_label_year);
-            this.menu1_panel_calendertop_panel_yearmonth.Location = new System.Drawing.Point(248, 0);
-            this.menu1_panel_calendertop_panel_yearmonth.Size = new System.Drawing.Size(162, 36);
+            this.common_button_max.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.common_button_max.BackColor = System.Drawing.Color.Transparent;
+            this.common_button_max.FlatAppearance.BorderSize = 0;
+            this.common_button_max.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_max.Image")));
+            this.common_button_max.Location = new System.Drawing.Point(Main.Common_Const.form_x - 42 * 2, 1);
+            this.common_button_max.Margin = new System.Windows.Forms.Padding(0);
+            this.common_button_max.Size = new System.Drawing.Size(42, 32);
+            this.tooltip.SetToolTip(this.common_button_max, "最大化");
+            this.common_button_max.UseVisualStyleBackColor = false;
+            this.common_button_max.MouseClick += new System.Windows.Forms.MouseEventHandler(this.common_button_max_MouseClick);
             // 
-            // menu1_panel_calendertop_panel_yearmonth_combo_year
+            // common_button_min
             // 
-            this.menu1_panel_calendertop_panel_yearmonth_combo_year.FormattingEnabled = true;
-            this.menu1_panel_calendertop_panel_yearmonth_combo_year.Location = new System.Drawing.Point(0, 1);
-            this.menu1_panel_calendertop_panel_yearmonth_combo_year.Size = new System.Drawing.Size(55, 23);
-            this.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedIndexChanged += new System.EventHandler(this.menu1_panel_calendertop_panel_yearmonth_combo_year_SelectedIndexChanged);
-            // 
-            // menu1_panel_calendertop_panel_yearmonth_label_month
-            // 
-            this.menu1_panel_calendertop_panel_yearmonth_label_month.AutoSize = true;
-            this.menu1_panel_calendertop_panel_yearmonth_label_month.Location = new System.Drawing.Point(125, 9);
-            this.menu1_panel_calendertop_panel_yearmonth_label_month.Size = new System.Drawing.Size(19, 15);
-            this.menu1_panel_calendertop_panel_yearmonth_label_month.Text = "月";
-            // 
-            // menu1_panel_calendertop_panel_yearmonth_combo_month
-            // 
-            this.menu1_panel_calendertop_panel_yearmonth_combo_month.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.menu1_panel_calendertop_panel_yearmonth_combo_month.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.menu1_panel_calendertop_panel_yearmonth_combo_month.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.menu1_panel_calendertop_panel_yearmonth_combo_month.FormattingEnabled = true;
-            this.menu1_panel_calendertop_panel_yearmonth_combo_month.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.menu1_panel_calendertop_panel_yearmonth_combo_month.Location = new System.Drawing.Point(76, 3);
-            this.menu1_panel_calendertop_panel_yearmonth_combo_month.Size = new System.Drawing.Size(43, 29);
-            this.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedIndexChanged += new System.EventHandler(this.menu1_panel_calendertop_panel_yearmonth_combo_month_SelectedIndexChanged);
-            // 
-            // menu1_panel_calendertop_panel_yearmonth_label_year
-            // 
-            this.menu1_panel_calendertop_panel_yearmonth_label_year.AutoSize = true;
-            this.menu1_panel_calendertop_panel_yearmonth_label_year.Location = new System.Drawing.Point(60, 1);
-            this.menu1_panel_calendertop_panel_yearmonth_label_year.Size = new System.Drawing.Size(19, 15);
-            this.menu1_panel_calendertop_panel_yearmonth_label_year.Text = "年";
-            // 
-            // menu1_panel_calendertop_button_nextmonth
-            // 
-            this.menu1_panel_calendertop_button_nextmonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu1_panel_calendertop_button_nextmonth.FlatAppearance.BorderSize = 0;
-            this.menu1_panel_calendertop_button_nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu1_panel_calendertop_button_nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("menu1_panel_calendertop_button_nextmonth.Image")));
-            this.menu1_panel_calendertop_button_nextmonth.Location = new System.Drawing.Point(644, 1);
-            this.menu1_panel_calendertop_button_nextmonth.Size = new System.Drawing.Size(36, 36);
-            this.tooltip.SetToolTip(this.menu1_panel_calendertop_button_nextmonth, "次の月を表示");
-            this.menu1_panel_calendertop_button_nextmonth.UseVisualStyleBackColor = true;
-            this.menu1_panel_calendertop_button_nextmonth.Click += new System.EventHandler(this.menu1_panel_calendertop_button_nextmonth_Click);
-            // 
-            // menu1_panel_calendertop_button_prevmonth
-            // 
-            this.menu1_panel_calendertop_button_prevmonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu1_panel_calendertop_button_prevmonth.FlatAppearance.BorderSize = 0;
-            this.menu1_panel_calendertop_button_prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu1_panel_calendertop_button_prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("menu1_panel_calendertop_button_prevmonth.Image")));
-            this.menu1_panel_calendertop_button_prevmonth.Location = new System.Drawing.Point(608, 1);
-            this.menu1_panel_calendertop_button_prevmonth.Size = new System.Drawing.Size(36, 36);
-            this.tooltip.SetToolTip(this.menu1_panel_calendertop_button_prevmonth, "前の月を表示");
-            this.menu1_panel_calendertop_button_prevmonth.UseVisualStyleBackColor = true;
-            this.menu1_panel_calendertop_button_prevmonth.Click += new System.EventHandler(this.menu1_panel_calendertop_button_prevmonth_Click);
+            this.common_button_min.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.common_button_min.BackColor = System.Drawing.Color.Transparent;
+            this.common_button_min.FlatAppearance.BorderSize = 0;
+            this.common_button_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.common_button_min.Image = ((System.Drawing.Image)(resources.GetObject("common_button_min.Image")));
+            this.common_button_min.Location = new System.Drawing.Point(Main.Common_Const.form_x - 42 * 3, 1);
+            this.common_button_min.Margin = new System.Windows.Forms.Padding(0);
+            this.common_button_min.Size = new System.Drawing.Size(42, 32);
+            this.tooltip.SetToolTip(this.common_button_min, "最小化");
+            this.common_button_min.UseVisualStyleBackColor = false;
+            this.common_button_min.MouseClick += new System.Windows.Forms.MouseEventHandler(this.common_button_min_MouseClick);
             // 
             // common_panel_setting
             // 
@@ -601,6 +556,7 @@ namespace TaskManage
             this.common_panel_setting_table_label1.Size = new System.Drawing.Size(58, 15);
             this.common_panel_setting_table_label1.Text = "ダークモード";
             this.common_panel_setting_table_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             // 
             // menu1
             // 
@@ -609,7 +565,95 @@ namespace TaskManage
             this.menu1.Controls.Add(this.menu1_table_calender);
             this.menu1.Controls.Add(this.menu1_panel_calendertop);
             this.menu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu1.Size = new System.Drawing.Size(682, 485);
+            this.menu1.Size = new System.Drawing.Size(Main.Common_Const.form_x, 485);
+            // 
+            // menu1_panel_calendertop
+            // 
+            this.menu1_panel_calendertop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth);
+            this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_button_nextmonth);
+            this.menu1_panel_calendertop.Controls.Add(this.menu1_panel_calendertop_button_prevmonth);
+            this.menu1_panel_calendertop.Location = new System.Drawing.Point(1, 1);
+            this.menu1_panel_calendertop.Size = new System.Drawing.Size(Main.Common_Const.form_x - 2, 37);
+            // 
+            // menu1_panel_calendertop_panel_yearmonth
+            // 
+            this.menu1_panel_calendertop_panel_yearmonth.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.menu1_panel_calendertop_panel_yearmonth.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth_combo_year);
+            this.menu1_panel_calendertop_panel_yearmonth.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth_label_month);
+            this.menu1_panel_calendertop_panel_yearmonth.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth_combo_month);
+            this.menu1_panel_calendertop_panel_yearmonth.Controls.Add(this.menu1_panel_calendertop_panel_yearmonth_label_year);
+            this.menu1_panel_calendertop_panel_yearmonth.Location = new System.Drawing.Point(Main.Common_Const.form_x / 2, 0);
+            this.menu1_panel_calendertop_panel_yearmonth.Size = new System.Drawing.Size(162, 36);
+            // 
+            // menu1_panel_calendertop_panel_yearmonth_combo_year
+            // 
+            this.menu1_panel_calendertop_panel_yearmonth_combo_year.FormattingEnabled = true;
+            this.menu1_panel_calendertop_panel_yearmonth_combo_year.Location = new System.Drawing.Point(0, 1);
+            this.menu1_panel_calendertop_panel_yearmonth_combo_year.Size = new System.Drawing.Size(55, 23);
+            this.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedIndexChanged += new System.EventHandler(this.menu1_panel_calendertop_panel_yearmonth_combo_year_SelectedIndexChanged);
+            // 
+            // menu1_panel_calendertop_panel_yearmonth_label_month
+            // 
+            this.menu1_panel_calendertop_panel_yearmonth_label_month.AutoSize = true;
+            this.menu1_panel_calendertop_panel_yearmonth_label_month.Location = new System.Drawing.Point(125, 9);
+            this.menu1_panel_calendertop_panel_yearmonth_label_month.Size = new System.Drawing.Size(19, 15);
+            this.menu1_panel_calendertop_panel_yearmonth_label_month.Text = "月";
+            // 
+            // menu1_panel_calendertop_panel_yearmonth_combo_month
+            // 
+            this.menu1_panel_calendertop_panel_yearmonth_combo_month.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.menu1_panel_calendertop_panel_yearmonth_combo_month.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.menu1_panel_calendertop_panel_yearmonth_combo_month.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.menu1_panel_calendertop_panel_yearmonth_combo_month.FormattingEnabled = true;
+            this.menu1_panel_calendertop_panel_yearmonth_combo_month.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.menu1_panel_calendertop_panel_yearmonth_combo_month.Location = new System.Drawing.Point(76, 3);
+            this.menu1_panel_calendertop_panel_yearmonth_combo_month.Size = new System.Drawing.Size(43, 29);
+            this.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedIndexChanged += new System.EventHandler(this.menu1_panel_calendertop_panel_yearmonth_combo_month_SelectedIndexChanged);
+            // 
+            // menu1_panel_calendertop_panel_yearmonth_label_year
+            // 
+            this.menu1_panel_calendertop_panel_yearmonth_label_year.AutoSize = true;
+            this.menu1_panel_calendertop_panel_yearmonth_label_year.Location = new System.Drawing.Point(60, 1);
+            this.menu1_panel_calendertop_panel_yearmonth_label_year.Size = new System.Drawing.Size(19, 15);
+            this.menu1_panel_calendertop_panel_yearmonth_label_year.Text = "年";
+            // 
+            // menu1_panel_calendertop_button_nextmonth
+            // 
+            this.menu1_panel_calendertop_button_nextmonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menu1_panel_calendertop_button_nextmonth.FlatAppearance.BorderSize = 0;
+            this.menu1_panel_calendertop_button_nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu1_panel_calendertop_button_nextmonth.Image = ((System.Drawing.Image)(resources.GetObject("menu1_panel_calendertop_button_nextmonth.Image")));
+            this.menu1_panel_calendertop_button_nextmonth.Location = new System.Drawing.Point(Main.Common_Const.form_x - 36 * 1 - 2, 1);
+            this.menu1_panel_calendertop_button_nextmonth.Size = new System.Drawing.Size(36, 36);
+            this.tooltip.SetToolTip(this.menu1_panel_calendertop_button_nextmonth, "次の月を表示");
+            this.menu1_panel_calendertop_button_nextmonth.UseVisualStyleBackColor = true;
+            this.menu1_panel_calendertop_button_nextmonth.Click += new System.EventHandler(this.menu1_panel_calendertop_button_nextmonth_Click);
+            // 
+            // menu1_panel_calendertop_button_prevmonth
+            // 
+            this.menu1_panel_calendertop_button_prevmonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menu1_panel_calendertop_button_prevmonth.FlatAppearance.BorderSize = 0;
+            this.menu1_panel_calendertop_button_prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu1_panel_calendertop_button_prevmonth.Image = ((System.Drawing.Image)(resources.GetObject("menu1_panel_calendertop_button_prevmonth.Image")));
+            this.menu1_panel_calendertop_button_prevmonth.Location = new System.Drawing.Point(Main.Common_Const.form_x - 36 * 2 - 2, 1);
+            this.menu1_panel_calendertop_button_prevmonth.Size = new System.Drawing.Size(36, 36);
+            this.tooltip.SetToolTip(this.menu1_panel_calendertop_button_prevmonth, "前の月を表示");
+            this.menu1_panel_calendertop_button_prevmonth.UseVisualStyleBackColor = true;
+            this.menu1_panel_calendertop_button_prevmonth.Click += new System.EventHandler(this.menu1_panel_calendertop_button_prevmonth_Click);
             // 
             // menu1_table_calender
             // 
@@ -634,14 +678,14 @@ namespace TaskManage
             this.menu1_table_calender.Controls.Add(this.menu1_table_calender_label_friday, 5, 0);
             this.menu1_table_calender.Controls.Add(this.menu1_table_calender_label_saturday, 6, 0);
             this.menu1_table_calender.ForeColor = System.Drawing.Color.Black;
-            this.menu1_table_calender.Location = new System.Drawing.Point(11, 39);
+            this.menu1_table_calender.Location = new System.Drawing.Point(10, 39);
             this.menu1_table_calender.RowCount = 7;
             this.menu1_table_calender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             for (int i = 1; i <= 6; i++)
             {
                 this.menu1_table_calender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             }
-            this.menu1_table_calender.Size = new System.Drawing.Size(658, 485);
+            this.menu1_table_calender.Size = new System.Drawing.Size(Main.Common_Const.form_x - 20, 485);
 
             for (int i = Main.Common_Const.calender_num - 1; i >= 0; i--)
             {
@@ -750,11 +794,184 @@ namespace TaskManage
             this.menu2.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
 
             // 
+            // menu2_1
+            // 
+            this.menu2_1.Controls.Add(this.menu2_1_panel);
+            this.menu2_1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menu2_1.Size = new System.Drawing.Size(Main.Common_Const.form_x, 950);
+            // 
+            // menu2_1_panel
+            // 
+            this.menu2_1_panel.BorderColor = System.Drawing.Color.Black;
+            this.menu2_1_panel.Controls.Add(this.menu2_1_panel_top);
+            this.menu2_1_panel.Controls.Add(this.menu2_1_panel_main);
+            this.menu2_1_panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menu2_1_panel.Margin = new System.Windows.Forms.Padding(0);
+            this.menu2_1_panel.Size = new System.Drawing.Size(Main.Common_Const.form_x, 936);
+            // 
+            // menu2_1_panel_top
+            // 
+            this.menu2_1_panel_top.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_label_num);
+            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_movedown);
+            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_moveup);
+            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_label_title);
+            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_openclose);
+            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_add);
+            this.menu2_1_panel_top.Location = new System.Drawing.Point(1, 1);
+            this.menu2_1_panel_top.Size = new System.Drawing.Size(Main.Common_Const.form_x - this.menu2_1_panel_top.Location.X * 2, 32);
+            // 
+            // menu2_1_panel_top_button_moveup
+            // 
+            this.menu2_1_panel_top_button_moveup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu2_1_panel_top_button_moveup.Location = new System.Drawing.Point(0, 0);
+            this.menu2_1_panel_top_button_moveup.Size = new System.Drawing.Size(16, 16);
+            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_moveup, "上に移動");
+            this.menu2_1_panel_top_button_moveup.UseVisualStyleBackColor = true;
+            this.menu2_1_panel_top_button_moveup.Click += new System.EventHandler(this.menu2_1_panel_top_button_moveup_Click);
+            // 
+            // menu2_1_panel_top_button_movedown
+            // 
+            this.menu2_1_panel_top_button_movedown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu2_1_panel_top_button_movedown.Location = new System.Drawing.Point(0, 16);
+            this.menu2_1_panel_top_button_movedown.Size = new System.Drawing.Size(16, 16);
+            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_movedown, "下に移動");
+            this.menu2_1_panel_top_button_movedown.UseVisualStyleBackColor = true;
+            this.menu2_1_panel_top_button_movedown.Click += new System.EventHandler(this.menu2_1_panel_top_button_movedown_Click);
+            // 
+            // menu2_1_panel_top_label_title
+            // 
+            this.menu2_1_panel_top_label_title.Location = new System.Drawing.Point(this.menu2_1_panel_top_button_movedown.Size.Width, 0);
+            this.menu2_1_panel_top_label_title.Size = new System.Drawing.Size(100, 32);
+            this.menu2_1_panel_top_label_title.Text = "期間設定ありタスク";
+            this.menu2_1_panel_top_label_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // menu2_1_panel_top_label_num
+            // 
+            this.menu2_1_panel_top_label_num.BackColor = System.Drawing.Color.Transparent;
+            this.menu2_1_panel_top_label_num.CustomText = "25";
+            this.menu2_1_panel_top_label_num.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.menu2_1_panel_top_label_num.Location = new System.Drawing.Point(this.menu2_1_panel_top_label_title.Location.X + this.menu2_1_panel_top_label_title.Width, 0);
+            this.menu2_1_panel_top_label_num.Size = new System.Drawing.Size(20, 20);
+            // 
+            // menu2_1_panel_top_button_openclose
+            // 
+            this.menu2_1_panel_top_button_openclose.BackColor = System.Drawing.Color.Transparent;
+            this.menu2_1_panel_top_button_openclose.FlatAppearance.BorderSize = 0;
+            this.menu2_1_panel_top_button_openclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu2_1_panel_top_button_openclose.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.menu2_1_panel_top_button_openclose.Location = new System.Drawing.Point(this.menu2_1_panel_top_button_movedown.Size.Width + this.menu2_1_panel_top_label_title.Width
+                + this.menu2_1_panel_top_label_num.Width, 0);
+            this.menu2_1_panel_top_button_openclose.Size = new System.Drawing.Size(32, 32);
+            this.menu2_1_panel_top_button_openclose.Text = "+";
+            this.menu2_1_panel_top_button_openclose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_openclose, "開く/閉じる");
+            this.menu2_1_panel_top_button_openclose.UseVisualStyleBackColor = false;
+            this.menu2_1_panel_top_button_openclose.Click += new System.EventHandler(this.menu2_1_panel_top_button_openclose_Click);
+            // 
+            // menu2_1_panel_top_button_add
+            // 
+            this.menu2_1_panel_top_button_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menu2_1_panel_top_button_add.BackColor = System.Drawing.Color.Transparent;
+            this.menu2_1_panel_top_button_add.Dock = System.Windows.Forms.DockStyle.Right;
+            this.menu2_1_panel_top_button_add.FlatAppearance.BorderSize = 0;
+            this.menu2_1_panel_top_button_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu2_1_panel_top_button_add.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.menu2_1_panel_top_button_add.Image = ((System.Drawing.Image)(resources.GetObject("menu2_1_panel_top_button_add.Image")));
+            this.menu2_1_panel_top_button_add.Size = new System.Drawing.Size(32, 32);
+            this.menu2_1_panel_top_button_add.Margin = new System.Windows.Forms.Padding(0);
+            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_add, "追加");
+            this.menu2_1_panel_top_button_add.UseVisualStyleBackColor = false;
+            this.menu2_1_panel_top_button_add.Click += new System.EventHandler(this.menu2_1_panel_top_button_add_Click);
+            // 
+            // menu2_1_panel_main
+            // 
+            this.menu2_1_panel_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            for (int i = Main.Common_Const.task_num - 1; i >= 0; i--)
+            {
+                this.menu2_1_panel_main.Controls.Add(this.menu2_1_panel_main_panel[i]);
+            }
+            this.menu2_1_panel_main.Location = new System.Drawing.Point(1, 34);
+            this.menu2_1_panel_main.Size = new System.Drawing.Size(Main.Common_Const.form_x - this.menu2_1_panel_main.Location.X * 2, 899);
+
+            for (int i = Main.Common_Const.task_num - 1; i >= 0; i--)
+            {
+                //
+                // menu2_1_panel_main_panel
+                //
+                this.menu2_1_panel_main_panel[i].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                | System.Windows.Forms.AnchorStyles.Right)));
+                this.menu2_1_panel_main_panel[i].BorderColor = System.Drawing.Color.Black;
+                this.menu2_1_panel_main_panel[i].Controls.Add(this.menu2_1_panel_main_panel_label1[i]);
+                this.menu2_1_panel_main_panel[i].Controls.Add(this.menu2_1_panel_main_panel_button_finish[i]);
+                this.menu2_1_panel_main_panel[i].Controls.Add(this.menu2_1_panel_main_panel_button_delete[i]);
+                this.menu2_1_panel_main_panel[i].Controls.Add(this.menu2_1_panel_main_panel_label2[i]);
+                this.menu2_1_panel_main_panel[i].Location = new System.Drawing.Point(4, (this.menu2_1_panel_main_panel[i].Size.Height + 4) * i);
+                this.menu2_1_panel_main_panel[i].Name = i.ToString();
+                this.menu2_1_panel_main_panel[i].Size = new System.Drawing.Size(this.menu2_1_panel_main.Width - this.menu2_1_panel_main_panel[i].Location.X * 2, 32);
+                this.menu2_1_panel_main_panel[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_Click);
+                //
+                // menu2_1_panel_main_panel_button_delete
+                //
+                this.menu2_1_panel_main_panel_button_delete[i].BackColor = System.Drawing.Color.Transparent;
+                this.menu2_1_panel_main_panel_button_delete[i].Dock = System.Windows.Forms.DockStyle.Right;
+                this.menu2_1_panel_main_panel_button_delete[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                this.menu2_1_panel_main_panel_button_delete[i].Image = ((System.Drawing.Image)(resources.GetObject("menu2_1_panel_main_panel1_button_delete.Image")));
+                this.menu2_1_panel_main_panel_button_delete[i].Name = i.ToString();
+                this.menu2_1_panel_main_panel_button_delete[i].Size = new System.Drawing.Size(32, 32);
+                this.menu2_1_panel_main_panel_button_delete[i].UseVisualStyleBackColor = false;
+                this.menu2_1_panel_main_panel_button_delete[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_button_delete_Click);
+                this.menu2_1_panel_main_panel_button_delete[i].MouseEnter += new System.EventHandler(this.menu2_1_panel_main_panel_button_delete_MouseEnter);
+                this.menu2_1_panel_main_panel_button_delete[i].MouseLeave += new System.EventHandler(this.menu2_1_panel_main_panel_button_delete_MouseLeave);
+                //
+                // menu2_1_panel_main_panel_button_finish
+                //
+                this.menu2_1_panel_main_panel_button_finish[i].BackColor = System.Drawing.Color.Transparent;
+                this.menu2_1_panel_main_panel_button_finish[i].Dock = System.Windows.Forms.DockStyle.Right;
+                this.menu2_1_panel_main_panel_button_finish[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                this.menu2_1_panel_main_panel_button_finish[i].Image = ((System.Drawing.Image)(resources.GetObject("menu2_1_panel_main_panel1_button_finish.Image")));
+                this.menu2_1_panel_main_panel_button_finish[i].Name = i.ToString();
+                this.menu2_1_panel_main_panel_button_finish[i].Size = new System.Drawing.Size(32, 32);
+                this.menu2_1_panel_main_panel_button_finish[i].UseVisualStyleBackColor = false;
+                this.menu2_1_panel_main_panel_button_finish[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_button_finish_Click);
+                this.menu2_1_panel_main_panel_button_finish[i].MouseEnter += new System.EventHandler(this.menu2_1_panel_main_panel_button_finish_MouseEnter);
+                this.menu2_1_panel_main_panel_button_finish[i].MouseLeave += new System.EventHandler(this.menu2_1_panel_main_panel_button_finish_MouseLeave);
+                //
+                // menu2_1_panel_main_panel_label1
+                //
+                this.menu2_1_panel_main_panel_label1[i].Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                | System.Windows.Forms.AnchorStyles.Left)
+                | System.Windows.Forms.AnchorStyles.Right)));
+                this.menu2_1_panel_main_panel_label1[i].Location = new System.Drawing.Point(1, 1);
+                this.menu2_1_panel_main_panel_label1[i].Name = i.ToString();
+                this.menu2_1_panel_main_panel_label1[i].Size = new System.Drawing.Size(this.menu2_1_panel_main_panel[i].Width - this.menu2_1_panel_main_panel_button_delete[i].Width 
+                    - this.menu2_1_panel_main_panel_button_finish[i].Width 
+                    - this.menu2_1_panel_main_panel_label1[i].Location.X * 2 - this.menu2_1_panel_main_panel_label2[i].Width, 30);
+                this.menu2_1_panel_main_panel_label1[i].TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                this.menu2_1_panel_main_panel_label1[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_label1_Click);
+                //
+                // menu2_1_panel_main_panel_label2
+                //
+                this.menu2_1_panel_main_panel_label2[i].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                | System.Windows.Forms.AnchorStyles.Right)));
+                this.menu2_1_panel_main_panel_label2[i].Location = new System.Drawing.Point(this.menu2_1_panel_main_panel[i].Width - this.menu2_1_panel_main_panel_button_delete[i].Width
+                    - this.menu2_1_panel_main_panel_button_finish[i].Width
+                    - this.menu2_1_panel_main_panel_label2[i].Width, 1);
+                this.menu2_1_panel_main_panel_label2[i].Name = i.ToString();
+                this.menu2_1_panel_main_panel_label2[i].Size = new System.Drawing.Size(76, 30);
+                this.menu2_1_panel_main_panel_label2[i].TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                this.menu2_1_panel_main_panel_label2[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_label2_Click);
+            }
+
+            // 
             // menu2_2
             // 
             this.menu2_2.Controls.Add(this.menu2_2_panel);
             this.menu2_2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_2.Size = new System.Drawing.Size(665, 570);
+            this.menu2_2.Size = new System.Drawing.Size(Main.Common_Const.form_x, 570);
             // 
             // menu2_2_panel
             // 
@@ -763,7 +980,7 @@ namespace TaskManage
             this.menu2_2_panel.BorderColor = System.Drawing.Color.Black;
             this.menu2_2_panel.Controls.Add(this.menu2_2_panel_top);
             this.menu2_2_panel.Controls.Add(this.menu2_2_panel_main);
-            this.menu2_2_panel.Size = new System.Drawing.Size(665, 540);
+            this.menu2_2_panel.Size = new System.Drawing.Size(Main.Common_Const.form_x, 540);
             // 
             // menu2_2_panel_top
             // 
@@ -777,24 +994,7 @@ namespace TaskManage
             this.menu2_2_panel_top.Controls.Add(this.menu2_2_panel_top_button_openclose);
             this.menu2_2_panel_top.Controls.Add(this.menu2_2_panel_top_label_title);
             this.menu2_2_panel_top.Location = new System.Drawing.Point(1, 1);
-            this.menu2_2_panel_top.Size = new System.Drawing.Size(663, 32);
-            // 
-            // menu2_2_panel_top_button_open
-            // 
-            this.menu2_2_panel_top_button_open.Dock = System.Windows.Forms.DockStyle.Right;
-            this.menu2_2_panel_top_button_open.FlatAppearance.BorderSize = 0;
-            this.menu2_2_panel_top_button_open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_top_button_open.Size = new System.Drawing.Size(32, 32);
-            this.tooltip.SetToolTip(this.menu2_2_panel_top_button_open, "追加");
-            this.menu2_2_panel_top_button_open.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_top_button_open.Click += new System.EventHandler(this.menu2_2_panel_top_button_open_Click);
-            // 
-            // menu2_2_panel_top_label_num
-            // 
-            this.menu2_2_panel_top_label_num.BackColor = System.Drawing.Color.Transparent;
-            this.menu2_2_panel_top_label_num.CustomText = "0";
-            this.menu2_2_panel_top_label_num.Location = new System.Drawing.Point(46, 0);
-            this.menu2_2_panel_top_label_num.Size = new System.Drawing.Size(20, 20);
+            this.menu2_2_panel_top.Size = new System.Drawing.Size(Main.Common_Const.form_x - this.menu2_2_panel_top.Location.X * 2, 32);
             // 
             // menu2_2_panel_top_button_movedown
             // 
@@ -814,6 +1014,44 @@ namespace TaskManage
             this.menu2_2_panel_top_button_moveup.UseVisualStyleBackColor = true;
             this.menu2_2_panel_top_button_moveup.Click += new System.EventHandler(this.menu2_2_panel_top_button_moveup_Click);
             // 
+            // menu2_2_panel_top_label_title
+            // 
+            this.menu2_2_panel_top_label_title.Location = new System.Drawing.Point(this.menu2_2_panel_top_button_movedown.Width, 0);
+            this.menu2_2_panel_top_label_title.Size = new System.Drawing.Size(30, 32);
+            this.menu2_2_panel_top_label_title.Text = "メモ";
+            this.menu2_2_panel_top_label_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // menu2_2_panel_top_label_num
+            // 
+            this.menu2_2_panel_top_label_num.BackColor = System.Drawing.Color.Transparent;
+            this.menu2_2_panel_top_label_num.CustomText = "0";
+            this.menu2_2_panel_top_label_num.Location = new System.Drawing.Point(this.menu2_2_panel_top_label_title.Location.X + this.menu2_2_panel_top_label_title.Width, 0);
+            this.menu2_2_panel_top_label_num.Size = new System.Drawing.Size(20, 20);
+            // 
+            // menu2_2_panel_top_button_openclose
+            // 
+            this.menu2_2_panel_top_button_openclose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.menu2_2_panel_top_button_openclose.BackColor = System.Drawing.Color.Transparent;
+            this.menu2_2_panel_top_button_openclose.FlatAppearance.BorderSize = 0;
+            this.menu2_2_panel_top_button_openclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu2_2_panel_top_button_openclose.Location = new System.Drawing.Point(this.menu2_2_panel_top_label_num.Location.X + this.menu2_2_panel_top_label_num.Width, 0);
+            this.menu2_2_panel_top_button_openclose.Size = new System.Drawing.Size(32, 32);
+            this.menu2_2_panel_top_button_openclose.Text = "+";
+            this.tooltip.SetToolTip(this.menu2_2_panel_top_button_openclose, "開く/閉じる");
+            this.menu2_2_panel_top_button_openclose.UseVisualStyleBackColor = false;
+            this.menu2_2_panel_top_button_openclose.Click += new System.EventHandler(this.menu2_2_panel_top_button_openclose_Click);
+            // 
+            // menu2_2_panel_top_button_open
+            // 
+            this.menu2_2_panel_top_button_open.Dock = System.Windows.Forms.DockStyle.Right;
+            this.menu2_2_panel_top_button_open.FlatAppearance.BorderSize = 0;
+            this.menu2_2_panel_top_button_open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu2_2_panel_top_button_open.Size = new System.Drawing.Size(32, 32);
+            this.tooltip.SetToolTip(this.menu2_2_panel_top_button_open, "追加");
+            this.menu2_2_panel_top_button_open.UseVisualStyleBackColor = true;
+            this.menu2_2_panel_top_button_open.Click += new System.EventHandler(this.menu2_2_panel_top_button_open_Click);
+            // 
             // menu2_2_panel_top_button_add
             // 
             this.menu2_2_panel_top_button_add.Dock = System.Windows.Forms.DockStyle.Right;
@@ -824,27 +1062,7 @@ namespace TaskManage
             this.tooltip.SetToolTip(this.menu2_2_panel_top_button_add, "追加");
             this.menu2_2_panel_top_button_add.UseVisualStyleBackColor = true;
             this.menu2_2_panel_top_button_add.Click += new System.EventHandler(this.menu2_2_panel_top_button_add_Click);
-            // 
-            // menu2_2_panel_top_button_openclose
-            // 
-            this.menu2_2_panel_top_button_openclose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.menu2_2_panel_top_button_openclose.BackColor = System.Drawing.Color.Transparent;
-            this.menu2_2_panel_top_button_openclose.FlatAppearance.BorderSize = 0;
-            this.menu2_2_panel_top_button_openclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_top_button_openclose.Location = new System.Drawing.Point(66, 0);
-            this.menu2_2_panel_top_button_openclose.Size = new System.Drawing.Size(32, 32);
-            this.menu2_2_panel_top_button_openclose.Text = "+";
-            this.tooltip.SetToolTip(this.menu2_2_panel_top_button_openclose, "開く/閉じる");
-            this.menu2_2_panel_top_button_openclose.UseVisualStyleBackColor = false;
-            this.menu2_2_panel_top_button_openclose.Click += new System.EventHandler(this.menu2_2_panel_top_button_openclose_Click);
-            // 
-            // menu2_2_panel_top_label_title
-            // 
-            this.menu2_2_panel_top_label_title.Location = new System.Drawing.Point(16, 0);
-            this.menu2_2_panel_top_label_title.Size = new System.Drawing.Size(30, 32);
-            this.menu2_2_panel_top_label_title.Text = "メモ";
-            this.menu2_2_panel_top_label_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            
             // 
             // menu2_2_panel_main
             // 
@@ -856,7 +1074,7 @@ namespace TaskManage
                 this.menu2_2_panel_main.Controls.Add(this.menu2_2_panel_main_panel[i]);
             }
             this.menu2_2_panel_main.Location = new System.Drawing.Point(1, 33);
-            this.menu2_2_panel_main.Size = new System.Drawing.Size(663, 540);
+            this.menu2_2_panel_main.Size = new System.Drawing.Size(Main.Common_Const.form_x - this.menu2_2_panel_main.Location.X * 2, 540);
 
             for (int i = Main.Common_Const.memo_num - 1; i >= 0; i--)
             {
@@ -865,9 +1083,8 @@ namespace TaskManage
                 //
                 this.menu2_2_panel_main_panel[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo[i]);
                 this.menu2_2_panel_main_panel[i].Dock = System.Windows.Forms.DockStyle.Top;
-                this.menu2_2_panel_main_panel[i].Size = new System.Drawing.Size(663, 106);
+                this.menu2_2_panel_main_panel[i].Size = new System.Drawing.Size(Main.Common_Const.form_x, 106);
                 this.menu2_2_panel_main_panel[i].Visible = false;
-
                 //
                 // menu2_2_panel_main_panel_table_memo
                 //
@@ -883,8 +1100,50 @@ namespace TaskManage
                 this.menu2_2_panel_main_panel_table_memo[i].RowCount = 2;
                 this.menu2_2_panel_main_panel_table_memo[i].RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
                 this.menu2_2_panel_main_panel_table_memo[i].RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
-                this.menu2_2_panel_main_panel_table_memo[i].Size = new System.Drawing.Size(655, 102);
-
+                this.menu2_2_panel_main_panel_table_memo[i].Size = new System.Drawing.Size(Main.Common_Const.form_x - this.menu2_2_panel_main_panel_table_memo[i].Location.X * 2, 102);
+                
+                //
+                // menu2_2_panel_main_panel_table_memo_panel_top
+                //
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Dock = System.Windows.Forms.DockStyle.Fill;
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Margin = new System.Windows.Forms.Padding(0);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i]);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i]);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i]);
+                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_text[i]);
+                //
+                // menu2_2_panel_main_panel_table_memo_panel_top_text
+                //
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].BackColor = System.Drawing.SystemColors.Control;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Dock = System.Windows.Forms.DockStyle.Fill;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].ReadOnly = true;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Size = new System.Drawing.Size(this.menu2_2_panel_main_panel_table_memo[i].Width
+                    - this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Width - this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Width 
+                    - this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Width, 23);
+                //
+                // menu2_2_panel_main_panel_table_memo_panel_top_button_save
+                //
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Dock = System.Windows.Forms.DockStyle.Right;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Size = new System.Drawing.Size(32, 22);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].UseVisualStyleBackColor = true;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click);
+                // 
+                // menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax
+                // 
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Dock = System.Windows.Forms.DockStyle.Right;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Size = new System.Drawing.Size(32, 22);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].UseVisualStyleBackColor = true;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click);
+                //
+                // menu2_2_panel_main_panel_table_memo_panel_top_button_close
+                //
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Dock = System.Windows.Forms.DockStyle.Right;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Size = new System.Drawing.Size(32, 22);
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].UseVisualStyleBackColor = true;
+                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click);
                 //
                 // menu2_2_panel_main_panel_table_memo_text
                 //
@@ -896,240 +1155,14 @@ namespace TaskManage
                 this.menu2_2_panel_main_panel_table_memo_text[i].Margin = new System.Windows.Forms.Padding(0);
                 this.menu2_2_panel_main_panel_table_memo_text[i].KeyDown += new System.Windows.Forms.KeyEventHandler(this.menu2_2_panel_main_panel_table_memo_text_KeyDown);
                 this.menu2_2_panel_main_panel_table_memo_text[i].TextChanged += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_text_TextChanged);
-
-                //
-                // menu2_2_panel_main_panel_table_memo_panel_top
-                //
-                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Dock = System.Windows.Forms.DockStyle.Fill;
-                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Margin = new System.Windows.Forms.Padding(0);
-                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i]);
-                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i]);
-                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i]);
-                this.menu2_2_panel_main_panel_table_memo_panel_top[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo_panel_top_text[i]);
-
-                //
-                // menu2_2_panel_main_panel_table_memo_panel_top_text
-                //
-                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].BackColor = System.Drawing.SystemColors.Control;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Dock = System.Windows.Forms.DockStyle.Fill;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].ReadOnly = true;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Size = new System.Drawing.Size(557, 23);
-
-                //
-                // menu2_2_panel_main_panel_table_memo_panel_top_button_save
-                //
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Dock = System.Windows.Forms.DockStyle.Right;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Size = new System.Drawing.Size(32, 22);
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].UseVisualStyleBackColor = true;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click);
-
-                // 
-                // menu2_2_panel_main_panel1_table_memo_panel_top_button_minmax
-                // 
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Dock = System.Windows.Forms.DockStyle.Right;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Size = new System.Drawing.Size(32, 22);
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].UseVisualStyleBackColor = true;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click);
-
-                //
-                // menu2_2_panel_main_panel_table_memo_panel_top_button_close
-                //
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Dock = System.Windows.Forms.DockStyle.Right;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Size = new System.Drawing.Size(32, 22);
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].UseVisualStyleBackColor = true;
-                this.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Click += new System.EventHandler(this.menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click);
-            }
-
-            // 
-            // menu2_1
-            // 
-            this.menu2_1.Controls.Add(this.menu2_1_panel_margin);
-            this.menu2_1.Controls.Add(this.menu2_1_panel);
-            this.menu2_1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_1.Size = new System.Drawing.Size(665, 950);
-            // 
-            // menu2_1_panel_margin
-            // 
-            this.menu2_1_panel_margin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_1_panel_margin.Location = new System.Drawing.Point(1, 936);
-            this.menu2_1_panel_margin.Size = new System.Drawing.Size(663, 8);
-            // 
-            // menu2_1_panel
-            // 
-            this.menu2_1_panel.BorderColor = System.Drawing.Color.Black;
-            this.menu2_1_panel.Controls.Add(this.menu2_1_panel_top);
-            this.menu2_1_panel.Controls.Add(this.menu2_1_panel_main);
-            this.menu2_1_panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_1_panel.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_1_panel.Size = new System.Drawing.Size(665, 936);
-            // 
-            // menu2_1_panel_top
-            // 
-            this.menu2_1_panel_top.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_label_num);
-            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_movedown);
-            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_moveup);
-            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_label_title);
-            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_openclose);
-            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_add);
-            this.menu2_1_panel_top.Location = new System.Drawing.Point(1, 1);
-            this.menu2_1_panel_top.Size = new System.Drawing.Size(663, 32);
-            // 
-            // menu2_1_panel_top_label_num
-            // 
-            this.menu2_1_panel_top_label_num.BackColor = System.Drawing.Color.Transparent;
-            this.menu2_1_panel_top_label_num.CustomText = "25";
-            this.menu2_1_panel_top_label_num.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.menu2_1_panel_top_label_num.Location = new System.Drawing.Point(116, 0);
-            this.menu2_1_panel_top_label_num.Size = new System.Drawing.Size(20, 20);
-            // 
-            // menu2_1_panel_top_button_movedown
-            // 
-            this.menu2_1_panel_top_button_movedown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_1_panel_top_button_movedown.Location = new System.Drawing.Point(0, 16);
-            this.menu2_1_panel_top_button_movedown.Size = new System.Drawing.Size(16, 16);
-            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_movedown, "下に移動");
-            this.menu2_1_panel_top_button_movedown.UseVisualStyleBackColor = true;
-            this.menu2_1_panel_top_button_movedown.Click += new System.EventHandler(this.menu2_1_panel_top_button_movedown_Click);
-            // 
-            // menu2_1_panel_top_button_moveup
-            // 
-            this.menu2_1_panel_top_button_moveup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_1_panel_top_button_moveup.Location = new System.Drawing.Point(0, 0);
-            this.menu2_1_panel_top_button_moveup.Size = new System.Drawing.Size(16, 16);
-            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_moveup, "上に移動");
-            this.menu2_1_panel_top_button_moveup.UseVisualStyleBackColor = true;
-            this.menu2_1_panel_top_button_moveup.Click += new System.EventHandler(this.menu2_1_panel_top_button_moveup_Click);
-            // 
-            // menu2_1_panel_top_label_title
-            // 
-            this.menu2_1_panel_top_label_title.Location = new System.Drawing.Point(16, 0);
-            this.menu2_1_panel_top_label_title.Size = new System.Drawing.Size(100, 32);
-            this.menu2_1_panel_top_label_title.Text = "期間設定ありタスク";
-            this.menu2_1_panel_top_label_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // menu2_1_panel_top_button_openclose
-            // 
-            this.menu2_1_panel_top_button_openclose.BackColor = System.Drawing.Color.Transparent;
-            this.menu2_1_panel_top_button_openclose.FlatAppearance.BorderSize = 0;
-            this.menu2_1_panel_top_button_openclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_1_panel_top_button_openclose.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.menu2_1_panel_top_button_openclose.Location = new System.Drawing.Point(146, 0);
-            this.menu2_1_panel_top_button_openclose.Size = new System.Drawing.Size(32, 32);
-            this.menu2_1_panel_top_button_openclose.Text = "+";
-            this.menu2_1_panel_top_button_openclose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_openclose, "開く/閉じる");
-            this.menu2_1_panel_top_button_openclose.UseVisualStyleBackColor = false;
-            this.menu2_1_panel_top_button_openclose.Click += new System.EventHandler(this.menu2_1_panel_top_button_openclose_Click);
-            // 
-            // menu2_1_panel_top_button_add
-            // 
-            this.menu2_1_panel_top_button_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu2_1_panel_top_button_add.BackColor = System.Drawing.Color.Transparent;
-            this.menu2_1_panel_top_button_add.FlatAppearance.BorderSize = 0;
-            this.menu2_1_panel_top_button_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_1_panel_top_button_add.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.menu2_1_panel_top_button_add.Image = ((System.Drawing.Image)(resources.GetObject("menu2_1_panel_top_button_add.Image")));
-            this.menu2_1_panel_top_button_add.Location = new System.Drawing.Point(631, 0);
-            this.menu2_1_panel_top_button_add.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_1_panel_top_button_add.Size = new System.Drawing.Size(32, 32);
-            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_add, "追加");
-            this.menu2_1_panel_top_button_add.UseVisualStyleBackColor = false;
-            this.menu2_1_panel_top_button_add.Click += new System.EventHandler(this.menu2_1_panel_top_button_add_Click);
-            // 
-            // menu2_1_panel_main
-            // 
-            this.menu2_1_panel_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            for (int i = Main.Common_Const.task_num - 1; i >= 0; i--)
-            {
-                this.menu2_1_panel_main.Controls.Add(this.menu2_1_panel_main_panel[i]);
-            }
-            this.menu2_1_panel_main.Location = new System.Drawing.Point(1, 34);
-            this.menu2_1_panel_main.Size = new System.Drawing.Size(663, 899);
-            
-            for (int i = Main.Common_Const.task_num - 1; i >= 0; i--)
-            {
-                //
-                // menu2_1_panel_main_panel
-                //
-                this.menu2_1_panel_main_panel[i].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                | System.Windows.Forms.AnchorStyles.Right)));
-                this.menu2_1_panel_main_panel[i].BorderColor = System.Drawing.Color.Black;
-                this.menu2_1_panel_main_panel[i].Controls.Add(this.menu2_1_panel_main_panel_label1[i]);
-                this.menu2_1_panel_main_panel[i].Controls.Add(this.menu2_1_panel_main_panel_button_finish[i]);
-                this.menu2_1_panel_main_panel[i].Controls.Add(this.menu2_1_panel_main_panel_button_delete[i]);
-                this.menu2_1_panel_main_panel[i].Controls.Add(this.menu2_1_panel_main_panel_label2[i]);
-                this.menu2_1_panel_main_panel[i].Location = new System.Drawing.Point(4, 36 * i);
-                this.menu2_1_panel_main_panel[i].Name = i.ToString();
-                this.menu2_1_panel_main_panel[i].Size = new System.Drawing.Size(655, 32);
-                this.menu2_1_panel_main_panel[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_Click);
-
-                //
-                // menu2_1_panel_main_panel_button_delete
-                //
-                this.menu2_1_panel_main_panel_button_delete[i].BackColor = System.Drawing.Color.Transparent;
-                this.menu2_1_panel_main_panel_button_delete[i].Dock = System.Windows.Forms.DockStyle.Right;
-                this.menu2_1_panel_main_panel_button_delete[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                this.menu2_1_panel_main_panel_button_delete[i].Image = ((System.Drawing.Image)(resources.GetObject("menu2_1_panel_main_panel1_button_delete.Image")));
-                this.menu2_1_panel_main_panel_button_delete[i].Name = i.ToString();
-                this.menu2_1_panel_main_panel_button_delete[i].Size = new System.Drawing.Size(32, 32);
-                this.menu2_1_panel_main_panel_button_delete[i].UseVisualStyleBackColor = false;
-                this.menu2_1_panel_main_panel_button_delete[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_button_delete_Click);
-                this.menu2_1_panel_main_panel_button_delete[i].MouseEnter += new System.EventHandler(this.menu2_1_panel_main_panel_button_delete_MouseEnter);
-                this.menu2_1_panel_main_panel_button_delete[i].MouseLeave += new System.EventHandler(this.menu2_1_panel_main_panel_button_delete_MouseLeave);
-
-                //
-                // menu2_1_panel_main_panel_button_finish
-                //
-                this.menu2_1_panel_main_panel_button_finish[i].BackColor = System.Drawing.Color.Transparent;
-                this.menu2_1_panel_main_panel_button_finish[i].Dock = System.Windows.Forms.DockStyle.Right;
-                this.menu2_1_panel_main_panel_button_finish[i].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                this.menu2_1_panel_main_panel_button_finish[i].Image = ((System.Drawing.Image)(resources.GetObject("menu2_1_panel_main_panel1_button_finish.Image")));
-                this.menu2_1_panel_main_panel_button_finish[i].Name = i.ToString();
-                this.menu2_1_panel_main_panel_button_finish[i].Size = new System.Drawing.Size(32, 32);
-                this.menu2_1_panel_main_panel_button_finish[i].UseVisualStyleBackColor = false;
-                this.menu2_1_panel_main_panel_button_finish[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_button_finish_Click);
-                this.menu2_1_panel_main_panel_button_finish[i].MouseEnter += new System.EventHandler(this.menu2_1_panel_main_panel_button_finish_MouseEnter);
-                this.menu2_1_panel_main_panel_button_finish[i].MouseLeave += new System.EventHandler(this.menu2_1_panel_main_panel_button_finish_MouseLeave);
-
-                //
-                // menu2_1_panel_main_panel_label1
-                //
-                this.menu2_1_panel_main_panel_label1[i].Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                | System.Windows.Forms.AnchorStyles.Left)
-                | System.Windows.Forms.AnchorStyles.Right)));
-                this.menu2_1_panel_main_panel_label1[i].Location = new System.Drawing.Point(1, 1);
-                this.menu2_1_panel_main_panel_label1[i].Name = i.ToString();
-                this.menu2_1_panel_main_panel_label1[i].Size = new System.Drawing.Size(512, 30);
-                this.menu2_1_panel_main_panel_label1[i].TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                this.menu2_1_panel_main_panel_label1[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_label1_Click);
-
-                //
-                // menu2_1_panel_main_panel_label2
-                //
-                this.menu2_1_panel_main_panel_label2[i].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                | System.Windows.Forms.AnchorStyles.Right)));
-                this.menu2_1_panel_main_panel_label2[i].Location = new System.Drawing.Point(513, 1);
-                this.menu2_1_panel_main_panel_label2[i].Name = i.ToString();
-                this.menu2_1_panel_main_panel_label2[i].Size = new System.Drawing.Size(76, 30);
-                this.menu2_1_panel_main_panel_label2[i].TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                this.menu2_1_panel_main_panel_label2[i].Click += new System.EventHandler(this.menu2_1_panel_main_panel_label2_Click);
             }
 
             // 
             // menu3
             // 
-            this.menu3.AutoScroll = true;
             this.menu3.Controls.Add(this.menu3_panel_main);
             this.menu3.Controls.Add(this.menu3_panel_top);
-            this.menu3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu3.Size = new System.Drawing.Size(682, 200);
+            this.menu3.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // menu3_panel_top
             // 
@@ -1146,6 +1179,7 @@ namespace TaskManage
             this.menu3_panel_top_panel_yearmonth.Controls.Add(this.menu3_panel_top_panel_yearmonth_label_month);
             this.menu3_panel_top_panel_yearmonth.Controls.Add(this.menu3_panel_top_panel_yearmonth_combo_month);
             this.menu3_panel_top_panel_yearmonth.Controls.Add(this.menu3_panel_top_panel_yearmonth_label_year);
+            this.menu3_panel_top_panel_yearmonth.Location = new System.Drawing.Point(248, 0);
             this.menu3_panel_top_panel_yearmonth.Size = new System.Drawing.Size(162, 36);
             // 
             // menu3_panel_top_panel_yearmonth_combo_year
@@ -1219,6 +1253,7 @@ namespace TaskManage
             // menu3_panel_main
             // 
             this.menu3_panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menu3_panel_main.AutoScroll = true;
             for (int i = 31 - 1; i >= 0; i--)
             {
                 this.menu3_panel_main.Controls.Add(this.menu3_panel_main_panel_day[i]);
@@ -1233,8 +1268,8 @@ namespace TaskManage
                 this.menu3_panel_main_panel_day[i].BorderColor = System.Drawing.Color.Black;
                 this.menu3_panel_main_panel_day[i].Controls.Add(this.menu3_panel_main_panel_day_panel_top[i]);
                 this.menu3_panel_main_panel_day[i].Controls.Add(this.menu3_panel_main_panel_day_panel_main[i]);
-                this.menu3_panel_main_panel_day[i].Location = new System.Drawing.Point(0, 0);
-                this.menu3_panel_main_panel_day[i].Size = new System.Drawing.Size(663, 206);
+                this.menu3_panel_main_panel_day[i].Location = new System.Drawing.Point(4, i * 304);
+                this.menu3_panel_main_panel_day[i].Size = new System.Drawing.Size(663, 300);
                 //
                 // menu3_panel_main_panel_day_panel_top
                 //
@@ -1253,7 +1288,7 @@ namespace TaskManage
                 this.menu3_panel_main_panel_day_panel_top_label_day[i].Location = new System.Drawing.Point(1, 1);
                 this.menu3_panel_main_panel_day_panel_top_label_day[i].Margin = new System.Windows.Forms.Padding(0);
                 this.menu3_panel_main_panel_day_panel_top_label_day[i].Name = i.ToString();
-                this.menu3_panel_main_panel_day_panel_top_label_day[i].Text = i.ToString();
+                this.menu3_panel_main_panel_day_panel_top_label_day[i].Text = "label_day";
                 this.menu3_panel_main_panel_day_panel_top_label_day[i].Size = new System.Drawing.Size(78, 15);
                 this.menu3_panel_main_panel_day_panel_top_label_day[i].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 //
@@ -1262,10 +1297,10 @@ namespace TaskManage
                 this.menu3_panel_main_panel_day_panel_top_label_hour[i].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                 | System.Windows.Forms.AnchorStyles.Right)));
                 this.menu3_panel_main_panel_day_panel_top_label_hour[i].BackColor = System.Drawing.Color.Transparent;
-                this.menu3_panel_main_panel_day_panel_top_label_hour[i].Location = new System.Drawing.Point(200, 1);
+                this.menu3_panel_main_panel_day_panel_top_label_hour[i].Location = new System.Drawing.Point(20, 1);
                 this.menu3_panel_main_panel_day_panel_top_label_hour[i].Margin = new System.Windows.Forms.Padding(0);
                 this.menu3_panel_main_panel_day_panel_top_label_hour[i].Name = i.ToString();
-                this.menu3_panel_main_panel_day_panel_top_label_hour[i].Text = i.ToString();
+                this.menu3_panel_main_panel_day_panel_top_label_hour[i].Text = "label_hour";
                 this.menu3_panel_main_panel_day_panel_top_label_hour[i].Size = new System.Drawing.Size(78, 15);
                 this.menu3_panel_main_panel_day_panel_top_label_hour[i].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                 //
@@ -1277,51 +1312,52 @@ namespace TaskManage
                 {
                     this.menu3_panel_main_panel_day_panel_main[i].Controls.Add(this.menu3_panel_main_panel_day_panel_main_panel[i, j]);
                 }
-                this.menu3_panel_main_panel_day_panel_main[i].Location = new System.Drawing.Point(1, 20);
-                this.menu3_panel_main_panel_day_panel_main[i].Size = new System.Drawing.Size(663, 206);
+                this.menu3_panel_main_panel_day_panel_main[i].Location = new System.Drawing.Point(1, 33);
+                this.menu3_panel_main_panel_day_panel_main[i].Size = new System.Drawing.Size(663, 266);
                 for (int j = Main.Common_Const.done_num - 1; j >= 0; j--)
                 {
                     //
                     // menu3_panel_main_panel_day_panel_main_panel
                     //
-                    this.menu3_panel_main_panel_day_panel_main_panel[i, j].Anchor = System.Windows.Forms.AnchorStyles.Top;
+                    this.menu3_panel_main_panel_day_panel_main_panel[i, j].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
                     this.menu3_panel_main_panel_day_panel_main_panel[i, j].Controls.Add(this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j]);
                     this.menu3_panel_main_panel_day_panel_main_panel[i, j].Controls.Add(this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j]);
                     this.menu3_panel_main_panel_day_panel_main_panel[i, j].Controls.Add(this.menu3_panel_main_panel_day_panel_main_panel_button_delete[i, j]);
                     this.menu3_panel_main_panel_day_panel_main_panel[i, j].BackColor = System.Drawing.Color.Transparent;
-                    this.menu3_panel_main_panel_day_panel_main_panel[i, j].Location = new System.Drawing.Point(1, 1);
+                    this.menu3_panel_main_panel_day_panel_main_panel[i, j].Location = new System.Drawing.Point(8, j * 36);
                     this.menu3_panel_main_panel_day_panel_main_panel[i, j].Margin = new System.Windows.Forms.Padding(0);
-                    this.menu3_panel_main_panel_day_panel_main_panel[i, j].MaximumSize = new System.Drawing.Size(78, 15);
                     this.menu3_panel_main_panel_day_panel_main_panel[i, j].Name = i.ToString();
-                    this.menu3_panel_main_panel_day_panel_main_panel[i, j].Text = "test";
-                    this.menu3_panel_main_panel_day_panel_main_panel[i, j].Size = new System.Drawing.Size(78, 15);
+                    this.menu3_panel_main_panel_day_panel_main_panel[i, j].Size = new System.Drawing.Size(150, 32);
                     //
                     // menu3_panel_main_panel_day_panel_main_panel_label_donename
                     //
-                    this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].Anchor = System.Windows.Forms.AnchorStyles.Top;
+                    this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                    | System.Windows.Forms.AnchorStyles.Right)));
                     this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].BackColor = System.Drawing.Color.Transparent;
                     this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].Location = new System.Drawing.Point(1, 1);
                     this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].Margin = new System.Windows.Forms.Padding(0);
-                    this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].MaximumSize = new System.Drawing.Size(78, 15);
                     this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].Name = i.ToString();
-                    this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].Size = new System.Drawing.Size(78, 15);
-                    this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                    this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].Text = "donename";
+                    this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].Size = new System.Drawing.Size(87, 30);
+                    this.menu3_panel_main_panel_day_panel_main_panel_label_donename[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                     //
                     // menu3_panel_main_panel_day_panel_main_panel_label_donetime
                     //
-                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].Anchor = System.Windows.Forms.AnchorStyles.Top;
+                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].Anchor = System.Windows.Forms.AnchorStyles.Right;
                     this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].BackColor = System.Drawing.Color.Transparent;
-                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].Location = new System.Drawing.Point(6, 1);
+                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].Location = new System.Drawing.Point(88, 1);
                     this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].Margin = new System.Windows.Forms.Padding(0);
-                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].MaximumSize = new System.Drawing.Size(78, 15);
                     this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].Name = i.ToString();
-                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].Size = new System.Drawing.Size(78, 15);
-                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].Text = "4.5h";
+                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].Size = new System.Drawing.Size(30, 30);
+                    this.menu3_panel_main_panel_day_panel_main_panel_label_donetime[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                     //
                     // menu3_panel_main_panel_day_panel_main_panel_button_delete
                     //
                     this.menu3_panel_main_panel_day_panel_main_panel_button_delete[i, j].BackColor = System.Drawing.Color.Transparent;
-                    this.menu3_panel_main_panel_day_panel_main_panel_button_delete[i, j].Dock = System.Windows.Forms.DockStyle.Right;
+                    this.menu3_panel_main_panel_day_panel_main_panel_button_delete[i, j].Anchor = System.Windows.Forms.AnchorStyles.Right;
+                    this.menu3_panel_main_panel_day_panel_main_panel_button_delete[i, j].Location = new System.Drawing.Point(118, 0);
                     this.menu3_panel_main_panel_day_panel_main_panel_button_delete[i, j].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                     this.menu3_panel_main_panel_day_panel_main_panel_button_delete[i, j].Image = ((System.Drawing.Image)(resources.GetObject("menu2_1_panel_main_panel1_button_delete.Image")));
                     this.menu3_panel_main_panel_day_panel_main_panel_button_delete[i, j].Name = i.ToString();
@@ -1338,54 +1374,6 @@ namespace TaskManage
             this.tooltip.AutoPopDelay = 5000;
             this.tooltip.InitialDelay = 1000;
             this.tooltip.ReshowDelay = 100;
-            // 
-            // common_button_close
-            // 
-            this.common_button_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.common_button_close.BackColor = System.Drawing.Color.Transparent;
-            this.common_button_close.FlatAppearance.BorderSize = 0;
-            this.common_button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.common_button_close.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.common_button_close.ForeColor = System.Drawing.Color.Red;
-            this.common_button_close.Image = ((System.Drawing.Image)(resources.GetObject("common_button_close.Image")));
-            this.common_button_close.Location = new System.Drawing.Point(639, 1);
-            this.common_button_close.Margin = new System.Windows.Forms.Padding(0);
-            this.common_button_close.Size = new System.Drawing.Size(42, 32);
-            this.tooltip.SetToolTip(this.common_button_close, "閉じる");
-            this.common_button_close.UseVisualStyleBackColor = false;
-            this.common_button_close.MouseClick += new System.Windows.Forms.MouseEventHandler(this.common_button_close_MouseClick);
-            this.common_button_close.MouseEnter += new System.EventHandler(this.common_button_close_MouseEnter);
-            this.common_button_close.MouseLeave += new System.EventHandler(this.common_button_close_MouseLeave);
-            // 
-            // common_button_max
-            // 
-            this.common_button_max.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.common_button_max.BackColor = System.Drawing.Color.Transparent;
-            this.common_button_max.FlatAppearance.BorderSize = 0;
-            this.common_button_max.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.common_button_max.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_max.Image")));
-            this.common_button_max.Location = new System.Drawing.Point(597, 1);
-            this.common_button_max.Margin = new System.Windows.Forms.Padding(0);
-            this.common_button_max.Size = new System.Drawing.Size(42, 32);
-            this.tooltip.SetToolTip(this.common_button_max, "最大化");
-            this.common_button_max.UseVisualStyleBackColor = false;
-            this.common_button_max.MouseClick += new System.Windows.Forms.MouseEventHandler(this.common_button_max_MouseClick);
-            // 
-            // common_button_min
-            // 
-            this.common_button_min.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.common_button_min.BackColor = System.Drawing.Color.Transparent;
-            this.common_button_min.FlatAppearance.BorderSize = 0;
-            this.common_button_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.common_button_min.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.common_button_min.Image = ((System.Drawing.Image)(resources.GetObject("common_button_min.Image")));
-            this.common_button_min.Location = new System.Drawing.Point(555, 1);
-            this.common_button_min.Margin = new System.Windows.Forms.Padding(0);
-            this.common_button_min.Size = new System.Drawing.Size(42, 32);
-            this.tooltip.SetToolTip(this.common_button_min, "最小化");
-            this.common_button_min.UseVisualStyleBackColor = false;
-            this.common_button_min.MouseClick += new System.Windows.Forms.MouseEventHandler(this.common_button_min_MouseClick);
             // 
             // menutask
             // 
@@ -1672,7 +1660,7 @@ namespace TaskManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(682, 1290);
+            this.ClientSize = new System.Drawing.Size(Main.Common_Const.form_x, 1290);
             this.Controls.Add(this.common_panel_setting);
             this.Controls.Add(this.common_button_min);
             this.Controls.Add(this.common_button_max);
@@ -1684,7 +1672,6 @@ namespace TaskManage
             this.Controls.Add(this.menu1);
             this.Controls.Add(this.common);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(681, 100);
             this.Text = "タスク管理";
 
             // レイアウトロジック再開 子コントロールを持つコントロール全て

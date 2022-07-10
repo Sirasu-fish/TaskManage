@@ -30,14 +30,14 @@ namespace TaskManage.Main
         private void SetPropertiesValue()
         {
             // フォームサイズ x
-            if (Properties.Settings.Default.form_x < 100)
+            if (Properties.Settings.Default.form_x < Common_Const.form_x)
             {
-                Properties.Settings.Default.form_x = 100;
+                Properties.Settings.Default.form_x = Common_Const.form_x;
             }
             // フォームサイズ y
-            if (Properties.Settings.Default.form_y < 100)
+            if (Properties.Settings.Default.form_y < Common_Const.form_y)
             {
-                Properties.Settings.Default.form_y = 100;
+                Properties.Settings.Default.form_y = Common_Const.form_y;
             }
 
             // メニュー
