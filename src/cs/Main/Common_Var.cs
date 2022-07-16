@@ -12,6 +12,8 @@ namespace TaskManage.Main
         private static Color submain_color_ = Color.FromArgb(80, 80, 80); //ダークモード サブ色
         private static Color subsub_color_ = Color.FromArgb(220, 220, 220); //ライトモード サブ色
 
+        private static int menu2_1_task_ = 0; //タスク数
+        private static int menu2_2_memo_ = 0; //メモ数
         private static bool[] memo_save_ = new bool[Main.Common_Const.memo_num]; //ファイルの保存状況 true:保存済み false:未保存
 
         // 現在のmenuの取得、設定
@@ -86,6 +88,30 @@ namespace TaskManage.Main
             get
             {
                 return subsub_color_;
+            }
+        }
+
+        public static int menu2_1_task
+        {
+            set
+            {
+                menu2_1_task_ = value;
+            }
+            get
+            {
+                return menu2_1_task_;
+            }
+        }
+
+        public static int menu2_2_memo
+        {
+            set
+            {
+                menu2_2_memo_ = value;
+            }
+            get
+            {
+                return menu2_2_memo_;
             }
         }
 

@@ -12,12 +12,9 @@
             form.menu2.Controls.Remove(form.menu2_1);
             form.menu2.Controls.Remove(form.menu2_2);
 
-            string[] order = new string[Main.Common_Const.menu2_num];
-            Properties.Settings.Default.order.CopyTo(order, 0);
-
             for (int i = Main.Common_Const.menu2_num - 1; i >= 0; i--)
             {
-                switch (order[i])
+                switch (Properties.Settings.Default.order[i])
                 {
                     case "1":
                         form.menu2.Controls.Add(form.menu2_1);

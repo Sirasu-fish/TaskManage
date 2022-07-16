@@ -159,12 +159,7 @@ namespace TaskManage.controls_event
             // menu2
             form.menu2_1_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
 
-            for (int i = 0; i < Main.Common_Const.task_num; i++)
-            {
-                form.menu2_1_panel_main_panel_label1[i].ForeColor = Main.Common_Var.sub_color;
-                form.menu2_1_panel_main_panel_label2[i].ForeColor = Main.Common_Var.sub_color;
-                form.menu2_1_panel_main_panel[i].BorderColor = Main.Common_Var.sub_color;
-            }
+            //menu2_1_panel_main_panel_label1 , menu2_1_panel_main_panel_label2 , menu2_1_panel_main_panelの色変更を入れる
 
             form.menu2_2_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
         }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace TaskManage.Main
 {
@@ -27,6 +29,7 @@ namespace TaskManage.Main
         private static DAndDSizeChanger this_sizeChanger;
         private static DAndDMoveForm common_MoveForm;
 
+        // 設定値の初期化
         private void SetPropertiesValue()
         {
             // フォームサイズ x
@@ -72,104 +75,6 @@ namespace TaskManage.Main
                 Properties.Settings.Default.memo_height.CopyTo(tmp, 0);
                 Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
                 Properties.Settings.Default.memo_height.AddRange(tmp);
-            }
-
-            // タスク名
-            if (Properties.Settings.Default.task_name == null || Properties.Settings.Default.task_name.Count > Common_Const.task_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.task_name = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.task_name.AddRange(new string[Common_Const.task_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.task_num];
-                Properties.Settings.Default.task_name.CopyTo(tmp, 0);
-                Properties.Settings.Default.task_name = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.task_name.AddRange(tmp);
-            }
-
-            // タスク備考
-            if (Properties.Settings.Default.task_memo == null || Properties.Settings.Default.task_memo.Count > Common_Const.task_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.task_memo = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.task_memo.AddRange(new string[Common_Const.task_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.task_num];
-                Properties.Settings.Default.task_memo.CopyTo(tmp, 0);
-                Properties.Settings.Default.task_memo = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.task_memo.AddRange(tmp);
-            }
-
-            // 実績名
-            if (Properties.Settings.Default.done_name == null || Properties.Settings.Default.done_name.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.done_name = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_name.AddRange(new string[Common_Const.done_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.done_num];
-                Properties.Settings.Default.done_name.CopyTo(tmp, 0);
-                Properties.Settings.Default.done_name = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_name.AddRange(tmp);
-            }
-
-            // 実績備考
-            if (Properties.Settings.Default.done_memo == null || Properties.Settings.Default.done_memo.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.done_memo = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_memo.AddRange(new string[Common_Const.done_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.done_num];
-                Properties.Settings.Default.done_memo.CopyTo(tmp, 0);
-                Properties.Settings.Default.done_memo = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_memo.AddRange(tmp);
-            }
-
-            // 実績進捗
-            if (Properties.Settings.Default.done_prog == null || Properties.Settings.Default.done_prog.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.done_prog = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_prog.AddRange(new string[Common_Const.done_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.done_num];
-                Properties.Settings.Default.done_prog.CopyTo(tmp, 0);
-                Properties.Settings.Default.done_prog = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_prog.AddRange(tmp);
-            }
-
-            // 実績時間
-            if (Properties.Settings.Default.done_time == null || Properties.Settings.Default.done_time.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.done_time = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_time.AddRange(new string[Common_Const.done_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.done_num];
-                Properties.Settings.Default.done_time.CopyTo(tmp, 0);
-                Properties.Settings.Default.done_time = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_time.AddRange(tmp);
-            }
-
-            // 実績日
-            if (Properties.Settings.Default.done_day == null || Properties.Settings.Default.done_day.Count > Common_Const.done_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.done_day = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_day.AddRange(new string[Common_Const.done_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.done_num];
-                Properties.Settings.Default.done_day.CopyTo(tmp, 0);
-                Properties.Settings.Default.done_day = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_day.AddRange(tmp);
             }
 
             Properties.Settings.Default.Save();
@@ -222,18 +127,27 @@ namespace TaskManage.Main
         // Menu2_1 設定反映
         private void SetMenu2_1(MainForm form)
         {
+            // 保存されているタスク反映
+            for (int i = 0; i < Properties.Settings.Default.task_name.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.task_name[i]))
+                {
+                    controls_event.menu2_1_events.AddTask(form, Properties.Settings.Default.task_name[i]);
+                }
+            }
+            if (Common_Var.menu2_1_task == 0) // タスク数が0の時、タスク表示が更新されないため、更新
+            {
+                controls_event.menu2_1_events.ChangeTaskNum(form);
+            }
+
             // menu2 1 開いているか
             if (Properties.Settings.Default.menu2_open1)
             {
                 form.menu2_1_panel_main.Visible = true;
-                form.menu2_1_panel.Height = 936;
-                form.menu2_1.Height = 944;
             }
             else
             {
                 form.menu2_1_panel_main.Visible = false;
-                form.menu2_1_panel.Height = 34;
-                form.menu2_1.Height = 42;
             }
         }
 
@@ -245,53 +159,41 @@ namespace TaskManage.Main
                 Common_Var.memo_save[i] = false;
             }
 
+            FileUtil fu = new FileUtil();
+            for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
+            {
+                if (!String.IsNullOrEmpty(Properties.Settings.Default.memo_path[i]))
+                {
+                    controls_event.menu2_2_events.AddMemo(form, Properties.Settings.Default.memo_path[i], fu.ReadFileAll(Properties.Settings.Default.memo_path[i]));
+                    Common_Var.memo_save[i] = true;
+                }
+            }
+
             // menu2 2 開いているか
             if (Properties.Settings.Default.menu2_open2)
             {
                 form.menu2_2_panel_main.Visible = true;
-                form.menu2_2_panel.Height = 562;
-                form.menu2_2.Height = 570;
             }
             else
             {
                 form.menu2_2_panel_main.Visible = false;
-                form.menu2_2_panel.Height = 34;
-                form.menu2_2.Height = 42;
-            }
-
-            FileUtil fu = new FileUtil();
-            string[] path = new string[Common_Const.memo_num];
-            Properties.Settings.Default.memo_path.CopyTo(path, 0);
-            for (int i = 0; i < path.Length; i++)
-            {
-                if (!String.IsNullOrEmpty(path[i]))
-                {
-                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = path[i]; // タイトル
-                    form.menu2_2_panel_main_panel_table_memo_text[i].Text = fu.ReadFileAll(path[i]); // 内容
-                    form.menu2_2_panel_main_panel[i].Visible = true; // 非表示
-                    Common_Var.memo_save[i] = true;
-                }
-                else
-                {
-                    form.menu2_2_panel_main_panel[i].Visible = false; // 非表示
-                }
             }
 
             // メモ折り返し
             if (Properties.Settings.Default.menu2_memowrap)
             {
                 form.common_panel_setting_table_check3.Checked = true;
-                for (int i = 0; i < path.Length; i++)
+                for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
                 {
-                    form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = true;
+                    //form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = true;
                 }
             }
             else
             {
                 form.common_panel_setting_table_check3.Checked = false;
-                for (int i = 0; i < path.Length; i++)
+                for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
                 {
-                    form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = false;
+                    //form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = false;
                 }
             }
         }
@@ -307,7 +209,7 @@ namespace TaskManage.Main
         {
             for (int i = 0; i < menu2_2_panel_main_table_memo_sizeChanger.Length; i++)
             {
-                menu2_2_panel_main_table_memo_sizeChanger[i] = new DAndDSizeChanger(form.menu2_2_panel_main_panel_table_memo_text[i], form.menu2_2_panel_main_panel[i], DAndDArea.Bottom, 12, form.menu2_2);
+                //menu2_2_panel_main_table_memo_sizeChanger[i] = new DAndDSizeChanger(form.menu2_2_panel_main_panel_table_memo_text[i], form.menu2_2_panel_main_panel[i], DAndDArea.Bottom, 12, form.menu2_2);
             }
             this_sizeChanger = new DAndDSizeChanger(form, form, DAndDArea.All, 24);
         }

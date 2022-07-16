@@ -161,42 +161,6 @@ namespace TaskManage
         {
             controls_event.menu2_1_events.menu2_1_panel_top_button_add_Click(sender, e, this);
         }
-        private void menu2_1_panel_main_panel_button_finish_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_main_panel_button_finish_Click(sender, e, this);
-        }
-        private void menu2_1_panel_main_panel_button_delete_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_main_panel_button_delete_Click(sender, e, this);
-        }
-        private void menu2_1_panel_main_panel_button_delete_MouseEnter(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_main_panel_button_delete_MouseEnter(sender, e, this);
-        }
-        private void menu2_1_panel_main_panel_button_delete_MouseLeave(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_main_panel_button_delete_MouseLeave(sender, e, this);
-        }
-        private void menu2_1_panel_main_panel_button_finish_MouseEnter(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_main_panel_button_finish_MouseEnter(sender, e, this);
-        }
-        private void menu2_1_panel_main_panel_button_finish_MouseLeave(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_main_panel_button_finish_MouseLeave(sender, e, this);
-        }
-        private void menu2_1_panel_main_panel_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_main_panel_Click(sender, e, this);
-        }
-        private void menu2_1_panel_main_panel_label1_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_main_panel_label1_Click(sender, e, this);
-        }
-        private void menu2_1_panel_main_panel_label2_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_main_panel_label2_Click(sender, e, this);
-        }
         #endregion Event menu2_1
 
         // Event menu2 2
@@ -220,26 +184,6 @@ namespace TaskManage
         private void menu2_2_panel_top_button_add_Click(object sender, EventArgs e)
         {
             controls_event.menu2_2_events.menu2_2_panel_top_button_add_Click(sender, e, this);
-        }
-        private void menu2_2_panel_main_panel_table_memo_text_KeyDown(object sender, KeyEventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_text_KeyDown(sender, e, this);
-        }
-        private void menu2_2_panel_main_panel_table_memo_text_TextChanged(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_text_TextChanged(sender, e, this);
-        }
-        private void menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click(sender, e, this);
-        }
-        private void menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click(sender, e, this);
-        }
-        private void menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click(sender, e, this);
         }
         #endregion Event menu2 2
 
