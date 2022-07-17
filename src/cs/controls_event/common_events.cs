@@ -174,7 +174,6 @@ namespace TaskManage.controls_event
                     form.menu2.Visible = false;
                     form.menutask.Visible = false;
                     form.menuachieve.Visible = false;
-                    form.menu3.Visible = false;
                     form.common_button_prevmenu.Visible = false;
                     form.common_button_nextmenu.Visible = true;
                     break;
@@ -183,16 +182,6 @@ namespace TaskManage.controls_event
                     form.menu2.Visible = true;
                     form.menutask.Visible = false;
                     form.menuachieve.Visible = false;
-                    form.menu3.Visible = false;
-                    form.common_button_prevmenu.Visible = true;
-                    form.common_button_nextmenu.Visible = true;
-                    break;
-                case 3: //実績画面
-                    form.menu1.Visible = false;
-                    form.menu2.Visible = false;
-                    form.menutask.Visible = false;
-                    form.menuachieve.Visible = false;
-                    form.menu3.Visible = true;
                     form.common_button_prevmenu.Visible = true;
                     form.common_button_nextmenu.Visible = false;
                     break;

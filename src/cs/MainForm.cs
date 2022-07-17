@@ -141,6 +141,11 @@ namespace TaskManage
         {
             controls_event.menu1_events.menu1_table_calender_label_day_DoubleClick(sender, e, this);
         }
+
+        private void menu1_panel_done_panel_top_button_add_Click(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_panel_done_panel_top_button_add_Click(sender, e, this);
+        }
         #endregion Event menu1
 
         // Event menu2 1
@@ -186,28 +191,6 @@ namespace TaskManage
             controls_event.menu2_2_events.menu2_2_panel_top_button_add_Click(sender, e, this);
         }
         #endregion Event menu2 2
-
-        #region Event menu3
-        private void menu3_panel_top_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            controls_event.menu3_events.menu3_panel_top_panel_yearmonth_combo_year_SelectedIndexChanged(sender, e, this);
-        }
-
-        private void menu3_panel_top_panel_yearmonth_combo_month_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            controls_event.menu3_events.menu3_panel_top_panel_yearmonth_combo_month_SelectedIndexChanged(sender, e, this);
-        }
-
-        private void menu3_panel_top_button_nextmonth_Click(object sender, EventArgs e)
-        {
-            controls_event.menu3_events.menu3_panel_top_button_nextmonth_Click(sender, e, this);
-        }
-
-        private void menu3_panel_top_button_prevmonth_Click(object sender, EventArgs e)
-        {
-            controls_event.menu3_events.menu3_panel_top_button_prevmonth_Click(sender, e, this);
-        }
-        #endregion Event menu3
 
         // Event menutask
         #region Event menutask

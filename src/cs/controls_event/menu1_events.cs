@@ -6,6 +6,16 @@ namespace TaskManage.controls_event
 {
     class menu1_events
     {
+        MainForm form;
+
+        // コンストラクタ
+        public menu1_events(MainForm form)
+        {
+            this.form = form;
+        }
+
+        // ********** form event **********
+        #region form event
         public static void menu1_panel_calendertop_button_prevmonth_Click(object sender, EventArgs e, MainForm form)
         {
             int year = 0;
@@ -47,7 +57,6 @@ namespace TaskManage.controls_event
         }
 
         //日付ホバー時
-
         public static void menu1_table_calender_panel_day_MouseEnter(object sender, EventArgs e, MainForm form)
         {
             OverMouse(form.menu1_table_calender_panel_day[int.Parse(((Panel)sender).Name)]);
@@ -84,8 +93,83 @@ namespace TaskManage.controls_event
             OpenTaskFromPanel(int.Parse(((Label)sender).Name), form.menu1_table_calender_label_day[int.Parse(((Label)sender).Name)].Text);
         }
 
+        public static void menu1_panel_done_panel_top_button_add_Click(object sender, EventArgs e, MainForm form)
+        {
 
-        //private
+        }
+
+        public void menu1_panel_done_panel_main_panel_MouseEnter(object sender, EventArgs e)
+        {
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Black;
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Label)sender).Name)].Refresh();
+        }
+        public void menu1_panel_done_panel_main_panel_label_name_MouseEnter(object sender, EventArgs e)
+        {
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Black;
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Label)sender).Name)].Refresh();
+        }
+        public void menu1_panel_done_panel_main_panel_label_time_MouseEnter(object sender, EventArgs e)
+        {
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+        }
+        // 実績削除ボタンホバー時
+        public void menu1_panel_done_panel_main_panel_button_delete_MouseEnter(object sender, EventArgs e)
+        {
+            if (int.Parse(((Button)sender).Name) >= 0)
+            {
+                form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 255, 128, 128);
+                form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Green;
+                form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+            }
+        }
+
+        public void menu1_panel_done_panel_main_panel_MouseLeave(object sender, EventArgs e)
+        {
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+        }
+        public void menu1_panel_done_panel_main_panel_label_name_MouseLeave(object sender, EventArgs e)
+        {
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+        }
+        public void menu1_panel_done_panel_main_panel_label_time_MouseLeave(object sender, EventArgs e)
+        {
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+            form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+        }
+        // 実績削除ボタンホバーが離れた時
+        public void menu1_panel_done_panel_main_panel_button_delete_MouseLeave(object sender, EventArgs e)
+        {
+            if (int.Parse(((Button)sender).Name) >= 0)
+            {
+                form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
+                form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+                form.menu1_panel_done_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+            }
+        }
+        public void menu1_panel_done_panel_main_panel_Click(object sender, EventArgs e)
+        {
+            //OpenTask(form, int.Parse(((Panel)sender).Name));
+        }
+        public void menu1_panel_done_panel_main_panel_label_name_Click(object sender, EventArgs e)
+        {
+            //OpenTask(form, int.Parse(((Panel)sender).Name));
+        }
+        public void menu1_panel_done_panel_main_panel_label_time_Click(object sender, EventArgs e)
+        {
+            //OpenTask(form, int.Parse(((Panel)sender).Name));
+        }
+        // 実績クリック
+        public void menu1_panel_done_panel_main_panel_button_delete_Click(object sender, EventArgs e)
+        {
+            //RemoveTask(form, int.Parse(((Button)sender).Name));
+        }
+        #endregion form event
+        // ********** form event **********
+
+        // ********** private **********
         #region private
 
         // 日付ホバー時の動作
@@ -237,6 +321,97 @@ namespace TaskManage.controls_event
             form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
 
+        // 削除ボタン追加
+        private static Button add_menu1_panel_done_panel_main_panel_button_delete(MainForm form)
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            Button menu1_panel_done_panel_main_panel_button_delete = new Button();
+            menu1_events events = new menu1_events(form);
+
+            menu1_panel_done_panel_main_panel_button_delete.BackColor = Color.Transparent;
+            menu1_panel_done_panel_main_panel_button_delete.Dock = DockStyle.Right;
+            menu1_panel_done_panel_main_panel_button_delete.FlatStyle = FlatStyle.Flat;
+            menu1_panel_done_panel_main_panel_button_delete.Image = ((Image)(resources.GetObject("menu2_1_panel_main_panel1_button_delete.Image")));
+            menu1_panel_done_panel_main_panel_button_delete.Name = Main.Common_Var.menu2_1_task.ToString();
+            menu1_panel_done_panel_main_panel_button_delete.Size = new Size(32, 32);
+            menu1_panel_done_panel_main_panel_button_delete.UseVisualStyleBackColor = false;
+            menu1_panel_done_panel_main_panel_button_delete.Click += new EventHandler(events.menu1_panel_done_panel_main_panel_button_delete_Click);
+            menu1_panel_done_panel_main_panel_button_delete.MouseEnter += new EventHandler(events.menu1_panel_done_panel_main_panel_button_delete_MouseEnter);
+            menu1_panel_done_panel_main_panel_button_delete.MouseLeave += new EventHandler(events.menu1_panel_done_panel_main_panel_button_delete_MouseLeave);
+            menu1_panel_done_panel_main_panel_button_delete.Cursor = Cursors.Hand;
+
+            return menu1_panel_done_panel_main_panel_button_delete;
+        }
+        // 実績名追加
+        private static Label add_menu1_panel_done_panel_main_panel_label_name(MainForm form, string text)
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            Label menu1_panel_done_panel_main_panel_label_name = new Label();
+            menu1_events events = new menu1_events(form);
+
+            menu1_panel_done_panel_main_panel_label_name.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            menu1_panel_done_panel_main_panel_label_name.Location = new Point(1, 1);
+            menu1_panel_done_panel_main_panel_label_name.Name = Main.Common_Var.menu2_1_task.ToString();
+            menu1_panel_done_panel_main_panel_label_name.Size = new Size(Main.Common_Const.form_x - 10
+                - form.menu2_1_panel_main_panel_button_delete[Main.Common_Var.menu2_1_task].Width
+                - form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task].Width
+                - menu1_panel_done_panel_main_panel_label_name.Location.X * 2, 30);
+            menu1_panel_done_panel_main_panel_label_name.Text = text;
+            menu1_panel_done_panel_main_panel_label_name.TextAlign = ContentAlignment.MiddleLeft;
+            menu1_panel_done_panel_main_panel_label_name.MouseEnter += new EventHandler(events.menu1_panel_done_panel_main_panel_label_name_MouseEnter);
+            menu1_panel_done_panel_main_panel_label_name.MouseLeave += new EventHandler(events.menu1_panel_done_panel_main_panel_label_name_MouseLeave);
+            menu1_panel_done_panel_main_panel_label_name.Click += new System.EventHandler(events.menu1_panel_done_panel_main_panel_label_name_Click);
+            menu1_panel_done_panel_main_panel_label_name.Cursor = Cursors.Hand;
+
+            return menu1_panel_done_panel_main_panel_label_name;
+        }
+        // 実績時間追加
+        private static Label add_menu1_panel_done_panel_main_panel_label_time(MainForm form, string text)
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            Label menu1_panel_done_panel_main_panel_label_name = new Label();
+            menu1_events events = new menu1_events(form);
+
+            menu1_panel_done_panel_main_panel_label_name.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            menu1_panel_done_panel_main_panel_label_name.Location = new Point(1, 1);
+            menu1_panel_done_panel_main_panel_label_name.Name = Main.Common_Var.menu2_1_task.ToString();
+            menu1_panel_done_panel_main_panel_label_name.Size = new Size(Main.Common_Const.form_x - 10
+                - form.menu2_1_panel_main_panel_button_delete[Main.Common_Var.menu2_1_task].Width
+                - form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task].Width
+                - menu1_panel_done_panel_main_panel_label_name.Location.X * 2, 30);
+            menu1_panel_done_panel_main_panel_label_name.Text = text;
+            menu1_panel_done_panel_main_panel_label_name.TextAlign = ContentAlignment.MiddleLeft;
+            menu1_panel_done_panel_main_panel_label_name.MouseEnter += new EventHandler(events.menu1_panel_done_panel_main_panel_label_time_MouseEnter);
+            menu1_panel_done_panel_main_panel_label_name.MouseLeave += new EventHandler(events.menu1_panel_done_panel_main_panel_label_time_MouseLeave);
+            menu1_panel_done_panel_main_panel_label_name.Click += new System.EventHandler(events.menu1_panel_done_panel_main_panel_label_time_Click);
+            menu1_panel_done_panel_main_panel_label_name.Cursor = Cursors.Hand;
+
+            return menu1_panel_done_panel_main_panel_label_name;
+        }
+        // タスクパネル追加
+        private static PanelEx add_menu1_panel_done_panel_main_panel(MainForm form)
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            PanelEx menu1_panel_done_panel_main_panel = new PanelEx();
+            menu1_events events = new menu1_events(form);
+
+            menu1_panel_done_panel_main_panel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            menu1_panel_done_panel_main_panel.BorderColor = Color.Black;
+            menu1_panel_done_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
+            menu1_panel_done_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task]);
+            menu1_panel_done_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_delete[Main.Common_Var.menu2_1_task]);
+            menu1_panel_done_panel_main_panel.Location = new Point(4, (form.menu1_panel_done_panel_main.Size.Height + 4) * Main.Common_Var.menu2_1_task);
+            menu1_panel_done_panel_main_panel.Name = Main.Common_Var.menu2_1_task.ToString();
+            menu1_panel_done_panel_main_panel.Size = new Size(form.menu2_1_panel_main.Width - form.menu1_panel_done_panel_main.Location.X * 2, 32);
+            menu1_panel_done_panel_main_panel.MouseEnter += new EventHandler(events.menu1_panel_done_panel_main_panel_MouseEnter);
+            menu1_panel_done_panel_main_panel.MouseLeave += new EventHandler(events.menu1_panel_done_panel_main_panel_MouseLeave);
+            menu1_panel_done_panel_main_panel.Click += new EventHandler(events.menu1_panel_done_panel_main_panel_Click);
+            menu1_panel_done_panel_main_panel.Cursor = Cursors.Hand;
+
+            return menu1_panel_done_panel_main_panel;
+        }
+
         #endregion private
+        // ********** private **********
     }
 }
