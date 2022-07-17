@@ -211,6 +211,10 @@ namespace TaskManage
 
         // Event menutask
         #region Event menutask
+        private void menutask_table1_text_KeyDown(object sender, KeyEventArgs e)
+        {
+            controls_event.menutask_events.menutask_table1_text_KeyDown(sender, e, this);
+        }
         private void menutask_button_close_Click(object sender, EventArgs e)
         {
             controls_event.menutask_events.menutask_button_close_Click(sender, e, this);

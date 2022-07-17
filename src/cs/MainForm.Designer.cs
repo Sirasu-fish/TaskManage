@@ -867,7 +867,7 @@ namespace TaskManage
             this.menu2_2_panel.BorderColor = System.Drawing.Color.Black;
             this.menu2_2_panel.Controls.Add(this.menu2_2_panel_top);
             this.menu2_2_panel.Controls.Add(this.menu2_2_panel_main);
-            this.menu2_2_panel.Size = new System.Drawing.Size(Main.Common_Const.form_x, 540);
+            this.menu2_2_panel.Size = new System.Drawing.Size(Main.Common_Const.form_x, 580);
             // 
             // menu2_2_panel_top
             // 
@@ -956,23 +956,8 @@ namespace TaskManage
             this.menu2_2_panel_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            //for (int i = Main.Common_Const.memo_num - 1; i >= 0; i--)
-            //{
-            //    this.menu2_2_panel_main.Controls.Add(this.menu2_2_panel_main_panel[i]);
-            //}
             this.menu2_2_panel_main.Location = new System.Drawing.Point(1, 33);
             this.menu2_2_panel_main.Size = new System.Drawing.Size(Main.Common_Const.form_x - this.menu2_2_panel_main.Location.X * 2, 540);
-
-            for (int i = Main.Common_Const.memo_num - 1; i >= 0; i--)
-            {
-                //
-                // menu2_2_panel_main_panel
-                //
-                //this.menu2_2_panel_main_panel[i].Controls.Add(this.menu2_2_panel_main_panel_table_memo[i]);
-                //this.menu2_2_panel_main_panel[i].Dock = System.Windows.Forms.DockStyle.Top;
-                //this.menu2_2_panel_main_panel[i].Size = new System.Drawing.Size(Main.Common_Const.form_x, 106);
-                //this.menu2_2_panel_main_panel[i].Visible = false;
-            }
 
             // 
             // menu3
@@ -1276,6 +1261,7 @@ namespace TaskManage
             this.menutask_table1_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menutask_table1_text.Font = new System.Drawing.Font("Yu Gothic UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menutask_table1_text.Margin = new System.Windows.Forms.Padding(0);
+            this.menutask_table1_text.KeyDown += new KeyEventHandler(this.menutask_table1_text_KeyDown);
             // 
             // menuachieve
             // 
@@ -1458,6 +1444,7 @@ namespace TaskManage
             this.menu2_1.ResumeLayout(false);
             this.menu2_1_panel.ResumeLayout(false);
             this.menu2_1_panel_top.ResumeLayout(false);
+            this.menu2_1_panel_main.ResumeLayout(false);
 
             this.menu2_2.ResumeLayout(false);
             this.menu2_2_panel.ResumeLayout(false);

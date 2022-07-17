@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -102,10 +103,37 @@ namespace TaskManage.controls_event
             OpenTask(form, Main.Common_Var.menu2_1_task);
         }
 
+        // タスクホバー時
+        public void menu2_1_panel_main_panel_MouseEnter(object sender, EventArgs e)
+        {
+            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].BorderColor = Color.Green;
+            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].Refresh();
+        }
+        public void menu2_1_panel_main_panel_label1_MouseEnter(object sender, EventArgs e)
+        {
+            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Green;
+            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].Refresh();
+        }
+        // タスクホバーが離れた時
+        public void menu2_1_panel_main_panel_MouseLeave(object sender, EventArgs e)
+        {
+            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].BorderColor = Color.Black;
+            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].Refresh();
+        }
+        public void menu2_1_panel_main_panel_label1_MouseLeave(object sender, EventArgs e)
+        {
+            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Black;
+            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].Refresh();
+        }
         // タスク削除ボタンホバー時
         public void menu2_1_panel_main_panel_button_delete_MouseEnter(object sender, EventArgs e)
         {
-            form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 255, 128, 128);
+            if (int.Parse(((Button)sender).Name) >= 0)
+            {
+                form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 255, 128, 128);
+                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Green;
+                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+            }
         }
         // タスク削除ボタンホバーが離れた時
         public void menu2_1_panel_main_panel_button_delete_MouseLeave(object sender, EventArgs e)
@@ -113,17 +141,24 @@ namespace TaskManage.controls_event
             if (int.Parse(((Button)sender).Name) >= 0)
             {
                 form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
+                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
             }
         }
         // タスク完了ボタンホバー時
         public void menu2_1_panel_main_panel_button_finish_MouseEnter(object sender, EventArgs e)
         {
+            Debug.WriteLine("enter:" + ((Button)sender).Name);
             form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 128, 255, 128);
+            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Green;
+            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
         }
         // タスク完了ボタンホバーが離れた時
         public void menu2_1_panel_main_panel_button_finish_MouseLeave(object sender, EventArgs e)
         {
             form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
+            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
         }
         //タスク完了ボタン
         public void menu2_1_panel_main_panel_button_finish_Click(object sender, EventArgs e)
@@ -144,17 +179,13 @@ namespace TaskManage.controls_event
         {
             OpenTask(form, int.Parse(((Label)sender).Name));
         }
-        public void menu2_1_panel_main_panel_label2_Click(object sender, EventArgs e)
-        {
-            OpenTask(form, int.Parse(((Label)sender).Name));
-        }
         #endregion form event
         // ********** form event **********
 
         // ********** public **********
         #region public
-        // タスク追加
-        public static void AddTask(MainForm form, String text)
+
+        public static void InitAddTask(MainForm form, String text)
         {
             form.SuspendLayout();
             form.menu2.SuspendLayout();
@@ -178,6 +209,49 @@ namespace TaskManage.controls_event
 
             ChangeTaskNum(form);
         }
+        // タスク追加
+        public static void AddTask(MainForm form, String text)
+        {
+            if (Main.Common_Var.menu2_1_task <= Main.Common_Var.menu2_1_open_task) // 新規追加
+            {
+                form.SuspendLayout();
+                form.menu2.SuspendLayout();
+                form.menu2_1.SuspendLayout();
+                form.menu2_1_panel.SuspendLayout();
+                form.menu2_1_panel_main.SuspendLayout();
+
+                form.menu2_1_panel_main_panel_button_delete.Add(add_menu2_1_panel_main_panel_button_delete(form));
+                form.menu2_1_panel_main_panel_button_finish.Add(add_menu2_1_panel_main_panel_button_finish(form));
+                form.menu2_1_panel_main_panel_label1.Add(add_menu2_1_panel_main_panel_label1(form, text));
+                form.menu2_1_panel_main_panel.Add(add_menu2_1_panel_main_panel(form));
+                form.menu2_1_panel_main.Controls.Add(form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task]);
+
+                form.ResumeLayout();
+                form.menu2.ResumeLayout();
+                form.menu2_1.ResumeLayout();
+                form.menu2_1_panel.ResumeLayout();
+                form.menu2_1_panel_main.ResumeLayout();
+
+                Properties.Settings.Default.task_name.Add(form.menutask_table1_text.Text);
+                Properties.Settings.Default.task_memo.Add(form.menutask_table2_text.Text);
+
+                Properties.Settings.Default.Save();
+
+                Main.Common_Var.menu2_1_task += 1;
+
+                Main.Common_Var.menu2_1_open_task += 1;
+
+                ChangeTaskNum(form);
+            }
+            else // 既存更新
+            {
+                form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task].Text = form.menutask_table1_text.Text;
+                Properties.Settings.Default.task_name[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task] = form.menutask_table1_text.Text;
+                Properties.Settings.Default.task_memo[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task] = form.menutask_table2_text.Text;
+
+                Properties.Settings.Default.Save();
+            }
+        }
 
         // タスク数更新
         public static void ChangeTaskNum(MainForm form)
@@ -187,6 +261,7 @@ namespace TaskManage.controls_event
             form.menu2_1.SuspendLayout();
             form.menu2_1_panel.SuspendLayout();
             form.menu2_1_panel_top.SuspendLayout();
+            form.menu2_1_panel_main.SuspendLayout();
 
             form.menu2_1_panel_top_label_num.CustomText = Main.Common_Var.menu2_1_task.ToString();
             if (Properties.Settings.Default.menu2_open1)
@@ -208,11 +283,17 @@ namespace TaskManage.controls_event
                 form.menu2_1.Height = 42;
             }
 
+            for (int i = 0; i < Main.Common_Var.menu2_1_task; i++)
+            {
+                form.menu2_1_panel_main_panel_label1[i].Text = Properties.Settings.Default.task_name[i];
+            }
+
             form.ResumeLayout();
             form.menu2.ResumeLayout();
             form.menu2_1.ResumeLayout();
             form.menu2_1_panel.ResumeLayout();
             form.menu2_1_panel_top.ResumeLayout();
+            form.menu2_1_panel_main.ResumeLayout();
         }
 
         #endregion public
@@ -228,6 +309,15 @@ namespace TaskManage.controls_event
         /// <returns></returns>
         private void RemoveTask(MainForm form, int num)
         {
+            if (num <= Main.Common_Var.menu2_1_open_task) // 削除するタスクが保存した番号より前の時、回数をカウント
+            {
+                Main.Common_Var.menu2_1_delete_task += 1;
+            }
+            //開いていたタスクを削除する前に、タスク画面を非表示
+            if (form.menutask.Visible == true && (Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task + 1) == num)
+            {
+                form.menutask.Visible = false;
+            }
             form.SuspendLayout();
             form.menu2.SuspendLayout();
             form.menu2_1.SuspendLayout();
@@ -285,6 +375,8 @@ namespace TaskManage.controls_event
         // タスクを開く
         private static void OpenTask(MainForm form, int task_num)
         {
+            Main.Common_Var.menu2_1_open_task = task_num;
+            Main.Common_Var.menu2_1_delete_task = 0;
             if (task_num >= Main.Common_Var.menu2_1_task) // 新規タスク
             {
                 form.menutask_table1_text.Text = "";
@@ -315,6 +407,7 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel_button_delete.Click += new EventHandler(events.menu2_1_panel_main_panel_button_delete_Click);
             menu2_1_panel_main_panel_button_delete.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_button_delete_MouseEnter);
             menu2_1_panel_main_panel_button_delete.MouseLeave += new EventHandler(events.menu2_1_panel_main_panel_button_delete_MouseLeave);
+            menu2_1_panel_main_panel_button_delete.Cursor = Cursors.Hand;
 
             return menu2_1_panel_main_panel_button_delete;
         }
@@ -335,6 +428,7 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel_button_finish.Click += new EventHandler(events.menu2_1_panel_main_panel_button_finish_Click);
             menu2_1_panel_main_panel_button_finish.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_button_finish_MouseEnter);
             menu2_1_panel_main_panel_button_finish.MouseLeave += new EventHandler(events.menu2_1_panel_main_panel_button_finish_MouseLeave);
+            menu2_1_panel_main_panel_button_finish.Cursor = Cursors.Hand;
 
             return menu2_1_panel_main_panel_button_finish;
         }
@@ -354,7 +448,10 @@ namespace TaskManage.controls_event
                 - menu2_1_panel_main_panel_label1.Location.X * 2, 30);
             menu2_1_panel_main_panel_label1.Text = text;
             menu2_1_panel_main_panel_label1.TextAlign = ContentAlignment.MiddleLeft;
+            menu2_1_panel_main_panel_label1.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_label1_MouseEnter);
+            menu2_1_panel_main_panel_label1.MouseLeave += new EventHandler(events.menu2_1_panel_main_panel_label1_MouseLeave);
             menu2_1_panel_main_panel_label1.Click += new System.EventHandler(events.menu2_1_panel_main_panel_label1_Click);
+            menu2_1_panel_main_panel_label1.Cursor = Cursors.Hand;
 
             return menu2_1_panel_main_panel_label1;
         }
@@ -365,7 +462,7 @@ namespace TaskManage.controls_event
             PanelEx menu2_1_panel_main_panel = new PanelEx();
             menu2_1_events events = new menu2_1_events(form);
 
-            menu2_1_panel_main_panel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            menu2_1_panel_main_panel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             menu2_1_panel_main_panel.BorderColor = Color.Black;
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task]);
@@ -373,7 +470,10 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel.Location = new Point(4, (menu2_1_panel_main_panel.Size.Height + 4) * Main.Common_Var.menu2_1_task);
             menu2_1_panel_main_panel.Name = Main.Common_Var.menu2_1_task.ToString();
             menu2_1_panel_main_panel.Size = new Size(form.menu2_1_panel_main.Width - menu2_1_panel_main_panel.Location.X * 2, 32);
+            menu2_1_panel_main_panel.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_MouseEnter);
+            menu2_1_panel_main_panel.MouseLeave += new EventHandler(events.menu2_1_panel_main_panel_MouseLeave);
             menu2_1_panel_main_panel.Click += new EventHandler(events.menu2_1_panel_main_panel_Click);
+            menu2_1_panel_main_panel.Cursor = Cursors.Hand;
 
             return menu2_1_panel_main_panel;
         }

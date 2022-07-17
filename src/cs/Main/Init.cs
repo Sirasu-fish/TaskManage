@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Windows.Forms;
 
 namespace TaskManage.Main
 {
@@ -132,7 +130,7 @@ namespace TaskManage.Main
             {
                 if (!string.IsNullOrEmpty(Properties.Settings.Default.task_name[i]))
                 {
-                    controls_event.menu2_1_events.AddTask(form, Properties.Settings.Default.task_name[i]);
+                    controls_event.menu2_1_events.InitAddTask(form, Properties.Settings.Default.task_name[i]);
                 }
             }
             if (Common_Var.menu2_1_task == 0) // タスク数が0の時、タスク表示が更新されないため、更新
@@ -167,6 +165,11 @@ namespace TaskManage.Main
                     controls_event.menu2_2_events.AddMemo(form, Properties.Settings.Default.memo_path[i], fu.ReadFileAll(Properties.Settings.Default.memo_path[i]));
                     Common_Var.memo_save[i] = true;
                 }
+            }
+
+            if (Common_Var.menu2_2_memo == 0) // メモ数が0の時、メモ表示が更新されないため、更新
+            {
+                controls_event.menu2_2_events.ChangeMemoNum(form);
             }
 
             // menu2 2 開いているか

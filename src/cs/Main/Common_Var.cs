@@ -13,6 +13,8 @@ namespace TaskManage.Main
         private static Color subsub_color_ = Color.FromArgb(220, 220, 220); //ライトモード サブ色
 
         private static int menu2_1_task_ = 0; //タスク数
+        private static int menu2_1_open_task_ = -1; // 開いているタスクの番号
+        private static int menu2_1_delete_task_ = 0; // 削除されたタスクの数
         private static int menu2_2_memo_ = 0; //メモ数
         private static bool[] memo_save_ = new bool[Main.Common_Const.memo_num]; //ファイルの保存状況 true:保存済み false:未保存
 
@@ -100,6 +102,30 @@ namespace TaskManage.Main
             get
             {
                 return menu2_1_task_;
+            }
+        }
+
+        public static int menu2_1_open_task
+        {
+            set
+            {
+                menu2_1_open_task_ = value;
+            }
+            get
+            {
+                return menu2_1_open_task_;
+            }
+        }
+
+        public static int menu2_1_delete_task
+        {
+            set
+            {
+                menu2_1_delete_task_ = value;
+            }
+            get
+            {
+                return menu2_1_delete_task_;
             }
         }
 
