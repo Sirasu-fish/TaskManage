@@ -16,7 +16,7 @@ namespace TaskManage.controls_event
 
         // ********** form event **********
         #region form event
-        public static void menu1_panel_calendertop_button_prevmonth_Click(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_top_panel_yearmonth_button_prevmonth_Click(object sender, EventArgs e, MainForm form)
         {
             int year = 0;
             int month = 0;
@@ -28,11 +28,11 @@ namespace TaskManage.controls_event
                 year = year - 1;
             }
             common_events.Set_Day(form, year, month);
-            form.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedItem = year.ToString();
-            form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.SelectedItem = year.ToString();
+            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
 
-        public static void menu1_panel_calendertop_button_nextmonth_Click(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_top_panel_yearmonth_button_nextmonth_Click(object sender, EventArgs e, MainForm form)
         {
             int year = 0;
             int month = 0;
@@ -43,54 +43,54 @@ namespace TaskManage.controls_event
                 year = year + 1;
             }
             common_events.Set_Day(form, year, month);
-            form.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedItem = year.ToString();
-            form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.SelectedItem = year.ToString();
+            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
 
-        public static void menu1_panel_calendertop_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_top_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e, MainForm form)
         {
             Change_YearMonth(form);
         }
-        public static void menu1_panel_calendertop_panel_yearmonth_combo_month_SelectedIndexChanged(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_top_panel_yearmonth_combo_month_SelectedIndexChanged(object sender, EventArgs e, MainForm form)
         {
             Change_YearMonth(form);
         }
 
         //日付ホバー時
-        public static void menu1_table_calender_panel_day_MouseEnter(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_main_table_calender_panel_day_MouseEnter(object sender, EventArgs e, MainForm form)
         {
-            OverMouse(form.menu1_table_calender_panel_day[int.Parse(((Panel)sender).Name)]);
+            OverMouse(form.menu1_panel_calender_panel_main_table_calender_panel_day[int.Parse(((Panel)sender).Name)]);
         }
-        public static void menu1_table_calender_label_day_MouseEnter(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseEnter(object sender, EventArgs e, MainForm form)
         {
-            OverMouse(form.menu1_table_calender_panel_day[int.Parse(((Label)sender).Name)]);
+            OverMouse(form.menu1_panel_calender_panel_main_table_calender_panel_day[int.Parse(((Label)sender).Name)]);
         }
         //日付ホバーが離れた時
-        public static void menu1_table_calender_panel_day_MouseLeave(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_main_table_calender_panel_day_MouseLeave(object sender, EventArgs e, MainForm form)
         {
             NoOverMouse(form);
         }
 
-        public static void menu1_table_calender_label_day_MouseLeave(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseLeave(object sender, EventArgs e, MainForm form)
         {
             NoOverMouse(form);
         }
         //日付クリック
-        public static void menu1_table_calender_panel_day_MouseClick(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_main_table_calender_panel_day_MouseClick(object sender, EventArgs e, MainForm form)
         {
-            ClickPanel(form, form.menu1_table_calender_panel_day[int.Parse(((Panel)sender).Name)], int.Parse(((Panel)sender).Name));
+            ClickPanel(form, form.menu1_panel_calender_panel_main_table_calender_panel_day[int.Parse(((Panel)sender).Name)], int.Parse(((Panel)sender).Name));
         }
-        public static void menu1_table_calender_label_day_MouseClick(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseClick(object sender, EventArgs e, MainForm form)
         {
-            ClickPanel(form, form.menu1_table_calender_panel_day[int.Parse(((Label)sender).Name)], int.Parse(((Label)sender).Name));
+            ClickPanel(form, form.menu1_panel_calender_panel_main_table_calender_panel_day[int.Parse(((Label)sender).Name)], int.Parse(((Label)sender).Name));
         }
-        public static void menu1_table_calender_panel_day_DoubleClick(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_main_table_calender_panel_day_MouseDoubleClick(object sender, EventArgs e, MainForm form)
         {
-            OpenTaskFromPanel(int.Parse(((Panel)sender).Name), form.menu1_table_calender_label_day[int.Parse(((Panel)sender).Name)].Text);
+            OpenDone(form, int.Parse(((Panel)sender).Name));
         }
-        public static void menu1_table_calender_label_day_DoubleClick(object sender, EventArgs e, MainForm form)
+        public static void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseDoubleClick(object sender, EventArgs e, MainForm form)
         {
-            OpenTaskFromPanel(int.Parse(((Label)sender).Name), form.menu1_table_calender_label_day[int.Parse(((Label)sender).Name)].Text);
+            OpenDone(form, int.Parse(((Label)sender).Name));
         }
 
         public static void menu1_panel_done_panel_top_button_add_Click(object sender, EventArgs e, MainForm form)
@@ -191,20 +191,20 @@ namespace TaskManage.controls_event
         // 日付ホバーが外れた時の動作
         private static void NoOverMouse(MainForm form)
         {
-            for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
+            for (int i = 0; i < form.menu1_panel_calender_panel_main_table_calender_panel_day.Length; i++)
             {
                 if (Main.Common_Var.clickpanel == i)
                 {
                     continue;
                 }
-                form.menu1_table_calender_panel_day[i].Refresh();
+                form.menu1_panel_calender_panel_main_table_calender_panel_day[i].Refresh();
             }
 
             Panel panel = new Panel();
 
             if (0 <= Main.Common_Var.clickpanel && Main.Common_Var.clickpanel <= 41)
             {
-                panel = form.menu1_table_calender_panel_day[Main.Common_Var.clickpanel];
+                panel = form.menu1_panel_calender_panel_main_table_calender_panel_day[Main.Common_Var.clickpanel];
             }
 
             Graphics g = panel.CreateGraphics();
@@ -222,9 +222,9 @@ namespace TaskManage.controls_event
         // 日付クリック時の動作
         private static void ClickPanel(MainForm form, Panel panel, int panel_num)
         {
-            for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
+            for (int i = 0; i < form.menu1_panel_calender_panel_main_table_calender_panel_day.Length; i++)
             {
-                form.menu1_table_calender_panel_day[i].Refresh();
+                form.menu1_panel_calender_panel_main_table_calender_panel_day[i].Refresh();
             }
 
             Main.Common_Var.clickpanel = panel_num;
@@ -250,9 +250,9 @@ namespace TaskManage.controls_event
         // セレクトボックスの年、月を取得
         private static void Get_YearMonth(MainForm form, ref int year, ref int month)
         {
-            if (Int32.TryParse(form.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedItem.ToString(), out int y))
+            if (Int32.TryParse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.SelectedItem.ToString(), out int y))
             {
-                if (!(Int32.Parse(form.menu1_panel_calendertop_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= Int32.Parse(form.menu1_panel_calendertop_panel_yearmonth_combo_year.Items[4].ToString())))
+                if (!(Int32.Parse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= Int32.Parse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.Items[4].ToString())))
                 {
                     year = DateTime.Now.Year;
                 }
@@ -267,8 +267,8 @@ namespace TaskManage.controls_event
             }
 
 
-            month = Int32.Parse(form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem.ToString());
-            if (Int32.TryParse(form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem.ToString(), out int m))
+            month = Int32.Parse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.SelectedItem.ToString());
+            if (Int32.TryParse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.SelectedItem.ToString(), out int m))
             {
                 if (!(1 <= month && month <= 12))
                 {
@@ -290,26 +290,26 @@ namespace TaskManage.controls_event
         {
             int year = 0;
             int month = 0;
-            if (form.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedItem == null)
+            if (form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.SelectedItem == null)
             {
                 year = DateTime.Now.Year;
             }
             else
             {
-                year = Int32.Parse(form.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedItem.ToString());
-                if (!(Int32.Parse(form.menu1_panel_calendertop_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= Int32.Parse(form.menu1_panel_calendertop_panel_yearmonth_combo_year.Items[4].ToString())))
+                year = Int32.Parse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.SelectedItem.ToString());
+                if (!(Int32.Parse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= Int32.Parse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.Items[4].ToString())))
                 {
                     year = DateTime.Now.Year;
                 }
             }
 
-            if (form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem == null)
+            if (form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.SelectedItem == null)
             {
                 month = DateTime.Now.Month;
             }
             else
             {
-                month = Int32.Parse(form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem.ToString());
+                month = Int32.Parse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.SelectedItem.ToString());
                 if (!(1 <= month && month <= 12))
                 {
                     month = DateTime.Now.Month;
@@ -317,8 +317,56 @@ namespace TaskManage.controls_event
             }
 
             common_events.Set_Day(form, year, month);
-            form.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedItem = year.ToString();
-            form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.SelectedItem = year.ToString();
+            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+        }
+
+        private static void OpenDone(MainForm form, int num)
+        {
+            int year = int.Parse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.Text);
+            int month = int.Parse(form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.Text);
+            DateTime firstday = new DateTime(year, month, 1);
+            DayOfWeek firstdate = firstday.DayOfWeek;
+            int subday = 0;
+            int[] days = new int[42];
+            DateTime now = DateTime.Now;
+            int today = 0;
+
+            int day = int.Parse(form.menu1_panel_calender_panel_main_table_calender_panel_day_label_day[num].Text);
+            DateTime selectDate = new DateTime();
+
+            DayOfWeek dow = new DayOfWeek();
+
+            common_events.Get_Calender(year, month, ref now, ref days, ref subday, ref firstday, ref today);
+            if ((int)firstdate <= num && num < subday) // 対象が今月中の場合
+            {
+                selectDate = new DateTime(year, month, day);
+                dow = selectDate.DayOfWeek;
+            }
+            else if (subday <= num) // 対象が来月
+            {
+                if (month == 12)
+                {
+                    year += 1;
+                    month = 1;
+                }
+                selectDate = new DateTime(year, month, day);
+                dow = selectDate.DayOfWeek;
+            }
+            else if (num < (int)firstdate) // 対象が先月
+            {
+                if (month == 1)
+                {
+                    year -= 1;
+                    month = 12;
+                }
+                selectDate = new DateTime(year, month, day);
+                dow = selectDate.DayOfWeek;
+            }
+            string[] date = { "日", "月", "火", "水", "木", "金", "土" };
+            string label_day = selectDate.ToShortDateString() + " (" + date[(int)dow] + ")";
+
+            form.menu1_panel_done_panel_top_label_day.Text = label_day;
         }
 
         // 削除ボタン追加

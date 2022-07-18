@@ -38,52 +38,42 @@ namespace TaskManage
         // Event common
         #region Event Common
 
-        // ダブルクリック時の動作
         private void common_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             controls_event.common_events.common_MouseDoubleClick(sender, e, this);
         }
-        // 最小化ボタン
         private void common_button_min_MouseClick(object sender, MouseEventArgs e)
         {
             controls_event.common_events.common_button_min_MouseClick(sender, e, this);
         }
-        // 最大化ボタン
         private void common_button_max_MouseClick(object sender, MouseEventArgs e)
         {
             controls_event.common_events.common_button_max_MouseClick(sender, e, this);
         }
-        // 閉じるボタン
         private void common_button_close_MouseClick(object sender, MouseEventArgs e)
         {
             controls_event.common_events.common_button_close_MouseClick(sender, e, this);
         }
-        // 閉じるボタンホバー時の動作
         private void common_button_close_MouseEnter(object sender, EventArgs e)
         {
             controls_event.common_events.common_button_close_MouseEnter(sender, e, this);
         }
-        // 閉じるボタンLeave時の動作
         private void common_button_close_MouseLeave(object sender, EventArgs e)
         {
             controls_event.common_events.common_button_close_MouseLeave(sender, e, this);
         }
-        // 設定ボタン押下
         private void common_button_setting_Click(object sender, EventArgs e)
         {
             controls_event.common_events.common_button_setting_Click(sender, e, this);
         }
-        // ダークモード切り替え
         private void common_panel_setting_table_check1_CheckedChanged(object sender, EventArgs e)
         {
             controls_event.common_events.common_panel_setting_table_check1_CheckedChanged(sender, e, this);
         }
-        // 前メニューへ移動する時の動作
         private void common_button_prevmenu_Click(object sender, EventArgs e)
         {
             controls_event.common_events.common_button_prevmenu_Click(sender, e, this);
         }
-        // 次メニューへ移動する時の動作
         private void common_button_nextmenu_Click(object sender, EventArgs e)
         {
             controls_event.common_events.common_button_nextmenu_Click(sender, e, this);
@@ -92,54 +82,54 @@ namespace TaskManage
 
         // Event menu1
         #region Event menu1
-        private void menu1_panel_calendertop_button_prevmonth_Click(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_top_panel_yearmonth_button_prevmonth_Click(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_panel_calendertop_button_prevmonth_Click(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_top_panel_yearmonth_button_prevmonth_Click(sender, e, this);
         }
-        private void menu1_panel_calendertop_button_nextmonth_Click(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_top_panel_yearmonth_button_nextmonth_Click(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_panel_calendertop_button_nextmonth_Click(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_top_panel_yearmonth_button_nextmonth_Click(sender, e, this);
         }
-        private void menu1_panel_calendertop_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_top_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_panel_calendertop_panel_yearmonth_combo_year_SelectedIndexChanged(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_top_panel_yearmonth_combo_year_SelectedIndexChanged(sender, e, this);
         }
-        private void menu1_panel_calendertop_panel_yearmonth_combo_month_SelectedIndexChanged(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_top_panel_yearmonth_combo_month_SelectedIndexChanged(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_panel_calendertop_panel_yearmonth_combo_year_SelectedIndexChanged(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_top_panel_yearmonth_combo_month_SelectedIndexChanged(sender, e, this);
         }
 
-        private void menu1_table_calender_panel_day_MouseEnter(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_main_table_calender_panel_day_MouseEnter(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_table_calender_panel_day_MouseEnter(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_MouseEnter(sender, e, this);
         }
-        private void menu1_table_calender_label_day_MouseEnter(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseEnter(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_table_calender_label_day_MouseEnter(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseEnter(sender, e, this);
         }
-        private void menu1_table_calender_panel_day_MouseLeave(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_main_table_calender_panel_day_MouseLeave(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_table_calender_panel_day_MouseLeave(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_MouseLeave(sender, e, this);
         }
-        private void menu1_table_calender_label_day_MouseLeave(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseLeave(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_table_calender_label_day_MouseLeave(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseLeave(sender, e, this);
         }
-        private void menu1_table_calender_panel_day_MouseClick(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_main_table_calender_panel_day_MouseClick(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_table_calender_panel_day_MouseClick(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_MouseClick(sender, e, this);
         }
-        private void menu1_table_calender_label_day_MouseClick(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseClick(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_table_calender_label_day_MouseClick(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseClick(sender, e, this);
         }
-        private void menu1_table_calender_panel_day_DoubleClick(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_main_table_calender_panel_day_MouseDoubleClick(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_table_calender_panel_day_DoubleClick(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_MouseDoubleClick(sender, e, this);
         }
-        private void menu1_table_calender_label_day_DoubleClick(object sender, EventArgs e)
+        private void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseDoubleClick(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_table_calender_label_day_DoubleClick(sender, e, this);
+            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseDoubleClick(sender, e, this);
         }
 
         private void menu1_panel_done_panel_top_button_add_Click(object sender, EventArgs e)

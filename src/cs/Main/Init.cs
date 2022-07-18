@@ -185,7 +185,7 @@ namespace TaskManage.Main
             // メモ折り返し
             if (Properties.Settings.Default.menu2_memowrap)
             {
-                form.common_panel_setting_table_check3.Checked = true;
+                form.common_panel_setting_table_check2.Checked = true;
                 for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
                 {
                     //form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = true;
@@ -193,7 +193,7 @@ namespace TaskManage.Main
             }
             else
             {
-                form.common_panel_setting_table_check3.Checked = false;
+                form.common_panel_setting_table_check2.Checked = false;
                 for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
                 {
                     //form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = false;
@@ -238,11 +238,10 @@ namespace TaskManage.Main
             years[3] = DateTime.Now.AddYears(1).Year.ToString();
             years[4] = DateTime.Now.AddYears(2).Year.ToString();
 
-            form.menu1_panel_calendertop_panel_yearmonth_combo_year.Items.AddRange(years);
-            form.menu1_panel_calendertop_panel_yearmonth_combo_year.SelectedItem = year.ToString();
-            form.menu1_panel_calendertop_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.Items.AddRange(years);
+            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.SelectedItem = year.ToString();
+            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
-
 
         #endregion private
 
