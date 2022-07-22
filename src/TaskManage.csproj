@@ -12,6 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="cs\control\PanelTop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="cs\control\PanelBottom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

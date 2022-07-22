@@ -8,51 +8,26 @@
             form.menu2.SuspendLayout();
             form.menu2_1.SuspendLayout();
             form.menu2_2.SuspendLayout();
-            form.menu2_3.SuspendLayout();
 
             form.menu2.Controls.Remove(form.menu2_1);
             form.menu2.Controls.Remove(form.menu2_2);
-            form.menu2.Controls.Remove(form.menu2_3);
 
-            switch (Properties.Settings.Default.order)
+            for (int i = Main.Common_Const.menu2_num - 1; i >= 0; i--)
             {
-                case 123:
-                    form.menu2.Controls.Add(form.menu2_3);
-                    form.menu2.Controls.Add(form.menu2_2);
-                    form.menu2.Controls.Add(form.menu2_1);
-                    break;
-                case 132:
-                    form.menu2.Controls.Add(form.menu2_2);
-                    form.menu2.Controls.Add(form.menu2_3);
-                    form.menu2.Controls.Add(form.menu2_1);
-                    break;
-                case 213:
-                    form.menu2.Controls.Add(form.menu2_3);
-                    form.menu2.Controls.Add(form.menu2_1);
-                    form.menu2.Controls.Add(form.menu2_2);
-                    break;
-                case 231:
-                    form.menu2.Controls.Add(form.menu2_1);
-                    form.menu2.Controls.Add(form.menu2_3);
-                    form.menu2.Controls.Add(form.menu2_2);
-                    break;
-                case 312:
-                    form.menu2.Controls.Add(form.menu2_2);
-                    form.menu2.Controls.Add(form.menu2_1);
-                    form.menu2.Controls.Add(form.menu2_3);
-                    break;
-                case 321:
-                    form.menu2.Controls.Add(form.menu2_1);
-                    form.menu2.Controls.Add(form.menu2_2);
-                    form.menu2.Controls.Add(form.menu2_3);
-                    break;
+                switch (Properties.Settings.Default.order[i])
+                {
+                    case "1":
+                        form.menu2.Controls.Add(form.menu2_1);
+                        break;
+                    case "2":
+                        form.menu2.Controls.Add(form.menu2_2);
+                        break;
+                }
             }
-            Properties.Settings.Default.Save();
 
             form.menu2.ResumeLayout();
             form.menu2_1.ResumeLayout();
             form.menu2_2.ResumeLayout();
-            form.menu2_3.ResumeLayout();
         }
     }
 }

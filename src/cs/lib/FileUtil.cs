@@ -116,7 +116,7 @@ namespace TaskManage
                     sw.Close();
                     stream.Close();
 
-                    string[] path = new string[99];
+                    string[] path = new string[Main.Common_Const.memo_num];
                     Properties.Settings.Default.memo_path.CopyTo(path, 0);
                     path[num] = sfd.FileName;
                     Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
