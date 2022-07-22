@@ -18,7 +18,7 @@ namespace TaskManage.controls_event
             }
 
             // 登録処理
-            //menu1_events.AddTask(form, form.menudone_table1_text.Text);
+            menu1_events.AddDone(form, form.menudone_table1_text.Text, form.menudone_table3_text.Text);
 
             // 実績画面非表示処理
             form.menudone_table1_text.Text = "";

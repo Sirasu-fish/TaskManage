@@ -498,14 +498,11 @@ namespace TaskManage
             // menu1
             // 
             this.menu1.AutoScroll = true;
-            this.menu1.BackColor = System.Drawing.Color.Transparent;
             this.menu1.Controls.Add(this.menu1_panel_yearmonth);
             this.menu1.Controls.Add(this.menu1_table_calender);
             this.menu1.Controls.Add(this.menu1_done_top);
             this.menu1.Controls.Add(this.menu1_done_main);
-            this.menu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu1.Size = new System.Drawing.Size(this.window_panel.Width, 1000);
-
+            this.menu1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // menu1_panel_yearmonth_button_prevmonth
             // 
@@ -558,7 +555,7 @@ namespace TaskManage
             this.menu1_panel_yearmonth.Size = new System.Drawing.Size(this.menu1_panel_yearmonth_button_prevmonth.Width
                 + this.menu1_panel_yearmonth_combo_year.Width + this.menu1_panel_yearmonth_combo_month.Width
                 + this.menu1_panel_yearmonth_button_nextmonth.Width + 30, common_button_height);
-            this.menu1_panel_yearmonth.Location = new System.Drawing.Point(this.window_panel.Width / 2
+            this.menu1_panel_yearmonth.Location = new System.Drawing.Point(this.menu1.Width / 2
                 - this.menu1_panel_yearmonth.Width / 2 + 1, 0);
 
             // 
@@ -588,7 +585,7 @@ namespace TaskManage
             {
                 this.menu1_table_calender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             }
-            this.menu1_table_calender.Size = new System.Drawing.Size(this.window_panel.Width - 20, 400);
+            this.menu1_table_calender.Size = new System.Drawing.Size(this.menu1.Width - 20, 400);
             this.menu1_table_calender.Margin = new System.Windows.Forms.Padding(0);
             this.menu1_table_calender.Padding = new System.Windows.Forms.Padding(0);
 
@@ -647,7 +644,7 @@ namespace TaskManage
             this.menu1_done_top.Controls.Add(this.menu1_done_top_button_add);
             this.menu1_done_top.Margin = new System.Windows.Forms.Padding(0);
             this.menu1_done_top.Location = new System.Drawing.Point(1, this.menu1_table_calender.Location.Y + this.menu1_table_calender.Height);
-            this.menu1_done_top.Size = new System.Drawing.Size(this.window_panel.Width + 19, common_button_height + 1);
+            this.menu1_done_top.Size = new System.Drawing.Size(this.menu1.Width + 19, common_button_height + 1);
             //
             // menu1_done_top_prevday
             //
@@ -701,8 +698,8 @@ namespace TaskManage
             this.menu1_done_top_button_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.menu1_done_top_button_add.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menu1_done_top_button_add.Image = ((System.Drawing.Image)(resources.GetObject("menu2_1_panel_top_button_add.Image")));
-            this.menu1_done_top_button_add.Location = new System.Drawing.Point(this.window_panel.Width - this.menu1_done_top_button_add.Width + 19, 1);
             this.menu1_done_top_button_add.Size = new System.Drawing.Size(32, 32);
+            this.menu1_done_top_button_add.Location = new System.Drawing.Point(this.menu1.Width - this.menu1_done_top_button_add.Width, 1);
             this.menu1_done_top_button_add.Margin = new System.Windows.Forms.Padding(0);
             this.tooltip.SetToolTip(this.menu1_done_top_button_add, "追加");
             this.menu1_done_top_button_add.UseVisualStyleBackColor = false;
@@ -715,7 +712,7 @@ namespace TaskManage
             this.menu1_done_main.BackColor = System.Drawing.Color.Transparent;
             this.menu1_done_main.Location = new System.Drawing.Point(1, this.menu1_done_top.Location.Y + this.menu1_done_top.Height);
             this.menu1_done_main.Margin = new System.Windows.Forms.Padding(0);
-            this.menu1_done_main.Size = new System.Drawing.Size(150, 32);
+            this.menu1_done_main.Size = new System.Drawing.Size(this.menu1.Width, 32);
 
             // 
             // menu2
@@ -724,7 +721,6 @@ namespace TaskManage
             this.menu2.Controls.Add(this.menu2_2);
             this.menu2.Controls.Add(this.menu2_1);
             this.menu2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
 
             // 
             // menu2_1

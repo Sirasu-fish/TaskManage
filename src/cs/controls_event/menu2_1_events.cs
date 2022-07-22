@@ -467,7 +467,7 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task]);
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_delete[Main.Common_Var.menu2_1_task]);
-            menu2_1_panel_main_panel.Location = new Point(4, (menu2_1_panel_main_panel.Size.Height + 1) * Main.Common_Var.menu2_1_task);
+            menu2_1_panel_main_panel.Location = new Point(4, (menu2_1_panel_main_panel.Height + 1) * Main.Common_Var.menu2_1_task);
             menu2_1_panel_main_panel.Name = Main.Common_Var.menu2_1_task.ToString();
             menu2_1_panel_main_panel.Size = new Size(form.menu2_1_panel_main.Width - menu2_1_panel_main_panel.Location.X * 2, 32);
             menu2_1_panel_main_panel.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_MouseEnter);
