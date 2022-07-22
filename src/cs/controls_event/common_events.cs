@@ -209,39 +209,50 @@ namespace TaskManage.controls_event
 
             for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
             {
-                form.menu1_table_calender_panel_day_label_day[i].Text = days[i].ToString();　// 日付をセットする
-            }
+                if ((int)firstdate - 1 < i && i < sub_day) // 当月
+                {
+                    form.menu1_table_calender_panel_day_label_day[i].Text = days[i].ToString();　// 日付をセットする
+                    form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent;
+                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color2;
+                    form.menu1_table_calender_panel_day_label_day[i].Font = main_font;
+                }
+                else if (sub_day <= i) // 次月
+                {
+                    int nextmonth = 0;
+                    if (month == 12)
+                    {
+                        nextmonth = 1;
+                    }
+                    else
+                    {
+                        nextmonth = month + 1;
+                    }
+                    form.menu1_table_calender_panel_day_label_day[i].Text = nextmonth.ToString() + "/" + days[i].ToString();　// 日付をセットする
+                    form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent;
+                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5;
+                    form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
+                }
+                else if (i <= (int)firstdate - 1) // 前月
+                {
+                    int prevmonth = 0;
+                    if (month == 1)
+                    {
+                        prevmonth = 12;
+                    }
+                    else
+                    {
+                        prevmonth = month - 1;
+                    }
+                    form.menu1_table_calender_panel_day_label_day[i].Text = prevmonth.ToString() + "/" + days[i].ToString();　// 日付をセットする
+                    form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent;
+                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5;
+                    form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
+                }
 
-            for (int i = 0; i < form.menu1_table_calender_panel_day_label_day.Length; i++)
-            {
-                //form.menu1_table_calender_panel_day_label_day[i].ForeColor = main_text_color; // カレンダーの全ての文字色を変更する
-                form.menu1_table_calender_panel_day_label_day[i].Font = main_font; // カレンダーの全てのフォントを変更する
-            }
-
-            // 前の月の文字色、フォントを変更する
-            for (int i = 0; i <= (int)firstdate - 1; i++)
-            {
-                form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5;
-                form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
-            }
-
-            // 次の月の文字色、フォントを変更する
-            for (int i = 41; i >= sub_day; i--)
-            {
-                form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5;
-                form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
-            }
-
-            // カレンダーの日にちの背景色を変更
-            for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
-            {
-                //form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Var.submain_color;
-            }
-
-            // 現在日がカレンダーに存在する場合はパネルの色を変更する
-            if (0 <= today_int && today_int <= 41)
-            {
-                form.menu1_table_calender_panel_day_label_day[today_int].BackColor = Main.Common_Const.color4;//today_color;
+                if (i == today_int) // 現在日がカレンダーに存在する場合はパネルの色を変更する
+                {
+                    form.menu1_table_calender_panel_day_label_day[today_int].BackColor = Main.Common_Const.color4;
+                }
             }
         }
 

@@ -186,7 +186,7 @@ namespace TaskManage.controls_event
         // 実績クリック
         public void menu1_done_main_panel_button_delete_Click(object sender, EventArgs e)
         {
-            //RemoveTask(form, int.Parse(((Button)sender).Name));
+            //RemoveDone(form, int.Parse(((Button)sender).Name));
         }
         #endregion form event
         // ********** form event **********
@@ -347,14 +347,15 @@ namespace TaskManage.controls_event
             int[] days = new int[42];
             DateTime now = DateTime.Now;
             int today = 0;
+            int day = 0;
 
-            int day = int.Parse(form.menu1_table_calender_panel_day_label_day[num].Text);
             DateTime selectDate = new DateTime();
 
             DayOfWeek dow = new DayOfWeek();
 
             common_events.Get_Calender(year, month, ref now, ref days, ref subday, ref firstday, ref today);
-            if ((int)firstdate <= num && num < subday) // 対象が今月中の場合
+            day = days[num];
+            if ((int)firstdate - 1 < num && num < subday) // 対象が今月中の場合
             {
                 selectDate = new DateTime(year, month, day);
                 dow = selectDate.DayOfWeek;
@@ -366,6 +367,10 @@ namespace TaskManage.controls_event
                     year += 1;
                     month = 1;
                 }
+                else
+                {
+                    month += 1;
+                }
                 selectDate = new DateTime(year, month, day);
                 dow = selectDate.DayOfWeek;
             }
@@ -376,11 +381,19 @@ namespace TaskManage.controls_event
                     year -= 1;
                     month = 12;
                 }
+                else
+                {
+                    month -= 1;
+                }
                 selectDate = new DateTime(year, month, day);
                 dow = selectDate.DayOfWeek;
             }
             string[] date = { "日", "月", "火", "水", "木", "金", "土" };
             string label_day = selectDate.ToShortDateString() + " (" + date[(int)dow] + ")";
+
+            Main.Common_Var.menu1_done_year = year;
+            Main.Common_Var.menu1_done_month = month;
+            Main.Common_Var.menu1_done_day = day;
 
             form.menu1_done_top_label_day.Text = label_day;
         }
