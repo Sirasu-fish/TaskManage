@@ -168,7 +168,7 @@ namespace TaskManage.controls_event
                     form.menu1.Visible = true;
                     form.menu2.Visible = false;
                     form.menutask.Visible = false;
-                    form.menuachieve.Visible = false;
+                    form.menudone.Visible = false;
                     form.common_button_prevmenu.Visible = false;
                     form.common_button_nextmenu.Visible = true;
                     break;
@@ -176,7 +176,7 @@ namespace TaskManage.controls_event
                     form.menu1.Visible = false;
                     form.menu2.Visible = true;
                     form.menutask.Visible = false;
-                    form.menuachieve.Visible = false;
+                    form.menudone.Visible = false;
                     form.common_button_prevmenu.Visible = true;
                     form.common_button_nextmenu.Visible = false;
                     break;
@@ -221,13 +221,14 @@ namespace TaskManage.controls_event
             // 前の月の文字色、フォントを変更する
             for (int i = 0; i <= (int)firstdate - 1; i++)
             {
-                //form.menu1_table_calender_panel_day_label_day[i].ForeColor = sub_text_color;
+                form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5;
                 form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
             }
 
             // 次の月の文字色、フォントを変更する
             for (int i = 41; i >= sub_day; i--)
             {
+                form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5;
                 form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
             }
 

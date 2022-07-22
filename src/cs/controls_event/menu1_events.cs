@@ -86,11 +86,11 @@ namespace TaskManage.controls_event
         }
         public static void menu1_table_calender_panel_day_MouseDoubleClick(object sender, EventArgs e, MainForm form)
         {
-            OpenDone(form, int.Parse(((Panel)sender).Name));
+            ChangeDoneDay(form, int.Parse(((Panel)sender).Name));
         }
         public static void menu1_table_calender_panel_day_label_day_MouseDoubleClick(object sender, EventArgs e, MainForm form)
         {
-            OpenDone(form, int.Parse(((Label)sender).Name));
+            ChangeDoneDay(form, int.Parse(((Label)sender).Name));
         }
 
         public static void menu1_done_top_prevday_Click(object sender, EventArgs e, MainForm form)
@@ -117,7 +117,7 @@ namespace TaskManage.controls_event
         }
         public static void menu1_done_top_button_add_Click(object sender, EventArgs e, MainForm form)
         {
-
+            OpenDone(form, Main.Common_Var.menu1_done);
         }
 
         public void menu1_done_main_panel_MouseEnter(object sender, EventArgs e)
@@ -173,15 +173,15 @@ namespace TaskManage.controls_event
         }
         public void menu1_done_main_panel_Click(object sender, EventArgs e)
         {
-            //OpenTask(form, int.Parse(((Panel)sender).Name));
+            OpenDone(form, int.Parse(((Panel)sender).Name));
         }
         public void menu1_done_main_panel_label_name_Click(object sender, EventArgs e)
         {
-            //OpenTask(form, int.Parse(((Panel)sender).Name));
+            OpenDone(form, int.Parse(((Label)sender).Name));
         }
         public void menu1_done_main_panel_label_time_Click(object sender, EventArgs e)
         {
-            //OpenTask(form, int.Parse(((Panel)sender).Name));
+            OpenDone(form, int.Parse(((Label)sender).Name));
         }
         // 実績クリック
         public void menu1_done_main_panel_button_delete_Click(object sender, EventArgs e)
@@ -337,7 +337,7 @@ namespace TaskManage.controls_event
             form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
 
-        private static void OpenDone(MainForm form, int num)
+        private static void ChangeDoneDay(MainForm form, int num)
         {
             int year = int.Parse(form.menu1_panel_yearmonth_combo_year.Text);
             int month = int.Parse(form.menu1_panel_yearmonth_combo_month.Text);
@@ -383,6 +383,30 @@ namespace TaskManage.controls_event
             string label_day = selectDate.ToShortDateString() + " (" + date[(int)dow] + ")";
 
             form.menu1_done_top_label_day.Text = label_day;
+        }
+
+        // タスクを開く
+        private static void OpenDone(MainForm form, int done_num)
+        {
+            Main.Common_Var.menu1_open_done = done_num;
+            Main.Common_Var.menu1_delete_done = 0;
+            if (done_num >= Main.Common_Var.menu1_done) // 新規タスク
+            {
+                form.menudone_table1_text.Text = "";
+                form.menudone_table2_text.Text = "";
+                form.menudone_table3_text.Text = "";
+                form.menudone_table4_text.Text = "";
+                form.menudone.Visible = true;
+            }
+            else // 既存タスク
+            {
+                form.menudone_table1_text.Text = Properties.Settings.Default.done_name[done_num];
+                form.menudone_table2_text.Text = Properties.Settings.Default.done_memo[done_num];
+                form.menudone_table3_text.Text = "";
+                form.menudone_table4_text.Text = "";
+                form.menudone.Visible = true;
+            }
+
         }
 
         // 削除ボタン追加

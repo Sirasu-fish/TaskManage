@@ -206,16 +206,16 @@ namespace TaskManage
         }
         #endregion Event menutask
 
-        // Event menuachieve
-        #region Event menuachieve
-        private void menuachieve_button_close_Click(object sender, EventArgs e)
+        // Event menudone
+        #region Event menudone
+        private void menudone_button_close_Click(object sender, EventArgs e)
         {
-            controls_event.menuachieve_events.menuachieve_button_close_Click(sender, e, this);
+            controls_event.menudone_events.menudone_button_close_Click(sender, e, this);
         }
-        private void menuachieve_button_save_Click(object sender, EventArgs e)
+        private void menudone_button_save_Click(object sender, EventArgs e)
         {
-            controls_event.menuachieve_events.menuachieve_button_save_Click(sender, e, this);
+            controls_event.menudone_events.menudone_button_save_Click(sender, e, this);
         }
-        #endregion Event menuachieve
+        #endregion Event menudone
     }
 }

@@ -15,6 +15,9 @@ namespace TaskManage.Main
         private static int menu1_done_year_ = 0;
         private static int menu1_done_month_ = 0;
         private static int menu1_done_day_ = 0;
+        private static int menu1_done_ = 0;
+        private static int menu1_open_done_ = 0;
+        private static int menu1_delete_done_ = 0;
         private static int menu2_1_task_ = 0; //タスク数
         private static int menu2_1_open_task_ = -1; // 開いているタスクの番号
         private static int menu2_1_delete_task_ = 0; // 削除されたタスクの数
@@ -129,6 +132,42 @@ namespace TaskManage.Main
             get
             {
                 return menu1_done_day_;
+            }
+        }
+
+        public static int menu1_done
+        {
+            set
+            {
+                menu1_done_ = value;
+            }
+            get
+            {
+                return menu1_done_;
+            }
+        }
+
+        public static int menu1_open_done
+        {
+            set
+            {
+                menu1_open_done_ = value;
+            }
+            get
+            {
+                return menu1_open_done_;
+            }
+        }
+
+        public static int menu1_delete_done
+        {
+            set
+            {
+                menu1_delete_done_ = value;
+            }
+            get
+            {
+                return menu1_delete_done_;
             }
         }
 

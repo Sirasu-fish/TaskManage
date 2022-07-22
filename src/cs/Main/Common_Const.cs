@@ -11,6 +11,7 @@ namespace TaskManage.Main
         private static Color color2_ = Color.FromArgb(205, 205, 205);
         private static Color color3_ = Color.FromArgb(239, 239, 239);
         private static Color color4_ = Color.FromArgb(249, 207, 0);
+        private static Color color5_ = Color.FromArgb(171, 171, 171);
 
         private static int menu2_num_ = 2; // menu2の項目数
         private static int task_num_ = 99; // タスクの数
@@ -45,6 +46,11 @@ namespace TaskManage.Main
         public static Color color4
         {
             get { return color4_; }
+        }
+
+        public static Color color5
+        {
+            get { return color5_; }
         }
 
         public static int menu2_num
