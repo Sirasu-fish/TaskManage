@@ -12,6 +12,9 @@ namespace TaskManage.Main
         private static Color submain_color_ = Color.FromArgb(80, 80, 80); //ダークモード サブ色
         private static Color subsub_color_ = Color.FromArgb(220, 220, 220); //ライトモード サブ色
 
+        private static int menu1_done_year_ = 0;
+        private static int menu1_done_month_ = 0;
+        private static int menu1_done_day_ = 0;
         private static int menu2_1_task_ = 0; //タスク数
         private static int menu2_1_open_task_ = -1; // 開いているタスクの番号
         private static int menu2_1_delete_task_ = 0; // 削除されたタスクの数
@@ -90,6 +93,42 @@ namespace TaskManage.Main
             get
             {
                 return subsub_color_;
+            }
+        }
+
+        public static int menu1_done_year
+        {
+            set
+            {
+                menu1_done_year_ = value;
+            }
+            get
+            {
+                return menu1_done_year_;
+            }
+        }
+
+        public static int menu1_done_month
+        {
+            set
+            {
+                menu1_done_month_ = value;
+            }
+            get
+            {
+                return menu1_done_month_;
+            }
+        }
+
+        public static int menu1_done_day
+        {
+            set
+            {
+                menu1_done_day_ = value;
+            }
+            get
+            {
+                return menu1_done_day_;
             }
         }
 

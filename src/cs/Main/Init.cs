@@ -24,7 +24,6 @@ namespace TaskManage.Main
         #region private
 
         private static DAndDSizeChanger[] menu2_2_panel_main_table_memo_sizeChanger = new DAndDSizeChanger[99];
-        private static DAndDSizeChanger this_sizeChanger;
         private static DAndDMoveForm common_MoveForm;
 
         // 設定値の初期化
@@ -85,6 +84,8 @@ namespace TaskManage.Main
 
             SetCommon(form);
 
+            SetMenu1(form);
+
             SetMenu2(form);
 
             SetMenu2_1(form);
@@ -114,6 +115,20 @@ namespace TaskManage.Main
             controls_event.common_events.ChangeMenu(form);
             // 表示モード切り替え
             controls_event.common_events.ChangeDarkMode(form);
+        }
+
+        private void SetMenu1(MainForm form)
+        {
+            string[] date = { "日", "月", "火", "水", "木", "金", "土" };
+            DateTime now = DateTime.Now;
+            DayOfWeek dow = now.DayOfWeek;
+            string label_day = now.ToShortDateString() + " (" + date[(int)dow] + ")";
+
+            Common_Var.menu1_done_year = now.Year;
+            Common_Var.menu1_done_month = now.Month;
+            Common_Var.menu1_done_day = now.Day;
+
+            form.menu1_done_top_label_day.Text = label_day;
         }
 
         // Menu2 設定反映
@@ -207,14 +222,13 @@ namespace TaskManage.Main
             common_MoveForm = new DAndDMoveForm(form.common, form);
         }
 
-        // menu2 panel2 のメモのサイズ変更イベント定義
+        // サイズ変更イベント定義
         private void SetSizeChanger(MainForm form)
         {
             for (int i = 0; i < menu2_2_panel_main_table_memo_sizeChanger.Length; i++)
             {
                 //menu2_2_panel_main_table_memo_sizeChanger[i] = new DAndDSizeChanger(form.menu2_2_panel_main_panel_table_memo_text[i], form.menu2_2_panel_main_panel[i], DAndDArea.Bottom, 12, form.menu2_2);
             }
-            this_sizeChanger = new DAndDSizeChanger(form, form, DAndDArea.All, 24);
         }
 
         // 現在日時を設定
@@ -238,9 +252,9 @@ namespace TaskManage.Main
             years[3] = DateTime.Now.AddYears(1).Year.ToString();
             years[4] = DateTime.Now.AddYears(2).Year.ToString();
 
-            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.Items.AddRange(years);
-            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_year.SelectedItem = year.ToString();
-            form.menu1_panel_calender_panel_top_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+            form.menu1_panel_yearmonth_combo_year.Items.AddRange(years);
+            form.menu1_panel_yearmonth_combo_year.SelectedItem = year.ToString();
+            form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
 
         #endregion private

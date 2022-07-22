@@ -148,7 +148,6 @@ namespace TaskManage.controls_event
         // タスク完了ボタンホバー時
         public void menu2_1_panel_main_panel_button_finish_MouseEnter(object sender, EventArgs e)
         {
-            Debug.WriteLine("enter:" + ((Button)sender).Name);
             form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 128, 255, 128);
             form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Green;
             form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
@@ -268,8 +267,8 @@ namespace TaskManage.controls_event
             {
                 if (Main.Common_Var.menu2_1_task != 0) // タスク数が0以外の時
                 {
-                    form.menu2_1_panel.Height = 34 + 36 * Main.Common_Var.menu2_1_task;
-                    form.menu2_1.Height = 42 + 36 * Main.Common_Var.menu2_1_task;
+                    form.menu2_1_panel.Height = 34 + 35 * Main.Common_Var.menu2_1_task;
+                    form.menu2_1.Height = 42 + 35 * Main.Common_Var.menu2_1_task;
                 }
                 else // タスク数が0の時
                 {
@@ -336,7 +335,7 @@ namespace TaskManage.controls_event
             for (int i = num; i < Main.Common_Var.menu2_1_task; i++)
             {
                 // 位置更新
-                form.menu2_1_panel_main_panel[i].Location = new Point(4, (form.menu2_1_panel_main_panel[i].Size.Height + 4) * (i - 1));
+                form.menu2_1_panel_main_panel[i].Location = new Point(4, (form.menu2_1_panel_main_panel[i].Size.Height + 1) * (i - 1));
                 // コントロール名更新
                 form.menu2_1_panel_main_panel_label1[i].Name = (i - 1).ToString();
                 form.menu2_1_panel_main_panel_button_finish[i].Name = (i - 1).ToString();
@@ -389,6 +388,7 @@ namespace TaskManage.controls_event
                 form.menutask_table2_text.Text = Properties.Settings.Default.task_memo[task_num];
                 form.menutask.Visible = true;
             }
+
         }
         // 削除ボタン追加
         private static Button add_menu2_1_panel_main_panel_button_delete(MainForm form)
@@ -467,7 +467,7 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task]);
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_delete[Main.Common_Var.menu2_1_task]);
-            menu2_1_panel_main_panel.Location = new Point(4, (menu2_1_panel_main_panel.Size.Height + 4) * Main.Common_Var.menu2_1_task);
+            menu2_1_panel_main_panel.Location = new Point(4, (menu2_1_panel_main_panel.Size.Height + 1) * Main.Common_Var.menu2_1_task);
             menu2_1_panel_main_panel.Name = Main.Common_Var.menu2_1_task.ToString();
             menu2_1_panel_main_panel.Size = new Size(form.menu2_1_panel_main.Width - menu2_1_panel_main_panel.Location.X * 2, 32);
             menu2_1_panel_main_panel.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_MouseEnter);

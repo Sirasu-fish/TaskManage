@@ -82,59 +82,67 @@ namespace TaskManage
 
         // Event menu1
         #region Event menu1
-        private void menu1_panel_calender_panel_top_panel_yearmonth_button_prevmonth_Click(object sender, EventArgs e)
+        private void menu1_panel_yearmonth_button_prevmonth_Click(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_panel_calender_panel_top_panel_yearmonth_button_prevmonth_Click(sender, e, this);
+            controls_event.menu1_events.menu1_panel_yearmonth_button_prevmonth_Click(sender, e, this);
         }
-        private void menu1_panel_calender_panel_top_panel_yearmonth_button_nextmonth_Click(object sender, EventArgs e)
+        private void menu1_panel_yearmonth_button_nextmonth_Click(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_panel_calender_panel_top_panel_yearmonth_button_nextmonth_Click(sender, e, this);
+            controls_event.menu1_events.menu1_panel_yearmonth_button_nextmonth_Click(sender, e, this);
         }
-        private void menu1_panel_calender_panel_top_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e)
+        private void menu1_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_panel_calender_panel_top_panel_yearmonth_combo_year_SelectedIndexChanged(sender, e, this);
+            controls_event.menu1_events.menu1_panel_yearmonth_combo_year_SelectedIndexChanged(sender, e, this);
         }
-        private void menu1_panel_calender_panel_top_panel_yearmonth_combo_month_SelectedIndexChanged(object sender, EventArgs e)
+        private void menu1_panel_yearmonth_combo_month_SelectedIndexChanged(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_panel_calender_panel_top_panel_yearmonth_combo_month_SelectedIndexChanged(sender, e, this);
-        }
-
-        private void menu1_panel_calender_panel_main_table_calender_panel_day_MouseEnter(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_MouseEnter(sender, e, this);
-        }
-        private void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseEnter(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseEnter(sender, e, this);
-        }
-        private void menu1_panel_calender_panel_main_table_calender_panel_day_MouseLeave(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_MouseLeave(sender, e, this);
-        }
-        private void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseLeave(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseLeave(sender, e, this);
-        }
-        private void menu1_panel_calender_panel_main_table_calender_panel_day_MouseClick(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_MouseClick(sender, e, this);
-        }
-        private void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseClick(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseClick(sender, e, this);
-        }
-        private void menu1_panel_calender_panel_main_table_calender_panel_day_MouseDoubleClick(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_MouseDoubleClick(sender, e, this);
-        }
-        private void menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseDoubleClick(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_panel_calender_panel_main_table_calender_panel_day_label_day_MouseDoubleClick(sender, e, this);
+            controls_event.menu1_events.menu1_panel_yearmonth_combo_month_SelectedIndexChanged(sender, e, this);
         }
 
-        private void menu1_panel_done_panel_top_button_add_Click(object sender, EventArgs e)
+        private void menu1_table_calender_panel_day_MouseEnter(object sender, EventArgs e)
         {
-            controls_event.menu1_events.menu1_panel_done_panel_top_button_add_Click(sender, e, this);
+            controls_event.menu1_events.menu1_table_calender_panel_day_MouseEnter(sender, e, this);
+        }
+        private void menu1_table_calender_panel_day_label_day_MouseEnter(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_label_day_MouseEnter(sender, e, this);
+        }
+        private void menu1_table_calender_panel_day_MouseLeave(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_MouseLeave(sender, e, this);
+        }
+        private void menu1_table_calender_panel_day_label_day_MouseLeave(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_label_day_MouseLeave(sender, e, this);
+        }
+        private void menu1_table_calender_panel_day_MouseClick(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_MouseClick(sender, e, this);
+        }
+        private void menu1_table_calender_panel_day_label_day_MouseClick(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_label_day_MouseClick(sender, e, this);
+        }
+        private void menu1_table_calender_panel_day_MouseDoubleClick(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_MouseDoubleClick(sender, e, this);
+        }
+        private void menu1_table_calender_panel_day_label_day_MouseDoubleClick(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_label_day_MouseDoubleClick(sender, e, this);
+        }
+
+        private void menu1_done_top_prevday_Click(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_done_top_prevday_Click(sender, e, this);
+        }
+        private void menu1_done_top_nextday_Click(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_done_top_nextday_Click(sender, e, this);
+        }
+        private void menu1_done_top_button_add_Click(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_done_top_button_add_Click(sender, e, this);
         }
         #endregion Event menu1
 

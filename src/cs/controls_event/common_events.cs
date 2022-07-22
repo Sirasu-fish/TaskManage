@@ -109,54 +109,54 @@ namespace TaskManage.controls_event
         // 表示モード切り替え
         public static void ChangeDarkMode(MainForm form)
         {
-            if (Properties.Settings.Default.common_mode)
-            {
-                Main.Common_Var.main_color = Properties.Settings.Default.dark;
-                Main.Common_Var.sub_color = Properties.Settings.Default.white;
-                Main.Common_Var.submain_color = Properties.Settings.Default.subdark;
-                Main.Common_Var.subsub_color = Properties.Settings.Default.subwhite;
-            }
-            else
-            {
-                Main.Common_Var.main_color = Properties.Settings.Default.white;
-                Main.Common_Var.sub_color = Properties.Settings.Default.dark;
-                Main.Common_Var.submain_color = Properties.Settings.Default.subwhite;
-                Main.Common_Var.subsub_color = Properties.Settings.Default.subdark;
-            }
+            //if (Properties.Settings.Default.common_mode)
+            //{
+            //    Main.Common_Var.main_color = Properties.Settings.Default.dark;
+            //    Main.Common_Var.sub_color = Properties.Settings.Default.white;
+            //    Main.Common_Var.submain_color = Properties.Settings.Default.subdark;
+            //    Main.Common_Var.subsub_color = Properties.Settings.Default.subwhite;
+            //}
+            //else
+            //{
+            //    Main.Common_Var.main_color = Properties.Settings.Default.white;
+            //    Main.Common_Var.sub_color = Properties.Settings.Default.dark;
+            //    Main.Common_Var.submain_color = Properties.Settings.Default.subwhite;
+            //    Main.Common_Var.subsub_color = Properties.Settings.Default.subdark;
+            //}
 
-            // 全体
-            form.BackColor = Main.Common_Var.main_color;
+            //// 全体
+            //form.BackColor = Main.Common_Var.main_color;
 
-            // common
-            form.common_panel_setting_table_setting.BackColor = Main.Common_Var.main_color;
-            form.common_panel_setting.BackColor = Main.Common_Var.sub_color;
-            form.common_panel_setting_table_label1.ForeColor = Main.Common_Var.sub_color;
-            form.common_panel_setting_table_label2.ForeColor = Main.Common_Var.sub_color;
+            //// common
+            //form.common_panel_setting_table_setting.BackColor = Main.Common_Var.main_color;
+            //form.common_panel_setting.BackColor = Main.Common_Var.sub_color;
+            //form.common_panel_setting_table_label1.ForeColor = Main.Common_Var.sub_color;
+            //form.common_panel_setting_table_label2.ForeColor = Main.Common_Var.sub_color;
 
-            // 〇menu1
-            // カレンダーの日にちの背景色を変更
+            //// 〇menu1
+            //// カレンダーの日にちの背景色を変更
 
-            for (int i = 0; i < form.menu1_panel_calender_panel_main_table_calender_panel_day.Length; i++)
-            {
-                form.menu1_panel_calender_panel_main_table_calender_panel_day[i].BackColor = Main.Common_Var.submain_color;
-            }
+            //for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
+            //{
+            //    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Var.submain_color;
+            //}
 
-            // カレンダーの曜日の文字色を変更
-            for (int i = 0; i < 7; i++)
-            {
-                form.menu1_panel_calender_panel_main_table_calender_label_dow[i].ForeColor = Main.Common_Var.sub_color;
-            }
+            //// カレンダーの曜日の文字色を変更
+            //for (int i = 0; i < 7; i++)
+            //{
+            //    form.menu1_table_calender_label_dow[i].ForeColor = Main.Common_Var.sub_color;
+            //}
 
-            int year = DateTime.Now.Year;
-            int month = DateTime.Now.Month;
-            Set_Day(form, year, month);
+            //int year = DateTime.Now.Year;
+            //int month = DateTime.Now.Month;
+            //Set_Day(form, year, month);
 
-            // menu2
-            form.menu2_1_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
+            //// menu2
+            //form.menu2_1_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
 
-            //menu2_1_panel_main_panel_label1 , menu2_1_panel_main_panel_label2 , menu2_1_panel_main_panelの色変更を入れる
+            ////menu2_1_panel_main_panel_label1 , menu2_1_panel_main_panel_label2 , menu2_1_panel_main_panelの色変更を入れる
 
-            form.menu2_2_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
+            //form.menu2_2_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
         }
 
         // メニュー切り替え
@@ -207,40 +207,40 @@ namespace TaskManage.controls_event
             Font main_font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             Font sub_font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 
-            for (int i = 0; i < form.menu1_panel_calender_panel_main_table_calender_panel_day.Length; i++)
+            for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
             {
-                form.menu1_panel_calender_panel_main_table_calender_panel_day_label_day[i].Text = days[i].ToString();　// 日付をセットする
+                form.menu1_table_calender_panel_day_label_day[i].Text = days[i].ToString();　// 日付をセットする
             }
 
-            for (int i = 0; i < form.menu1_panel_calender_panel_main_table_calender_panel_day_label_day.Length; i++)
+            for (int i = 0; i < form.menu1_table_calender_panel_day_label_day.Length; i++)
             {
-                form.menu1_panel_calender_panel_main_table_calender_panel_day_label_day[i].ForeColor = main_text_color; // カレンダーの全ての文字色を変更する
-                form.menu1_panel_calender_panel_main_table_calender_panel_day_label_day[i].Font = main_font; // カレンダーの全てのフォントを変更する
+                //form.menu1_table_calender_panel_day_label_day[i].ForeColor = main_text_color; // カレンダーの全ての文字色を変更する
+                form.menu1_table_calender_panel_day_label_day[i].Font = main_font; // カレンダーの全てのフォントを変更する
             }
 
             // 前の月の文字色、フォントを変更する
             for (int i = 0; i <= (int)firstdate - 1; i++)
             {
-                form.menu1_panel_calender_panel_main_table_calender_panel_day_label_day[i].ForeColor = sub_text_color;
-                form.menu1_panel_calender_panel_main_table_calender_panel_day_label_day[i].Font = sub_font;
+                //form.menu1_table_calender_panel_day_label_day[i].ForeColor = sub_text_color;
+                form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
             }
 
             // 次の月の文字色、フォントを変更する
             for (int i = 41; i >= sub_day; i--)
             {
-                form.menu1_panel_calender_panel_main_table_calender_panel_day_label_day[i].Font = sub_font;
+                form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
             }
 
             // カレンダーの日にちの背景色を変更
-            for (int i = 0; i < form.menu1_panel_calender_panel_main_table_calender_panel_day.Length; i++)
+            for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
             {
-                form.menu1_panel_calender_panel_main_table_calender_panel_day[i].BackColor = Main.Common_Var.submain_color;
+                //form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Var.submain_color;
             }
 
             // 現在日がカレンダーに存在する場合はパネルの色を変更する
             if (0 <= today_int && today_int <= 41)
             {
-                form.menu1_panel_calender_panel_main_table_calender_panel_day[today_int].BackColor = today_color;
+                form.menu1_table_calender_panel_day_label_day[today_int].BackColor = Main.Common_Const.color4;//today_color;
             }
         }
 
