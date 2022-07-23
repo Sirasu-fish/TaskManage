@@ -365,6 +365,7 @@ namespace TaskManage.controls_event
             Main.Common_Var.menu2_1_task -= 1;
 
             Properties.Settings.Default.task_name.RemoveAt(num);
+            Properties.Settings.Default.task_memo.RemoveAt(num);
 
             Properties.Settings.Default.Save();
 

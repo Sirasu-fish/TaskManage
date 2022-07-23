@@ -178,7 +178,7 @@ namespace TaskManage.controls_event
         // 実績クリック
         public void menu1_done_main_panel_button_delete_Click(object sender, EventArgs e)
         {
-            //RemoveDone(form, int.Parse(((Button)sender).Name));
+            RemoveDone(form, int.Parse(((Button)sender).Name));
         }
         #endregion form event
         // ********** form event **********
@@ -200,15 +200,6 @@ namespace TaskManage.controls_event
             form.ResumeLayout();
             form.menu1.ResumeLayout();
             form.menu1_done_main.ResumeLayout();
-
-            Properties.Settings.Default.done_name.Add(form.menudone_table1_text.Text);
-            Properties.Settings.Default.done_prog.Add(form.menudone_table2_text.Text);
-            Properties.Settings.Default.done_time.Add(form.menudone_table3_text.Text);
-            Properties.Settings.Default.done_memo.Add(form.menudone_table4_text.Text);
-            Properties.Settings.Default.done_day.Add(Main.Common_Var.menu1_done_year.ToString() + "/"
-                + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString());
-
-            Properties.Settings.Default.Save();
 
             Main.Common_Var.menu1_day_done += 1;
 
@@ -475,6 +466,12 @@ namespace TaskManage.controls_event
 
         private static void ChangeDoneDay(MainForm form, int year, int month, int day)
         {
+            form.SuspendLayout();
+            form.menu1.SuspendLayout();
+            form.menu1_done_main.SuspendLayout();
+
+            form.menudone.Visible = false;
+
             string[] date = { "日", "月", "火", "水", "木", "金", "土" };
 
             DateTime time = new DateTime(year, month, day);
@@ -507,14 +504,18 @@ namespace TaskManage.controls_event
                     InitAddDone(form, Properties.Settings.Default.done_name[i], Properties.Settings.Default.done_time[i]);
                 }
             }
+
+            form.ResumeLayout();
+            form.menu1.ResumeLayout();
+            form.menu1_done_main.ResumeLayout();
         }
 
-        // タスクを開く
+        // 実績を開く
         private static void OpenDone(MainForm form, int done_num)
         {
             Main.Common_Var.menu1_open_done = done_num;
             Main.Common_Var.menu1_delete_done = 0;
-            if (done_num >= Main.Common_Var.menu1_done) // 新規タスク
+            if (done_num >= Main.Common_Var.menu1_done) // 新規実績
             {
                 form.menudone_table1_text.Text = "";
                 form.menudone_table2_text.Text = "";
@@ -522,7 +523,7 @@ namespace TaskManage.controls_event
                 form.menudone_table4_text.Text = "";
                 form.menudone.Visible = true;
             }
-            else // 既存タスク
+            else // 既存実績
             {
                 form.menudone_table1_text.Text = Properties.Settings.Default.done_name[done_num];
                 form.menudone_table2_text.Text = Properties.Settings.Default.done_memo[done_num];
@@ -530,7 +531,90 @@ namespace TaskManage.controls_event
                 form.menudone_table4_text.Text = "";
                 form.menudone.Visible = true;
             }
+        }
 
+        /// <summary>
+        /// 実績削除
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private void RemoveDone(MainForm form, int num)
+        {
+            if (num <= Main.Common_Var.menu1_open_done) // 削除する実績が保存した番号より前の時、回数をカウント
+            {
+                Main.Common_Var.menu1_delete_done += 1;
+            }
+            //開いていたタスクを削除する前に、タスク画面を非表示
+            if (form.menudone.Visible == true && (Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done + 1) == num)
+            {
+                form.menudone.Visible = false;
+            }
+            form.SuspendLayout();
+            form.menu1.SuspendLayout();
+            form.menu1_done_main.SuspendLayout();
+
+            menu1_events events = new menu1_events(form);
+
+            // コントロール削除時に削除ボタンのイベントを除去
+            if (num < Main.Common_Var.menu1_day_done - 1)
+            {
+                form.menu1_done_main_panel_button_delete[num].MouseLeave -= new EventHandler(events.menu1_done_main_panel_button_delete_MouseLeave);
+            }
+
+            //
+            for (int i = num; i < Main.Common_Var.menu1_day_done; i++)
+            {
+                // 位置更新
+                form.menu1_done_main_panel[i].Location = new Point(4, (form.menu1_done_main_panel[i].Size.Height + 1) * (i - 1));
+                // コントロール名更新
+                form.menu1_done_main_panel_label_name[i].Name = (i - 1).ToString();
+                form.menu1_done_main_panel_label_time[i].Name = (i - 1).ToString();
+                form.menu1_done_main_panel_button_delete[i].Name = (i - 1).ToString();
+                form.menu1_done_main_panel[i].Name = (i - 1).ToString();
+            }
+
+            // コントロール削除
+            form.menu1_done_main_panel_label_name.RemoveAt(num);
+            form.menu1_done_main_panel_label_time.RemoveAt(num);
+            form.menu1_done_main_panel_button_delete.RemoveAt(num);
+            form.menu1_done_main_panel.RemoveAt(num);
+
+            // 削除ボタンのイベントを戻す
+            if (num < Main.Common_Var.menu1_day_done - 1)
+            {
+                form.menu1_done_main_panel_button_delete[num].BackColor = Color.Transparent;
+                form.menu1_done_main_panel_button_delete[num].MouseLeave += new EventHandler(events.menu1_done_main_panel_button_delete_MouseLeave);
+            }
+
+            form.ResumeLayout();
+            form.menu1.ResumeLayout();
+            form.menu1_done_main.ResumeLayout();
+
+            int cnt = -1;
+            for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                    && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                {
+                    cnt++;
+                }
+                if (cnt == num)
+                {
+                    Properties.Settings.Default.done_name.RemoveAt(i);
+                    Properties.Settings.Default.done_prog.RemoveAt(i);
+                    Properties.Settings.Default.done_time.RemoveAt(i);
+                    Properties.Settings.Default.done_day.RemoveAt(i);
+
+                    break;
+                }
+            }
+
+            Properties.Settings.Default.Save();
+
+            Main.Common_Var.menu1_day_done -= 1;
+            Main.Common_Var.menu1_done -= 1;
+
+            ChangeDoneNum(form);
         }
 
         // 削除ボタン追加

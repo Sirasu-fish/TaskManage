@@ -132,7 +132,7 @@ namespace TaskManage.Main
 
             for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
             {
-                Main.Common_Var.menu1_done += 1;
+                Common_Var.menu1_done += 1;
                 if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
                     && Properties.Settings.Default.done_day[i] == Common_Var.menu1_done_year.ToString() + "/" + Common_Var.menu1_done_month.ToString() + "/" + Common_Var.menu1_done_day.ToString())
                 {

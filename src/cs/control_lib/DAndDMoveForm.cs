@@ -34,8 +34,8 @@ namespace TaskManage
         {
             if (e.Button == MouseButtons.Left)
             {
-                int diffX = Cursor.Position.X - lastMouseDownPoint.X - mouseListner.Location.X;
-                int diffY = Cursor.Position.Y - lastMouseDownPoint.Y - mouseListner.Location.Y;
+                int diffX = Cursor.Position.X - lastMouseDownPoint.X - mouseListner.Location.X - 9;
+                int diffY = Cursor.Position.Y - lastMouseDownPoint.Y - mouseListner.Location.Y - 9;
                 moveForm.Location = new Point(diffX, diffY);
             }
         }
