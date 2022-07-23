@@ -331,10 +331,10 @@ namespace TaskManage
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.window_panel.Controls.Add(this.common_panel_setting);
-            this.window_panel.Controls.Add(this.menudone);
             this.window_panel.Controls.Add(this.menutask);
             this.window_panel.Controls.Add(this.menu2);
             this.window_panel.Controls.Add(this.menu1);
+            this.window_panel.Controls.Add(this.menudone);
             this.window_panel.Controls.Add(this.common);
             this.window_panel.Location = new System.Drawing.Point(1, 1);
             this.window_panel.Margin = new System.Windows.Forms.Padding(0);
