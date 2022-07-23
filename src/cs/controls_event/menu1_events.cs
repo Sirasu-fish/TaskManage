@@ -86,54 +86,26 @@ namespace TaskManage.controls_event
         }
         public static void menu1_table_calender_panel_day_MouseDoubleClick(object sender, EventArgs e, MainForm form)
         {
-            ChangeDoneDay(form, int.Parse(((Panel)sender).Name));
+            SetDoneDay(form, int.Parse(((Panel)sender).Name));
         }
         public static void menu1_table_calender_panel_day_label_day_MouseDoubleClick(object sender, EventArgs e, MainForm form)
         {
-            ChangeDoneDay(form, int.Parse(((Label)sender).Name));
+            SetDoneDay(form, int.Parse(((Label)sender).Name));
         }
 
         public static void menu1_done_top_prevday_Click(object sender, EventArgs e, MainForm form)
         {
             DateTime day = new DateTime(Main.Common_Var.menu1_done_year, Main.Common_Var.menu1_done_month, Main.Common_Var.menu1_done_day);
             day = day.AddDays(-1);
-            string[] date = { "日", "月", "火", "水", "木", "金", "土" };
-            DayOfWeek dow = day.DayOfWeek;
-            Main.Common_Var.menu1_done_year =  day.Year;
-            Main.Common_Var.menu1_done_month = day.Month;
-            Main.Common_Var.menu1_done_day = day.Day;
-            form.menu1_done_top_label_day.Text = day.ToShortDateString() + " (" + date[(int)dow] + ")";
 
-            int cnt = 0;
-            for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
-            {
-                if (Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
-                {
-                    cnt++;
-                }
-            }
-            Main.Common_Var.menu1_day_done = cnt;
+            ChangeDoneDay(form, day.Year, day.Month, day.Day);
         }
         public static void menu1_done_top_nextday_Click(object sender, EventArgs e, MainForm form)
         {
             DateTime day = new DateTime(Main.Common_Var.menu1_done_year, Main.Common_Var.menu1_done_month, Main.Common_Var.menu1_done_day);
             day = day.AddDays(1);
-            string[] date = { "日", "月", "火", "水", "木", "金", "土" };
-            DayOfWeek dow = day.DayOfWeek;
-            Main.Common_Var.menu1_done_year = day.Year;
-            Main.Common_Var.menu1_done_month = day.Month;
-            Main.Common_Var.menu1_done_day = day.Day;
-            form.menu1_done_top_label_day.Text = day.ToShortDateString() + " (" + date[(int)dow] + ")";
 
-            int cnt = 0;
-            for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
-            {
-                if (Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
-                {
-                    cnt++;
-                }
-            }
-            Main.Common_Var.menu1_day_done = cnt;
+            ChangeDoneDay(form, day.Year, day.Month, day.Day);
         }
         public static void menu1_done_top_button_add_Click(object sender, EventArgs e, MainForm form)
         {
@@ -211,6 +183,7 @@ namespace TaskManage.controls_event
         #endregion form event
         // ********** form event **********
 
+        // ********** public **********
         #region public
         public static void InitAddDone(MainForm form, String text, String time)
         {
@@ -236,7 +209,6 @@ namespace TaskManage.controls_event
                 + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString());
 
             Properties.Settings.Default.Save();
-
 
             Main.Common_Var.menu1_day_done += 1;
 
@@ -301,23 +273,13 @@ namespace TaskManage.controls_event
                 form.menu1_done_main.Height = 34 + 18;
             }
 
-            int num = 0;
-            for (int i = 0; i < Main.Common_Var.menu1_done; i++)
-            {
-                if (Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
-                {
-                    form.menu1_done_main_panel_label_name[num].Text = Properties.Settings.Default.done_name[i];
-                    form.menu1_done_main_panel_label_time[num].Text = Properties.Settings.Default.done_time[i];
-                    num += 1;
-                }
-            }
-
             form.ResumeLayout();
             form.menu1.ResumeLayout();
             form.menu1_done_main.ResumeLayout();
         }
 
         #endregion public
+        // ********** public **********
 
         // ********** private **********
         #region private
@@ -465,7 +427,7 @@ namespace TaskManage.controls_event
             form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString();
         }
 
-        private static void ChangeDoneDay(MainForm form, int num)
+        private static void SetDoneDay(MainForm form, int num)
         {
             int year = int.Parse(form.menu1_panel_yearmonth_combo_year.Text);
             int month = int.Parse(form.menu1_panel_yearmonth_combo_month.Text);
@@ -477,16 +439,11 @@ namespace TaskManage.controls_event
             int today = 0;
             int day = 0;
 
-            DateTime selectDate = new DateTime();
-
-            DayOfWeek dow = new DayOfWeek();
-
             common_events.Get_Calender(year, month, ref now, ref days, ref subday, ref firstday, ref today);
             day = days[num];
             if ((int)firstdate - 1 < num && num < subday) // 対象が今月中の場合
             {
-                selectDate = new DateTime(year, month, day);
-                dow = selectDate.DayOfWeek;
+
             }
             else if (subday <= num) // 対象が来月
             {
@@ -499,8 +456,6 @@ namespace TaskManage.controls_event
                 {
                     month += 1;
                 }
-                selectDate = new DateTime(year, month, day);
-                dow = selectDate.DayOfWeek;
             }
             else if (num < (int)firstdate) // 対象が先月
             {
@@ -513,27 +468,45 @@ namespace TaskManage.controls_event
                 {
                     month -= 1;
                 }
-                selectDate = new DateTime(year, month, day);
-                dow = selectDate.DayOfWeek;
             }
+
+            ChangeDoneDay(form, year, month, day);
+        }
+
+        private static void ChangeDoneDay(MainForm form, int year, int month, int day)
+        {
             string[] date = { "日", "月", "火", "水", "木", "金", "土" };
-            string label_day = selectDate.ToShortDateString() + " (" + date[(int)dow] + ")";
+
+            DateTime time = new DateTime(year, month, day);
+
+            DayOfWeek dow = time.DayOfWeek;
+            form.menu1_done_top_label_day.Text = time.ToShortDateString() + " (" + date[(int)dow] + ")";
+
+            // 現在表示している実績を非表示
+            for (int i = 0; i < Main.Common_Var.menu1_day_done; i++)
+            {
+                form.menu1_done_main.Controls.Remove(form.menu1_done_main_panel[i]);
+            }
+            form.menu1_done_main_panel_button_delete.Clear();
+            form.menu1_done_main_panel_label_time.Clear();
+            form.menu1_done_main_panel_label_name.Clear();
+            form.menu1_done_main_panel.Clear();
 
             Main.Common_Var.menu1_done_year = year;
             Main.Common_Var.menu1_done_month = month;
             Main.Common_Var.menu1_done_day = day;
 
-            form.menu1_done_top_label_day.Text = label_day;
+            Main.Common_Var.menu1_day_done = 0;
 
-            int cnt = 0;
             for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
             {
-                if (Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                Main.Common_Var.menu1_done += 1;
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                    && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
                 {
-                    cnt++;
+                    InitAddDone(form, Properties.Settings.Default.done_name[i], Properties.Settings.Default.done_time[i]);
                 }
             }
-            Main.Common_Var.menu1_day_done = cnt;
         }
 
         // タスクを開く

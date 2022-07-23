@@ -139,16 +139,6 @@ namespace TaskManage.Main
                     controls_event.menu1_events.InitAddDone(form, Properties.Settings.Default.done_name[i], Properties.Settings.Default.done_time[i]);
                 }
             }
-
-            int cnt = 0;
-            for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
-            {
-                if (Properties.Settings.Default.done_day[i] == Common_Var.menu1_done_year.ToString() + "/" + Common_Var.menu1_done_month.ToString() + "/" + Common_Var.menu1_done_day.ToString())
-                {
-                    cnt++;
-                }
-            }
-            Common_Var.menu1_day_done = cnt;
         }
 
         // Menu2 設定反映
