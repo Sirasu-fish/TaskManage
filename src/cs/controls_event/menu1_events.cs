@@ -7,6 +7,9 @@ namespace TaskManage.controls_event
     class menu1_events
     {
         MainForm form;
+        static int done_x = 4; // 実績のX位置
+        static int done_height = 32;
+        static int done_space = -1; // 実績と実績の隙間
 
         // コンストラクタ
         public menu1_events(MainForm form)
@@ -114,17 +117,17 @@ namespace TaskManage.controls_event
 
         public void menu1_done_main_panel_MouseEnter(object sender, EventArgs e)
         {
-            form.menu1_done_main_panel[int.Parse(((PanelEx)sender).Name)].BorderColor = Color.Black;
+            form.menu1_done_main_panel[int.Parse(((PanelEx)sender).Name)].BackColor = Main.Common_Const.color2;
             form.menu1_done_main_panel[int.Parse(((PanelEx)sender).Name)].Refresh();
         }
         public void menu1_done_main_panel_label_name_MouseEnter(object sender, EventArgs e)
         {
-            form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Black;
+            form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BackColor = Main.Common_Const.color2;
             form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].Refresh();
         }
         public void menu1_done_main_panel_label_time_MouseEnter(object sender, EventArgs e)
         {
-            form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Black;
+            form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BackColor = Main.Common_Const.color2;
             form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].Refresh();
         }
         // 実績削除ボタンホバー時
@@ -133,24 +136,24 @@ namespace TaskManage.controls_event
             if (int.Parse(((Button)sender).Name) >= 0)
             {
                 form.menu1_done_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 255, 128, 128);
-                form.menu1_done_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Green;
+                form.menu1_done_main_panel[int.Parse(((Button)sender).Name)].BackColor = Main.Common_Const.color2;
                 form.menu1_done_main_panel[int.Parse(((Button)sender).Name)].Refresh();
             }
         }
 
         public void menu1_done_main_panel_MouseLeave(object sender, EventArgs e)
         {
-            form.menu1_done_main_panel[int.Parse(((PanelEx)sender).Name)].BorderColor = Color.Black;
+            form.menu1_done_main_panel[int.Parse(((PanelEx)sender).Name)].BackColor = Color.Transparent;
             form.menu1_done_main_panel[int.Parse(((PanelEx)sender).Name)].Refresh();
         }
         public void menu1_done_main_panel_label_name_MouseLeave(object sender, EventArgs e)
         {
-            form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Black;
+            form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BackColor = Color.Transparent;
             form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].Refresh();
         }
         public void menu1_done_main_panel_label_time_MouseLeave(object sender, EventArgs e)
         {
-            form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Black;
+            form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BackColor = Color.Transparent;
             form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].Refresh();
         }
         // 実績削除ボタンホバーが離れた時
@@ -159,7 +162,7 @@ namespace TaskManage.controls_event
             if (int.Parse(((Button)sender).Name) >= 0)
             {
                 form.menu1_done_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
-                form.menu1_done_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+                form.menu1_done_main_panel[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
                 form.menu1_done_main_panel[int.Parse(((Button)sender).Name)].Refresh();
             }
         }
@@ -577,7 +580,7 @@ namespace TaskManage.controls_event
             for (int i = num; i < Main.Common_Var.menu1_day_done; i++)
             {
                 // 位置更新
-                form.menu1_done_main_panel[i].Location = new Point(4, (form.menu1_done_main_panel[i].Size.Height + 1) * (i - 1));
+                form.menu1_done_main_panel[i].Location = new Point(done_x, (form.menu1_done_main_panel[i].Size.Height + done_space) * (i - 1));
                 // コントロール名更新
                 form.menu1_done_main_panel_label_name[i].Name = (i - 1).ToString();
                 form.menu1_done_main_panel_label_time[i].Name = (i - 1).ToString();
@@ -658,7 +661,7 @@ namespace TaskManage.controls_event
             menu1_events events = new menu1_events(form);
 
             menu1_done_main_panel_label_time.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            menu1_done_main_panel_label_time.Size = new Size(78, 30);
+            menu1_done_main_panel_label_time.Size = new Size(78, done_height - 2);
             menu1_done_main_panel_label_time.Location = new Point(form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done].Location.X
                 - menu1_done_main_panel_label_time.Width, 1);
             menu1_done_main_panel_label_time.Name = Main.Common_Var.menu1_day_done.ToString();
@@ -684,7 +687,7 @@ namespace TaskManage.controls_event
             menu1_done_main_panel_label_name.Size = new Size(Main.Common_Const.form_x - 10
                 - form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done].Width
                 - form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done].Width
-                - menu1_done_main_panel_label_name.Location.X * 2, 30);
+                - menu1_done_main_panel_label_name.Location.X * 2, done_height - 2);
             menu1_done_main_panel_label_name.Text = time;
             menu1_done_main_panel_label_name.TextAlign = ContentAlignment.MiddleLeft;
             menu1_done_main_panel_label_name.MouseEnter += new EventHandler(events.menu1_done_main_panel_label_name_MouseEnter);
@@ -706,9 +709,9 @@ namespace TaskManage.controls_event
             menu1_done_main_panel.Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
             menu1_done_main_panel.Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
             menu1_done_main_panel.Controls.Add(form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done]);
-            menu1_done_main_panel.Location = new Point(4, (menu1_done_main_panel.Height + 4) * Main.Common_Var.menu1_day_done);
+            menu1_done_main_panel.Location = new Point(done_x, (menu1_done_main_panel.Height + done_space) * Main.Common_Var.menu1_day_done);
             menu1_done_main_panel.Name = Main.Common_Var.menu1_day_done.ToString();
-            menu1_done_main_panel.Size = new Size(form.menu1_done_main.Width - menu1_done_main_panel.Location.X * 2, 32);
+            menu1_done_main_panel.Size = new Size(form.menu1_done_main.Width - menu1_done_main_panel.Location.X * 2, done_height);
             menu1_done_main_panel.MouseEnter += new EventHandler(events.menu1_done_main_panel_MouseEnter);
             menu1_done_main_panel.MouseLeave += new EventHandler(events.menu1_done_main_panel_MouseLeave);
             menu1_done_main_panel.Click += new EventHandler(events.menu1_done_main_panel_Click);

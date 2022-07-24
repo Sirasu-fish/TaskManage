@@ -8,6 +8,9 @@ namespace TaskManage.controls_event
     class menu2_1_events
     {
         MainForm form;
+        static int task_x = 4; // タスクのX位置
+        static int task_height = 32;
+        static int task_space = -1; // タスクとタスクの隙間
 
         // コンストラクタ
         public menu2_1_events(MainForm form)
@@ -20,29 +23,41 @@ namespace TaskManage.controls_event
         // menu2 panel1を開いたり閉じたりする時の動作
         public static void menu2_1_panel_top_button_openclose_Click(object sender, EventArgs e, MainForm form)
         {
+            form.SuspendLayout();
+            form.menu2.SuspendLayout();
+            form.menu2_1.SuspendLayout();
+            form.menu2_1_panel.SuspendLayout();
+            form.menu2_1_panel_main.SuspendLayout();
+
             if (form.menu2_1_panel_main.Visible == false)
             {
                 form.menu2_1_panel_main.Visible = true;
                 if (Main.Common_Var.menu2_1_task != 0)
                 {
-                    form.menu2_1_panel.Height = 34 + 36 * Main.Common_Var.menu2_1_task;
-                    form.menu2_1.Height = 42 + 36 * Main.Common_Var.menu2_1_task;
+                    form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2 + (task_height + task_space) * Main.Common_Var.menu2_1_task + 4;
+                    form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8 + (task_height + task_space) * Main.Common_Var.menu2_1_task;
                 }
                 else
                 {
-                    form.menu2_1_panel.Height = 34 + 36;
-                    form.menu2_1.Height = 42 + 36;
+                    form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2 + task_height / 2;
+                    form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8 + task_height / 2;
                 }
                 Properties.Settings.Default.menu2_open1 = true;
             }
             else
             {
                 form.menu2_1_panel_main.Visible = false;
-                form.menu2_1_panel.Height = 34;
-                form.menu2_1.Height = 42;
+                form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2;
+                form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8;
                 Properties.Settings.Default.menu2_open1 = false;
             }
             Properties.Settings.Default.Save();
+
+            form.ResumeLayout();
+            form.menu2.ResumeLayout();
+            form.menu2_1.ResumeLayout();
+            form.menu2_1_panel.ResumeLayout();
+            form.menu2_1_panel_main.ResumeLayout();
         }
 
         // 要素順を入れ替える
@@ -106,23 +121,23 @@ namespace TaskManage.controls_event
         // タスクホバー時
         public void menu2_1_panel_main_panel_MouseEnter(object sender, EventArgs e)
         {
-            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].BorderColor = Color.Green;
+            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].BackColor = Main.Common_Const.color2;
             form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].Refresh();
         }
         public void menu2_1_panel_main_panel_label1_MouseEnter(object sender, EventArgs e)
         {
-            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Green;
+            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].BackColor = Main.Common_Const.color2;
             form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].Refresh();
         }
         // タスクホバーが離れた時
         public void menu2_1_panel_main_panel_MouseLeave(object sender, EventArgs e)
         {
-            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].BorderColor = Color.Black;
+            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].BackColor = Color.Transparent;
             form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].Refresh();
         }
         public void menu2_1_panel_main_panel_label1_MouseLeave(object sender, EventArgs e)
         {
-            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].BorderColor = Color.Black;
+            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].BackColor = Color.Transparent;
             form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].Refresh();
         }
         // タスク削除ボタンホバー時
@@ -131,7 +146,7 @@ namespace TaskManage.controls_event
             if (int.Parse(((Button)sender).Name) >= 0)
             {
                 form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 255, 128, 128);
-                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Green;
+                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BackColor = Main.Common_Const.color2;
                 form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
             }
         }
@@ -141,7 +156,7 @@ namespace TaskManage.controls_event
             if (int.Parse(((Button)sender).Name) >= 0)
             {
                 form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
-                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
                 form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
             }
         }
@@ -149,14 +164,14 @@ namespace TaskManage.controls_event
         public void menu2_1_panel_main_panel_button_finish_MouseEnter(object sender, EventArgs e)
         {
             form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 128, 255, 128);
-            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Green;
+            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BackColor = Main.Common_Const.color2;
             form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
         }
         // タスク完了ボタンホバーが離れた時
         public void menu2_1_panel_main_panel_button_finish_MouseLeave(object sender, EventArgs e)
         {
             form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
-            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BorderColor = Color.Black;
+            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
             form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
         }
         //タスク完了ボタン
@@ -300,24 +315,19 @@ namespace TaskManage.controls_event
             {
                 if (Main.Common_Var.menu2_1_task != 0) // タスク数が0以外の時
                 {
-                    form.menu2_1_panel.Height = 34 + 35 * Main.Common_Var.menu2_1_task;
-                    form.menu2_1.Height = 42 + 35 * Main.Common_Var.menu2_1_task;
+                    form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2 + (task_height + task_space) * Main.Common_Var.menu2_1_task + 4;
+                    form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8 + (task_height + task_space) * Main.Common_Var.menu2_1_task;
                 }
                 else // タスク数が0の時
                 {
-                    form.menu2_1_panel.Height = 34 + 18;
-                    form.menu2_1.Height = 42 + 18;
+                    form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2 + task_height / 2;
+                    form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8 + task_height / 2;
                 }
             }
             else
             {
-                form.menu2_1_panel.Height = 34;
-                form.menu2_1.Height = 42;
-            }
-
-            for (int i = 0; i < Main.Common_Var.menu2_1_task; i++)
-            {
-                form.menu2_1_panel_main_panel_label1[i].Text = Properties.Settings.Default.task_name[i];
+                form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2;
+                form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8;
             }
 
             form.ResumeLayout();
@@ -368,7 +378,7 @@ namespace TaskManage.controls_event
             for (int i = num; i < Main.Common_Var.menu2_1_task; i++)
             {
                 // 位置更新
-                form.menu2_1_panel_main_panel[i].Location = new Point(4, (form.menu2_1_panel_main_panel[i].Size.Height + 1) * (i - 1));
+                form.menu2_1_panel_main_panel[i].Location = new Point(task_x, (form.menu2_1_panel_main_panel[i].Size.Height + task_space) * (i - 1));
                 // コントロール名更新
                 form.menu2_1_panel_main_panel_label1[i].Name = (i - 1).ToString();
                 form.menu2_1_panel_main_panel_button_finish[i].Name = (i - 1).ToString();
@@ -480,7 +490,7 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel_label1.Size = new Size(Main.Common_Const.form_x - 10
                 - form.menu2_1_panel_main_panel_button_delete[Main.Common_Var.menu2_1_task].Width
                 - form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task].Width
-                - menu2_1_panel_main_panel_label1.Location.X * 2, 30);
+                - menu2_1_panel_main_panel_label1.Location.X * 2, task_height - 2);
             menu2_1_panel_main_panel_label1.Text = text;
             menu2_1_panel_main_panel_label1.TextAlign = ContentAlignment.MiddleLeft;
             menu2_1_panel_main_panel_label1.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_label1_MouseEnter);
@@ -502,9 +512,9 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task]);
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_delete[Main.Common_Var.menu2_1_task]);
-            menu2_1_panel_main_panel.Location = new Point(4, (menu2_1_panel_main_panel.Height + 1) * Main.Common_Var.menu2_1_task);
+            menu2_1_panel_main_panel.Location = new Point(task_x, (menu2_1_panel_main_panel.Height + task_space) * Main.Common_Var.menu2_1_task);
             menu2_1_panel_main_panel.Name = Main.Common_Var.menu2_1_task.ToString();
-            menu2_1_panel_main_panel.Size = new Size(form.menu2_1_panel_main.Width - menu2_1_panel_main_panel.Location.X * 2, 32);
+            menu2_1_panel_main_panel.Size = new Size(form.menu2_1_panel_main.Width - menu2_1_panel_main_panel.Location.X * 2, task_height);
             menu2_1_panel_main_panel.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_MouseEnter);
             menu2_1_panel_main_panel.MouseLeave += new EventHandler(events.menu2_1_panel_main_panel_MouseLeave);
             menu2_1_panel_main_panel.Click += new EventHandler(events.menu2_1_panel_main_panel_Click);
