@@ -9,7 +9,7 @@ namespace TaskManage.controls_event
         // ダブルクリック時の動作
         public static void common_MouseDoubleClick(object sender, MouseEventArgs e, MainForm form)
         {
-            if (form.WindowState == FormWindowState.Maximized)
+            if (form.WindowState == FormWindowState.Maximized) // 最大化されている時
             {
                 form.WindowState = FormWindowState.Normal;
             }
@@ -168,6 +168,10 @@ namespace TaskManage.controls_event
                     form.menu1.Visible = true;
                     form.menu2.Visible = false;
                     form.menutask.Visible = false;
+                    for (int i = 0; i < Main.Common_Var.menu2_1_task; i++)
+                    {
+                        form.menu2_1_panel_main_panel[i].BackColor = Color.Transparent;
+                    }
                     form.menudone.Visible = false;
                     form.common_button_prevmenu.Visible = false;
                     form.common_button_nextmenu.Visible = true;
@@ -177,6 +181,10 @@ namespace TaskManage.controls_event
                     form.menu2.Visible = true;
                     form.menutask.Visible = false;
                     form.menudone.Visible = false;
+                    for (int i = 0; i < Main.Common_Var.menu1_day_done; i++)
+                    {
+                        form.menu1_done_main_panel[i].BackColor = Color.Transparent;
+                    }
                     form.common_button_prevmenu.Visible = true;
                     form.common_button_nextmenu.Visible = false;
                     break;

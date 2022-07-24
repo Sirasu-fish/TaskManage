@@ -143,12 +143,18 @@ namespace TaskManage.controls_event
 
         public void menu1_done_main_panel_MouseLeave(object sender, EventArgs e)
         {
-            form.menu1_done_main_panel[int.Parse(((PanelEx)sender).Name)].BackColor = Color.Transparent;
+            if (Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done != int.Parse(((PanelEx)sender).Name))
+            {
+                form.menu1_done_main_panel[int.Parse(((PanelEx)sender).Name)].BackColor = Color.Transparent;
+            }
             form.menu1_done_main_panel[int.Parse(((PanelEx)sender).Name)].Refresh();
         }
         public void menu1_done_main_panel_label_name_MouseLeave(object sender, EventArgs e)
         {
-            form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BackColor = Color.Transparent;
+            if (Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done != int.Parse(((Label)sender).Name))
+            {
+                form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].BackColor = Color.Transparent;
+            }
             form.menu1_done_main_panel[int.Parse(((Label)sender).Name)].Refresh();
         }
         public void menu1_done_main_panel_label_time_MouseLeave(object sender, EventArgs e)
@@ -162,7 +168,10 @@ namespace TaskManage.controls_event
             if (int.Parse(((Button)sender).Name) >= 0)
             {
                 form.menu1_done_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
-                form.menu1_done_main_panel[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
+                if (Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done != int.Parse(((Button)sender).Name))
+                {
+                    form.menu1_done_main_panel[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
+                }
                 form.menu1_done_main_panel[int.Parse(((Button)sender).Name)].Refresh();
             }
         }
@@ -260,11 +269,11 @@ namespace TaskManage.controls_event
 
             if (Main.Common_Var.menu1_day_done != 0) // 実績数が0以外の時
             {
-                form.menu1_done_main.Height = 34 + 35 * Main.Common_Var.menu1_day_done;
+                form.menu1_done_main.Height = (done_height + done_space) * Main.Common_Var.menu1_day_done + 4;
             }
             else // 実績数が0の時
             {
-                form.menu1_done_main.Height = 34 + 18;
+                form.menu1_done_main.Height = 0;
             }
 
             form.ResumeLayout();
@@ -519,6 +528,11 @@ namespace TaskManage.controls_event
             Main.Common_Var.menu1_open_done = done_num;
             Main.Common_Var.menu1_delete_done = 0;
 
+            for (int i = 0; i < Main.Common_Var.menu1_day_done; i++)
+            {
+                form.menu1_done_main_panel[i].BackColor = Color.Transparent;
+            }
+
             int cnt = -1;
             for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
             {
@@ -533,6 +547,7 @@ namespace TaskManage.controls_event
                         form.menudone_table3_text.Text = "";
                         form.menudone_table4_text.Text = "";
                         form.menudone.Visible = true;
+                        form.menu1_done_main_panel[done_num].BackColor = Main.Common_Const.color2;
                         return;
                     }
                 }
@@ -563,6 +578,10 @@ namespace TaskManage.controls_event
             if (form.menudone.Visible == true && (Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done + 1) == num)
             {
                 form.menudone.Visible = false;
+                for (int i = 0; i < Main.Common_Var.menu1_day_done; i++)
+                {
+                    form.menu1_done_main_panel[i].BackColor = Color.Transparent;
+                }
             }
             form.SuspendLayout();
             form.menu1.SuspendLayout();
