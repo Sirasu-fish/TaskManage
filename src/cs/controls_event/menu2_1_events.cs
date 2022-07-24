@@ -162,7 +162,40 @@ namespace TaskManage.controls_event
         //タスク完了ボタン
         public void menu2_1_panel_main_panel_button_finish_Click(object sender, EventArgs e)
         {
+            string name = Properties.Settings.Default.task_name[int.Parse(((Button)sender).Name)];
+            string memo = Properties.Settings.Default.task_memo[int.Parse(((Button)sender).Name)];
+            DateTime day = DateTime.Now;
 
+            RemoveTask(form, int.Parse(((Button)sender).Name));
+
+            form.SuspendLayout();
+            form.menu1.SuspendLayout();
+            form.menu1_done_main.SuspendLayout();
+
+            form.menu1_done_main_panel_button_delete.Add(menu1_events.add_menu1_done_main_panel_button_delete(form));
+            form.menu1_done_main_panel_label_time.Add(menu1_events.add_menu1_done_main_panel_label_time(form, name));
+            form.menu1_done_main_panel_label_name.Add(menu1_events.add_menu1_done_main_panel_label_name(form, memo));
+            form.menu1_done_main_panel.Add(menu1_events.add_menu1_done_main_panel(form));
+            form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
+
+            form.ResumeLayout();
+            form.menu1.ResumeLayout();
+            form.menu1_done_main.ResumeLayout();
+
+            Properties.Settings.Default.done_name.Add(name);
+            Properties.Settings.Default.done_prog.Add("");
+            Properties.Settings.Default.done_time.Add("");
+            Properties.Settings.Default.done_memo.Add(memo);
+            Properties.Settings.Default.done_day.Add(day.Year + "/" + day.Month + "/" + day.Day);
+
+            Properties.Settings.Default.Save();
+
+            Main.Common_Var.menu1_done += 1;
+            Main.Common_Var.menu1_day_done += 1;
+
+            Main.Common_Var.menu1_open_done += 1;
+
+            menu1_events.ChangeDoneNum(form);
         }
         //タスク削除ボタン
         public void menu2_1_panel_main_panel_button_delete_Click(object sender, EventArgs e)
@@ -382,14 +415,15 @@ namespace TaskManage.controls_event
                 form.menutask_table1_text.Text = "";
                 form.menutask_table2_text.Text = "";
                 form.menutask.Visible = true;
+                return;
             }
             else // 既存タスク
             {
                 form.menutask_table1_text.Text = Properties.Settings.Default.task_name[task_num];
                 form.menutask_table2_text.Text = Properties.Settings.Default.task_memo[task_num];
                 form.menutask.Visible = true;
+                return;
             }
-
         }
         // 削除ボタン追加
         private static Button add_menu2_1_panel_main_panel_button_delete(MainForm form)

@@ -515,18 +515,30 @@ namespace TaskManage.controls_event
         {
             Main.Common_Var.menu1_open_done = done_num;
             Main.Common_Var.menu1_delete_done = 0;
-            if (done_num >= Main.Common_Var.menu1_done) // 新規実績
+
+            int cnt = -1;
+            for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                    && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                {
+                    cnt++;
+                    if (cnt < Main.Common_Var.menu1_day_done && cnt == done_num)
+                    {
+                        form.menudone_table1_text.Text = Properties.Settings.Default.done_name[i];
+                        form.menudone_table2_text.Text = Properties.Settings.Default.done_memo[i];
+                        form.menudone_table3_text.Text = "";
+                        form.menudone_table4_text.Text = "";
+                        form.menudone.Visible = true;
+                        return;
+                    }
+                }
+            }
+
+            if (done_num >= Main.Common_Var.menu1_day_done) // 新規実績
             {
                 form.menudone_table1_text.Text = "";
                 form.menudone_table2_text.Text = "";
-                form.menudone_table3_text.Text = "";
-                form.menudone_table4_text.Text = "";
-                form.menudone.Visible = true;
-            }
-            else // 既存実績
-            {
-                form.menudone_table1_text.Text = Properties.Settings.Default.done_name[done_num];
-                form.menudone_table2_text.Text = Properties.Settings.Default.done_memo[done_num];
                 form.menudone_table3_text.Text = "";
                 form.menudone_table4_text.Text = "";
                 form.menudone.Visible = true;
@@ -618,7 +630,7 @@ namespace TaskManage.controls_event
         }
 
         // 削除ボタン追加
-        private static Button add_menu1_done_main_panel_button_delete(MainForm form)
+        public static Button add_menu1_done_main_panel_button_delete(MainForm form)
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Button menu1_done_main_panel_button_delete = new Button();
@@ -639,7 +651,7 @@ namespace TaskManage.controls_event
             return menu1_done_main_panel_button_delete;
         }
         // 実績時間追加
-        private static Label add_menu1_done_main_panel_label_time(MainForm form, string text)
+        public static Label add_menu1_done_main_panel_label_time(MainForm form, string text)
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Label menu1_done_main_panel_label_time = new Label();
@@ -660,7 +672,7 @@ namespace TaskManage.controls_event
             return menu1_done_main_panel_label_time;
         }
         // 実績名追加
-        private static Label add_menu1_done_main_panel_label_name(MainForm form, string time)
+        public static Label add_menu1_done_main_panel_label_name(MainForm form, string time)
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Label menu1_done_main_panel_label_name = new Label();
@@ -683,7 +695,7 @@ namespace TaskManage.controls_event
             return menu1_done_main_panel_label_name;
         }
         // タスクパネル追加
-        private static PanelEx add_menu1_done_main_panel(MainForm form)
+        public static PanelEx add_menu1_done_main_panel(MainForm form)
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             PanelEx menu1_done_main_panel = new PanelEx();
