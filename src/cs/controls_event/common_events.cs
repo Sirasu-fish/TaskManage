@@ -37,7 +37,7 @@ namespace TaskManage.controls_event
             else
             {
                 form.WindowState = FormWindowState.Maximized;
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_min.Image")));
+                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_dis_max.Image")));
             }
         }
 
