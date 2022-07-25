@@ -323,6 +323,7 @@ namespace TaskManage.controls_event
             form.menu2_1_panel_main.SuspendLayout();
 
             form.menu2_1_panel_top_label_num.CustomText = Main.Common_Var.menu2_1_task.ToString();
+            form.menu2_1_panel_top_label_num.Refresh();
             if (Properties.Settings.Default.menu2_open1)
             {
                 if (Main.Common_Var.menu2_1_task != 0) // タスク数が0以外の時
