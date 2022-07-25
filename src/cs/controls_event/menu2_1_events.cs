@@ -208,9 +208,9 @@ namespace TaskManage.controls_event
             form.ResumeLayout();
             form.menu1.ResumeLayout();
             form.menu1_done_main.ResumeLayout();
+            form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].ResumeLayout();
 
             Properties.Settings.Default.done_name.Add(name);
-            Properties.Settings.Default.done_prog.Add("");
             Properties.Settings.Default.done_time.Add("");
             Properties.Settings.Default.done_memo.Add(memo);
             Properties.Settings.Default.done_day.Add(day.Year + "/" + day.Month + "/" + day.Day);

@@ -236,9 +236,8 @@ namespace TaskManage.controls_event
                 form.menu1_done_main.ResumeLayout();
 
                 Properties.Settings.Default.done_name.Add(form.menudone_table1_text.Text);
-                Properties.Settings.Default.done_prog.Add(form.menudone_table2_text.Text);
-                Properties.Settings.Default.done_time.Add(form.menudone_table3_text.Text);
-                Properties.Settings.Default.done_memo.Add(form.menudone_table4_text.Text);
+                Properties.Settings.Default.done_time.Add(form.menudone_table2_text.Text);
+                Properties.Settings.Default.done_memo.Add(form.menudone_table3_text.Text);
                 Properties.Settings.Default.done_day.Add(Main.Common_Var.menu1_done_year.ToString() + "/"
                     + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString());
 
@@ -255,7 +254,8 @@ namespace TaskManage.controls_event
             {
                 form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = form.menudone_table1_text.Text;
                 Properties.Settings.Default.done_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done] = form.menudone_table1_text.Text;
-                Properties.Settings.Default.done_memo[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done] = form.menudone_table4_text.Text;
+                Properties.Settings.Default.done_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done] = form.menudone_table2_text.Text;
+                Properties.Settings.Default.done_memo[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done] = form.menudone_table3_text.Text;
 
                 Properties.Settings.Default.Save();
             }
@@ -434,16 +434,13 @@ namespace TaskManage.controls_event
         {
             int year = int.Parse(form.menu1_panel_yearmonth_combo_year.Text);
             int month = int.Parse(form.menu1_panel_yearmonth_combo_month.Text);
-            DateTime firstday = new DateTime(year, month, 1);
-            DayOfWeek firstdate = firstday.DayOfWeek;
+            DayOfWeek firstdate = (new DateTime(year, month, 1)).DayOfWeek; // 前月と当月の判定用
             int subday = 0;
             int[] days = new int[42];
-            DateTime now = DateTime.Now;
             int today = 0;
-            int day = 0;
 
-            common_events.Get_Calender(year, month, ref now, ref days, ref subday, ref firstday, ref today);
-            day = days[num];
+            common_events.Get_Calender(year, month, ref days, ref subday, ref today);
+            int day = days[num];
             if ((int)firstdate - 1 < num && num < subday) // 対象が今月中の場合
             {
 
@@ -483,6 +480,10 @@ namespace TaskManage.controls_event
             form.menu1_done_main.SuspendLayout();
 
             form.menudone.Visible = false;
+            for (int i = 0; i < Main.Common_Var.menu1_day_done; i++)
+            {
+                form.menu1_done_main_panel[i].BackColor = Color.Transparent;
+            }
 
             string[] date = { "日", "月", "火", "水", "木", "金", "土" };
 
@@ -543,9 +544,8 @@ namespace TaskManage.controls_event
                     if (cnt < Main.Common_Var.menu1_day_done && cnt == done_num)
                     {
                         form.menudone_table1_text.Text = Properties.Settings.Default.done_name[i];
-                        form.menudone_table2_text.Text = Properties.Settings.Default.done_memo[i];
-                        form.menudone_table3_text.Text = "";
-                        form.menudone_table4_text.Text = "";
+                        form.menudone_table2_text.Text = "";
+                        form.menudone_table3_text.Text = Properties.Settings.Default.done_memo[i];
                         form.menudone.Visible = true;
                         form.menu1_done_main_panel[done_num].BackColor = Main.Common_Const.color2;
                         return;
@@ -558,7 +558,6 @@ namespace TaskManage.controls_event
                 form.menudone_table1_text.Text = "";
                 form.menudone_table2_text.Text = "";
                 form.menudone_table3_text.Text = "";
-                form.menudone_table4_text.Text = "";
                 form.menudone.Visible = true;
             }
         }
@@ -635,7 +634,6 @@ namespace TaskManage.controls_event
                 if (cnt == num)
                 {
                     Properties.Settings.Default.done_name.RemoveAt(i);
-                    Properties.Settings.Default.done_prog.RemoveAt(i);
                     Properties.Settings.Default.done_time.RemoveAt(i);
                     Properties.Settings.Default.done_day.RemoveAt(i);
 

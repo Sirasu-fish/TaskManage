@@ -109,42 +109,6 @@ namespace TaskManage.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("40, 40, 40")]
-        public global::System.Drawing.Color dark {
-            get {
-                return ((global::System.Drawing.Color)(this["dark"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("240, 240, 240")]
-        public global::System.Drawing.Color white {
-            get {
-                return ((global::System.Drawing.Color)(this["white"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("80, 80, 80")]
-        public global::System.Drawing.Color subdark {
-            get {
-                return ((global::System.Drawing.Color)(this["subdark"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Gainsboro")]
-        public global::System.Drawing.Color subwhite {
-            get {
-                return ((global::System.Drawing.Color)(this["subwhite"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
@@ -225,17 +189,6 @@ namespace TaskManage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection done_prog {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["done_prog"]));
-            }
-            set {
-                this["done_prog"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::System.Collections.Specialized.StringCollection done_time {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["done_time"]));
@@ -253,6 +206,18 @@ namespace TaskManage.Properties {
             }
             set {
                 this["done_day"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool first_start {
+            get {
+                return ((bool)(this["first_start"]));
+            }
+            set {
+                this["first_start"] = value;
             }
         }
     }

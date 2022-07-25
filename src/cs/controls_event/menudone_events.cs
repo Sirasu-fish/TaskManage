@@ -24,7 +24,6 @@ namespace TaskManage.controls_event
             form.menudone_table1_text.Text = "";
             form.menudone_table2_text.Text = "";
             form.menudone_table3_text.Text = "";
-            form.menudone_table4_text.Text = "";
         }
 
     }
