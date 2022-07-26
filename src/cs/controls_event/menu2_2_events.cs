@@ -6,6 +6,7 @@ namespace TaskManage.controls_event
     class menu2_2_events
     {
         MainForm form;
+        static int memo_height = 86; // メモの高さ
 
         // コンストラクタ
         public menu2_2_events(MainForm form)
@@ -23,13 +24,13 @@ namespace TaskManage.controls_event
                 form.menu2_2_panel_main.Visible = true;
                 if (Main.Common_Var.menu2_2_memo != 0)
                 {
-                    form.menu2_2_panel.Height = 34 + 106 * Main.Common_Var.menu2_2_memo;
-                    form.menu2_2.Height = 42 + 106 * Main.Common_Var.menu2_2_memo;
+                    form.menu2_2_panel.Height = 34 + memo_height * Main.Common_Var.menu2_2_memo + 4;
+                    form.menu2_2.Height = 42 + memo_height * Main.Common_Var.menu2_2_memo + 4;
                 }
                 else
                 {
-                    form.menu2_2_panel.Height = 34 + 53;
-                    form.menu2_2.Height = 42 + 53;
+                    form.menu2_2_panel.Height = 34 + memo_height / 2;
+                    form.menu2_2.Height = 42 + memo_height / 2;
                 }
                 Properties.Settings.Default.menu2_open2 = true;
             }
@@ -288,6 +289,8 @@ namespace TaskManage.controls_event
             form.menu2_2_panel_main_panel_table_memo[Main.Common_Var.menu2_2_memo].SuspendLayout();
             form.menu2_2_panel_main_panel_table_memo_panel_top[Main.Common_Var.menu2_2_memo].SuspendLayout();
 
+            Main.Common_Var.menu2_2_panel_main_table_memo_sizeChanger.Add(new DAndDSizeChanger(form.menu2_2_panel_main_panel_table_memo_text[Main.Common_Var.menu2_2_memo], form.menu2_2_panel_main_panel[Main.Common_Var.menu2_2_memo], DAndDArea.Bottom, 12, form.menu2_2, form.menu2_2_panel));
+
             form.ResumeLayout();
             form.menu2.ResumeLayout();
             form.menu2_2.ResumeLayout();
@@ -317,13 +320,13 @@ namespace TaskManage.controls_event
             {
                 if (Main.Common_Var.menu2_2_memo != 0) // タスク数が0以外の時
                 {
-                    form.menu2_2_panel.Height = 34 + 106 * Main.Common_Var.menu2_2_memo;
-                    form.menu2_2.Height = 42 + 106 * Main.Common_Var.menu2_2_memo;
+                    form.menu2_2_panel.Height = 34 + memo_height * Main.Common_Var.menu2_2_memo + 4;
+                    form.menu2_2.Height = 42 + memo_height * Main.Common_Var.menu2_2_memo + 4;
                 }
                 else
                 {
-                    form.menu2_2_panel.Height = 34 + 53;
-                    form.menu2_2.Height = 42 + 53;
+                    form.menu2_2_panel.Height = 34 + memo_height / 2;
+                    form.menu2_2.Height = 42 + memo_height / 2;
                 }
             }
             else
@@ -483,7 +486,7 @@ namespace TaskManage.controls_event
             menu2_2_panel_main_panel_table_memo.RowCount = 2;
             menu2_2_panel_main_panel_table_memo.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             menu2_2_panel_main_panel_table_memo.RowStyles.Add(new RowStyle(SizeType.Percent, 78F));
-            menu2_2_panel_main_panel_table_memo.Size = new System.Drawing.Size(190, 62);
+            menu2_2_panel_main_panel_table_memo.Size = new System.Drawing.Size(190, 96);
 
             return menu2_2_panel_main_panel_table_memo;
         }
@@ -494,7 +497,7 @@ namespace TaskManage.controls_event
 
             menu2_2_panel_main_panel.Controls.Add(form.menu2_2_panel_main_panel_table_memo[Main.Common_Var.menu2_2_memo]);
             menu2_2_panel_main_panel.Dock = DockStyle.Top;
-            menu2_2_panel_main_panel.Size = new System.Drawing.Size(Properties.Settings.Default.form_x, 106);
+            menu2_2_panel_main_panel.Size = new System.Drawing.Size(Properties.Settings.Default.form_x, memo_height);
 
             return menu2_2_panel_main_panel;
         }

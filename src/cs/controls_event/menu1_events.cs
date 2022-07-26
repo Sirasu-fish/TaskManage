@@ -8,7 +8,7 @@ namespace TaskManage.controls_event
     {
         MainForm form;
         static int done_x = 4; // 実績のX位置
-        static int done_height = 32;
+        static int done_height = 32; // 実績の高さ
         static int done_space = -1; // 実績と実績の隙間
 
         // コンストラクタ
@@ -19,35 +19,38 @@ namespace TaskManage.controls_event
 
         // ********** form event **********
         #region form event
+
+        // 前の月に移動するボタン押下
         public static void menu1_panel_yearmonth_button_prevmonth_Click(object sender, EventArgs e, MainForm form)
         {
-            int year = 0;
-            int month = 0;
+            int year = 0; // 年
+            int month = 0; // 月
 
-            Get_YearMonth(form, ref year, ref month);
-            month = (month + 10) % 12 + 1;
-            if (month == 12)
+            Get_YearMonth(form, ref year, ref month); // 年、月を取得
+            month = (month + 10) % 12 + 1; // 前月を取得 例：12 → 10 + 1 = 11 | 1 → 11 + 1 = 12
+            if (month == 12) // 12月の時
             {
-                year = year - 1;
+                year = year - 1; // 1年前
             }
-            common_events.Set_Day(form, year, month);
-            form.menu1_panel_yearmonth_combo_year.SelectedItem = year.ToString();
-            form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+            common_events.Set_Day(form, year, month); // カレンダーに設定
+            form.menu1_panel_yearmonth_combo_year.SelectedItem = year.ToString(); // 年を更新している可能性があるため、更新
+            form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString(); // 月を更新している可能性があるため、更新
         }
 
+        //次の月に移動するボタン押下
         public static void menu1_panel_yearmonth_button_nextmonth_Click(object sender, EventArgs e, MainForm form)
         {
             int year = 0;
             int month = 0;
             Get_YearMonth(form, ref year, ref month);
             month = month % 12 + 1;
-            if (month == 1)
+            if (month == 1) // 1月の時
             {
-                year = year + 1;
+                year = year + 1; // 1年後
             }
-            common_events.Set_Day(form, year, month);
-            form.menu1_panel_yearmonth_combo_year.SelectedItem = year.ToString();
-            form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+            common_events.Set_Day(form, year, month); // カレンダーに設定
+            form.menu1_panel_yearmonth_combo_year.SelectedItem = year.ToString(); // 年を更新している可能性があるため、更新
+            form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString(); // 月を更新している可能性があるため、更新
         }
 
         public static void menu1_panel_yearmonth_combo_year_SelectedIndexChanged(object sender, EventArgs e, MainForm form)
@@ -529,6 +532,13 @@ namespace TaskManage.controls_event
             Main.Common_Var.menu1_open_done = done_num;
             Main.Common_Var.menu1_delete_done = 0;
 
+            form.SuspendLayout();
+            form.menu1.SuspendLayout();
+            form.menu1_panel_yearmonth.SuspendLayout();
+            form.menu1_table_calender.SuspendLayout();
+            form.menu1_done_top.SuspendLayout();
+            form.menu1_done_main.SuspendLayout();
+
             for (int i = 0; i < Main.Common_Var.menu1_day_done; i++)
             {
                 form.menu1_done_main_panel[i].BackColor = Color.Transparent;
@@ -548,6 +558,13 @@ namespace TaskManage.controls_event
                         form.menudone_table3_text.Text = Properties.Settings.Default.done_memo[i];
                         form.menudone.Visible = true;
                         form.menu1_done_main_panel[done_num].BackColor = Main.Common_Const.color2;
+
+                        form.ResumeLayout();
+                        form.menu1.ResumeLayout();
+                        form.menu1_panel_yearmonth.ResumeLayout();
+                        form.menu1_table_calender.ResumeLayout();
+                        form.menu1_done_top.ResumeLayout();
+                        form.menu1_done_main.ResumeLayout();
                         return;
                     }
                 }
@@ -560,6 +577,13 @@ namespace TaskManage.controls_event
                 form.menudone_table3_text.Text = "";
                 form.menudone.Visible = true;
             }
+
+            form.ResumeLayout();
+            form.menu1.ResumeLayout();
+            form.menu1_panel_yearmonth.ResumeLayout();
+            form.menu1_table_calender.ResumeLayout();
+            form.menu1_done_top.ResumeLayout();
+            form.menu1_done_main.ResumeLayout();
         }
 
         /// <summary>
