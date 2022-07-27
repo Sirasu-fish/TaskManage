@@ -148,6 +148,7 @@ namespace TaskManage.controls_event
             if (Main.Common_Var.memo_save[int.Parse(((TextBox)sender).Name)] == true)
             {
                 form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].Text += " *";
+                form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].BackColor = Main.Common_Const.color5;
                 Main.Common_Var.memo_save[int.Parse(((TextBox)sender).Name)] = false;
             }
         }
@@ -351,6 +352,7 @@ namespace TaskManage.controls_event
                 if (fu.OpenDialog(form, text, num))
                 {
                     Main.Common_Var.memo_save[num] = true;
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = Main.Common_Const.color3;
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = Properties.Settings.Default.memo_path[num];
                 }
             }
@@ -360,6 +362,7 @@ namespace TaskManage.controls_event
                 if (fu.WriteFile(Properties.Settings.Default.memo_path[num], text))
                 {
                     Main.Common_Var.memo_save[num] = true;
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = Main.Common_Const.color3;
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = Properties.Settings.Default.memo_path[num];
                 }
             }
@@ -436,6 +439,7 @@ namespace TaskManage.controls_event
             form.menu2_2_panel_main_panel.RemoveAt(num);
             Properties.Settings.Default.memo_path.RemoveAt(num);
             Properties.Settings.Default.memo_height.RemoveAt(num);
+            Main.Common_Var.memo_save.RemoveAt(num);
 
             Main.Common_Var.menu2_2_memo -= 1;
 
@@ -520,7 +524,7 @@ namespace TaskManage.controls_event
             TextBox menu2_2_panel_main_panel_table_memo_panel_top_text = new TextBox();
 
             menu2_2_panel_main_panel_table_memo_panel_top_text.Dock = DockStyle.Fill;
-            menu2_2_panel_main_panel_table_memo_panel_top_text.BackColor = System.Drawing.SystemColors.Control;
+            menu2_2_panel_main_panel_table_memo_panel_top_text.BackColor = Main.Common_Const.color3;
             menu2_2_panel_main_panel_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
             menu2_2_panel_main_panel_table_memo_panel_top_text.ReadOnly = true;
             menu2_2_panel_main_panel_table_memo_panel_top_text.Text = memo_name;

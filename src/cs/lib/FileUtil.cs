@@ -123,6 +123,7 @@ namespace TaskManage
                     Properties.Settings.Default.memo_path.AddRange(path);
 
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = path[num];
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = Main.Common_Const.color3;
                     Properties.Settings.Default.Save();
                 }
             }
