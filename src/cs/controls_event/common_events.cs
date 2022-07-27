@@ -49,6 +49,15 @@ namespace TaskManage.controls_event
         // 閉じるボタン
         public static void common_button_close_MouseClick(object sender, MouseEventArgs e, MainForm form)
         {
+            // 保存されていないメモの確認
+            for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+            {
+                if (!Main.Common_Var.memo_save[i])
+                {
+                    menu2_2_events.FormCloseMemo(form, i);
+                }
+            }
+
             Properties.Settings.Default.form_x = form.Width;
             Properties.Settings.Default.form_y = form.Height;
             Properties.Settings.Default.Save();

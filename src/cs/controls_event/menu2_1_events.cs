@@ -391,7 +391,6 @@ namespace TaskManage.controls_event
                 form.menu2_1_panel_main_panel_button_delete[num].MouseLeave -= new EventHandler(events.menu2_1_panel_main_panel_button_delete_MouseLeave);
             }
 
-            //
             for (int i = num; i < Main.Common_Var.menu2_1_task; i++)
             {
                 // 位置更新

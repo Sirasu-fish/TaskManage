@@ -119,10 +119,8 @@ namespace TaskManage.controls_event
                     }
                 }
                 // 既存メモに選択ファイルがなかった場合
-                form.menu2_2_panel_main_panel_table_memo_panel_top_text[Properties.Settings.Default.memo_path.Count].Text = ofd.FileName; // ファイル名を更新
-                form.menu2_2_panel_main_panel_table_memo_text[Properties.Settings.Default.memo_path.Count].Text = fu.ReadFileAll(ofd.FileName); // 内容を更新
-                form.menu2_2_panel_main_panel[Properties.Settings.Default.memo_path.Count].Visible = true; //パネルの表示
-                Main.Common_Var.memo_save[Properties.Settings.Default.memo_path.Count] = true; // 保存フラグをtrueにする
+                AddMemo(form, ofd.FileName, fu.ReadFileAll(ofd.FileName));
+                Main.Common_Var.memo_save.Add(true); // 保存フラグをtrueにする
                 Properties.Settings.Default.memo_path[Properties.Settings.Default.memo_path.Count] = ofd.FileName; // ファイル名を保存
                 Properties.Settings.Default.Save();
             }
@@ -132,6 +130,7 @@ namespace TaskManage.controls_event
         public static void menu2_2_panel_top_button_add_Click(object sender, EventArgs e, MainForm form)
         {
             AddMemo(form, " *", "");
+            Main.Common_Var.memo_save.Add(false);
         }
 
         // キー押下時のイベント
@@ -178,78 +177,7 @@ namespace TaskManage.controls_event
         // 閉じるボタン
         public void menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click(object sender, EventArgs e)
         {
-            int i = int.Parse(((Button)sender).Name);
-
-            // 変更したファイルを保存していない時
-            if (Main.Common_Var.memo_save[i] == false)
-            {
-                FileUtil fu = new FileUtil();
-
-                string[] paths = new string[Main.Common_Const.memo_num];
-                Properties.Settings.Default.memo_path.CopyTo(paths, 0);
-                string save_path = paths[i];
-
-                // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
-                if (String.IsNullOrEmpty(save_path))
-                {
-                    if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[i].Text, i))
-                    {
-                        Main.Common_Var.memo_save[i] = true;
-                        form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = Properties.Settings.Default.memo_path[i];
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                // パスが空ではない時 = 既存ファイル
-                else
-                {
-                    switch (fu.ShowOverrideFileMessage())
-                    {
-                        case DialogResult.Yes: // はい
-                            if (fu.IsAbleWrite(save_path)) //書き込み可能な時
-                            {
-                                if (fu.WriteFile(save_path, form.menu2_2_panel_main_panel_table_memo_text[i].Text))
-                                {
-                                    Main.Common_Var.memo_save[i] = true;
-                                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = Properties.Settings.Default.memo_path[i];
-                                }
-                                else
-                                {
-                                    return;
-                                }
-                            }
-                            else
-                            {
-                                if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[i].Text, i))
-                                {
-                                    Main.Common_Var.memo_save[i] = true;
-                                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = Properties.Settings.Default.memo_path[i];
-                                }
-                                else
-                                {
-                                    return;
-                                }
-                            }
-                            break;
-                        case DialogResult.No: // いいえ
-                            break;
-                        case DialogResult.Cancel: // キャンセル
-                            return;
-                    }
-                }
-            }
-
-            string[] path = new string[Main.Common_Const.memo_num];
-            Properties.Settings.Default.memo_path.CopyTo(path, 0);
-            path[i] = "";
-            Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-            Properties.Settings.Default.memo_path.AddRange(path);
-            Properties.Settings.Default.Save();
-            form.menu2_2_panel_main_panel_table_memo_panel_top_text[i].Text = "";
-            form.menu2_2_panel_main_panel_table_memo_text[i].Text = "";
-            form.menu2_2_panel_main_panel[i].Visible = false;
+            RemoveMemo(form, int.Parse(((Button)sender).Name));
         }
         #endregion form event
         // ********** form event **********
@@ -342,6 +270,65 @@ namespace TaskManage.controls_event
             form.menu2_2_panel_top.ResumeLayout();
         }
 
+        // メモ削除
+        public static void FormCloseMemo(MainForm form, int num)
+        {
+            // 変更したファイルを保存していない時
+            if (Main.Common_Var.memo_save[num] == false)
+            {
+                FileUtil fu = new FileUtil();
+
+                string[] paths = new string[Main.Common_Const.memo_num];
+                Properties.Settings.Default.memo_path.CopyTo(paths, 0);
+                string save_path = paths[num];
+
+                // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
+                if (String.IsNullOrEmpty(save_path))
+                {
+                    if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
+                    {
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                // パスが空ではない時 = 既存ファイル
+                else
+                {
+                    switch (fu.ShowOverrideFileMessage())
+                    {
+                        case DialogResult.Yes: // はい
+                            if (fu.IsAbleWrite(save_path)) //書き込み可能な時
+                            {
+                                if (fu.WriteFile(save_path, form.menu2_2_panel_main_panel_table_memo_text[num].Text)) // 上書き
+                                {
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
+                                {
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
+                            break;
+                        case DialogResult.No: // いいえ
+                            break;
+                        case DialogResult.Cancel: // キャンセル
+                            return;
+                    }
+                }
+            }
+        }
+
         #endregion public
         // ********** public **********
 
@@ -378,6 +365,89 @@ namespace TaskManage.controls_event
             }
 
             return true;
+        }
+
+        // メモ削除
+        private static void RemoveMemo(MainForm form, int num)
+        {
+            // 変更したファイルを保存していない時
+            if (Main.Common_Var.memo_save[num] == false)
+            {
+                FileUtil fu = new FileUtil();
+
+                string[] paths = new string[Main.Common_Const.memo_num];
+                Properties.Settings.Default.memo_path.CopyTo(paths, 0);
+                string save_path = paths[num];
+
+                // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
+                if (String.IsNullOrEmpty(save_path))
+                {
+                    if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
+                    {
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                // パスが空ではない時 = 既存ファイル
+                else
+                {
+                    switch (fu.ShowOverrideFileMessage())
+                    {
+                        case DialogResult.Yes: // はい
+                            if (fu.IsAbleWrite(save_path)) //書き込み可能な時
+                            {
+                                if (fu.WriteFile(save_path, form.menu2_2_panel_main_panel_table_memo_text[num].Text)) // 上書き
+                                {
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
+                                {
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
+                            break;
+                        case DialogResult.No: // いいえ
+                            break;
+                        case DialogResult.Cancel: // キャンセル
+                            return;
+                    }
+                }
+            }
+
+            form.menu2_2_panel_main.Controls.Remove(form.menu2_2_panel_main_panel[num]);
+            form.menu2_2_panel_main_panel_table_memo_panel_top_text.RemoveAt(num);
+            form.menu2_2_panel_main_panel_table_memo_panel_top_button_save.RemoveAt(num);
+            form.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.RemoveAt(num);
+            form.menu2_2_panel_main_panel_table_memo_panel_top_button_close.RemoveAt(num);
+            form.menu2_2_panel_main_panel_table_memo_panel_top.RemoveAt(num);
+            form.menu2_2_panel_main_panel_table_memo_text.RemoveAt(num);
+            form.menu2_2_panel_main_panel_table_memo.RemoveAt(num);
+            form.menu2_2_panel_main_panel.RemoveAt(num);
+            Properties.Settings.Default.memo_path.RemoveAt(num);
+            Properties.Settings.Default.memo_height.RemoveAt(num);
+
+            Main.Common_Var.menu2_2_memo -= 1;
+
+            for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+            {
+                form.menu2_2_panel_main_panel_table_memo_text[i].Name = i.ToString();
+                form.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Name = i.ToString();
+                form.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Name = i.ToString();
+                form.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Name = i.ToString();
+            }
+
+            ChangeMemoNum(form);
         }
 
         // メモ内容

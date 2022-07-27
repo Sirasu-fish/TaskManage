@@ -200,18 +200,13 @@ namespace TaskManage.Main
         // Menu2_2 設定反映
         private void SetMenu2_2(MainForm form)
         {
-            for (int i = 0; i < Common_Var.memo_save.Length; i++)
-            {
-                Common_Var.memo_save[i] = false;
-            }
-
             FileUtil fu = new FileUtil();
             for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
             {
                 if (!String.IsNullOrEmpty(Properties.Settings.Default.memo_path[i]))
                 {
                     controls_event.menu2_2_events.AddMemo(form, Properties.Settings.Default.memo_path[i], fu.ReadFileAll(Properties.Settings.Default.memo_path[i]));
-                    Common_Var.memo_save[i] = true;
+                    Main.Common_Var.memo_save.Add(true);
                 }
             }
 
