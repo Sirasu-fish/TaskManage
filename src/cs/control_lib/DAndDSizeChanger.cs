@@ -139,15 +139,10 @@ namespace TaskManage
                     int w = sizeChangeCtrl.Width;
                     sizeChangeCtrl.Width -= diffX;
                     sizeChangeCtrl.Left += w - sizeChangeCtrl.Width;
-
-                    Properties.Settings.Default.form_x = sizeChangeCtrl.Width;
-                    Properties.Settings.Default.Save();
                 }
                 if ((status & DAndDArea.Right) == DAndDArea.Right)
                 {
                     sizeChangeCtrl.Width = lastMouseDownSize.Width + diffX;
-                    Properties.Settings.Default.form_x = sizeChangeCtrl.Width;
-                    Properties.Settings.Default.Save();
                 }
             }
         }

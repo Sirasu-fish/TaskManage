@@ -404,6 +404,7 @@ namespace TaskManage.controls_event
             }
 
             // コントロール削除
+            form.menu2_1_panel_main.Controls.Remove(form.menu2_1_panel_main_panel[num]);
             form.menu2_1_panel_main_panel_label1.RemoveAt(num);
             form.menu2_1_panel_main_panel_button_finish.RemoveAt(num);
             form.menu2_1_panel_main_panel_button_delete.RemoveAt(num);

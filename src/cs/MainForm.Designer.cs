@@ -316,7 +316,6 @@ namespace TaskManage
             this.window.BackColor = Main.Common_Const.color3;
             this.window.Controls.Add(this.window_panel);
             this.window.Dock = System.Windows.Forms.DockStyle.Fill;
-
             //
             // window_panel
             //
@@ -1056,6 +1055,7 @@ namespace TaskManage
             this.menudone_table1_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menudone_table1_text.Font = new System.Drawing.Font("Yu Gothic UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menudone_table1_text.Margin = new System.Windows.Forms.Padding(0);
+            this.menudone_table1_text.KeyDown += new KeyEventHandler(this.menudone_table1_text_KeyDown);
             // 
             // menudone_table2
             // 

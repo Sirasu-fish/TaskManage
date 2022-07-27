@@ -208,6 +208,10 @@ namespace TaskManage
 
         // Event menudone
         #region Event menudone
+        private void menudone_table1_text_KeyDown(object sender, KeyEventArgs e)
+        {
+            controls_event.menudone_events.menudone_table1_text_KeyDown(sender, e, this);
+        }
         private void menudone_button_close_Click(object sender, EventArgs e)
         {
             controls_event.menudone_events.menudone_button_close_Click(sender, e, this);

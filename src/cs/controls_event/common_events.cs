@@ -49,6 +49,9 @@ namespace TaskManage.controls_event
         // 閉じるボタン
         public static void common_button_close_MouseClick(object sender, MouseEventArgs e, MainForm form)
         {
+            Properties.Settings.Default.form_x = form.Width;
+            Properties.Settings.Default.form_y = form.Height;
+            Properties.Settings.Default.Save();
             form.Close(); // formを閉じる
         }
 
