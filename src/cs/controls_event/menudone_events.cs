@@ -10,10 +10,7 @@ namespace TaskManage.controls_event
             if (e.KeyCode == Keys.Return) // Enter
             {
                 // 入力内容チェック処理
-                if (string.IsNullOrEmpty(form.menudone_table1_text.Text))
-                {
-                    return;
-                }
+                CheckDoneInput(form);
 
                 // 登録処理
                 menu1_events.AddDone(form);
@@ -42,10 +39,7 @@ namespace TaskManage.controls_event
         public static void menudone_button_save_Click(object sender, EventArgs e, MainForm form)
         {
             // 入力内容チェック処理
-            if (string.IsNullOrEmpty(form.menudone_table1_text.Text))
-            {
-                return;
-            }
+            CheckDoneInput(form);
 
             // 登録処理
             menu1_events.AddDone(form);
@@ -57,5 +51,38 @@ namespace TaskManage.controls_event
             form.menudone_table3_text.Text = "";
         }
 
+
+        // ********** private **********
+        #region private
+
+        // チェック処理
+        private static bool CheckDoneInput(MainForm form)
+        {
+            // 実績名
+            if (string.IsNullOrEmpty(form.menudone_table1_text.Text))
+            {
+                return false;
+            }
+            if (!int.TryParse(form.menudone_table2_text_h.Text, out int h)) // ミスあり
+            {
+                return false;
+            }
+            if (!int.TryParse(form.menudone_table2_text_m.Text, out int m)) // ミスあり
+            {
+                return false;
+            }
+            if (int.Parse(form.menudone_table2_text_h.Text) < 0)
+            {
+                return false;
+            }
+            if (int.Parse(form.menudone_table2_text_m.Text) >= 60)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        #endregion private
+        // ********** private **********
     }
 }

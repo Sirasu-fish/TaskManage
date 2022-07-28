@@ -456,9 +456,9 @@ namespace TaskManage.controls_event
         // セレクトボックスの年、月を取得
         private static void Get_YearMonth(MainForm form, ref int year, ref int month)
         {
-            if (Int32.TryParse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString(), out int y)) // 年が整数に変換可能な時
+            if (int.TryParse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString(), out int y)) // 年が整数に変換可能な時
             {
-                if (!(Int32.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= Int32.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString()))) // 範囲外の年
+                if (!(int.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= y && y <= int.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString()))) // 範囲外の年
                 {
                     year = DateTime.Now.Year; // 今年
                 }
@@ -472,9 +472,9 @@ namespace TaskManage.controls_event
                 year = DateTime.Now.Year; // 今年
             }
 
-            if (Int32.TryParse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString(), out int m)) // 月が整数に変換可能な時
+            if (int.TryParse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString(), out int m)) // 月が整数に変換可能な時
             {
-                if (!(1 <= month && month <= 12)) // 範囲外の月
+                if (!(1 <= m && m <= 12)) // 範囲外の月
                 {
                     month = DateTime.Now.Month; // 今月
                 }
@@ -500,8 +500,8 @@ namespace TaskManage.controls_event
             }
             else
             {
-                year = Int32.Parse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString());
-                if (!(Int32.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= Int32.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString())))
+                year = int.Parse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString());
+                if (!(int.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= int.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString())))
                 {
                     year = DateTime.Now.Year;
                 }
@@ -513,7 +513,7 @@ namespace TaskManage.controls_event
             }
             else
             {
-                month = Int32.Parse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString());
+                month = int.Parse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString());
                 if (!(1 <= month && month <= 12))
                 {
                     month = DateTime.Now.Month;
