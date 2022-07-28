@@ -508,13 +508,15 @@ namespace TaskManage.controls_event
             Label menu2_1_panel_main_panel_label1 = new Label();
             menu2_1_events events = new menu2_1_events(form);
 
+            menu2_1_panel_main_panel_label1.AutoSize = false;
+            menu2_1_panel_main_panel_label1.AutoEllipsis = true;
             menu2_1_panel_main_panel_label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            menu2_1_panel_main_panel_label1.Location = new Point(1, 1);
+            menu2_1_panel_main_panel_label1.Location = new Point(1, 9);
             menu2_1_panel_main_panel_label1.Name = Main.Common_Var.menu2_1_task.ToString();
-            menu2_1_panel_main_panel_label1.Size = new Size(Main.Common_Const.form_x - 10
+            menu2_1_panel_main_panel_label1.Size = new Size(form.window_panel.Width - 8
                 - form.menu2_1_panel_main_panel_button_delete[Main.Common_Var.menu2_1_task].Width
                 - form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task].Width
-                - menu2_1_panel_main_panel_label1.Location.X * 2, task_height - 2);
+                - menu2_1_panel_main_panel_label1.Location.X * 2, 14);
             menu2_1_panel_main_panel_label1.Text = text;
             menu2_1_panel_main_panel_label1.TextAlign = ContentAlignment.MiddleLeft;
             menu2_1_panel_main_panel_label1.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_label1_MouseEnter);

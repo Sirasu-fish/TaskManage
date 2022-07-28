@@ -251,12 +251,28 @@ namespace TaskManage.controls_event
             }
             else // 既存更新
             {
-                form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = form.menudone_table1_text.Text;
-                Properties.Settings.Default.done_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done] = form.menudone_table1_text.Text;
-                Properties.Settings.Default.done_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done] = form.menudone_table2_text.Text;
-                Properties.Settings.Default.done_memo[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done] = form.menudone_table3_text.Text;
+                form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = form.menudone_table1_text.Text;
+                form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = form.menudone_table2_text.Text;
+                form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
+                form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
 
-                Properties.Settings.Default.Save();
+                int cnt = -1;
+                for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
+                {
+                    if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                    && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                    {
+                        cnt++;
+                        if (cnt == Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done)
+                        {
+                            Properties.Settings.Default.done_name[i] = form.menudone_table1_text.Text;
+                            Properties.Settings.Default.done_time[i] = form.menudone_table2_text.Text;
+                            Properties.Settings.Default.done_memo[i] = form.menudone_table3_text.Text;
+                            Properties.Settings.Default.Save();
+                            return;
+                        }
+                    }
+                }
             }
         }
 
@@ -302,13 +318,14 @@ namespace TaskManage.controls_event
             Label menu1_done_main_panel_label_time = new Label();
             menu1_events events = new menu1_events(form);
 
+            menu1_done_main_panel_label_time.AutoSize = false;
             menu1_done_main_panel_label_time.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            menu1_done_main_panel_label_time.Size = new Size(78, done_height - 2);
-            menu1_done_main_panel_label_time.Location = new Point(form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done].Location.X
-                - menu1_done_main_panel_label_time.Width, 1);
-            menu1_done_main_panel_label_time.Name = Main.Common_Var.menu1_day_done.ToString();
+            menu1_done_main_panel_label_time.Size = new Size(78, 14);
+            menu1_done_main_panel_label_time.Location = new Point(form.menu1_done_main.Width - 78, 9);
             menu1_done_main_panel_label_time.Text = text;
-            menu1_done_main_panel_label_time.TextAlign = ContentAlignment.MiddleLeft;
+            menu1_done_main_panel_label_time.AutoEllipsis = true;
+            menu1_done_main_panel_label_time.Name = Main.Common_Var.menu1_day_done.ToString();
+            menu1_done_main_panel_label_time.TextAlign = ContentAlignment.MiddleRight;
             menu1_done_main_panel_label_time.MouseEnter += new EventHandler(events.menu1_done_main_panel_label_time_MouseEnter);
             menu1_done_main_panel_label_time.MouseLeave += new EventHandler(events.menu1_done_main_panel_label_time_MouseLeave);
             menu1_done_main_panel_label_time.Click += new System.EventHandler(events.menu1_done_main_panel_label_time_Click);
@@ -324,13 +341,15 @@ namespace TaskManage.controls_event
             menu1_events events = new menu1_events(form);
 
             menu1_done_main_panel_label_name.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            menu1_done_main_panel_label_name.Location = new Point(1, 1);
+            menu1_done_main_panel_label_name.Location = new Point(1, 9);
             menu1_done_main_panel_label_name.Name = Main.Common_Var.menu1_day_done.ToString();
-            menu1_done_main_panel_label_name.Size = new Size(Main.Common_Const.form_x - 10
+            menu1_done_main_panel_label_name.AutoSize = false;
+            menu1_done_main_panel_label_name.Size = new Size(form.menu1_done_main.Width - 8
                 - form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done].Width
                 - form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done].Width
-                - menu1_done_main_panel_label_name.Location.X * 2, done_height - 2);
+                - menu1_done_main_panel_label_name.Location.X * 2, 14);
             menu1_done_main_panel_label_name.Text = time;
+            menu1_done_main_panel_label_name.AutoEllipsis = true;
             menu1_done_main_panel_label_name.TextAlign = ContentAlignment.MiddleLeft;
             menu1_done_main_panel_label_name.MouseEnter += new EventHandler(events.menu1_done_main_panel_label_name_MouseEnter);
             menu1_done_main_panel_label_name.MouseLeave += new EventHandler(events.menu1_done_main_panel_label_name_MouseLeave);
@@ -759,8 +778,6 @@ namespace TaskManage.controls_event
             form.menu1_done_main_panel[num].BackColor = Color.Transparent;
             form.menu1_done_main_panel[num].Refresh();
         }
-
-
 
         #endregion private
         // ********** private **********
