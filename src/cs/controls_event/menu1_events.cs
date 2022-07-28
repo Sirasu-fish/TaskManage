@@ -681,13 +681,6 @@ namespace TaskManage.controls_event
 
             menu1_events events = new menu1_events(form);
 
-            // コントロール削除時に削除ボタンのイベントを除去
-            if (num < Main.Common_Var.menu1_day_done - 1)
-            {
-                form.menu1_done_main_panel_button_delete[num].MouseLeave -= new EventHandler(events.menu1_done_main_panel_button_delete_MouseLeave);
-            }
-
-            //
             for (int i = num; i < Main.Common_Var.menu1_day_done; i++)
             {
                 // 位置更新
@@ -700,17 +693,11 @@ namespace TaskManage.controls_event
             }
 
             // コントロール削除
+            form.menu1_done_main.Controls.Remove(form.menu1_done_main_panel[num]);
             form.menu1_done_main_panel_label_name.RemoveAt(num);
             form.menu1_done_main_panel_label_time.RemoveAt(num);
             form.menu1_done_main_panel_button_delete.RemoveAt(num);
             form.menu1_done_main_panel.RemoveAt(num);
-
-            // 削除ボタンのイベントを戻す
-            if (num < Main.Common_Var.menu1_day_done - 1)
-            {
-                form.menu1_done_main_panel_button_delete[num].BackColor = Color.Transparent;
-                form.menu1_done_main_panel_button_delete[num].MouseLeave += new EventHandler(events.menu1_done_main_panel_button_delete_MouseLeave);
-            }
 
             form.ResumeLayout();
             form.menu1.ResumeLayout();
