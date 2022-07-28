@@ -16,7 +16,7 @@ namespace TaskManage.controls_event
                 }
 
                 // 登録処理
-                menu1_events.AddDone(form, form.menudone_table1_text.Text, form.menudone_table2_text.Text);
+                menu1_events.AddDone(form);
 
                 form.SuspendLayout();
                 form.menudone.SuspendLayout();
@@ -24,7 +24,8 @@ namespace TaskManage.controls_event
                 form.menudone_table2.SuspendLayout();
 
                 form.menudone_table1_text.Text = "";
-                form.menudone_table2_text.Text = "";
+                form.menudone_table2_text_h.Text = "";
+                form.menudone_table2_text_m.Text = "";
 
                 form.ResumeLayout();
                 form.menudone.ResumeLayout();
@@ -47,11 +48,12 @@ namespace TaskManage.controls_event
             }
 
             // 登録処理
-            menu1_events.AddDone(form, form.menudone_table1_text.Text, form.menudone_table3_text.Text);
+            menu1_events.AddDone(form);
 
             // 実績画面非表示処理
             form.menudone_table1_text.Text = "";
-            form.menudone_table2_text.Text = "";
+            form.menudone_table2_text_h.Text = "";
+            form.menudone_table2_text_m.Text = "";
             form.menudone_table3_text.Text = "";
         }
 
