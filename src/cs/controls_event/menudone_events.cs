@@ -9,11 +9,15 @@ namespace TaskManage.controls_event
         {
             if (e.KeyCode == Keys.Return) // Enter
             {
+                int year = 0;
+                int month = 0;
                 // 入力内容チェック処理
-                CheckDoneInput(form);
-
+                if (!CheckDoneInput(form, ref year, ref month))
+                {
+                    return;
+                }
                 // 登録処理
-                menu1_events.AddDone(form);
+                menu1_events.AddDone(form, year, month);
 
                 form.SuspendLayout();
                 form.menudone.SuspendLayout();
@@ -38,11 +42,16 @@ namespace TaskManage.controls_event
 
         public static void menudone_button_save_Click(object sender, EventArgs e, MainForm form)
         {
+            int year = 0;
+            int month = 0;
             // 入力内容チェック処理
-            CheckDoneInput(form);
+            if (!CheckDoneInput(form, ref year, ref month))
+            {
+                return;
+            }
 
             // 登録処理
-            menu1_events.AddDone(form);
+            menu1_events.AddDone(form, year, month);
 
             // 実績画面非表示処理
             form.menudone_table1_text.Text = "";
@@ -56,18 +65,18 @@ namespace TaskManage.controls_event
         #region private
 
         // チェック処理
-        private static bool CheckDoneInput(MainForm form)
+        private static bool CheckDoneInput(MainForm form, ref int year, ref int month)
         {
             // 実績名
             if (string.IsNullOrEmpty(form.menudone_table1_text.Text))
             {
                 return false;
             }
-            if (!int.TryParse(form.menudone_table2_text_h.Text, out int h)) // ミスあり
+            if (!int.TryParse(form.menudone_table2_text_h.Text, out int h))
             {
                 return false;
             }
-            if (!int.TryParse(form.menudone_table2_text_m.Text, out int m)) // ミスあり
+            if (!int.TryParse(form.menudone_table2_text_m.Text, out int m))
             {
                 return false;
             }
@@ -75,10 +84,24 @@ namespace TaskManage.controls_event
             {
                 return false;
             }
+            if (24 < int.Parse(form.menudone_table2_text_h.Text))
+            {
+                return false;
+            }
             if (int.Parse(form.menudone_table2_text_m.Text) >= 60)
             {
                 return false;
             }
+            if (int.Parse(form.menudone_table2_text_m.Text) < 0)
+            {
+                return false;
+            }
+            if (int.Parse(form.menudone_table2_text_h.Text) == 0 && int.Parse(form.menudone_table2_text_m.Text) == 0)
+            {
+                return false;
+            }
+            year = int.Parse(form.menudone_table2_text_h.Text);
+            month = int.Parse(form.menudone_table2_text_m.Text);
             return true;
         }
 

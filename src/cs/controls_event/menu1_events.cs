@@ -216,7 +216,7 @@ namespace TaskManage.controls_event
 
             ChangeDoneNum(form);
         }
-        public static void AddDone(MainForm form)
+        public static void AddDone(MainForm form, int year, int month)
         {
             if (Main.Common_Var.menu1_day_done <= Main.Common_Var.menu1_open_done) // 新規追加
             {
@@ -225,7 +225,7 @@ namespace TaskManage.controls_event
                 form.menu1_done_main.SuspendLayout();
 
                 form.menu1_done_main_panel_button_delete.Add(add_menu1_done_main_panel_button_delete(form));
-                form.menu1_done_main_panel_label_time.Add(add_menu1_done_main_panel_label_time(form, (int.Parse(form.menudone_table2_text_h.Text) * 60 + int.Parse(form.menudone_table2_text_m.Text)).ToString()));
+                form.menu1_done_main_panel_label_time.Add(add_menu1_done_main_panel_label_time(form, (year * 60 + month).ToString()));
                 form.menu1_done_main_panel_label_name.Add(add_menu1_done_main_panel_label_name(form, form.menudone_table1_text.Text));
                 form.menu1_done_main_panel.Add(add_menu1_done_main_panel(form));
                 form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
@@ -235,7 +235,7 @@ namespace TaskManage.controls_event
                 form.menu1_done_main.ResumeLayout();
 
                 Properties.Settings.Default.done_name.Add(form.menudone_table1_text.Text);
-                Properties.Settings.Default.done_time.Add((int.Parse(form.menudone_table2_text_h.Text) * 60 + int.Parse(form.menudone_table2_text_m.Text)).ToString());
+                Properties.Settings.Default.done_time.Add((year * 60 + month).ToString());
                 Properties.Settings.Default.done_memo.Add(form.menudone_table3_text.Text);
                 Properties.Settings.Default.done_day.Add(Main.Common_Var.menu1_done_year.ToString() + "/"
                     + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString());
@@ -252,7 +252,7 @@ namespace TaskManage.controls_event
             else // 既存更新
             {
                 form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = form.menudone_table1_text.Text;
-                form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = form.menudone_table2_text_h.Text + "h" + form.menudone_table2_text_m.Text + "m";
+                form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = year + "h" + month + "m";
                 form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
                 form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
 
@@ -266,7 +266,7 @@ namespace TaskManage.controls_event
                         if (cnt == Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done)
                         {
                             Properties.Settings.Default.done_name[i] = form.menudone_table1_text.Text;
-                            Properties.Settings.Default.done_time[i] = (int.Parse(form.menudone_table2_text_h.Text) * 60 + int.Parse(form.menudone_table2_text_m.Text)).ToString();
+                            Properties.Settings.Default.done_time[i] = (year * 60 + month).ToString();
                             Properties.Settings.Default.done_memo[i] = form.menudone_table3_text.Text;
                             Properties.Settings.Default.Save();
                             return;
@@ -345,6 +345,9 @@ namespace TaskManage.controls_event
             menu1_done_main_panel_label_name.Name = Main.Common_Var.menu1_day_done.ToString();
             menu1_done_main_panel_label_name.AutoSize = false;
             menu1_done_main_panel_label_name.Size = new Size(form.menu1_done_main.Width - 8
+                - form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done].Width
+                - form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done].Width, 14);
+            menu1_done_main_panel_label_name.MaximumSize = new Size(form.menu1_done_main.Width - 8
                 - form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done].Width
                 - form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done].Width, 14);
             menu1_done_main_panel_label_name.Text = text;
