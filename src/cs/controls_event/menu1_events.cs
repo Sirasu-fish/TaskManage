@@ -320,10 +320,9 @@ namespace TaskManage.controls_event
 
             menu1_done_main_panel_label_time.AutoSize = false;
             menu1_done_main_panel_label_time.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            menu1_done_main_panel_label_time.Size = new Size(78, 14);
+            menu1_done_main_panel_label_time.Size = new Size(form.menu1_done_main.Width, 14);
             menu1_done_main_panel_label_time.Location = new Point(form.menu1_done_main.Width - 78, 9);
             menu1_done_main_panel_label_time.Text = (int.Parse(time) / 60).ToString() + "h" + (int.Parse(time) % 60).ToString() + "m";
-            menu1_done_main_panel_label_time.AutoEllipsis = true;
             menu1_done_main_panel_label_time.Name = Main.Common_Var.menu1_day_done.ToString();
             menu1_done_main_panel_label_time.TextAlign = ContentAlignment.MiddleRight;
             menu1_done_main_panel_label_time.MouseEnter += new EventHandler(events.menu1_done_main_panel_label_time_MouseEnter);
@@ -344,14 +343,8 @@ namespace TaskManage.controls_event
             menu1_done_main_panel_label_name.Location = new Point(1, 9);
             menu1_done_main_panel_label_name.Name = Main.Common_Var.menu1_day_done.ToString();
             menu1_done_main_panel_label_name.AutoSize = false;
-            menu1_done_main_panel_label_name.Size = new Size(form.menu1_done_main.Width - 8
-                - form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done].Width
-                - form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done].Width, 14);
-            menu1_done_main_panel_label_name.MaximumSize = new Size(form.menu1_done_main.Width - 8
-                - form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done].Width
-                - form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done].Width, 14);
+            menu1_done_main_panel_label_name.Size = new Size(form.menu1_done_main.Width, 14);
             menu1_done_main_panel_label_name.Text = text;
-            menu1_done_main_panel_label_name.AutoEllipsis = true;
             menu1_done_main_panel_label_name.TextAlign = ContentAlignment.MiddleLeft;
             menu1_done_main_panel_label_name.MouseEnter += new EventHandler(events.menu1_done_main_panel_label_name_MouseEnter);
             menu1_done_main_panel_label_name.MouseLeave += new EventHandler(events.menu1_done_main_panel_label_name_MouseLeave);
@@ -369,9 +362,9 @@ namespace TaskManage.controls_event
 
             menu1_done_main_panel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             menu1_done_main_panel.BorderColor = Color.Black;
-            menu1_done_main_panel.Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
-            menu1_done_main_panel.Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
             menu1_done_main_panel.Controls.Add(form.menu1_done_main_panel_button_delete[Main.Common_Var.menu1_day_done]);
+            menu1_done_main_panel.Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
+            menu1_done_main_panel.Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
             menu1_done_main_panel.Location = new Point(done_x, (menu1_done_main_panel.Height + done_space) * Main.Common_Var.menu1_day_done);
             menu1_done_main_panel.Name = Main.Common_Var.menu1_day_done.ToString();
             menu1_done_main_panel.Size = new Size(form.menu1_done_main.Width - menu1_done_main_panel.Location.X * 2, done_height);
