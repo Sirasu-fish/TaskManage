@@ -37,11 +37,9 @@ namespace TaskManage
         public Button common_button_nextmenu;
         public Button common_button_prevmenu;
         public Button common_button_setting;
-        public Panel common_panel_setting;
+        public PanelEx common_panel_setting;
         public CheckBox common_panel_setting_table_check1;
-        public CheckBox common_panel_setting_table_check2;
         public Label common_panel_setting_table_label1;
-        public Label common_panel_setting_table_label2;
         public TableLayoutPanel common_panel_setting_table_setting;
 
         // ■■■■■■■■■■■■■■■■■■■■■　menu1　■■■■■■■■■■■■■■■■■■■■■
@@ -103,6 +101,7 @@ namespace TaskManage
         public System.Collections.Generic.List<Button> menu2_2_panel_main_panel_table_memo_panel_top_button_close;
         public System.Collections.Generic.List<Button> menu2_2_panel_main_panel_table_memo_panel_top_button_minmax;
         public System.Collections.Generic.List<Button> menu2_2_panel_main_panel_table_memo_panel_top_button_save;
+        public System.Collections.Generic.List<Button> menu2_2_panel_main_panel_table_memo_panel_top_button_wrap;
         public System.Collections.Generic.List<TextBox> menu2_2_panel_main_panel_table_memo_panel_top_text;
 
         // ■■■■■■■■■■■■■■■■■■■■■　menudone　■■■■■■■■■■■■■■■■■■■■■
@@ -113,14 +112,14 @@ namespace TaskManage
         public Label menudone_table1_label;
         public TextBox menudone_table1_text;
         public TableLayoutPanel menudone_table2;
+        public TextBox menudone_table2_text_h;
+        public TextBox menudone_table2_text_m;
         public Label menudone_table2_label;
-        public TextBox menudone_table2_text;
+        public Label menudone_table2_label_h;
+        public Label menudone_table2_label_m;
         public TableLayoutPanel menudone_table3;
-        public TextBox menudone_table3_text;
         public Label menudone_table3_label;
-        public TableLayoutPanel menudone_table4;
-        public Label menudone_table4_label;
-        public TextBox menudone_table4_text;
+        public TextBox menudone_table3_text;
 
         // ■■■■■■■■■■■■■■■■■■■■■　menutask　■■■■■■■■■■■■■■■■■■■■■
         public PanelTop menutask;
@@ -161,11 +160,9 @@ namespace TaskManage
             this.common_button_prevmenu = new System.Windows.Forms.Button();
             this.common_button_setting = new System.Windows.Forms.Button();
             this.common_button_nextmenu = new System.Windows.Forms.Button();
-            this.common_panel_setting = new System.Windows.Forms.Panel();
+            this.common_panel_setting = new TaskManage.PanelEx();
             this.common_panel_setting_table_setting = new System.Windows.Forms.TableLayoutPanel();
             this.common_panel_setting_table_check1 = new System.Windows.Forms.CheckBox();
-            this.common_panel_setting_table_check2 = new System.Windows.Forms.CheckBox();
-            this.common_panel_setting_table_label2 = new System.Windows.Forms.Label();
             this.common_panel_setting_table_label1 = new System.Windows.Forms.Label();
 
             this.menu1 = new System.Windows.Forms.Panel();
@@ -234,6 +231,7 @@ namespace TaskManage
             this.menu2_2_panel_main_panel_table_memo_panel_top_button_close = new System.Collections.Generic.List<Button>();
             this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax =new System.Collections.Generic.List<Button>();
             this.menu2_2_panel_main_panel_table_memo_panel_top_button_save = new System.Collections.Generic.List<Button>();
+            this.menu2_2_panel_main_panel_table_memo_panel_top_button_wrap = new System.Collections.Generic.List<Button>();
             this.menu2_2_panel_main_panel_table_memo_panel_top_text = new System.Collections.Generic.List<TextBox>();
 
             this.tooltip = new System.Windows.Forms.ToolTip(this.components);
@@ -249,16 +247,16 @@ namespace TaskManage
             this.menutask_table1_text = new System.Windows.Forms.TextBox();
 
             this.menudone = new TaskManage.PanelTop();
-            this.menudone_table4 = new System.Windows.Forms.TableLayoutPanel();
-            this.menudone_table4_label = new System.Windows.Forms.Label();
-            this.menudone_table4_text = new System.Windows.Forms.TextBox();
-            this.menudone_button_close = new System.Windows.Forms.Button();
             this.menudone_table3 = new System.Windows.Forms.TableLayoutPanel();
             this.menudone_table3_label = new System.Windows.Forms.Label();
             this.menudone_table3_text = new System.Windows.Forms.TextBox();
+            this.menudone_button_close = new System.Windows.Forms.Button();
             this.menudone_table2 = new System.Windows.Forms.TableLayoutPanel();
             this.menudone_table2_label = new System.Windows.Forms.Label();
-            this.menudone_table2_text = new System.Windows.Forms.TextBox();
+            this.menudone_table2_label_h = new System.Windows.Forms.Label();
+            this.menudone_table2_label_m = new System.Windows.Forms.Label();
+            this.menudone_table2_text_h = new System.Windows.Forms.TextBox();
+            this.menudone_table2_text_m = new System.Windows.Forms.TextBox();
             this.menudone_table1 = new System.Windows.Forms.TableLayoutPanel();
             this.menudone_table1_label = new System.Windows.Forms.Label();
             this.menudone_table1_text = new System.Windows.Forms.TextBox();
@@ -300,7 +298,6 @@ namespace TaskManage
             this.menutask_table1.SuspendLayout();
 
             this.menudone.SuspendLayout();
-            this.menudone_table4.SuspendLayout();
             this.menudone_table3.SuspendLayout();
             this.menudone_table2.SuspendLayout();
             this.menudone_table1.SuspendLayout();
@@ -323,7 +320,6 @@ namespace TaskManage
             this.window.BackColor = Main.Common_Const.color3;
             this.window.Controls.Add(this.window_panel);
             this.window.Dock = System.Windows.Forms.DockStyle.Fill;
-
             //
             // window_panel
             //
@@ -331,10 +327,10 @@ namespace TaskManage
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.window_panel.Controls.Add(this.common_panel_setting);
-            this.window_panel.Controls.Add(this.menudone);
             this.window_panel.Controls.Add(this.menutask);
             this.window_panel.Controls.Add(this.menu2);
             this.window_panel.Controls.Add(this.menu1);
+            this.window_panel.Controls.Add(this.menudone);
             this.window_panel.Controls.Add(this.common);
             this.window_panel.Location = new System.Drawing.Point(1, 1);
             this.window_panel.Margin = new System.Windows.Forms.Padding(0);
@@ -373,6 +369,7 @@ namespace TaskManage
             // common_button_setting
             // 
             this.common_button_setting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("common_button_setting.BackgroundImage")));
+            this.common_button_setting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.common_button_setting.FlatAppearance.BorderSize = 0;
             this.common_button_setting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.common_button_setting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -446,10 +443,11 @@ namespace TaskManage
             // 
             // common_panel_setting
             // 
+            this.common_panel_setting.BorderColor = Color.Black;
             this.common_panel_setting.BackColor = System.Drawing.Color.Transparent;
             this.common_panel_setting.Controls.Add(this.common_panel_setting_table_setting);
-            this.common_panel_setting.Location = new System.Drawing.Point(3, 38);
-            this.common_panel_setting.Size = new System.Drawing.Size(150, 96);
+            this.common_panel_setting.Location = new System.Drawing.Point(2, 35);
+            this.common_panel_setting.Size = new System.Drawing.Size(120, 32);
             this.common_panel_setting.Visible = false;
             // 
             // common_panel_setting_table_setting
@@ -459,14 +457,11 @@ namespace TaskManage
             this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_label1, 0, 0);
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_label2, 0, 1);
             this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_check1, 1, 0);
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_check2, 1, 1);
-            this.common_panel_setting_table_setting.Location = new System.Drawing.Point(4, 3);
-            this.common_panel_setting_table_setting.RowCount = 2;
-            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.common_panel_setting_table_setting.Size = new System.Drawing.Size(142, 90);
+            this.common_panel_setting_table_setting.Location = new System.Drawing.Point(1, 1);
+            this.common_panel_setting_table_setting.RowCount = 1;
+            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.common_panel_setting_table_setting.Size = new System.Drawing.Size(118, 30);
             // 
             // common_panel_setting_table_label1
             // 
@@ -474,38 +469,23 @@ namespace TaskManage
             this.common_panel_setting_table_label1.Text = "ダークモード";
             this.common_panel_setting_table_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // common_panel_setting_table_label2
-            // 
-            this.common_panel_setting_table_label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.common_panel_setting_table_label2.Text = "右端折り返し";
-            this.common_panel_setting_table_label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // common_panel_setting_table_check1
             // 
             this.common_panel_setting_table_check1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.common_panel_setting_table_check1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.common_panel_setting_table_check1.UseVisualStyleBackColor = true;
             this.common_panel_setting_table_check1.CheckedChanged += new System.EventHandler(this.common_panel_setting_table_check1_CheckedChanged);
-            // 
-            // common_panel_setting_table_check2
-            // 
-            this.common_panel_setting_table_check2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.common_panel_setting_table_check2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.common_panel_setting_table_check2.UseVisualStyleBackColor = true;
 
 
             // 
             // menu1
             // 
             this.menu1.AutoScroll = true;
-            this.menu1.BackColor = System.Drawing.Color.Transparent;
             this.menu1.Controls.Add(this.menu1_panel_yearmonth);
             this.menu1.Controls.Add(this.menu1_table_calender);
             this.menu1.Controls.Add(this.menu1_done_top);
             this.menu1.Controls.Add(this.menu1_done_main);
-            this.menu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu1.Size = new System.Drawing.Size(this.window_panel.Width, 1000);
-
+            this.menu1.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
             // menu1_panel_yearmonth_button_prevmonth
             // 
@@ -550,7 +530,7 @@ namespace TaskManage
             // 
             // menu1_panel_yearmonth
             // 
-            this.menu1_panel_yearmonth.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top));
+            this.menu1_panel_yearmonth.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.menu1_panel_yearmonth.Controls.Add(this.menu1_panel_yearmonth_button_nextmonth);
             this.menu1_panel_yearmonth.Controls.Add(this.menu1_panel_yearmonth_combo_month);
             this.menu1_panel_yearmonth.Controls.Add(this.menu1_panel_yearmonth_combo_year);
@@ -558,7 +538,7 @@ namespace TaskManage
             this.menu1_panel_yearmonth.Size = new System.Drawing.Size(this.menu1_panel_yearmonth_button_prevmonth.Width
                 + this.menu1_panel_yearmonth_combo_year.Width + this.menu1_panel_yearmonth_combo_month.Width
                 + this.menu1_panel_yearmonth_button_nextmonth.Width + 30, common_button_height);
-            this.menu1_panel_yearmonth.Location = new System.Drawing.Point(this.window_panel.Width / 2
+            this.menu1_panel_yearmonth.Location = new System.Drawing.Point(this.menu1.Width / 2
                 - this.menu1_panel_yearmonth.Width / 2 + 1, 0);
 
             // 
@@ -588,7 +568,7 @@ namespace TaskManage
             {
                 this.menu1_table_calender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             }
-            this.menu1_table_calender.Size = new System.Drawing.Size(this.window_panel.Width - 20, 400);
+            this.menu1_table_calender.Size = new System.Drawing.Size(this.menu1.Width - 20, 400);
             this.menu1_table_calender.Margin = new System.Windows.Forms.Padding(0);
             this.menu1_table_calender.Padding = new System.Windows.Forms.Padding(0);
 
@@ -608,7 +588,6 @@ namespace TaskManage
                 this.menu1_table_calender_panel_day[i].MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_MouseClick);
                 this.menu1_table_calender_panel_day[i].MouseEnter += new System.EventHandler(this.menu1_table_calender_panel_day_MouseEnter);
                 this.menu1_table_calender_panel_day[i].MouseLeave += new System.EventHandler(this.menu1_table_calender_panel_day_MouseLeave);
-                this.menu1_table_calender_panel_day[i].MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_MouseDoubleClick);
                 //
                 // menu1_table_calender_panel_day_label_day
                 //
@@ -624,7 +603,6 @@ namespace TaskManage
                 this.menu1_table_calender_panel_day_label_day[i].MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_label_day_MouseClick);
                 this.menu1_table_calender_panel_day_label_day[i].MouseEnter += new System.EventHandler(this.menu1_table_calender_panel_day_label_day_MouseEnter);
                 this.menu1_table_calender_panel_day_label_day[i].MouseLeave += new System.EventHandler(this.menu1_table_calender_panel_day_label_day_MouseLeave);
-                this.menu1_table_calender_panel_day_label_day[i].MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_label_day_MouseDoubleClick);
             }
             for (int i = 0; i < 7; i++)
             {
@@ -647,7 +625,7 @@ namespace TaskManage
             this.menu1_done_top.Controls.Add(this.menu1_done_top_button_add);
             this.menu1_done_top.Margin = new System.Windows.Forms.Padding(0);
             this.menu1_done_top.Location = new System.Drawing.Point(1, this.menu1_table_calender.Location.Y + this.menu1_table_calender.Height);
-            this.menu1_done_top.Size = new System.Drawing.Size(this.window_panel.Width + 19, common_button_height + 1);
+            this.menu1_done_top.Size = new System.Drawing.Size(this.menu1.Width + 19, common_button_height + 1);
             //
             // menu1_done_top_prevday
             //
@@ -688,8 +666,8 @@ namespace TaskManage
             this.menu1_done_top_label_hour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.menu1_done_top_label_hour.BackColor = System.Drawing.Color.Transparent;
             this.menu1_done_top_label_hour.Margin = new System.Windows.Forms.Padding(0);
-            this.menu1_done_top_label_hour.Location = new System.Drawing.Point(this.menu1_done_top_button_add.Location.X - this.menu1_done_top_label_hour.Width + 19, 1);
-            this.menu1_done_top_label_hour.Size = new System.Drawing.Size(78, 0);
+            this.menu1_done_top_label_hour.Location = new System.Drawing.Point(this.menu1.Width - 32 - 48, 1);
+            this.menu1_done_top_label_hour.Size = new System.Drawing.Size(48, 32);
             this.menu1_done_top_label_hour.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             //
             // menu1_done_top_button_add
@@ -701,8 +679,8 @@ namespace TaskManage
             this.menu1_done_top_button_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.menu1_done_top_button_add.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menu1_done_top_button_add.Image = ((System.Drawing.Image)(resources.GetObject("menu2_1_panel_top_button_add.Image")));
-            this.menu1_done_top_button_add.Location = new System.Drawing.Point(this.window_panel.Width - this.menu1_done_top_button_add.Width + 19, 1);
             this.menu1_done_top_button_add.Size = new System.Drawing.Size(32, 32);
+            this.menu1_done_top_button_add.Location = new System.Drawing.Point(this.menu1.Width - this.menu1_done_top_button_add.Width, 1);
             this.menu1_done_top_button_add.Margin = new System.Windows.Forms.Padding(0);
             this.tooltip.SetToolTip(this.menu1_done_top_button_add, "追加");
             this.menu1_done_top_button_add.UseVisualStyleBackColor = false;
@@ -715,7 +693,7 @@ namespace TaskManage
             this.menu1_done_main.BackColor = System.Drawing.Color.Transparent;
             this.menu1_done_main.Location = new System.Drawing.Point(1, this.menu1_done_top.Location.Y + this.menu1_done_top.Height);
             this.menu1_done_main.Margin = new System.Windows.Forms.Padding(0);
-            this.menu1_done_main.Size = new System.Drawing.Size(150, 32);
+            this.menu1_done_main.Size = new System.Drawing.Size(this.menu1.Width, 32);
 
             // 
             // menu2
@@ -724,7 +702,6 @@ namespace TaskManage
             this.menu2.Controls.Add(this.menu2_2);
             this.menu2.Controls.Add(this.menu2_1);
             this.menu2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menu2.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
 
             // 
             // menu2_1
@@ -1008,6 +985,7 @@ namespace TaskManage
             this.menutask_table2_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menutask_table2_text.Margin = new System.Windows.Forms.Padding(0);
             this.menutask_table2_text.Multiline = true;
+            this.menutask_table2_text.ScrollBars = ScrollBars.Both;
             // 
             // menutask_button_save
             // 
@@ -1065,86 +1043,86 @@ namespace TaskManage
             this.menudone_table1_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menudone_table1_text.Font = new System.Drawing.Font("Yu Gothic UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menudone_table1_text.Margin = new System.Windows.Forms.Padding(0);
+            this.menudone_table1_text.KeyDown += new KeyEventHandler(this.menudone_table1_text_KeyDown);
             // 
             // menudone_table2
             // 
             this.menudone_table2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menudone_table2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menudone_table2.ColumnCount = 2;
+            this.menudone_table2.ColumnCount = 5;
             this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.8882F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.menudone_table2.Controls.Add(this.menudone_table2_label, 0, 0);
-            this.menudone_table2.Controls.Add(this.menudone_table2_text, 1, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_text_h, 1, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_label_h, 2, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_text_m, 3, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_label_m, 4, 0);
             this.menudone_table2.Location = new System.Drawing.Point(0, this.menudone_table1.Location.Y + this.menudone_table1.Height + 4);
             this.menudone_table2.RowCount = 1;
             this.menudone_table2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menudone_table2.Size = new System.Drawing.Size(this.window_panel.Width * 3 / 4, 26);
+            this.menudone_table2.Size = new System.Drawing.Size(this.window_panel.Width, 26);
             // 
             // menudone_table2_label
             // 
             this.menudone_table2_label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menudone_table2_label.Text = "進捗";
+            this.menudone_table2_label.Text = "時間";
             this.menudone_table2_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // menudone_table2_text
+            // menudone_table2_label_h
             // 
-            this.menudone_table2_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menudone_table2_text.Margin = new System.Windows.Forms.Padding(0);
+            this.menudone_table2_label_h.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_label_h.Text = "h";
+            this.menudone_table2_label_h.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menudone_table2_label_m
+            // 
+            this.menudone_table2_label_m.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_label_m.Text = "m";
+            this.menudone_table2_label_m.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menudone_table2_text_h
+            // 
+            this.menudone_table2_text_h.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_text_h.Margin = new System.Windows.Forms.Padding(0);
+            // 
+            // menudone_table2_text_m
+            // 
+            this.menudone_table2_text_m.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_text_m.Margin = new System.Windows.Forms.Padding(0);
             // 
             // menudone_table3
             // 
-            this.menudone_table3.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
+            this.menudone_table3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.menudone_table3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menudone_table3.ColumnCount = 2;
-            this.menudone_table3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.menudone_table3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.8882F));
+            this.menudone_table3.ColumnCount = 1;
+            this.menudone_table3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.menudone_table3.Controls.Add(this.menudone_table3_label, 0, 0);
-            this.menudone_table3.Controls.Add(this.menudone_table3_text, 1, 0);
-            this.menudone_table3.Location = new System.Drawing.Point(this.window_panel.Width * 3 / 4 + 4, this.menudone_table1.Location.Y + this.menudone_table1.Height + 4);
-            this.menudone_table3.RowCount = 1;
-            this.menudone_table3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menudone_table3.Size = new System.Drawing.Size(this.window_panel.Width * 1 / 4 - 4, 26);
+            this.menudone_table3.Controls.Add(this.menudone_table3_text, 0, 1);
+            this.menudone_table3.Location = new System.Drawing.Point(0, this.menudone_table2.Location.Y + this.menudone_table2.Height + 4);
+            this.menudone_table3.RowCount = 2;
+            this.menudone_table3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.menudone_table3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.95652F));
+            this.menudone_table3.Size = new System.Drawing.Size(this.window_panel.Width, 100);
             // 
             // menudone_table3_label
             // 
             this.menudone_table3_label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menudone_table3_label.Text = "時間";
-            this.menudone_table3_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.menudone_table3_label.Text = "備考";
+            this.menudone_table3_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // menudone_table3_text
             // 
+            this.menudone_table3_text.AcceptsReturn = true;
+            this.menudone_table3_text.AcceptsTab = true;
             this.menudone_table3_text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menudone_table3_text.Margin = new System.Windows.Forms.Padding(0);
-            // 
-            // menudone_table4
-            // 
-            this.menudone_table4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.menudone_table4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menudone_table4.ColumnCount = 1;
-            this.menudone_table4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menudone_table4.Controls.Add(this.menudone_table4_label, 0, 0);
-            this.menudone_table4.Controls.Add(this.menudone_table4_text, 0, 1);
-            this.menudone_table4.Location = new System.Drawing.Point(0, this.menudone_table2.Location.Y + this.menudone_table2.Height + 4);
-            this.menudone_table4.RowCount = 2;
-            this.menudone_table4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.menudone_table4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.95652F));
-            this.menudone_table4.Size = new System.Drawing.Size(this.window_panel.Width, 100);
-            // 
-            // menudone_table4_label
-            // 
-            this.menudone_table4_label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menudone_table4_label.Text = "備考";
-            this.menudone_table4_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // menudone_table4_text
-            // 
-            this.menudone_table4_text.AcceptsReturn = true;
-            this.menudone_table4_text.AcceptsTab = true;
-            this.menudone_table4_text.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menudone_table4_text.Margin = new System.Windows.Forms.Padding(0);
-            this.menudone_table4_text.Multiline = true;
+            this.menudone_table3_text.Multiline = true;
+            this.menudone_table3_text.ScrollBars = ScrollBars.Both;
             // 
             // menudone_button_save
             // 
@@ -1157,14 +1135,13 @@ namespace TaskManage
             // menudone
             // 
             this.menudone.BorderColor = Main.Common_Const.color2;
-            this.menudone.Controls.Add(this.menudone_table4);
-            this.menudone.Controls.Add(this.menudone_button_close);
             this.menudone.Controls.Add(this.menudone_table3);
+            this.menudone.Controls.Add(this.menudone_button_close);
             this.menudone.Controls.Add(this.menudone_table2);
             this.menudone.Controls.Add(this.menudone_table1);
             this.menudone.Controls.Add(this.menudone_button_save);
             this.menudone.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menudone.Size = new System.Drawing.Size(this.window_panel.Width, this.menudone_table1.Height + this.menudone_table2.Height + this.menudone_table4.Height 
+            this.menudone.Size = new System.Drawing.Size(this.window_panel.Width, this.menudone_table1.Height + this.menudone_table2.Height + this.menudone_table3.Height 
                 + this.menudone_button_save.Height + 16);
 
             // レイアウトロジック再開 子コントロールを持つコントロール全て
@@ -1207,8 +1184,6 @@ namespace TaskManage
             this.menutask_table1.PerformLayout();
 
             this.menudone.ResumeLayout(false);
-            this.menudone_table4.ResumeLayout(false);
-            this.menudone_table4.PerformLayout();
             this.menudone_table3.ResumeLayout(false);
             this.menudone_table3.PerformLayout();
             this.menudone_table2.ResumeLayout(false);

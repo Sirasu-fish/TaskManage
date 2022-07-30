@@ -6,69 +6,93 @@ namespace TaskManage.controls_event
 {
     class common_events
     {
+        // ********** form event **********
+        #region form event
         // ダブルクリック時の動作
         public static void common_MouseDoubleClick(object sender, MouseEventArgs e, MainForm form)
         {
-            if (form.WindowState == FormWindowState.Maximized)
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            if (form.WindowState == FormWindowState.Maximized) // 最大化されている時
             {
-                form.WindowState = FormWindowState.Normal;
+                form.WindowState = FormWindowState.Normal; // 通常化
+                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_max.Image"))); ;
             }
             else
             {
-                form.WindowState = FormWindowState.Maximized;
+                form.WindowState = FormWindowState.Maximized; // 最大化
+                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_dis_max.Image")));
             }
         }
 
         // 最小化ボタン
         public static void common_button_min_MouseClick(object sender, MouseEventArgs e, MainForm form)
         {
-            form.WindowState = FormWindowState.Minimized;
+            form.WindowState = FormWindowState.Minimized; // 最小化
         }
 
         // 最大化ボタン
         public static void common_button_max_MouseClick(object sender, MouseEventArgs e, MainForm form)
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            if (form.WindowState == FormWindowState.Maximized)
+            if (form.WindowState == FormWindowState.Maximized) // 最大化されている時
             {
-                form.WindowState = FormWindowState.Normal;
+                form.WindowState = FormWindowState.Normal; // 通常化
                 form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_max.Image"))); ;
             }
             else
             {
-                form.WindowState = FormWindowState.Maximized;
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_min.Image")));
+                form.WindowState = FormWindowState.Maximized; // 最大化
+                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_dis_max.Image")));
             }
         }
 
         // 閉じるボタン
         public static void common_button_close_MouseClick(object sender, MouseEventArgs e, MainForm form)
         {
-            form.Close();
+            // 保存されていないメモの確認
+            for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+            {
+                if (!Main.Common_Var.memo_save[i])
+                {
+                    if (!menu2_2_events.FormCloseMemo(form, i))
+                    {
+                        return;
+                    }
+                }
+            }
+
+            Properties.Settings.Default.form_x = form.Width;
+            Properties.Settings.Default.form_y = form.Height;
+            for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+            {
+                Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
+            }
+            Properties.Settings.Default.Save();
+            form.Close(); // formを閉じる
         }
 
         // 閉じるボタンホバー時の動作
         public static void common_button_close_MouseEnter(object sender, EventArgs e, MainForm form)
         {
-            form.common_button_close.BackColor = Color.FromArgb(50, 255, 128, 128);
+            form.common_button_close.BackColor = Color.FromArgb(50, 255, 128, 128); // 閉じるボタンの背景色を赤(255, 128, 128)にする
         }
 
         // 閉じるボタンLeave時の動作
         public static void common_button_close_MouseLeave(object sender, EventArgs e, MainForm form)
         {
-            form.common_button_close.BackColor = Color.Transparent;
+            form.common_button_close.BackColor = Color.Transparent; // 元の色に戻す
         }
 
         // 設定ボタン押下
         public static void common_button_setting_Click(object sender, EventArgs e, MainForm form)
         {
-            if (form.common_panel_setting.Visible == false)
+            if (form.common_panel_setting.Visible == false) // 設定画面が非表示の時
             {
-                form.common_panel_setting.Visible = true;
+                form.common_panel_setting.Visible = true; // 設定画面表示
             }
             else
             {
-                form.common_panel_setting.Visible = false;
+                form.common_panel_setting.Visible = false; // 設定画面非表示
             }
         }
 
@@ -89,8 +113,6 @@ namespace TaskManage.controls_event
         // 前メニューへ移動する時の動作
         public static void common_button_prevmenu_Click(object sender, EventArgs e, MainForm form)
         {
-
-            form.common_panel_setting.Visible = false;
             Main.Common_Var.menu -= 1;
             ChangeMenu(form);
         }
@@ -98,13 +120,15 @@ namespace TaskManage.controls_event
         // 次メニューへ移動する時の動作
         public static void common_button_nextmenu_Click(object sender, EventArgs e, MainForm form)
         {
-            form.common_panel_setting.Visible = false;
             Main.Common_Var.menu += 1;
             ChangeMenu(form);
         }
+        #endregion form event
+        // ********** form event **********
 
-        // private
-        #region private
+
+        // ********** public **********
+        #region public
 
         // 表示モード切り替え
         public static void ChangeDarkMode(MainForm form)
@@ -165,18 +189,28 @@ namespace TaskManage.controls_event
             switch (Main.Common_Var.menu)
             {
                 case 1: //メイン画面
+                    form.common_panel_setting.Visible = false;
                     form.menu1.Visible = true;
                     form.menu2.Visible = false;
                     form.menutask.Visible = false;
+                    for (int i = 0; i < Main.Common_Var.menu2_1_task; i++) // タスクの背景色を元に戻す
+                    {
+                        form.menu2_1_panel_main_panel[i].BackColor = Color.Transparent;
+                    }
                     form.menudone.Visible = false;
                     form.common_button_prevmenu.Visible = false;
                     form.common_button_nextmenu.Visible = true;
                     break;
                 case 2: //タスク画面
+                    form.common_panel_setting.Visible = false;
                     form.menu1.Visible = false;
                     form.menu2.Visible = true;
                     form.menutask.Visible = false;
                     form.menudone.Visible = false;
+                    for (int i = 0; i < Main.Common_Var.menu1_day_done; i++) // 実績の背景色を元に戻す
+                    {
+                        form.menu1_done_main_panel[i].BackColor = Color.Transparent;
+                    }
                     form.common_button_prevmenu.Visible = true;
                     form.common_button_nextmenu.Visible = false;
                     break;
@@ -185,108 +219,112 @@ namespace TaskManage.controls_event
                     ChangeMenu(form);
                     break;
             }
+            Properties.Settings.Default.Save(); // 開いているメニューを保存
         }
 
         // カレンダーに日にちをセット
         public static void Set_Day(MainForm form, int year, int month)
         {
-            DateTime today = DateTime.Now;
-            int[] days = new int[42];
-            int sub_day = 0;
-            DateTime firstday = new DateTime(year, month, 1);
-            int today_int = -1;
-            Get_Calender(year, month, ref today, ref days, ref sub_day, ref firstday, ref today_int);
+            DayOfWeek firstdate = (new DateTime(year, month, 1)).DayOfWeek; // 前月と当月の判定用
+            int[] days = new int[42]; // 日付のための箱
+            int sub_day = 0; // 次月と当月の判定用
+            int today_int = -1; // 現在日の判定用
 
-            DayOfWeek firstdate = firstday.DayOfWeek;
+            Get_Calender(year, month, ref days, ref sub_day, ref today_int); // 表示内容を取得
 
-            Color today_color = Color.FromArgb(255, 128, 0);
-            Color panel_color = Main.Common_Var.submain_color;
-            Color main_text_color = Main.Common_Var.sub_color;
-            Color sub_text_color = Main.Common_Var.subsub_color;
-
-            Font main_font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            Font sub_font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Font main_font = new Font("Yu Gothic UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point); // 共通変数にする?
+            Font sub_font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
 
             for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
             {
-                form.menu1_table_calender_panel_day_label_day[i].Text = days[i].ToString();　// 日付をセットする
-            }
+                if ((int)firstdate - 1 < i && i < sub_day) // 当月
+                {
+                    form.menu1_table_calender_panel_day_label_day[i].Text = days[i].ToString();　// 日付
+                    form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent; // ラベル背景色
+                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color2; // パネル背景色
+                    form.menu1_table_calender_panel_day_label_day[i].Font = main_font; // フォント
+                }
+                else if (sub_day <= i) // 次月
+                {
+                    int nextmonth = 0;
+                    if (month == 12)
+                    {
+                        nextmonth = 1;
+                    }
+                    else
+                    {
+                        nextmonth = month + 1;
+                    }
+                    form.menu1_table_calender_panel_day_label_day[i].Text = nextmonth.ToString() + "/" + days[i].ToString(); // 日付 次月の場合は月の表示も追加
+                    form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent; // ラベル背景色
+                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5; // パネル背景色
+                    form.menu1_table_calender_panel_day_label_day[i].Font = sub_font; // フォント
+                }
+                else if (i <= (int)firstdate - 1) // 前月
+                {
+                    int prevmonth = 0;
+                    if (month == 1)
+                    {
+                        prevmonth = 12;
+                    }
+                    else
+                    {
+                        prevmonth = month - 1;
+                    }
+                    form.menu1_table_calender_panel_day_label_day[i].Text = prevmonth.ToString() + "/" + days[i].ToString(); // 日付 前月の場合は月の表示も追加
+                    form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent; // ラベル背景色
+                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5; // パネル背景色
+                    form.menu1_table_calender_panel_day_label_day[i].Font = sub_font; // フォント
+                }
 
-            for (int i = 0; i < form.menu1_table_calender_panel_day_label_day.Length; i++)
-            {
-                //form.menu1_table_calender_panel_day_label_day[i].ForeColor = main_text_color; // カレンダーの全ての文字色を変更する
-                form.menu1_table_calender_panel_day_label_day[i].Font = main_font; // カレンダーの全てのフォントを変更する
-            }
-
-            // 前の月の文字色、フォントを変更する
-            for (int i = 0; i <= (int)firstdate - 1; i++)
-            {
-                form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5;
-                form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
-            }
-
-            // 次の月の文字色、フォントを変更する
-            for (int i = 41; i >= sub_day; i--)
-            {
-                form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5;
-                form.menu1_table_calender_panel_day_label_day[i].Font = sub_font;
-            }
-
-            // カレンダーの日にちの背景色を変更
-            for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
-            {
-                //form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Var.submain_color;
-            }
-
-            // 現在日がカレンダーに存在する場合はパネルの色を変更する
-            if (0 <= today_int && today_int <= 41)
-            {
-                form.menu1_table_calender_panel_day_label_day[today_int].BackColor = Main.Common_Const.color4;//today_color;
+                if (i == today_int) // 現在日がカレンダーに存在する場合はパネルの色を変更する
+                {
+                    form.menu1_table_calender_panel_day_label_day[today_int].BackColor = Main.Common_Const.color4; // ラベル背景色 黄色
+                }
             }
         }
 
         // カレンダーの日にちと今月ではない日を取得
-        public static void Get_Calender(int year, int month, ref DateTime today, ref int[] days, ref int sub_day, ref DateTime firstday, ref int today_int)
+        public static void Get_Calender(int year, int month, ref int[] days, ref int sub_day, ref int today_int)
         {
-            today = DateTime.Now;
+            DateTime today = DateTime.Now;
             today_int = -1;
 
-            firstday = new DateTime(year, month, 1);
-            DayOfWeek firstdate = firstday.DayOfWeek;
-            days = new int[42];
+            DateTime firstday = new DateTime(year, month, 1);
+            DayOfWeek firstdate = firstday.DayOfWeek; // 前月と当月の判定用
 
             sub_day = 0;
             Boolean subday_flg = false;
 
             DateTime inputday = firstday.AddDays(-1);
 
-            for (int i = (int)firstdate - 1; i >= 0; i--)
+            for (int i = (int)firstdate - 1; i >= 0; i--) // 前月
             {
-                days[i] = inputday.Day;
+                days[i] = inputday.Day; // 日付を保存
                 if (today.Year == inputday.Year && today.Month == inputday.Month && today.Day == inputday.Day)
                 {
-                    today_int = i;
+                    today_int = i; // 現在日がある場合は保存
                 }
-                inputday = inputday.AddDays(-1);
+                inputday = inputday.AddDays(-1); // 日付を1日前に変更する
             }
             inputday = firstday;
-            for (int i = (int)firstdate; i <= 41; i++)
+            for (int i = (int)firstdate; i <= 41; i++) // 当月 次月
             {
-                days[i] = inputday.Day;
+                days[i] = inputday.Day; // 日付を保存
                 if (today.Year == inputday.Year && today.Month == inputday.Month && today.Day == inputday.Day)
                 {
-                    today_int = i;
+                    today_int = i; // 現在日がある場合は保存
                 }
                 if (month != inputday.Month && subday_flg == false)
                 {
-                    sub_day = i;
+                    sub_day = i; // 当月と次月の判定用変数に保存
                     subday_flg = true;
                 }
-                inputday = inputday.AddDays(1);
+                inputday = inputday.AddDays(1); // 日付を1日後に変更する
             }
         }
 
-        #endregion private
-
+        #endregion public
+        // ********** public **********
     }
 }

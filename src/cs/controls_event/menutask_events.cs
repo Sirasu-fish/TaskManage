@@ -7,7 +7,7 @@ namespace TaskManage.controls_event
     {
         public static void menutask_table1_text_KeyDown(object sender, KeyEventArgs e, MainForm form)
         {
-            if (e.Control && e.KeyCode == Keys.S) // Ctrl + S
+            if (e.KeyCode == Keys.Return) // Enter
             {
                 // 入力内容チェック処理
                 if (string.IsNullOrEmpty(form.menutask_table1_text.Text))

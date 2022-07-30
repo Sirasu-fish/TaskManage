@@ -5,9 +5,6 @@
     <Setting Name="common_mode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="menu2_memowrap" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="menu2_open1" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -26,18 +23,6 @@
   &lt;string&gt;1&lt;/string&gt;
   &lt;string&gt;2&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
-    </Setting>
-    <Setting Name="dark" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">40, 40, 40</Value>
-    </Setting>
-    <Setting Name="white" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">240, 240, 240</Value>
-    </Setting>
-    <Setting Name="subdark" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">80, 80, 80</Value>
-    </Setting>
-    <Setting Name="subwhite" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">Gainsboro</Value>
     </Setting>
     <Setting Name="menu" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
@@ -60,13 +45,16 @@
     <Setting Name="done_memo" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="done_prog" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="done_time" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="done_day" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="first_start" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="memo_wrap" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

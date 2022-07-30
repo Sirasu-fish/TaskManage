@@ -12,17 +12,19 @@ namespace TaskManage.Main
         private static Color submain_color_ = Color.FromArgb(80, 80, 80); //ダークモード サブ色
         private static Color subsub_color_ = Color.FromArgb(220, 220, 220); //ライトモード サブ色
 
-        private static int menu1_done_year_ = 0;
-        private static int menu1_done_month_ = 0;
-        private static int menu1_done_day_ = 0;
-        private static int menu1_done_ = 0;
-        private static int menu1_open_done_ = 0;
-        private static int menu1_delete_done_ = 0;
+        private static int menu1_done_year_ = 0; //開いている実績の年
+        private static int menu1_done_month_ = 0; //開いている実績の月
+        private static int menu1_done_day_ = 0; //開いている実績の日
+        private static int menu1_done_ = 0; //実績数(全合計)
+        private static int menu1_day_done_ = 0; //実績数(日)
+        private static int menu1_open_done_ = 0; //開いている実績の番号
+        private static int menu1_delete_done_ = 0; //削除された実績の数
         private static int menu2_1_task_ = 0; //タスク数
         private static int menu2_1_open_task_ = -1; // 開いているタスクの番号
         private static int menu2_1_delete_task_ = 0; // 削除されたタスクの数
         private static int menu2_2_memo_ = 0; //メモ数
-        private static bool[] memo_save_ = new bool[Main.Common_Const.memo_num]; //ファイルの保存状況 true:保存済み false:未保存
+        private static System.Collections.Generic.List<DAndDSizeChanger> menu2_2_panel_main_table_memo_sizeChanger_ = new System.Collections.Generic.List<DAndDSizeChanger>();
+        private static System.Collections.Generic.List<bool> memo_save_ = new System.Collections.Generic.List<bool>(); //ファイルの保存状況 true:保存済み false:未保存
 
         // 現在のmenuの取得、設定
         public static int menu
@@ -147,6 +149,18 @@ namespace TaskManage.Main
             }
         }
 
+        public static int menu1_day_done
+        {
+            set
+            {
+                menu1_day_done_ = value;
+            }
+            get
+            {
+                return menu1_day_done_;
+            }
+        }
+
         public static int menu1_open_done
         {
             set
@@ -219,7 +233,19 @@ namespace TaskManage.Main
             }
         }
 
-        public static bool[] memo_save
+        public static System.Collections.Generic.List<DAndDSizeChanger> menu2_2_panel_main_table_memo_sizeChanger
+        {
+            set
+            {
+                menu2_2_panel_main_table_memo_sizeChanger_ = value;
+            }
+            get
+            {
+                return menu2_2_panel_main_table_memo_sizeChanger_;
+            }
+        }
+
+        public static System.Collections.Generic.List<bool> memo_save
         {
             set
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace TaskManage.Main
 {
@@ -13,9 +14,6 @@ namespace TaskManage.Main
             // 設定を反映
             RefrectSetting(form);
 
-            // menu2 panel3 のメモのサイズ変更イベント定義
-            SetSizeChanger(form);
-
             Set_NowDay(form);
             Set_NowYearMonth(form);
         }
@@ -29,6 +27,30 @@ namespace TaskManage.Main
         // 設定値の初期化
         private void SetPropertiesValue()
         {
+            //Properties.Settings.Default.first_start = false;
+            // 初回起動時は初期化
+            if (!Properties.Settings.Default.first_start)
+            {
+                Properties.Settings.Default.first_start = true;
+
+                Properties.Settings.Default.common_mode = false;
+                Properties.Settings.Default.menu2_open1 = true;
+                Properties.Settings.Default.menu2_open2 = true;
+                Properties.Settings.Default.form_x = Common_Const.form_x;
+                Properties.Settings.Default.form_y = Common_Const.form_y;
+                Properties.Settings.Default.order = new System.Collections.Specialized.StringCollection { "1", "2" };
+                Properties.Settings.Default.menu = 1;
+                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.task_name = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.task_memo = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_name = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_memo = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_time = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.done_day = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.memo_wrap = new System.Collections.Specialized.StringCollection();
+            }
+
             // フォームサイズ x
             if (Properties.Settings.Default.form_x < Common_Const.form_x)
             {
@@ -46,32 +68,14 @@ namespace TaskManage.Main
                 Properties.Settings.Default.menu = 1;
             }
 
-            // メモのパス
-            if (Properties.Settings.Default.memo_path == null || Properties.Settings.Default.memo_path.Count > Common_Const.memo_num) //null or 指定数以上ある場合は初期化
+            for(int i = Properties.Settings.Default.memo_path.Count - 1; i >= 0;  i--)
             {
-                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_path.AddRange(new string[Common_Const.memo_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.memo_num];
-                Properties.Settings.Default.memo_path.CopyTo(tmp, 0);
-                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_path.AddRange(tmp);
-            }
-
-            // メモの高さ
-            if (Properties.Settings.Default.memo_height == null || Properties.Settings.Default.memo_height.Count > Common_Const.memo_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_height.AddRange(new string[Common_Const.memo_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.memo_num];
-                Properties.Settings.Default.memo_height.CopyTo(tmp, 0);
-                Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_height.AddRange(tmp);
+                if (string.IsNullOrEmpty(Properties.Settings.Default.memo_path[i]))
+                {
+                    Properties.Settings.Default.memo_path.RemoveAt(i);
+                    Properties.Settings.Default.memo_height.RemoveAt(i);
+                    Properties.Settings.Default.memo_wrap.RemoveAt(i);
+                }
             }
 
             Properties.Settings.Default.Save();
@@ -129,6 +133,21 @@ namespace TaskManage.Main
             Common_Var.menu1_done_day = now.Day;
 
             form.menu1_done_top_label_day.Text = label_day;
+
+            for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
+            {
+                Common_Var.menu1_done += 1;
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                    && Properties.Settings.Default.done_day[i] == Common_Var.menu1_done_year.ToString() + "/" + Common_Var.menu1_done_month.ToString() + "/" + Common_Var.menu1_done_day.ToString())
+                {
+                    controls_event.menu1_events.InitAddDone(form, Properties.Settings.Default.done_name[i], Properties.Settings.Default.done_time[i]);
+                }
+            }
+
+            if (Common_Var.menu1_day_done == 0)
+            {
+                controls_event.menu1_events.ChangeDoneNum(form);
+            }
         }
 
         // Menu2 設定反映
@@ -167,18 +186,13 @@ namespace TaskManage.Main
         // Menu2_2 設定反映
         private void SetMenu2_2(MainForm form)
         {
-            for (int i = 0; i < Common_Var.memo_save.Length; i++)
-            {
-                Common_Var.memo_save[i] = false;
-            }
-
             FileUtil fu = new FileUtil();
-            for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
+            for (int i = 0; i < Properties.Settings.Default.memo_path.Count; i++)
             {
                 if (!String.IsNullOrEmpty(Properties.Settings.Default.memo_path[i]))
                 {
-                    controls_event.menu2_2_events.AddMemo(form, Properties.Settings.Default.memo_path[i], fu.ReadFileAll(Properties.Settings.Default.memo_path[i]));
-                    Common_Var.memo_save[i] = true;
+                    controls_event.menu2_2_events.AddMemo(form, Properties.Settings.Default.memo_path[i], fu.ReadFileAll(Properties.Settings.Default.memo_path[i]), int.Parse(Properties.Settings.Default.memo_height[i]), Convert.ToBoolean(Properties.Settings.Default.memo_wrap[i]));
+                    Common_Var.memo_save.Add(true);
                 }
             }
 
@@ -196,39 +210,12 @@ namespace TaskManage.Main
             {
                 form.menu2_2_panel_main.Visible = false;
             }
-
-            // メモ折り返し
-            if (Properties.Settings.Default.menu2_memowrap)
-            {
-                form.common_panel_setting_table_check2.Checked = true;
-                for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
-                {
-                    //form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = true;
-                }
-            }
-            else
-            {
-                form.common_panel_setting_table_check2.Checked = false;
-                for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
-                {
-                    //form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = false;
-                }
-            }
         }
 
         // commonをタイトルバーにする初期化
         private void SetMoveForm(MainForm form)
         {
             common_MoveForm = new DAndDMoveForm(form.common, form);
-        }
-
-        // サイズ変更イベント定義
-        private void SetSizeChanger(MainForm form)
-        {
-            for (int i = 0; i < menu2_2_panel_main_table_memo_sizeChanger.Length; i++)
-            {
-                //menu2_2_panel_main_table_memo_sizeChanger[i] = new DAndDSizeChanger(form.menu2_2_panel_main_panel_table_memo_text[i], form.menu2_2_panel_main_panel[i], DAndDArea.Bottom, 12, form.menu2_2);
-            }
         }
 
         // 現在日時を設定

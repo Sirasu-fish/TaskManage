@@ -19,19 +19,22 @@ namespace TaskManage
         int sizeChangeAreaWidth;
         Cursor defaultCursor;
         Control sizeChangeParent;
+        Control sizeChangeParentChild;
         Size lastMouseDownSizeParent;
+        Size lastMouseDownsizeParentChild;
 
         /// <param name="mouseListner">マウス入力を受け取るコントロール</param>
         /// <param name="sizeChangeCtrl">マウス入力によってサイズが変更されるコントロール</param>
         /// <param name="sizeChangeArea">上下左右のサイズ変更が有効になる範囲を指定</param>
         /// <param name="sizeChangeAreaWidth">サイズ変更が有効になる範囲の幅を指定</param>
-        public DAndDSizeChanger(Control mouseListner, Control sizeChangeCtrl, DAndDArea sizeChangeArea, int sizeChangeAreaWidth, Control sizeChangeParent = null)
+        public DAndDSizeChanger(Control mouseListner, Control sizeChangeCtrl, DAndDArea sizeChangeArea, int sizeChangeAreaWidth, Control sizeChangeParent, Control sizeChangeParentChild)
         {
             this.mouseListner = mouseListner;
             this.sizeChangeCtrl = sizeChangeCtrl;
             this.sizeChangeAreaWidth = sizeChangeAreaWidth;
             this.sizeChangeArea = sizeChangeArea;
             this.sizeChangeParent = sizeChangeParent;
+            this.sizeChangeParentChild = sizeChangeParentChild;
             defaultCursor = mouseListner.Cursor;
 
             mouseListner.MouseDown += new MouseEventHandler(mouseListner_MouseDown);
@@ -43,10 +46,8 @@ namespace TaskManage
         {
             lastMouseDownPoint = e.Location;
             lastMouseDownSize = sizeChangeCtrl.Size;
-            if (!(sizeChangeParent == null))
-            {
-                lastMouseDownSizeParent = sizeChangeParent.Size;
-            }
+            lastMouseDownSizeParent = sizeChangeParent.Size;
+            lastMouseDownsizeParentChild = sizeChangeParentChild.Size;
 
             //動作を決定
             status = DAndDArea.None;
@@ -129,12 +130,8 @@ namespace TaskManage
                     else
                     {
                         sizeChangeCtrl.Height = lastMouseDownSize.Height + diffY;
-                        if (!(sizeChangeParent == null) && sizeChangeParent.Enabled == true)
-                        {
-                            sizeChangeParent.Height = lastMouseDownSizeParent.Height + diffY;
-                            Properties.Settings.Default.form_y = sizeChangeParent.Height;
-                            Properties.Settings.Default.Save();
-                        }
+                        sizeChangeParent.Height = lastMouseDownSizeParent.Height + diffY;
+                        sizeChangeParentChild.Height = lastMouseDownsizeParentChild.Height + diffY;
                     }
                 }
                 if ((status & DAndDArea.Left) == DAndDArea.Left)
@@ -142,15 +139,10 @@ namespace TaskManage
                     int w = sizeChangeCtrl.Width;
                     sizeChangeCtrl.Width -= diffX;
                     sizeChangeCtrl.Left += w - sizeChangeCtrl.Width;
-
-                    Properties.Settings.Default.form_x = sizeChangeCtrl.Width;
-                    Properties.Settings.Default.Save();
                 }
                 if ((status & DAndDArea.Right) == DAndDArea.Right)
                 {
                     sizeChangeCtrl.Width = lastMouseDownSize.Width + diffX;
-                    Properties.Settings.Default.form_x = sizeChangeCtrl.Width;
-                    Properties.Settings.Default.Save();
                 }
             }
         }
