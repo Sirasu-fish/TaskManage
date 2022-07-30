@@ -101,6 +101,7 @@ namespace TaskManage
         public System.Collections.Generic.List<Button> menu2_2_panel_main_panel_table_memo_panel_top_button_close;
         public System.Collections.Generic.List<Button> menu2_2_panel_main_panel_table_memo_panel_top_button_minmax;
         public System.Collections.Generic.List<Button> menu2_2_panel_main_panel_table_memo_panel_top_button_save;
+        public System.Collections.Generic.List<Button> menu2_2_panel_main_panel_table_memo_panel_top_button_wrap;
         public System.Collections.Generic.List<TextBox> menu2_2_panel_main_panel_table_memo_panel_top_text;
 
         // ■■■■■■■■■■■■■■■■■■■■■　menudone　■■■■■■■■■■■■■■■■■■■■■
@@ -230,6 +231,7 @@ namespace TaskManage
             this.menu2_2_panel_main_panel_table_memo_panel_top_button_close = new System.Collections.Generic.List<Button>();
             this.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax =new System.Collections.Generic.List<Button>();
             this.menu2_2_panel_main_panel_table_memo_panel_top_button_save = new System.Collections.Generic.List<Button>();
+            this.menu2_2_panel_main_panel_table_memo_panel_top_button_wrap = new System.Collections.Generic.List<Button>();
             this.menu2_2_panel_main_panel_table_memo_panel_top_text = new System.Collections.Generic.List<TextBox>();
 
             this.tooltip = new System.Windows.Forms.ToolTip(this.components);

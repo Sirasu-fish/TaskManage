@@ -14,9 +14,8 @@ namespace TaskManage.Main
         private static Color color5_ = Color.FromArgb(171, 171, 171);
 
         private static int menu2_num_ = 2; // menu2の項目数
-        private static int task_num_ = 99; // タスクの数
         private static int memo_num_ = 99; // メモの保存数
-        private static int done_num_ = 5; // 実績数
+        private static int memo_height_ = 100;
 
         public static int form_x
         {
@@ -57,18 +56,13 @@ namespace TaskManage.Main
         {
             get { return menu2_num_; }
         }
-        public static int task_num
-        {
-            get { return task_num_; }
-        }
         public static int memo_num
         {
             get { return memo_num_; }
         }
-
-        public static int done_num
+        public static int memo_height
         {
-            get { return done_num_; }
+            get { return memo_height_; }
         }
     }
 }

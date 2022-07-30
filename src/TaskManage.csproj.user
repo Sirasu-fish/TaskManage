@@ -12,6 +12,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="cs\control\Circlelabel.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Update="cs\MainForm.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

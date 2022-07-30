@@ -83,7 +83,7 @@ namespace TaskManage
         /// </summary>
         /// <param name="form">フォーム</param>
         /// <param name="text">書き込み内容</param>
-        /// <param name="num">trye:書き込み成功 false:書き込み失敗</param>
+        /// <param name="num"></param>
         /// <returns></returns>
         public Boolean OpenDialog(MainForm form, string text, int num)
         {
@@ -106,21 +106,19 @@ namespace TaskManage
 
             if (sfd.ShowDialog() == DialogResult.OK) // OKを押した時
             {
-                System.IO.Stream stream;
+                Stream stream;
                 stream = sfd.OpenFile();
 
                 if (stream != null)
                 {
-                    System.IO.StreamWriter sw = new System.IO.StreamWriter(stream);
+                    StreamWriter sw = new StreamWriter(stream);
                     sw.Write(text);
                     sw.Close();
                     stream.Close();
 
+                    Properties.Settings.Default.memo_path[num] = sfd.FileName;
+
                     string[] path = new string[Main.Common_Const.memo_num];
-                    Properties.Settings.Default.memo_path.CopyTo(path, 0);
-                    path[num] = sfd.FileName;
-                    Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                    Properties.Settings.Default.memo_path.AddRange(path);
 
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = path[num];
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = Main.Common_Const.color3;

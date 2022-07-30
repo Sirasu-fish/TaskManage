@@ -32,7 +32,6 @@ namespace TaskManage.Main
                 Properties.Settings.Default.first_start = true;
 
                 Properties.Settings.Default.common_mode = false;
-                Properties.Settings.Default.menu2_memowrap = false;
                 Properties.Settings.Default.menu2_open1 = true;
                 Properties.Settings.Default.menu2_open2 = true;
                 Properties.Settings.Default.form_x = Common_Const.form_x;
@@ -47,6 +46,7 @@ namespace TaskManage.Main
                 Properties.Settings.Default.done_memo = new System.Collections.Specialized.StringCollection();
                 Properties.Settings.Default.done_time = new System.Collections.Specialized.StringCollection();
                 Properties.Settings.Default.done_day = new System.Collections.Specialized.StringCollection();
+                Properties.Settings.Default.memo_wrap = new System.Collections.Specialized.StringCollection();
             }
 
             // フォームサイズ x
@@ -64,34 +64,6 @@ namespace TaskManage.Main
             if (Properties.Settings.Default.menu < 1 || 3 < Properties.Settings.Default.menu)
             {
                 Properties.Settings.Default.menu = 1;
-            }
-
-            // メモのパス
-            if (Properties.Settings.Default.memo_path == null || Properties.Settings.Default.memo_path.Count > Common_Const.memo_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_path.AddRange(new string[Common_Const.memo_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.memo_num];
-                Properties.Settings.Default.memo_path.CopyTo(tmp, 0);
-                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_path.AddRange(tmp);
-            }
-
-            // メモの高さ
-            if (Properties.Settings.Default.memo_height == null || Properties.Settings.Default.memo_height.Count > Common_Const.memo_num) //null or 指定数以上ある場合は初期化
-            {
-                Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_height.AddRange(new string[Common_Const.memo_num]);
-            }
-            else
-            {
-                string[] tmp = new string[Common_Const.memo_num];
-                Properties.Settings.Default.memo_height.CopyTo(tmp, 0);
-                Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_height.AddRange(tmp);
             }
 
             Properties.Settings.Default.Save();
@@ -203,12 +175,12 @@ namespace TaskManage.Main
         private void SetMenu2_2(MainForm form)
         {
             FileUtil fu = new FileUtil();
-            for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
+            for (int i = 0; i < Properties.Settings.Default.memo_path.Count; i++)
             {
                 if (!String.IsNullOrEmpty(Properties.Settings.Default.memo_path[i]))
                 {
                     controls_event.menu2_2_events.AddMemo(form, Properties.Settings.Default.memo_path[i], fu.ReadFileAll(Properties.Settings.Default.memo_path[i]));
-                    Main.Common_Var.memo_save.Add(true);
+                    Common_Var.memo_save.Add(true);
                 }
             }
 

@@ -38,18 +38,6 @@ namespace TaskManage.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool menu2_memowrap {
-            get {
-                return ((bool)(this["menu2_memowrap"]));
-            }
-            set {
-                this["menu2_memowrap"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool menu2_open1 {
             get {
                 return ((bool)(this["menu2_open1"]));
@@ -218,6 +206,17 @@ namespace TaskManage.Properties {
             }
             set {
                 this["first_start"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection memo_wrap {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["memo_wrap"]));
+            }
+            set {
+                this["memo_wrap"] = value;
             }
         }
     }

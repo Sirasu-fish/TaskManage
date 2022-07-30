@@ -54,7 +54,10 @@ namespace TaskManage.controls_event
             {
                 if (!Main.Common_Var.memo_save[i])
                 {
-                    menu2_2_events.FormCloseMemo(form, i);
+                    if (!menu2_2_events.FormCloseMemo(form, i))
+                    {
+                        return;
+                    }
                 }
             }
 

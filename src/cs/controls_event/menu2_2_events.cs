@@ -6,7 +6,6 @@ namespace TaskManage.controls_event
     class menu2_2_events
     {
         MainForm form;
-        static int memo_height = 86; // メモの高さ
 
         // コンストラクタ
         public menu2_2_events(MainForm form)
@@ -24,13 +23,18 @@ namespace TaskManage.controls_event
                 form.menu2_2_panel_main.Visible = true;
                 if (Main.Common_Var.menu2_2_memo != 0)
                 {
-                    form.menu2_2_panel.Height = 34 + memo_height * Main.Common_Var.menu2_2_memo + 4;
-                    form.menu2_2.Height = 42 + memo_height * Main.Common_Var.menu2_2_memo + 4;
+                    form.menu2_2_panel.Height = 34;
+                    form.menu2_2.Height = 42;
+                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                    {
+                        form.menu2_2_panel.Height += form.menu2_2_panel_main_panel[i].Height;
+                        form.menu2_2.Height += form.menu2_2_panel_main_panel[i].Height;
+                    }
                 }
                 else
                 {
-                    form.menu2_2_panel.Height = 34 + memo_height / 2;
-                    form.menu2_2.Height = 42 + memo_height / 2;
+                    form.menu2_2_panel.Height = 50;
+                    form.menu2_2.Height = 58;
                 }
                 Properties.Settings.Default.menu2_open2 = true;
             }
@@ -110,7 +114,7 @@ namespace TaskManage.controls_event
 
             if (ofd.ShowDialog() == DialogResult.OK) // ファイルを選択した時
             {
-                for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
+                for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
                 {
                     if (Properties.Settings.Default.memo_path[i] == ofd.FileName) // 既存メモに選択ファイルがある場合
                     {
@@ -121,8 +125,12 @@ namespace TaskManage.controls_event
                 // 既存メモに選択ファイルがなかった場合
                 AddMemo(form, ofd.FileName, fu.ReadFileAll(ofd.FileName));
                 Main.Common_Var.memo_save.Add(true); // 保存フラグをtrueにする
-                Properties.Settings.Default.memo_path[Properties.Settings.Default.memo_path.Count] = ofd.FileName; // ファイル名を保存
+                Properties.Settings.Default.memo_path.Add(ofd.FileName); // ファイル名を保存
+                Properties.Settings.Default.memo_height.Add(Main.Common_Const.memo_height.ToString());
+                // memowrap
                 Properties.Settings.Default.Save();
+
+                Main.Common_Var.menu2_2_memo += 1;
             }
         }
 
@@ -151,6 +159,12 @@ namespace TaskManage.controls_event
                 form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].BackColor = Main.Common_Const.color5;
                 Main.Common_Var.memo_save[int.Parse(((TextBox)sender).Name)] = false;
             }
+        }
+
+        // 折り返しボタン
+        public void menu2_2_panel_main_panel_table_memo_panel_top_button_wrap_Click(object sender, EventArgs e)
+        {
+            ChangeWordWrap(form, int.Parse(((Button)sender).Name));
         }
 
         //保存ボタン
@@ -196,6 +210,7 @@ namespace TaskManage.controls_event
             form.menu2_2_panel_main.SuspendLayout();
 
             form.menu2_2_panel_main_panel_table_memo_text.Add(add_menu2_2_panel_main_panel_table_memo_text(form, memo_text));
+            form.menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Add(add_menu2_2_panel_main_panel_table_memo_panel_top_button_wrap(form));
             form.menu2_2_panel_main_panel_table_memo_panel_top_button_save.Add(add_menu2_2_panel_main_panel_table_memo_panel_top_button_save(form));
             form.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.Add(add_menu2_2_panel_main_panel_table_memo_panel_top_button_minmax(form));
             form.menu2_2_panel_main_panel_table_memo_panel_top_button_close.Add(add_menu2_2_panel_main_panel_table_memo_panel_top_button_close(form));
@@ -247,15 +262,20 @@ namespace TaskManage.controls_event
             form.menu2_2_panel_top_label_num.Refresh();
             if (Properties.Settings.Default.menu2_open2)
             {
-                if (Main.Common_Var.menu2_2_memo != 0) // タスク数が0以外の時
+                if (Main.Common_Var.menu2_2_memo != 0) // メモ数が0以外の時
                 {
-                    form.menu2_2_panel.Height = 34 + memo_height * Main.Common_Var.menu2_2_memo + 4;
-                    form.menu2_2.Height = 42 + memo_height * Main.Common_Var.menu2_2_memo + 4;
+                    form.menu2_2_panel.Height = 34;
+                    form.menu2_2.Height = 42;
+                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                    {
+                        form.menu2_2_panel.Height += form.menu2_2_panel_main_panel[i].Height;
+                        form.menu2_2.Height += form.menu2_2_panel_main_panel[i].Height;
+                    }
                 }
                 else
                 {
-                    form.menu2_2_panel.Height = 34 + memo_height / 2;
-                    form.menu2_2.Height = 42 + memo_height / 2;
+                    form.menu2_2_panel.Height = 50;
+                    form.menu2_2.Height = 58;
                 }
             }
             else
@@ -272,62 +292,47 @@ namespace TaskManage.controls_event
         }
 
         // メモ削除
-        public static void FormCloseMemo(MainForm form, int num)
+        public static bool FormCloseMemo(MainForm form, int num)
         {
             // 変更したファイルを保存していない時
             if (Main.Common_Var.memo_save[num] == false)
             {
                 FileUtil fu = new FileUtil();
 
-                string[] paths = new string[Main.Common_Const.memo_num];
-                Properties.Settings.Default.memo_path.CopyTo(paths, 0);
-                string save_path = paths[num];
+                string save_path = Properties.Settings.Default.memo_path[num];
 
-                // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
-                if (String.IsNullOrEmpty(save_path))
+                switch (fu.ShowOverrideFileMessage())
                 {
-                    if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
-                    {
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                // パスが空ではない時 = 既存ファイル
-                else
-                {
-                    switch (fu.ShowOverrideFileMessage())
-                    {
-                        case DialogResult.Yes: // はい
-                            if (fu.IsAbleWrite(save_path)) //書き込み可能な時
+                    case DialogResult.Yes: // はい
+                        if (fu.IsAbleWrite(save_path)) //書き込み可能な時
+                        {
+                            if (fu.WriteFile(save_path, form.menu2_2_panel_main_panel_table_memo_text[num].Text)) // 上書き
                             {
-                                if (fu.WriteFile(save_path, form.menu2_2_panel_main_panel_table_memo_text[num].Text)) // 上書き
-                                {
-                                }
-                                else
-                                {
-                                    return;
-                                }
                             }
                             else
                             {
-                                if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
-                                {
-                                }
-                                else
-                                {
-                                    return;
-                                }
+                                return false;
                             }
-                            break;
-                        case DialogResult.No: // いいえ
-                            break;
-                        case DialogResult.Cancel: // キャンセル
-                            return;
-                    }
+                        }
+                        else
+                        {
+                            if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
+                            {
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        break;
+                    case DialogResult.No: // いいえ
+                        break;
+                    case DialogResult.Cancel: // キャンセル
+                        return false;
                 }
             }
+
+            return true;
         }
 
         #endregion public
@@ -335,6 +340,19 @@ namespace TaskManage.controls_event
 
         // ********** private **********
         #region private
+
+        // メモの折り返し設定を切り替える
+        private static void ChangeWordWrap(MainForm form, int num)
+        {
+            if (form.menu2_2_panel_main_panel_table_memo_text[num].WordWrap)
+            {
+                form.menu2_2_panel_main_panel_table_memo_text[num].WordWrap = false;
+            }
+            else
+            {
+                form.menu2_2_panel_main_panel_table_memo_text[num].WordWrap = true;
+            }
+        }
 
         // メモを保存する時の関数
         private static Boolean SaveMemo(MainForm form, string text, int num)
@@ -378,9 +396,7 @@ namespace TaskManage.controls_event
             {
                 FileUtil fu = new FileUtil();
 
-                string[] paths = new string[Main.Common_Const.memo_num];
-                Properties.Settings.Default.memo_path.CopyTo(paths, 0);
-                string save_path = paths[num];
+                string save_path = Properties.Settings.Default.memo_path[num];
                 switch (fu.ShowOverrideFileMessage())
                 {
                     case DialogResult.Yes: // はい
@@ -414,6 +430,7 @@ namespace TaskManage.controls_event
 
             form.menu2_2_panel_main.Controls.Remove(form.menu2_2_panel_main_panel[num]);
             form.menu2_2_panel_main_panel_table_memo_panel_top_text.RemoveAt(num);
+            form.menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.RemoveAt(num);
             form.menu2_2_panel_main_panel_table_memo_panel_top_button_save.RemoveAt(num);
             form.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.RemoveAt(num);
             form.menu2_2_panel_main_panel_table_memo_panel_top_button_close.RemoveAt(num);
@@ -430,6 +447,7 @@ namespace TaskManage.controls_event
             for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
             {
                 form.menu2_2_panel_main_panel_table_memo_text[i].Name = i.ToString();
+                form.menu2_2_panel_main_panel_table_memo_panel_top_button_wrap[i].Name = i.ToString();
                 form.menu2_2_panel_main_panel_table_memo_panel_top_button_save[i].Name = i.ToString();
                 form.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[i].Name = i.ToString();
                 form.menu2_2_panel_main_panel_table_memo_panel_top_button_close[i].Name = i.ToString();
@@ -456,6 +474,21 @@ namespace TaskManage.controls_event
             menu2_2_panel_main_panel_table_memo_text.TextChanged += new EventHandler(events.menu2_2_panel_main_panel_table_memo_text_TextChanged);
 
             return menu2_2_panel_main_panel_table_memo_text;
+        }
+        // 折り返しボタン
+        private static Button add_menu2_2_panel_main_panel_table_memo_panel_top_button_wrap(MainForm form)
+        {
+            Button menu2_2_panel_main_panel_table_memo_panel_top_button_wrap = new Button();
+            menu2_2_events events = new menu2_2_events(form);
+
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Dock = DockStyle.Right;
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.FlatStyle = FlatStyle.Flat;
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Size = new System.Drawing.Size(32, 22);
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Name = Main.Common_Var.menu2_2_memo.ToString();
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.UseVisualStyleBackColor = true;
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Click += new EventHandler(events.menu2_2_panel_main_panel_table_memo_panel_top_button_wrap_Click);
+
+            return menu2_2_panel_main_panel_table_memo_panel_top_button_wrap;
         }
         // 保存ボタン
         private static Button add_menu2_2_panel_main_panel_table_memo_panel_top_button_save(MainForm form)
@@ -523,6 +556,7 @@ namespace TaskManage.controls_event
             menu2_2_panel_main_panel_table_memo_panel_top.Dock = DockStyle.Fill;
             menu2_2_panel_main_panel_table_memo_panel_top.Margin = new Padding(0);
             menu2_2_panel_main_panel_table_memo_panel_top.Controls.Add(form.menu2_2_panel_main_panel_table_memo_panel_top_text[Main.Common_Var.menu2_2_memo]);
+            menu2_2_panel_main_panel_table_memo_panel_top.Controls.Add(form.menu2_2_panel_main_panel_table_memo_panel_top_button_wrap[Main.Common_Var.menu2_2_memo]);
             menu2_2_panel_main_panel_table_memo_panel_top.Controls.Add(form.menu2_2_panel_main_panel_table_memo_panel_top_button_save[Main.Common_Var.menu2_2_memo]);
             menu2_2_panel_main_panel_table_memo_panel_top.Controls.Add(form.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax[Main.Common_Var.menu2_2_memo]);
             menu2_2_panel_main_panel_table_memo_panel_top.Controls.Add(form.menu2_2_panel_main_panel_table_memo_panel_top_button_close[Main.Common_Var.menu2_2_memo]);
@@ -544,7 +578,7 @@ namespace TaskManage.controls_event
             menu2_2_panel_main_panel_table_memo.RowCount = 2;
             menu2_2_panel_main_panel_table_memo.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             menu2_2_panel_main_panel_table_memo.RowStyles.Add(new RowStyle(SizeType.Percent, 78F));
-            menu2_2_panel_main_panel_table_memo.Size = new System.Drawing.Size(190, 96);
+            menu2_2_panel_main_panel_table_memo.Size = new System.Drawing.Size(190, Main.Common_Const.memo_height - 10);
 
             return menu2_2_panel_main_panel_table_memo;
         }
@@ -555,7 +589,7 @@ namespace TaskManage.controls_event
 
             menu2_2_panel_main_panel.Controls.Add(form.menu2_2_panel_main_panel_table_memo[Main.Common_Var.menu2_2_memo]);
             menu2_2_panel_main_panel.Dock = DockStyle.Top;
-            menu2_2_panel_main_panel.Size = new System.Drawing.Size(Properties.Settings.Default.form_x, memo_height);
+            menu2_2_panel_main_panel.Size = new System.Drawing.Size(Properties.Settings.Default.form_x, Main.Common_Const.memo_height);
 
             return menu2_2_panel_main_panel;
         }
