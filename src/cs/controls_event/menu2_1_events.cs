@@ -254,8 +254,9 @@ namespace TaskManage.controls_event
 
             form.menu2_1_panel_main_panel_button_delete.Add(add_menu2_1_panel_main_panel_button_delete(form));
             form.menu2_1_panel_main_panel_button_finish.Add(add_menu2_1_panel_main_panel_button_finish(form));
-            form.menu2_1_panel_main_panel_label1.Add(add_menu2_1_panel_main_panel_label1(form, text));
             form.menu2_1_panel_main_panel.Add(add_menu2_1_panel_main_panel(form));
+            form.menu2_1_panel_main_panel_label1.Add(add_menu2_1_panel_main_panel_label1(form, text));
+            form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task].Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
             form.menu2_1_panel_main.Controls.Add(form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task]);
 
             form.ResumeLayout();
@@ -281,8 +282,9 @@ namespace TaskManage.controls_event
 
                 form.menu2_1_panel_main_panel_button_delete.Add(add_menu2_1_panel_main_panel_button_delete(form));
                 form.menu2_1_panel_main_panel_button_finish.Add(add_menu2_1_panel_main_panel_button_finish(form));
-                form.menu2_1_panel_main_panel_label1.Add(add_menu2_1_panel_main_panel_label1(form, text));
                 form.menu2_1_panel_main_panel.Add(add_menu2_1_panel_main_panel(form));
+                form.menu2_1_panel_main_panel_label1.Add(add_menu2_1_panel_main_panel_label1(form, text));
+                form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task].Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
                 form.menu2_1_panel_main.Controls.Add(form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task]);
 
                 form.ResumeLayout();
@@ -509,10 +511,11 @@ namespace TaskManage.controls_event
             menu2_1_events events = new menu2_1_events(form);
 
             menu2_1_panel_main_panel_label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            menu2_1_panel_main_panel_label1.AutoEllipsis = true;
             menu2_1_panel_main_panel_label1.AutoSize = false;
             menu2_1_panel_main_panel_label1.Location = new Point(1, 9);
             menu2_1_panel_main_panel_label1.Name = Main.Common_Var.menu2_1_task.ToString();
-            menu2_1_panel_main_panel_label1.Size = new Size(form.menu2_1_panel_main.Width - task_x * 2 - 2, 14);
+            menu2_1_panel_main_panel_label1.Size = new Size(form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task].Width - 32 - 32 - 2, 14);
             menu2_1_panel_main_panel_label1.Text = text;
             menu2_1_panel_main_panel_label1.TextAlign = ContentAlignment.MiddleLeft;
             menu2_1_panel_main_panel_label1.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_label1_MouseEnter);
@@ -533,7 +536,6 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel.BorderColor = Color.Black;
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_finish[Main.Common_Var.menu2_1_task]);
             menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_button_delete[Main.Common_Var.menu2_1_task]);
-            menu2_1_panel_main_panel.Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
             menu2_1_panel_main_panel.Location = new Point(task_x, (menu2_1_panel_main_panel.Height + task_space) * Main.Common_Var.menu2_1_task);
             menu2_1_panel_main_panel.Name = Main.Common_Var.menu2_1_task.ToString();
             menu2_1_panel_main_panel.Size = new Size(form.menu2_1_panel_main.Width - task_x * 2, task_height);

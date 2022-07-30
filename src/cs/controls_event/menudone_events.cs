@@ -9,15 +9,15 @@ namespace TaskManage.controls_event
         {
             if (e.KeyCode == Keys.Return) // Enter
             {
-                int year = 0;
-                int month = 0;
+                int hour = 0;
+                int minute = 0;
                 // 入力内容チェック処理
-                if (!CheckDoneInput(form, ref year, ref month))
+                if (!CheckDoneInput(form, ref hour, ref minute))
                 {
                     return;
                 }
                 // 登録処理
-                menu1_events.AddDone(form, year, month);
+                menu1_events.AddDone(form, hour, minute);
 
                 form.SuspendLayout();
                 form.menudone.SuspendLayout();
@@ -42,16 +42,16 @@ namespace TaskManage.controls_event
 
         public static void menudone_button_save_Click(object sender, EventArgs e, MainForm form)
         {
-            int year = 0;
-            int month = 0;
+            int hour = 0;
+            int minute = 0;
             // 入力内容チェック処理
-            if (!CheckDoneInput(form, ref year, ref month))
+            if (!CheckDoneInput(form, ref hour, ref minute))
             {
                 return;
             }
 
             // 登録処理
-            menu1_events.AddDone(form, year, month);
+            menu1_events.AddDone(form, hour, minute);
 
             // 実績画面非表示処理
             form.menudone_table1_text.Text = "";
@@ -65,7 +65,7 @@ namespace TaskManage.controls_event
         #region private
 
         // チェック処理
-        private static bool CheckDoneInput(MainForm form, ref int year, ref int month)
+        private static bool CheckDoneInput(MainForm form, ref int hour, ref int minute)
         {
             // 実績名
             if (string.IsNullOrEmpty(form.menudone_table1_text.Text))
@@ -100,8 +100,8 @@ namespace TaskManage.controls_event
             {
                 return false;
             }
-            year = int.Parse(form.menudone_table2_text_h.Text);
-            month = int.Parse(form.menudone_table2_text_m.Text);
+            hour = int.Parse(form.menudone_table2_text_h.Text);
+            minute = int.Parse(form.menudone_table2_text_m.Text);
             return true;
         }
 
