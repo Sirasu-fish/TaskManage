@@ -684,8 +684,8 @@ namespace TaskManage
             this.menu1_done_top_label_hour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.menu1_done_top_label_hour.BackColor = System.Drawing.Color.Transparent;
             this.menu1_done_top_label_hour.Margin = new System.Windows.Forms.Padding(0);
-            this.menu1_done_top_label_hour.Location = new System.Drawing.Point(this.menu1_done_top_button_add.Location.X - this.menu1_done_top_label_hour.Width + 19, 1);
-            this.menu1_done_top_label_hour.Size = new System.Drawing.Size(78, 0);
+            this.menu1_done_top_label_hour.Location = new System.Drawing.Point(this.menu1.Width - 32 - 48, 1);
+            this.menu1_done_top_label_hour.Size = new System.Drawing.Size(48, 32);
             this.menu1_done_top_label_hour.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             //
             // menu1_done_top_button_add

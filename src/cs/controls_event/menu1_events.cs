@@ -262,6 +262,7 @@ namespace TaskManage.controls_event
                 form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
 
                 int cnt = -1;
+                int sumtime = 0;
                 for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
                 {
                     if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
@@ -274,10 +275,13 @@ namespace TaskManage.controls_event
                             Properties.Settings.Default.done_time[i] = (hour * 60 + minute).ToString();
                             Properties.Settings.Default.done_memo[i] = form.menudone_table3_text.Text;
                             Properties.Settings.Default.Save();
-                            return;
                         }
+                        sumtime += int.Parse(Properties.Settings.Default.done_time[i]);
                     }
                 }
+
+                form.menu1_done_top_label_hour.Text = (sumtime / 60).ToString() + "h" + (sumtime % 60).ToString() + "m";
+                form.menu1_done_top_label_hour.Refresh();
             }
         }
 
@@ -289,6 +293,21 @@ namespace TaskManage.controls_event
             form.menu1_done_main.SuspendLayout();
 
             form.menu1_done_main.Height = (done_height + done_space) * Main.Common_Var.menu1_day_done + 4; // 高さ調整
+
+            int sumtime = 0;
+
+            // 対象の日付の実績を追加、表示
+            for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                    && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                {
+                    sumtime += int.Parse(Properties.Settings.Default.done_time[i]);
+                }
+            }
+
+            form.menu1_done_top_label_hour.Text = (sumtime / 60).ToString() + "h" + (sumtime % 60).ToString() + "m";
+            form.menu1_done_top_label_hour.Refresh();
 
             form.ResumeLayout();
             form.menu1.ResumeLayout();
@@ -325,8 +344,8 @@ namespace TaskManage.controls_event
 
             menu1_done_main_panel_label_time.AutoSize = false;
             menu1_done_main_panel_label_time.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            menu1_done_main_panel_label_time.Size = new Size(40, 14);
-            menu1_done_main_panel_label_time.Location = new Point(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Width - 32 - 40 - 2, 9);
+            menu1_done_main_panel_label_time.Size = new Size(48, 14);
+            menu1_done_main_panel_label_time.Location = new Point(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Width - 32 - 48 - 2, 9);
             menu1_done_main_panel_label_time.Text = (int.Parse(time) / 60).ToString() + "h" + (int.Parse(time) % 60).ToString() + "m";
             menu1_done_main_panel_label_time.Name = Main.Common_Var.menu1_day_done.ToString();
             menu1_done_main_panel_label_time.TextAlign = ContentAlignment.MiddleRight;
@@ -349,7 +368,7 @@ namespace TaskManage.controls_event
             menu1_done_main_panel_label_name.Name = Main.Common_Var.menu1_day_done.ToString();
             menu1_done_main_panel_label_name.AutoSize = false;
             menu1_done_main_panel_label_name.AutoEllipsis = true;
-            menu1_done_main_panel_label_name.Size = new Size(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Width - 32 - 40 - 2, 14);
+            menu1_done_main_panel_label_name.Size = new Size(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Width - 32 - 48 - 2, 14);
             menu1_done_main_panel_label_name.Text = text;
             menu1_done_main_panel_label_name.TextAlign = ContentAlignment.MiddleLeft;
             menu1_done_main_panel_label_name.MouseEnter += new EventHandler(events.menu1_done_main_panel_label_name_MouseEnter);
@@ -600,6 +619,8 @@ namespace TaskManage.controls_event
 
             Main.Common_Var.menu1_day_done = 0;
 
+            int sumtime = 0;
+
             // 対象の日付の実績を追加、表示
             for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
             {
@@ -607,9 +628,13 @@ namespace TaskManage.controls_event
                 if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
                     && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
                 {
+                    sumtime += int.Parse(Properties.Settings.Default.done_time[i]);
                     InitAddDone(form, Properties.Settings.Default.done_name[i], Properties.Settings.Default.done_time[i]);
                 }
             }
+
+            form.menu1_done_top_label_hour.Text = (sumtime / 60).ToString() + "h" + (sumtime % 60).ToString() + "m";
+            form.menu1_done_top_label_hour.Refresh();
 
             form.ResumeLayout();
             form.menu1.ResumeLayout();

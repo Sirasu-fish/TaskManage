@@ -100,6 +100,19 @@ namespace TaskManage.controls_event
             {
                 return false;
             }
+            int sumtime = 0;
+            for (int i = 0; i < Main.Common_Var.menu1_done; i++)
+            {
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                    && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                {
+                    sumtime += int.Parse(Properties.Settings.Default.done_time[i]);
+                    if (sumtime > 24 * 60)
+                    {
+                        return false;
+                    }
+                }
+            }
             hour = int.Parse(form.menudone_table2_text_h.Text);
             minute = int.Parse(form.menudone_table2_text_m.Text);
             return true;

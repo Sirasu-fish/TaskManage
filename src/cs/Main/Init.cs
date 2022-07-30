@@ -162,6 +162,11 @@ namespace TaskManage.Main
                     controls_event.menu1_events.InitAddDone(form, Properties.Settings.Default.done_name[i], Properties.Settings.Default.done_time[i]);
                 }
             }
+
+            if (Common_Var.menu1_day_done == 0)
+            {
+                controls_event.menu1_events.ChangeDoneNum(form);
+            }
         }
 
         // Menu2 設定反映
