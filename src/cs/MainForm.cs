@@ -123,15 +123,6 @@ namespace TaskManage
         {
             controls_event.menu1_events.menu1_table_calender_panel_day_label_day_MouseClick(sender, e, this);
         }
-        private void menu1_table_calender_panel_day_MouseDoubleClick(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_table_calender_panel_day_MouseDoubleClick(sender, e, this);
-        }
-        private void menu1_table_calender_panel_day_label_day_MouseDoubleClick(object sender, EventArgs e)
-        {
-            controls_event.menu1_events.menu1_table_calender_panel_day_label_day_MouseDoubleClick(sender, e, this);
-        }
-
         private void menu1_done_top_prevday_Click(object sender, EventArgs e)
         {
             controls_event.menu1_events.menu1_done_top_prevday_Click(sender, e, this);

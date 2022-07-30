@@ -86,18 +86,11 @@ namespace TaskManage.controls_event
         public static void menu1_table_calender_panel_day_MouseClick(object sender, EventArgs e, MainForm form)
         {
             ClickPanel(form, int.Parse(((Panel)sender).Name));
+            SetDoneDay(form, int.Parse(((Panel)sender).Name));
         }
         public static void menu1_table_calender_panel_day_label_day_MouseClick(object sender, EventArgs e, MainForm form)
         {
             ClickPanel(form, int.Parse(((Label)sender).Name));
-        }
-        // 日付ダブルクリック
-        public static void menu1_table_calender_panel_day_MouseDoubleClick(object sender, EventArgs e, MainForm form)
-        {
-            SetDoneDay(form, int.Parse(((Panel)sender).Name));
-        }
-        public static void menu1_table_calender_panel_day_label_day_MouseDoubleClick(object sender, EventArgs e, MainForm form)
-        {
             SetDoneDay(form, int.Parse(((Label)sender).Name));
         }
 

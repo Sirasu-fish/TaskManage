@@ -586,7 +586,6 @@ namespace TaskManage
                 this.menu1_table_calender_panel_day[i].MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_MouseClick);
                 this.menu1_table_calender_panel_day[i].MouseEnter += new System.EventHandler(this.menu1_table_calender_panel_day_MouseEnter);
                 this.menu1_table_calender_panel_day[i].MouseLeave += new System.EventHandler(this.menu1_table_calender_panel_day_MouseLeave);
-                this.menu1_table_calender_panel_day[i].MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_MouseDoubleClick);
                 //
                 // menu1_table_calender_panel_day_label_day
                 //
@@ -602,7 +601,6 @@ namespace TaskManage
                 this.menu1_table_calender_panel_day_label_day[i].MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_label_day_MouseClick);
                 this.menu1_table_calender_panel_day_label_day[i].MouseEnter += new System.EventHandler(this.menu1_table_calender_panel_day_label_day_MouseEnter);
                 this.menu1_table_calender_panel_day_label_day[i].MouseLeave += new System.EventHandler(this.menu1_table_calender_panel_day_label_day_MouseLeave);
-                this.menu1_table_calender_panel_day_label_day[i].MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_label_day_MouseDoubleClick);
             }
             for (int i = 0; i < 7; i++)
             {
