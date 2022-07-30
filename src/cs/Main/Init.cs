@@ -13,9 +13,6 @@ namespace TaskManage.Main
             // 設定を反映
             RefrectSetting(form);
 
-            // menu2 panel3 のメモのサイズ変更イベント定義
-            SetSizeChanger(form);
-
             Set_NowDay(form);
             Set_NowYearMonth(form);
         }
@@ -229,39 +226,12 @@ namespace TaskManage.Main
             {
                 form.menu2_2_panel_main.Visible = false;
             }
-
-            // メモ折り返し
-            if (Properties.Settings.Default.menu2_memowrap)
-            {
-                form.common_panel_setting_table_check2.Checked = true;
-                for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
-                {
-                    //form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = true;
-                }
-            }
-            else
-            {
-                form.common_panel_setting_table_check2.Checked = false;
-                for (int i = 0; i < Properties.Settings.Default.memo_path.Count - 1; i++)
-                {
-                    //form.menu2_2_panel_main_panel_table_memo_text[i].WordWrap = false;
-                }
-            }
         }
 
         // commonをタイトルバーにする初期化
         private void SetMoveForm(MainForm form)
         {
             common_MoveForm = new DAndDMoveForm(form.common, form);
-        }
-
-        // サイズ変更イベント定義
-        private void SetSizeChanger(MainForm form)
-        {
-            for (int i = 0; i < menu2_2_panel_main_table_memo_sizeChanger.Length; i++)
-            {
-                //menu2_2_panel_main_table_memo_sizeChanger[i] = new DAndDSizeChanger(form.menu2_2_panel_main_panel_table_memo_text[i], form.menu2_2_panel_main_panel[i], DAndDArea.Bottom, 12, form.menu2_2);
-            }
         }
 
         // 現在日時を設定

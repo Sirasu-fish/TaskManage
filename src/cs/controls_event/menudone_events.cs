@@ -67,41 +67,51 @@ namespace TaskManage.controls_event
         // チェック処理
         private static bool CheckDoneInput(MainForm form, ref int hour, ref int minute)
         {
+            string str_hour = form.menudone_table2_text_h.Text;
+            string str_minute = form.menudone_table2_text_m.Text;
             // 実績名
             if (string.IsNullOrEmpty(form.menudone_table1_text.Text))
             {
                 return false;
             }
-            if (!int.TryParse(form.menudone_table2_text_h.Text, out int h))
+            if (string.IsNullOrEmpty(str_hour))
+            {
+                str_hour = "0";
+            }
+            if (string.IsNullOrEmpty(str_minute))
+            {
+                str_minute = "0";
+            }
+            if (!int.TryParse(str_hour, out int h))
             {
                 return false;
             }
-            if (!int.TryParse(form.menudone_table2_text_m.Text, out int m))
+            if (!int.TryParse(str_minute, out int m))
             {
                 return false;
             }
-            if (int.Parse(form.menudone_table2_text_h.Text) < 0)
+            if (int.Parse(str_hour) < 0)
             {
                 return false;
             }
-            if (24 < int.Parse(form.menudone_table2_text_h.Text))
+            if (24 < int.Parse(str_hour))
             {
                 return false;
             }
-            if (int.Parse(form.menudone_table2_text_m.Text) >= 60)
+            if (int.Parse(str_minute) >= 60)
             {
                 return false;
             }
-            if (int.Parse(form.menudone_table2_text_m.Text) < 0)
+            if (int.Parse(str_minute) < 0)
             {
                 return false;
             }
-            if (int.Parse(form.menudone_table2_text_h.Text) == 0 && int.Parse(form.menudone_table2_text_m.Text) == 0)
+            if (int.Parse(str_hour) == 0 && int.Parse(str_minute) == 0)
             {
                 return false;
             }
             int sumtime = 0;
-            for (int i = 0; i < Main.Common_Var.menu1_done; i++)
+            for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
             {
                 if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
                     && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
@@ -113,8 +123,8 @@ namespace TaskManage.controls_event
                     }
                 }
             }
-            hour = int.Parse(form.menudone_table2_text_h.Text);
-            minute = int.Parse(form.menudone_table2_text_m.Text);
+            hour = int.Parse(str_hour);
+            minute = int.Parse(str_minute);
             return true;
         }
 

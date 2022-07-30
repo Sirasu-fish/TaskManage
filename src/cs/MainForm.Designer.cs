@@ -37,11 +37,9 @@ namespace TaskManage
         public Button common_button_nextmenu;
         public Button common_button_prevmenu;
         public Button common_button_setting;
-        public Panel common_panel_setting;
+        public PanelEx common_panel_setting;
         public CheckBox common_panel_setting_table_check1;
-        public CheckBox common_panel_setting_table_check2;
         public Label common_panel_setting_table_label1;
-        public Label common_panel_setting_table_label2;
         public TableLayoutPanel common_panel_setting_table_setting;
 
         // ■■■■■■■■■■■■■■■■■■■■■　menu1　■■■■■■■■■■■■■■■■■■■■■
@@ -161,11 +159,9 @@ namespace TaskManage
             this.common_button_prevmenu = new System.Windows.Forms.Button();
             this.common_button_setting = new System.Windows.Forms.Button();
             this.common_button_nextmenu = new System.Windows.Forms.Button();
-            this.common_panel_setting = new System.Windows.Forms.Panel();
+            this.common_panel_setting = new TaskManage.PanelEx();
             this.common_panel_setting_table_setting = new System.Windows.Forms.TableLayoutPanel();
             this.common_panel_setting_table_check1 = new System.Windows.Forms.CheckBox();
-            this.common_panel_setting_table_check2 = new System.Windows.Forms.CheckBox();
-            this.common_panel_setting_table_label2 = new System.Windows.Forms.Label();
             this.common_panel_setting_table_label1 = new System.Windows.Forms.Label();
 
             this.menu1 = new System.Windows.Forms.Panel();
@@ -445,10 +441,11 @@ namespace TaskManage
             // 
             // common_panel_setting
             // 
+            this.common_panel_setting.BorderColor = Color.Black;
             this.common_panel_setting.BackColor = System.Drawing.Color.Transparent;
             this.common_panel_setting.Controls.Add(this.common_panel_setting_table_setting);
-            this.common_panel_setting.Location = new System.Drawing.Point(3, 38);
-            this.common_panel_setting.Size = new System.Drawing.Size(150, 96);
+            this.common_panel_setting.Location = new System.Drawing.Point(2, 35);
+            this.common_panel_setting.Size = new System.Drawing.Size(120, 32);
             this.common_panel_setting.Visible = false;
             // 
             // common_panel_setting_table_setting
@@ -458,14 +455,11 @@ namespace TaskManage
             this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_label1, 0, 0);
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_label2, 0, 1);
             this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_check1, 1, 0);
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_check2, 1, 1);
-            this.common_panel_setting_table_setting.Location = new System.Drawing.Point(4, 3);
-            this.common_panel_setting_table_setting.RowCount = 2;
-            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.common_panel_setting_table_setting.Size = new System.Drawing.Size(142, 90);
+            this.common_panel_setting_table_setting.Location = new System.Drawing.Point(1, 1);
+            this.common_panel_setting_table_setting.RowCount = 1;
+            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.common_panel_setting_table_setting.Size = new System.Drawing.Size(118, 30);
             // 
             // common_panel_setting_table_label1
             // 
@@ -473,24 +467,12 @@ namespace TaskManage
             this.common_panel_setting_table_label1.Text = "ダークモード";
             this.common_panel_setting_table_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // common_panel_setting_table_label2
-            // 
-            this.common_panel_setting_table_label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.common_panel_setting_table_label2.Text = "右端折り返し";
-            this.common_panel_setting_table_label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // common_panel_setting_table_check1
             // 
             this.common_panel_setting_table_check1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.common_panel_setting_table_check1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.common_panel_setting_table_check1.UseVisualStyleBackColor = true;
             this.common_panel_setting_table_check1.CheckedChanged += new System.EventHandler(this.common_panel_setting_table_check1_CheckedChanged);
-            // 
-            // common_panel_setting_table_check2
-            // 
-            this.common_panel_setting_table_check2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.common_panel_setting_table_check2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.common_panel_setting_table_check2.UseVisualStyleBackColor = true;
 
 
             // 

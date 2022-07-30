@@ -257,7 +257,15 @@ namespace TaskManage.controls_event
             else // 既存更新
             {
                 form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = form.menudone_table1_text.Text;
-                form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = hour + "h" + minute + "m";
+                form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = "";
+                if (hour != 0)
+                {
+                    form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text += hour + "h";
+                }
+                if (minute != 0)
+                {
+                    form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text += minute + "m";
+                }
                 form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
                 form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
 
@@ -280,7 +288,15 @@ namespace TaskManage.controls_event
                     }
                 }
 
-                form.menu1_done_top_label_hour.Text = (sumtime / 60).ToString() + "h" + (sumtime % 60).ToString() + "m";
+                form.menu1_done_top_label_hour.Text = "";
+                if (sumtime / 60 != 0)
+                {
+                    form.menu1_done_top_label_hour.Text += (sumtime / 60).ToString() + "h";
+                }
+                if (sumtime % 60 != 0)
+                {
+                    form.menu1_done_top_label_hour.Text += (sumtime % 60).ToString() + "m";
+                }
                 form.menu1_done_top_label_hour.Refresh();
             }
         }
@@ -306,7 +322,15 @@ namespace TaskManage.controls_event
                 }
             }
 
-            form.menu1_done_top_label_hour.Text = (sumtime / 60).ToString() + "h" + (sumtime % 60).ToString() + "m";
+            form.menu1_done_top_label_hour.Text = "";
+            if (sumtime / 60 != 0)
+            {
+                form.menu1_done_top_label_hour.Text += (sumtime / 60).ToString() + "h";
+            }
+            if (sumtime % 60 != 0)
+            {
+                form.menu1_done_top_label_hour.Text += (sumtime % 60).ToString() + "m";
+            }
             form.menu1_done_top_label_hour.Refresh();
 
             form.ResumeLayout();
@@ -347,6 +371,15 @@ namespace TaskManage.controls_event
             menu1_done_main_panel_label_time.Size = new Size(48, 14);
             menu1_done_main_panel_label_time.Location = new Point(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Width - 32 - 48 - 2, 9);
             menu1_done_main_panel_label_time.Text = (int.Parse(time) / 60).ToString() + "h" + (int.Parse(time) % 60).ToString() + "m";
+            menu1_done_main_panel_label_time.Text = "";
+            if (int.Parse(time) / 60 != 0)
+            {
+                menu1_done_main_panel_label_time.Text += (int.Parse(time) / 60).ToString() + "h";
+            }
+            if (int.Parse(time) % 60 != 0)
+            {
+                menu1_done_main_panel_label_time.Text += (int.Parse(time) % 60).ToString() + "m";
+            }
             menu1_done_main_panel_label_time.Name = Main.Common_Var.menu1_day_done.ToString();
             menu1_done_main_panel_label_time.TextAlign = ContentAlignment.MiddleRight;
             menu1_done_main_panel_label_time.MouseEnter += new EventHandler(events.menu1_done_main_panel_label_time_MouseEnter);
@@ -633,7 +666,15 @@ namespace TaskManage.controls_event
                 }
             }
 
-            form.menu1_done_top_label_hour.Text = (sumtime / 60).ToString() + "h" + (sumtime % 60).ToString() + "m";
+            form.menu1_done_top_label_hour.Text = "";
+            if (sumtime / 60 != 0)
+            {
+                form.menu1_done_top_label_hour.Text += (sumtime / 60).ToString() + "h";
+            }
+            if (sumtime % 60 != 0)
+            {
+                form.menu1_done_top_label_hour.Text += (sumtime % 60).ToString() + "m";
+            }
             form.menu1_done_top_label_hour.Refresh();
 
             form.ResumeLayout();
