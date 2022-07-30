@@ -120,70 +120,60 @@ namespace TaskManage.controls_event
         // タスクホバー時
         public void menu2_1_panel_main_panel_MouseEnter(object sender, EventArgs e)
         {
-            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].BackColor = Main.Common_Const.color2;
-            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].Refresh();
+            MouseEnterTask(int.Parse(((PanelEx)sender).Name));
         }
         public void menu2_1_panel_main_panel_label1_MouseEnter(object sender, EventArgs e)
         {
-            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].BackColor = Main.Common_Const.color2;
-            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].Refresh();
+            MouseEnterTask(int.Parse(((Label)sender).Name));
         }
         // タスクホバーが離れた時
         public void menu2_1_panel_main_panel_MouseLeave(object sender, EventArgs e)
         {
-            if (Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task != int.Parse(((PanelEx)sender).Name))
-            {
-                form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].BackColor = Color.Transparent;
-            }
-            form.menu2_1_panel_main_panel[int.Parse(((PanelEx)sender).Name)].Refresh();
+            MouseLeaveTask(int.Parse(((PanelEx)sender).Name));
         }
         public void menu2_1_panel_main_panel_label1_MouseLeave(object sender, EventArgs e)
         {
-            if (Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task != int.Parse(((Label)sender).Name))
-            {
-                form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].BackColor = Color.Transparent;
-            }
-            form.menu2_1_panel_main_panel[int.Parse(((Label)sender).Name)].Refresh();
+            MouseLeaveTask(int.Parse(((Label)sender).Name));
         }
         // タスク削除ボタンホバー時
         public void menu2_1_panel_main_panel_button_delete_MouseEnter(object sender, EventArgs e)
         {
-            if (int.Parse(((Button)sender).Name) >= 0)
+            if (!CheckTaskNum(int.Parse(((Button)sender).Name)))
             {
-                form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 255, 128, 128);
-                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BackColor = Main.Common_Const.color2;
-                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+                return;
             }
+            form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 255, 128, 128);
+            MouseEnterTask(int.Parse(((Button)sender).Name));
         }
         // タスク削除ボタンホバーが離れた時
         public void menu2_1_panel_main_panel_button_delete_MouseLeave(object sender, EventArgs e)
         {
-            if (int.Parse(((Button)sender).Name) >= 0)
+            if (!CheckTaskNum(int.Parse(((Button)sender).Name)))
             {
-                form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
-                if (Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task != int.Parse(((Button)sender).Name))
-                {
-                    form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
-                }
-                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+                return;
             }
+            form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
+            MouseLeaveTask(int.Parse(((Label)sender).Name));
         }
         // タスク完了ボタンホバー時
         public void menu2_1_panel_main_panel_button_finish_MouseEnter(object sender, EventArgs e)
         {
+            if (!CheckTaskNum(int.Parse(((Button)sender).Name)))
+            {
+                return;
+            }
             form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.FromArgb(50, 128, 255, 128);
-            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BackColor = Main.Common_Const.color2;
-            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+            MouseEnterTask(int.Parse(((Button)sender).Name));
         }
         // タスク完了ボタンホバーが離れた時
         public void menu2_1_panel_main_panel_button_finish_MouseLeave(object sender, EventArgs e)
         {
-            form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
-            if (Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task != int.Parse(((Button)sender).Name))
+            if (!CheckTaskNum(int.Parse(((Button)sender).Name)))
             {
-                form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
+                return;
             }
-            form.menu2_1_panel_main_panel[int.Parse(((Button)sender).Name)].Refresh();
+            form.menu2_1_panel_main_panel_button_finish[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
+            MouseLeaveTask(int.Parse(((Button)sender).Name));
         }
         //タスク完了ボタン
         public void menu2_1_panel_main_panel_button_finish_Click(object sender, EventArgs e)
@@ -199,9 +189,11 @@ namespace TaskManage.controls_event
             form.menu1_done_main.SuspendLayout();
 
             form.menu1_done_main_panel_button_delete.Add(menu1_events.add_menu1_done_main_panel_button_delete(form));
-            form.menu1_done_main_panel_label_time.Add(menu1_events.add_menu1_done_main_panel_label_time(form, name));
-            form.menu1_done_main_panel_label_name.Add(menu1_events.add_menu1_done_main_panel_label_name(form, memo));
             form.menu1_done_main_panel.Add(menu1_events.add_menu1_done_main_panel(form));
+            form.menu1_done_main_panel_label_time.Add(menu1_events.add_menu1_done_main_panel_label_time(form, "0"));
+            form.menu1_done_main_panel_label_name.Add(menu1_events.add_menu1_done_main_panel_label_name(form, name));
+            form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
+            form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
             form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
 
             form.ResumeLayout();
@@ -210,7 +202,7 @@ namespace TaskManage.controls_event
             form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].ResumeLayout();
 
             Properties.Settings.Default.done_name.Add(name);
-            Properties.Settings.Default.done_time.Add("");
+            Properties.Settings.Default.done_time.Add("0");
             Properties.Settings.Default.done_memo.Add(memo);
             Properties.Settings.Default.done_day.Add(day.Year + "/" + day.Month + "/" + day.Day);
 
@@ -386,12 +378,6 @@ namespace TaskManage.controls_event
 
             menu2_1_events events = new menu2_1_events(form);
 
-            // コントロール削除時に削除ボタンのイベントを除去
-            if (num < Main.Common_Var.menu2_1_task - 1)
-            {
-                form.menu2_1_panel_main_panel_button_delete[num].MouseLeave -= new EventHandler(events.menu2_1_panel_main_panel_button_delete_MouseLeave);
-            }
-
             for (int i = num; i < Main.Common_Var.menu2_1_task; i++)
             {
                 // 位置更新
@@ -409,13 +395,6 @@ namespace TaskManage.controls_event
             form.menu2_1_panel_main_panel_button_finish.RemoveAt(num);
             form.menu2_1_panel_main_panel_button_delete.RemoveAt(num);
             form.menu2_1_panel_main_panel.RemoveAt(num);
-
-            // 削除ボタンのイベントを戻す
-            if (num < Main.Common_Var.menu2_1_task - 1)
-            {
-                form.menu2_1_panel_main_panel_button_delete[num].BackColor = Color.Transparent;
-                form.menu2_1_panel_main_panel_button_delete[num].MouseLeave += new EventHandler(events.menu2_1_panel_main_panel_button_delete_MouseLeave);
-            }
 
             form.ResumeLayout();
             form.menu2.ResumeLayout();
@@ -545,6 +524,50 @@ namespace TaskManage.controls_event
 
             return menu2_1_panel_main_panel;
         }
+
+        // タスクの番号が正しいかチェック
+        private bool CheckTaskNum(int num)
+        {
+            if (num < 0 || Main.Common_Var.menu2_1_task <= num)
+            {
+                return false;
+            }
+            if (num == Main.Common_Var.menu2_1_task)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        // タスクマウスホバー時
+        private void MouseEnterTask(int num)
+        {
+            if (num < 0 || Main.Common_Var.menu2_1_task <= num)
+            {
+                return;
+            }
+            if (num == Main.Common_Var.menu2_1_task)
+            {
+                return;
+            }
+            form.menu2_1_panel_main_panel[num].BackColor = Main.Common_Const.color2;
+            form.menu2_1_panel_main_panel[num].Refresh();
+        }
+
+        // タスクマウスホバーが離れた時
+        private void MouseLeaveTask(int num)
+        {
+            if (!CheckTaskNum(num))
+            {
+                return;
+            }
+            if (Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task != num)
+            {
+                form.menu2_1_panel_main_panel[num].BackColor = Color.Transparent;
+            }
+            form.menu2_1_panel_main_panel[num].Refresh();
+        }
+
 
         #endregion private
         // ********** private **********

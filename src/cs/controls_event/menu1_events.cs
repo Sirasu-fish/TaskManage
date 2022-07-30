@@ -195,7 +195,6 @@ namespace TaskManage.controls_event
             form.menu1_done_main.SuspendLayout();
 
             form.menu1_done_main_panel_button_delete.Add(add_menu1_done_main_panel_button_delete(form));
-
             form.menu1_done_main_panel.Add(add_menu1_done_main_panel(form));
             form.menu1_done_main_panel_label_name.Add(add_menu1_done_main_panel_label_name(form, text));
             form.menu1_done_main_panel_label_time.Add(add_menu1_done_main_panel_label_time(form, time));
