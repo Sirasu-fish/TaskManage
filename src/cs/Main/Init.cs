@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace TaskManage.Main
 {
@@ -26,6 +27,7 @@ namespace TaskManage.Main
         // 設定値の初期化
         private void SetPropertiesValue()
         {
+            //Properties.Settings.Default.first_start = false;
             // 初回起動時は初期化
             if (!Properties.Settings.Default.first_start)
             {
@@ -64,6 +66,16 @@ namespace TaskManage.Main
             if (Properties.Settings.Default.menu < 1 || 3 < Properties.Settings.Default.menu)
             {
                 Properties.Settings.Default.menu = 1;
+            }
+
+            for(int i = Properties.Settings.Default.memo_path.Count - 1; i >= 0;  i--)
+            {
+                if (string.IsNullOrEmpty(Properties.Settings.Default.memo_path[i]))
+                {
+                    Properties.Settings.Default.memo_path.RemoveAt(i);
+                    Properties.Settings.Default.memo_height.RemoveAt(i);
+                    Properties.Settings.Default.memo_wrap.RemoveAt(i);
+                }
             }
 
             Properties.Settings.Default.Save();
@@ -179,7 +191,7 @@ namespace TaskManage.Main
             {
                 if (!String.IsNullOrEmpty(Properties.Settings.Default.memo_path[i]))
                 {
-                    controls_event.menu2_2_events.AddMemo(form, Properties.Settings.Default.memo_path[i], fu.ReadFileAll(Properties.Settings.Default.memo_path[i]));
+                    controls_event.menu2_2_events.AddMemo(form, Properties.Settings.Default.memo_path[i], fu.ReadFileAll(Properties.Settings.Default.memo_path[i]), int.Parse(Properties.Settings.Default.memo_height[i]), Convert.ToBoolean(Properties.Settings.Default.memo_wrap[i]));
                     Common_Var.memo_save.Add(true);
                 }
             }

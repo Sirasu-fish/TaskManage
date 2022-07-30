@@ -15,7 +15,7 @@ namespace TaskManage.Main
 
         private static int menu2_num_ = 2; // menu2の項目数
         private static int memo_num_ = 99; // メモの保存数
-        private static int memo_height_ = 100;
+        private static int memo_height_ = 100; // メモの高さ
 
         public static int form_x
         {

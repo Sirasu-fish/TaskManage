@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -39,8 +38,8 @@ namespace TaskManage.controls_event
                 }
                 else
                 {
-                    form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2 + task_height / 2;
-                    form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8 + task_height / 2;
+                    form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2 + 10;
+                    form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8 + 10;
                 }
                 Properties.Settings.Default.menu2_open1 = true;
             }
@@ -335,8 +334,8 @@ namespace TaskManage.controls_event
                 }
                 else // タスク数が0の時
                 {
-                    form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2 + task_height / 2;
-                    form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8 + task_height / 2;
+                    form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2 + 10;
+                    form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8 + 10;
                 }
             }
             else
