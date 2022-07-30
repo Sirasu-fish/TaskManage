@@ -129,8 +129,8 @@ namespace TaskManage.controls_event
         // メモの追加
         public static void menu2_2_panel_top_button_add_Click(object sender, EventArgs e, MainForm form)
         {
-            AddMemo(form, " *", "");
-            Main.Common_Var.memo_save.Add(false);
+            AddMemo(form, "", "");
+            Main.Common_Var.memo_save.Add(true);
         }
 
         // キー押下時のイベント
@@ -381,50 +381,34 @@ namespace TaskManage.controls_event
                 string[] paths = new string[Main.Common_Const.memo_num];
                 Properties.Settings.Default.memo_path.CopyTo(paths, 0);
                 string save_path = paths[num];
-
-                // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
-                if (String.IsNullOrEmpty(save_path))
+                switch (fu.ShowOverrideFileMessage())
                 {
-                    if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
-                    {
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                // パスが空ではない時 = 既存ファイル
-                else
-                {
-                    switch (fu.ShowOverrideFileMessage())
-                    {
-                        case DialogResult.Yes: // はい
-                            if (fu.IsAbleWrite(save_path)) //書き込み可能な時
+                    case DialogResult.Yes: // はい
+                        if (fu.IsAbleWrite(save_path)) //書き込み可能な時
+                        {
+                            if (fu.WriteFile(save_path, form.menu2_2_panel_main_panel_table_memo_text[num].Text)) // 上書き
                             {
-                                if (fu.WriteFile(save_path, form.menu2_2_panel_main_panel_table_memo_text[num].Text)) // 上書き
-                                {
-                                }
-                                else
-                                {
-                                    return;
-                                }
                             }
                             else
                             {
-                                if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
-                                {
-                                }
-                                else
-                                {
-                                    return;
-                                }
+                                return;
                             }
-                            break;
-                        case DialogResult.No: // いいえ
-                            break;
-                        case DialogResult.Cancel: // キャンセル
-                            return;
-                    }
+                        }
+                        else
+                        {
+                            if (fu.OpenDialog(form, form.menu2_2_panel_main_panel_table_memo_text[num].Text, num)) // 名前をつけて保存
+                            {
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
+                        break;
+                    case DialogResult.No: // いいえ
+                        break;
+                    case DialogResult.Cancel: // キャンセル
+                        return;
                 }
             }
 
