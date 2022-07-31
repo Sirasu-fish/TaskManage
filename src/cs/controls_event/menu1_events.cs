@@ -340,7 +340,8 @@ namespace TaskManage.controls_event
             menu1_done_main_panel_button_delete.BackColor = Color.Transparent;
             menu1_done_main_panel_button_delete.Dock = DockStyle.Right;
             menu1_done_main_panel_button_delete.FlatStyle = FlatStyle.Flat;
-            menu1_done_main_panel_button_delete.Image = ((Image)(resources.GetObject("menu2_1_panel_main_panel1_button_delete.Image")));
+            menu1_done_main_panel_button_delete.BackgroundImage = ((Image)(resources.GetObject("menu1_done_main_panel_button_delete.Image")));
+            menu1_done_main_panel_button_delete.BackgroundImageLayout = ImageLayout.Center;
             menu1_done_main_panel_button_delete.Name = Main.Common_Var.menu1_day_done.ToString();
             menu1_done_main_panel_button_delete.Size = new Size(32, 32);
             menu1_done_main_panel_button_delete.UseVisualStyleBackColor = false;
@@ -348,6 +349,7 @@ namespace TaskManage.controls_event
             menu1_done_main_panel_button_delete.MouseEnter += new EventHandler(events.menu1_done_main_panel_button_delete_MouseEnter);
             menu1_done_main_panel_button_delete.MouseLeave += new EventHandler(events.menu1_done_main_panel_button_delete_MouseLeave);
             menu1_done_main_panel_button_delete.Cursor = Cursors.Hand;
+            form.tooltip.SetToolTip(menu1_done_main_panel_button_delete, "削除");
 
             return menu1_done_main_panel_button_delete;
         }

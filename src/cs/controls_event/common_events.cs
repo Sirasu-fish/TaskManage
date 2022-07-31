@@ -15,12 +15,12 @@ namespace TaskManage.controls_event
             if (form.WindowState == FormWindowState.Maximized) // 最大化されている時
             {
                 form.WindowState = FormWindowState.Normal; // 通常化
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_max.Image"))); ;
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_max.Image")));
             }
             else
             {
                 form.WindowState = FormWindowState.Maximized; // 最大化
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_dis_max.Image")));
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_dis_max.Image")));
             }
         }
 
@@ -37,12 +37,12 @@ namespace TaskManage.controls_event
             if (form.WindowState == FormWindowState.Maximized) // 最大化されている時
             {
                 form.WindowState = FormWindowState.Normal; // 通常化
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_max.Image"))); ;
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_max.Image")));
             }
             else
             {
                 form.WindowState = FormWindowState.Maximized; // 最大化
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_dis_max.Image")));
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_dis_max.Image")));
             }
         }
 

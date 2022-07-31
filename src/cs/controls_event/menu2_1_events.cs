@@ -153,7 +153,7 @@ namespace TaskManage.controls_event
                 return;
             }
             form.menu2_1_panel_main_panel_button_delete[int.Parse(((Button)sender).Name)].BackColor = Color.Transparent;
-            MouseLeaveTask(int.Parse(((Label)sender).Name));
+            MouseLeaveTask(int.Parse(((Button)sender).Name));
         }
         // タスク完了ボタンホバー時
         public void menu2_1_panel_main_panel_button_finish_MouseEnter(object sender, EventArgs e)
@@ -449,7 +449,8 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel_button_delete.BackColor = Color.Transparent;
             menu2_1_panel_main_panel_button_delete.Dock = DockStyle.Right;
             menu2_1_panel_main_panel_button_delete.FlatStyle = FlatStyle.Flat;
-            menu2_1_panel_main_panel_button_delete.Image = ((Image)(resources.GetObject("menu2_1_panel_main_panel1_button_delete.Image")));
+            menu2_1_panel_main_panel_button_delete.BackgroundImage = ((Image)(resources.GetObject("menu1_done_main_panel_button_delete.Image")));
+            menu2_1_panel_main_panel_button_delete.BackgroundImageLayout = ImageLayout.Center;
             menu2_1_panel_main_panel_button_delete.Name = Main.Common_Var.menu2_1_task.ToString();
             menu2_1_panel_main_panel_button_delete.Size = new Size(32, 32);
             menu2_1_panel_main_panel_button_delete.UseVisualStyleBackColor = false;
@@ -457,6 +458,7 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel_button_delete.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_button_delete_MouseEnter);
             menu2_1_panel_main_panel_button_delete.MouseLeave += new EventHandler(events.menu2_1_panel_main_panel_button_delete_MouseLeave);
             menu2_1_panel_main_panel_button_delete.Cursor = Cursors.Hand;
+            form.tooltip.SetToolTip(menu2_1_panel_main_panel_button_delete, "削除");
 
             return menu2_1_panel_main_panel_button_delete;
         }
@@ -471,13 +473,15 @@ namespace TaskManage.controls_event
             menu2_1_panel_main_panel_button_finish.Dock = DockStyle.Right;
             menu2_1_panel_main_panel_button_finish.FlatStyle = FlatStyle.Flat;
             menu2_1_panel_main_panel_button_finish.Name = Main.Common_Var.menu2_1_task.ToString();
-            menu2_1_panel_main_panel_button_finish.Image = ((Image)(resources.GetObject("menu2_1_panel_main_panel1_button_finish.Image")));
+            menu2_1_panel_main_panel_button_finish.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_main_panel1_button_finish.Image")));
+            menu2_1_panel_main_panel_button_finish.BackgroundImageLayout = ImageLayout.Center;
             menu2_1_panel_main_panel_button_finish.Size = new Size(32, 32);
             menu2_1_panel_main_panel_button_finish.UseVisualStyleBackColor = false;
             menu2_1_panel_main_panel_button_finish.Click += new EventHandler(events.menu2_1_panel_main_panel_button_finish_Click);
             menu2_1_panel_main_panel_button_finish.MouseEnter += new EventHandler(events.menu2_1_panel_main_panel_button_finish_MouseEnter);
             menu2_1_panel_main_panel_button_finish.MouseLeave += new EventHandler(events.menu2_1_panel_main_panel_button_finish_MouseLeave);
             menu2_1_panel_main_panel_button_finish.Cursor = Cursors.Hand;
+            form.tooltip.SetToolTip(menu2_1_panel_main_panel_button_finish, "完了");
 
             return menu2_1_panel_main_panel_button_finish;
         }

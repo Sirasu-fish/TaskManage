@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TaskManage.controls_event
@@ -182,12 +183,14 @@ namespace TaskManage.controls_event
             if (form.menu2_2_panel_main_panel_table_memo_text[i].Visible == false)
             {
                 form.menu2_2_panel_main_panel_table_memo_text[i].Visible = true;
-                form.menu2_2_panel_main_panel[i].Height = 106;
+                form.menu2_2_panel_main_panel[i].Height = int.Parse(Properties.Settings.Default.memo_height[i]);
             }
             else
             {
+                Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
+                Properties.Settings.Default.Save();
                 form.menu2_2_panel_main_panel_table_memo_text[i].Visible = false;
-                form.menu2_2_panel_main_panel[i].Height = 28;
+                form.menu2_2_panel_main_panel[i].Height = 34;
             }
         }
 
@@ -486,60 +489,80 @@ namespace TaskManage.controls_event
         // 折り返しボタン
         private static Button add_menu2_2_panel_main_panel_table_memo_panel_top_button_wrap(MainForm form)
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Button menu2_2_panel_main_panel_table_memo_panel_top_button_wrap = new Button();
             menu2_2_events events = new menu2_2_events(form);
 
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Cursor = Cursors.Hand;
             menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Dock = DockStyle.Right;
             menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.FlatStyle = FlatStyle.Flat;
-            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Size = new System.Drawing.Size(32, 22);
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.BackgroundImage = ((Image)(resources.GetObject("menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Image")));
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.BackgroundImageLayout = ImageLayout.Center;
+            menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Size = new Size(32, 22);
             menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Name = Main.Common_Var.menu2_2_memo.ToString();
             menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.UseVisualStyleBackColor = true;
             menu2_2_panel_main_panel_table_memo_panel_top_button_wrap.Click += new EventHandler(events.menu2_2_panel_main_panel_table_memo_panel_top_button_wrap_Click);
+            form.tooltip.SetToolTip(menu2_2_panel_main_panel_table_memo_panel_top_button_wrap, "右端で折り返す");
 
             return menu2_2_panel_main_panel_table_memo_panel_top_button_wrap;
         }
         // 保存ボタン
         private static Button add_menu2_2_panel_main_panel_table_memo_panel_top_button_save(MainForm form)
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Button menu2_2_panel_main_panel_table_memo_panel_top_button_save = new Button();
             menu2_2_events events = new menu2_2_events(form);
 
+            menu2_2_panel_main_panel_table_memo_panel_top_button_save.Cursor = Cursors.Hand;
             menu2_2_panel_main_panel_table_memo_panel_top_button_save.Dock = DockStyle.Right;
             menu2_2_panel_main_panel_table_memo_panel_top_button_save.FlatStyle = FlatStyle.Flat;
-            menu2_2_panel_main_panel_table_memo_panel_top_button_save.Size = new System.Drawing.Size(32, 22);
+            menu2_2_panel_main_panel_table_memo_panel_top_button_save.BackgroundImage = ((Image)(resources.GetObject("menu2_2_panel_main_panel_table_memo_panel_top_button_save.Image")));
+            menu2_2_panel_main_panel_table_memo_panel_top_button_save.BackgroundImageLayout = ImageLayout.Center;
+            menu2_2_panel_main_panel_table_memo_panel_top_button_save.Size = new Size(32, 22);
             menu2_2_panel_main_panel_table_memo_panel_top_button_save.Name = Main.Common_Var.menu2_2_memo.ToString();
             menu2_2_panel_main_panel_table_memo_panel_top_button_save.UseVisualStyleBackColor = true;
             menu2_2_panel_main_panel_table_memo_panel_top_button_save.Click += new EventHandler(events.menu2_2_panel_main_panel_table_memo_panel_top_button_save_Click);
+            form.tooltip.SetToolTip(menu2_2_panel_main_panel_table_memo_panel_top_button_save, "保存(Ctrl + S)");
 
             return menu2_2_panel_main_panel_table_memo_panel_top_button_save;
         }
         // 閉じるボタン
         private static Button add_menu2_2_panel_main_panel_table_memo_panel_top_button_close(MainForm form)
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Button menu2_2_panel_main_panel_table_memo_panel_top_button_close = new Button();
             menu2_2_events events = new menu2_2_events(form);
 
+            menu2_2_panel_main_panel_table_memo_panel_top_button_close.Cursor = Cursors.Hand;
             menu2_2_panel_main_panel_table_memo_panel_top_button_close.Dock = DockStyle.Right;
             menu2_2_panel_main_panel_table_memo_panel_top_button_close.FlatStyle = FlatStyle.Flat;
-            menu2_2_panel_main_panel_table_memo_panel_top_button_close.Size = new System.Drawing.Size(32, 22);
+            menu2_2_panel_main_panel_table_memo_panel_top_button_close.BackgroundImage = ((Image)(resources.GetObject("menu2_2_panel_main_panel_table_memo_panel_top_button_close.Image")));
+            menu2_2_panel_main_panel_table_memo_panel_top_button_close.BackgroundImageLayout = ImageLayout.Center;
+            menu2_2_panel_main_panel_table_memo_panel_top_button_close.Size = new Size(32, 22);
             menu2_2_panel_main_panel_table_memo_panel_top_button_close.Name = Main.Common_Var.menu2_2_memo.ToString();
             menu2_2_panel_main_panel_table_memo_panel_top_button_close.UseVisualStyleBackColor = true;
             menu2_2_panel_main_panel_table_memo_panel_top_button_close.Click += new EventHandler(events.menu2_2_panel_main_panel_table_memo_panel_top_button_close_Click);
+            form.tooltip.SetToolTip(menu2_2_panel_main_panel_table_memo_panel_top_button_close, "閉じる");
 
             return menu2_2_panel_main_panel_table_memo_panel_top_button_close;
         }
         // 最小化、最大化ボタン
         private static Button add_menu2_2_panel_main_panel_table_memo_panel_top_button_minmax(MainForm form)
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Button menu2_2_panel_main_panel_table_memo_panel_top_button_minmax = new Button();
             menu2_2_events events = new menu2_2_events(form);
 
+            menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.Cursor = Cursors.Hand;
             menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.Dock = DockStyle.Right;
             menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.FlatStyle = FlatStyle.Flat;
-            menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.Size = new System.Drawing.Size(32, 22);
+            menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.BackgroundImage = ((Image)(resources.GetObject("menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.Image")));
+            menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.BackgroundImageLayout = ImageLayout.Center;
+            menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.Size = new Size(32, 22);
             menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.Name = Main.Common_Var.menu2_2_memo.ToString();
             menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.UseVisualStyleBackColor = true;
             menu2_2_panel_main_panel_table_memo_panel_top_button_minmax.Click += new EventHandler(events.menu2_2_panel_main_panel_table_memo_panel_top_button_minmax_Click);
+            form.tooltip.SetToolTip(menu2_2_panel_main_panel_table_memo_panel_top_button_minmax, "最小化");
 
             return menu2_2_panel_main_panel_table_memo_panel_top_button_minmax;
         }
@@ -550,7 +573,7 @@ namespace TaskManage.controls_event
 
             menu2_2_panel_main_panel_table_memo_panel_top_text.Dock = DockStyle.Fill;
             menu2_2_panel_main_panel_table_memo_panel_top_text.BackColor = Main.Common_Const.color3;
-            menu2_2_panel_main_panel_table_memo_panel_top_text.Location = new System.Drawing.Point(0, 0);
+            menu2_2_panel_main_panel_table_memo_panel_top_text.Location = new Point(0, 0);
             menu2_2_panel_main_panel_table_memo_panel_top_text.ReadOnly = true;
             menu2_2_panel_main_panel_table_memo_panel_top_text.Text = memo_name;
 
