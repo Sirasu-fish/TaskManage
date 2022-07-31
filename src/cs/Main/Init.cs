@@ -21,7 +21,6 @@ namespace TaskManage.Main
         // private
         #region private
 
-        private static DAndDSizeChanger[] menu2_2_panel_main_table_memo_sizeChanger = new DAndDSizeChanger[99];
         private static DAndDMoveForm common_MoveForm;
 
         // 設定値の初期化

@@ -252,7 +252,7 @@ namespace TaskManage.controls_event
                         if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[j])
                         && Properties.Settings.Default.done_day[j] == year.ToString() + "/" + month.ToString() + "/" + days[i].ToString())
                         {
-                            sumtime = int.Parse(Properties.Settings.Default.done_time[j]);
+                            sumtime += int.Parse(Properties.Settings.Default.done_time[j]);
                         }
                     }
                 }
@@ -279,7 +279,7 @@ namespace TaskManage.controls_event
                         if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[j])
                         && Properties.Settings.Default.done_day[j] == nextyear.ToString() + "/" + nextmonth.ToString() + "/" + days[i].ToString())
                         {
-                            sumtime = int.Parse(Properties.Settings.Default.done_time[j]);
+                            sumtime += int.Parse(Properties.Settings.Default.done_time[j]);
                         }
                     }
                 }
@@ -306,7 +306,7 @@ namespace TaskManage.controls_event
                         if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[j])
                         && Properties.Settings.Default.done_day[j] == prevyear.ToString() + "/" + prevmonth.ToString() + "/" + days[i].ToString())
                         {
-                            sumtime = int.Parse(Properties.Settings.Default.done_time[j]);
+                            sumtime += int.Parse(Properties.Settings.Default.done_time[j]);
                         }
                     }
                 }
@@ -323,6 +323,14 @@ namespace TaskManage.controls_event
                 {
                     form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime / 60).ToString() + "h";
                     form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                    if (sumtime / 60 >= 12)
+                    {
+                        form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done2;
+                    }
+                    else
+                    {
+                        form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
+                    }
                 }
                 if (sumtime % 60 != 0)
                 {

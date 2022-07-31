@@ -626,7 +626,6 @@ namespace TaskManage
                 //
                 this.menu1_table_calender_panel_day_label_done[i].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                 | System.Windows.Forms.AnchorStyles.Right)));
-                this.menu1_table_calender_panel_day_label_done[i].BackColor = System.Drawing.Color.Aqua;
                 this.menu1_table_calender_panel_day_label_done[i].ForeColor = Color.Black;
                 this.menu1_table_calender_panel_day_label_done[i].Location = new System.Drawing.Point(1, 16);
                 this.menu1_table_calender_panel_day_label_done[i].Margin = new System.Windows.Forms.Padding(0);

@@ -258,6 +258,136 @@ namespace TaskManage.controls_event
                 Main.Common_Var.menu1_open_done += 1;
 
                 ChangeDoneNum(form);
+
+                int sumtime = 0;
+                for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
+                {
+                    if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                    && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                    {
+                        sumtime += int.Parse(Properties.Settings.Default.done_time[i]);
+                    }
+                }
+
+                // カレンダー更新
+                int year = int.Parse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString());
+                int month = int.Parse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString());
+                DayOfWeek firstdate = (new DateTime(year, month, 1)).DayOfWeek; // 前月と当月の判定用
+                int[] days = new int[42]; // 日付のための箱
+                int sub_day = 0; // 次月と当月の判定用
+                int today_int = -1; // 現在日の判定用
+
+                common_events.Get_Calender(year, month, ref days, ref sub_day, ref today_int); // 表示内容を取得
+
+                for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
+                {
+                    if ((int)firstdate - 1 < i && i < sub_day) // 当月
+                    {
+                        if (year == Main.Common_Var.menu1_done_year && month == Main.Common_Var.menu1_done_month && days[i] == Main.Common_Var.menu1_done_day)
+                        {
+                            form.menu1_table_calender_panel_day_label_done[i].Text = "";
+                            form.menu1_table_calender_panel_day_label_done[i].Visible = false;
+                            if (sumtime / 60 != 0)
+                            {
+                                form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime / 60).ToString() + "h";
+                                form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                                if (sumtime / 60 >= 12)
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done2;
+                                }
+                                else
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
+                                }
+                            }
+                            if (sumtime % 60 != 0)
+                            {
+                                form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime % 60).ToString() + "m";
+                                form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                            }
+                            form.menu1_table_calender_panel_day_label_done[i].Refresh();
+                            break;
+                        }
+                    }
+                    else if (sub_day <= i) // 次月
+                    {
+                        int nextmonth = 0;
+                        int nextyear = year;
+                        if (month == 12)
+                        {
+                            nextmonth = 1;
+                            nextyear = year + 1;
+                        }
+                        else
+                        {
+                            nextmonth = month + 1;
+                        }
+                        if (nextyear == Main.Common_Var.menu1_done_year && nextmonth == Main.Common_Var.menu1_done_month && days[i] == Main.Common_Var.menu1_done_day)
+                        {
+                            form.menu1_table_calender_panel_day_label_done[i].Text = "";
+                            form.menu1_table_calender_panel_day_label_done[i].Visible = false;
+                            if (sumtime / 60 != 0)
+                            {
+                                form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime / 60).ToString() + "h";
+                                form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                                if (sumtime / 60 >= 12)
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done2;
+                                }
+                                else
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
+                                }
+                            }
+                            if (sumtime % 60 != 0)
+                            {
+                                form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime % 60).ToString() + "m";
+                                form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                            }
+                            form.menu1_table_calender_panel_day_label_done[i].Refresh();
+                            break;
+                        }
+                    }
+                    else if (i <= (int)firstdate - 1) // 前月
+                    {
+                        int prevmonth = 0;
+                        int prevyear = year;
+                        if (month == 1)
+                        {
+                            prevmonth = 12;
+                            prevyear = year - 1;
+                        }
+                        else
+                        {
+                            prevmonth = month - 1;
+                        }
+                        if (prevyear == Main.Common_Var.menu1_done_year && prevmonth == Main.Common_Var.menu1_done_month && days[i] == Main.Common_Var.menu1_done_day)
+                        {
+                            form.menu1_table_calender_panel_day_label_done[i].Text = "";
+                            form.menu1_table_calender_panel_day_label_done[i].Visible = false;
+                            if (sumtime / 60 != 0)
+                            {
+                                form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime / 60).ToString() + "h";
+                                form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                                if (sumtime / 60 >= 12)
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done2;
+                                }
+                                else
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
+                                }
+                            }
+                            if (sumtime % 60 != 0)
+                            {
+                                form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime % 60).ToString() + "m";
+                                form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                            }
+                            form.menu1_table_calender_panel_day_label_done[i].Refresh();
+                            break;
+                        }
+                    }
+                }
             }
             else // 既存更新
             {
@@ -315,6 +445,14 @@ namespace TaskManage.controls_event
                             {
                                 form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime / 60).ToString() + "h";
                                 form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                                if (sumtime / 60 >= 12)
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done2;
+                                }
+                                else
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
+                                }
                             }
                             if (sumtime % 60 != 0)
                             {
@@ -346,6 +484,14 @@ namespace TaskManage.controls_event
                             {
                                 form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime / 60).ToString() + "h";
                                 form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                                if (sumtime / 60 >= 12)
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done2;
+                                }
+                                else
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
+                                }
                             }
                             if (sumtime % 60 != 0)
                             {
@@ -377,6 +523,14 @@ namespace TaskManage.controls_event
                             {
                                 form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime / 60).ToString() + "h";
                                 form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                                if (sumtime / 60 >= 12)
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done2;
+                                }
+                                else
+                                {
+                                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
+                                }
                             }
                             if (sumtime % 60 != 0)
                             {
@@ -410,29 +564,6 @@ namespace TaskManage.controls_event
             form.menu1_done_main.SuspendLayout();
 
             form.menu1_done_main.Height = (done_height + done_space) * Main.Common_Var.menu1_day_done + 4; // 高さ調整
-
-            int sumtime = 0;
-
-            // 対象の日付の実績を追加、表示
-            for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
-            {
-                if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
-                    && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
-                {
-                    sumtime += int.Parse(Properties.Settings.Default.done_time[i]);
-                }
-            }
-
-            form.menu1_done_top_label_hour.Text = "";
-            if (sumtime / 60 != 0)
-            {
-                form.menu1_done_top_label_hour.Text += (sumtime / 60).ToString() + "h";
-            }
-            if (sumtime % 60 != 0)
-            {
-                form.menu1_done_top_label_hour.Text += (sumtime % 60).ToString() + "m";
-            }
-            form.menu1_done_top_label_hour.Refresh();
 
             form.ResumeLayout();
             form.menu1.ResumeLayout();
@@ -948,11 +1079,6 @@ namespace TaskManage.controls_event
             }
             form.menu1_done_main_panel[num].BackColor = Color.Transparent;
             form.menu1_done_main_panel[num].Refresh();
-        }
-
-        private void test(int num)
-        {
-
         }
 
         #endregion private
