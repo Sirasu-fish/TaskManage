@@ -53,6 +53,7 @@ namespace TaskManage
         public Panel[] menu1_table_calender_panel_day;
         public Label[] menu1_table_calender_label_dow;
         public Label[] menu1_table_calender_panel_day_label_day;
+        public Label[] menu1_table_calender_panel_day_label_done;
 
         public PanelTop menu1_done_top;
         public Button menu1_done_top_prevday;
@@ -154,7 +155,7 @@ namespace TaskManage
             this.window_panel = new System.Windows.Forms.Panel();
 
             this.common = new TaskManage.PanelBottom();
-            this.common_button_close = new System.Windows.Forms.Button();
+            this.common_button_close = new Button();
             this.common_button_max = new System.Windows.Forms.Button();
             this.common_button_min = new System.Windows.Forms.Button();
             this.common_button_prevmenu = new System.Windows.Forms.Button();
@@ -179,10 +180,12 @@ namespace TaskManage
             }
             this.menu1_table_calender_panel_day = new System.Windows.Forms.Panel[menu1_table_calender_num];
             this.menu1_table_calender_panel_day_label_day = new System.Windows.Forms.Label[menu1_table_calender_num];
+            this.menu1_table_calender_panel_day_label_done = new System.Windows.Forms.Label[menu1_table_calender_num];
             for (int i = 0; i < menu1_table_calender_num; i++)
             {
                 this.menu1_table_calender_panel_day[i] = new System.Windows.Forms.Panel();
                 this.menu1_table_calender_panel_day_label_day[i] = new System.Windows.Forms.Label();
+                this.menu1_table_calender_panel_day_label_done[i] = new System.Windows.Forms.Label();
             }
 
             this.menu1_done_top = new TaskManage.PanelTop();
@@ -551,7 +554,7 @@ namespace TaskManage
             this.menu1_panel_yearmonth.Controls.Add(this.menu1_panel_yearmonth_button_prevmonth);
             this.menu1_panel_yearmonth.Size = new System.Drawing.Size(this.menu1_panel_yearmonth_button_prevmonth.Width
                 + this.menu1_panel_yearmonth_combo_year.Width + this.menu1_panel_yearmonth_combo_month.Width
-                + this.menu1_panel_yearmonth_button_nextmonth.Width + 30, common_button_height);
+                + this.menu1_panel_yearmonth_button_nextmonth.Width, common_button_height);
             this.menu1_panel_yearmonth.Location = new System.Drawing.Point(this.menu1.Width / 2
                 - this.menu1_panel_yearmonth.Width / 2 + 1, 0);
 
@@ -595,6 +598,7 @@ namespace TaskManage
                 | System.Windows.Forms.AnchorStyles.Right)));
                 this.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color2;
                 this.menu1_table_calender_panel_day[i].Controls.Add(this.menu1_table_calender_panel_day_label_day[i]);
+                this.menu1_table_calender_panel_day[i].Controls.Add(this.menu1_table_calender_panel_day_label_done[i]);
                 this.menu1_table_calender_panel_day[i].Location = new System.Drawing.Point(1 + 94 * (i % 7), 21 + (73 * (i / 7)));
                 this.menu1_table_calender_panel_day[i].Margin = new System.Windows.Forms.Padding(1);
                 this.menu1_table_calender_panel_day[i].Name = i.ToString();
@@ -617,6 +621,21 @@ namespace TaskManage
                 this.menu1_table_calender_panel_day_label_day[i].MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_label_day_MouseClick);
                 this.menu1_table_calender_panel_day_label_day[i].MouseEnter += new System.EventHandler(this.menu1_table_calender_panel_day_label_day_MouseEnter);
                 this.menu1_table_calender_panel_day_label_day[i].MouseLeave += new System.EventHandler(this.menu1_table_calender_panel_day_label_day_MouseLeave);
+                //
+                // menu1_table_calender_panel_day_label_done
+                //
+                this.menu1_table_calender_panel_day_label_done[i].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                | System.Windows.Forms.AnchorStyles.Right)));
+                this.menu1_table_calender_panel_day_label_done[i].BackColor = System.Drawing.Color.Aqua;
+                this.menu1_table_calender_panel_day_label_done[i].ForeColor = Color.Black;
+                this.menu1_table_calender_panel_day_label_done[i].Location = new System.Drawing.Point(1, 16);
+                this.menu1_table_calender_panel_day_label_done[i].Margin = new System.Windows.Forms.Padding(0);
+                this.menu1_table_calender_panel_day_label_done[i].Name = i.ToString();
+                this.menu1_table_calender_panel_day_label_done[i].Size = new System.Drawing.Size(90, 15);
+                this.menu1_table_calender_panel_day_label_done[i].TextAlign = System.Drawing.ContentAlignment.TopCenter;
+                this.menu1_table_calender_panel_day_label_done[i].MouseClick += new System.Windows.Forms.MouseEventHandler(this.menu1_table_calender_panel_day_label_done_MouseClick);
+                this.menu1_table_calender_panel_day_label_done[i].MouseEnter += new System.EventHandler(this.menu1_table_calender_panel_day_label_done_MouseEnter);
+                this.menu1_table_calender_panel_day_label_done[i].MouseLeave += new System.EventHandler(this.menu1_table_calender_panel_day_label_done_MouseLeave);
             }
             for (int i = 0; i < 7; i++)
             {
