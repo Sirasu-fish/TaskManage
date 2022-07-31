@@ -544,9 +544,18 @@ namespace TaskManage.controls_event
                 }
 
                 form.menu1_done_top_label_hour.Text = "";
+                form.menu1_done_top_label_hour.BackColor = Color.Transparent;
                 if (sumtime / 60 != 0)
                 {
                     form.menu1_done_top_label_hour.Text += (sumtime / 60).ToString() + "h";
+                    if (sumtime / 60 >= 12)
+                    {
+                        form.menu1_done_top_label_hour.BackColor = Main.Common_Const.color_done2;
+                    }
+                    else
+                    {
+                        form.menu1_done_top_label_hour.BackColor = Main.Common_Const.color_done1;
+                    }
                 }
                 if (sumtime % 60 != 0)
                 {
@@ -901,9 +910,18 @@ namespace TaskManage.controls_event
             }
 
             form.menu1_done_top_label_hour.Text = "";
+            form.menu1_done_top_label_hour.BackColor = Color.Transparent;
             if (sumtime / 60 != 0)
             {
                 form.menu1_done_top_label_hour.Text += (sumtime / 60).ToString() + "h";
+                if (sumtime / 60 >= 12)
+                {
+                    form.menu1_done_top_label_hour.BackColor = Main.Common_Const.color_done2;
+                }
+                else
+                {
+                    form.menu1_done_top_label_hour.BackColor = Main.Common_Const.color_done1;
+                }
             }
             if (sumtime % 60 != 0)
             {

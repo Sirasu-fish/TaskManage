@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace TaskManage.Main
 {
@@ -133,6 +134,7 @@ namespace TaskManage.Main
 
             form.menu1_done_top_label_day.Text = label_day;
 
+            int sumtime = 0;
             for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
             {
                 Common_Var.menu1_done += 1;
@@ -140,8 +142,29 @@ namespace TaskManage.Main
                     && Properties.Settings.Default.done_day[i] == Common_Var.menu1_done_year.ToString() + "/" + Common_Var.menu1_done_month.ToString() + "/" + Common_Var.menu1_done_day.ToString())
                 {
                     controls_event.menu1_events.InitAddDone(form, Properties.Settings.Default.done_name[i], Properties.Settings.Default.done_time[i]);
+                    sumtime += int.Parse(Properties.Settings.Default.done_time[i]);
                 }
             }
+
+            form.menu1_done_top_label_hour.Text = "";
+            form.menu1_done_top_label_hour.BackColor = Color.Transparent;
+            if (sumtime / 60 != 0)
+            {
+                form.menu1_done_top_label_hour.Text += (sumtime / 60).ToString() + "h";
+                if (sumtime / 60 >= 12)
+                {
+                    form.menu1_done_top_label_hour.BackColor = Common_Const.color_done2;
+                }
+                else
+                {
+                    form.menu1_done_top_label_hour.BackColor = Common_Const.color_done1;
+                }
+            }
+            if (sumtime % 60 != 0)
+            {
+                form.menu1_done_top_label_hour.Text += (sumtime % 60).ToString() + "m";
+            }
+            form.menu1_done_top_label_hour.Refresh();
 
             if (Common_Var.menu1_day_done == 0)
             {
@@ -172,13 +195,16 @@ namespace TaskManage.Main
             }
 
             // menu2 1 開いているか
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             if (Properties.Settings.Default.menu2_open1)
             {
                 form.menu2_1_panel_main.Visible = true;
+                form.menu2_1_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_close.Image")));
             }
             else
             {
                 form.menu2_1_panel_main.Visible = false;
+                form.menu2_1_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_open.Image")));
             }
         }
 
@@ -201,13 +227,16 @@ namespace TaskManage.Main
             }
 
             // menu2 2 開いているか
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             if (Properties.Settings.Default.menu2_open2)
             {
                 form.menu2_2_panel_main.Visible = true;
+                form.menu2_2_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_close.Image")));
             }
             else
             {
                 form.menu2_2_panel_main.Visible = false;
+                form.menu2_2_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_open.Image")));
             }
         }
 

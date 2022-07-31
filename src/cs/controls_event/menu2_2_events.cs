@@ -19,9 +19,11 @@ namespace TaskManage.controls_event
         // menu2 panel2を開いたり閉じたりする時の動作
         public static void menu2_2_panel_top_button_openclose_Click(object sender, EventArgs e, MainForm form)
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             if (form.menu2_2_panel_main.Visible == false)
             {
                 form.menu2_2_panel_main.Visible = true;
+                form.menu2_2_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_close.Image")));
                 if (Main.Common_Var.menu2_2_memo != 0)
                 {
                     form.menu2_2_panel.Height = form.menu2_2_panel_top.Height + 2;
@@ -42,6 +44,7 @@ namespace TaskManage.controls_event
             else
             {
                 form.menu2_2_panel_main.Visible = false;
+                form.menu2_2_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_open.Image")));
                 form.menu2_2_panel.Height = form.menu2_2_panel_top.Height + 2;
                 form.menu2_2.Height = form.menu2_2_panel_top.Height + 2 + 8;
                 Properties.Settings.Default.menu2_open2 = false;

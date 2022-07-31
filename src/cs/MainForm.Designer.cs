@@ -813,7 +813,7 @@ namespace TaskManage
             this.menu2_1_panel_top_button_openclose.Location = new System.Drawing.Point(this.menu2_1_panel_top_button_movedown.Size.Width + this.menu2_1_panel_top_label_title.Width
                 + this.menu2_1_panel_top_label_num.Width, 0);
             this.menu2_1_panel_top_button_openclose.Size = new System.Drawing.Size(32, 32);
-            this.menu2_1_panel_top_button_openclose.Text = "+";
+            this.menu2_1_panel_top_button_openclose.BackgroundImageLayout = ImageLayout.Center;
             this.menu2_1_panel_top_button_openclose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.tooltip.SetToolTip(this.menu2_1_panel_top_button_openclose, "開く/閉じる");
             this.menu2_1_panel_top_button_openclose.UseVisualStyleBackColor = false;
@@ -912,12 +912,12 @@ namespace TaskManage
             this.menu2_2_panel_top_button_openclose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.menu2_2_panel_top_button_openclose.BackColor = System.Drawing.Color.Transparent;
+            this.menu2_1_panel_top_button_openclose.BackgroundImageLayout = ImageLayout.Center;
             this.menu2_2_panel_top_button_openclose.Cursor = Cursors.Hand;
             this.menu2_2_panel_top_button_openclose.FlatAppearance.BorderSize = 0;
             this.menu2_2_panel_top_button_openclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.menu2_2_panel_top_button_openclose.Location = new System.Drawing.Point(this.menu2_2_panel_top_label_num.Location.X + this.menu2_2_panel_top_label_num.Width, 0);
             this.menu2_2_panel_top_button_openclose.Size = new System.Drawing.Size(32, 32);
-            this.menu2_2_panel_top_button_openclose.Text = "+";
             this.tooltip.SetToolTip(this.menu2_2_panel_top_button_openclose, "開く/閉じる");
             this.menu2_2_panel_top_button_openclose.UseVisualStyleBackColor = false;
             this.menu2_2_panel_top_button_openclose.Click += new System.EventHandler(this.menu2_2_panel_top_button_openclose_Click);
