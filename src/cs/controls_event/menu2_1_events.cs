@@ -33,6 +33,7 @@ namespace TaskManage.controls_event
             {
                 form.menu2_1_panel_main.Visible = true;
                 form.menu2_1_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_close.Image")));
+                form.tooltip.SetToolTip(form.menu2_1_panel_top_button_openclose, "閉じる");
                 if (Main.Common_Var.menu2_1_task != 0)
                 {
                     form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2 + (task_height + task_space) * Main.Common_Var.menu2_1_task + 4;
@@ -49,6 +50,7 @@ namespace TaskManage.controls_event
             {
                 form.menu2_1_panel_main.Visible = false;
                 form.menu2_1_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_open.Image")));
+                form.tooltip.SetToolTip(form.menu2_1_panel_top_button_openclose, "開く");
                 form.menu2_1_panel.Height = form.menu2_1_panel_top.Height + 2;
                 form.menu2_1.Height = form.menu2_1_panel_top.Height + 2 + 8;
                 Properties.Settings.Default.menu2_open1 = false;

@@ -200,11 +200,13 @@ namespace TaskManage.Main
             {
                 form.menu2_1_panel_main.Visible = true;
                 form.menu2_1_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_close.Image")));
+                form.tooltip.SetToolTip(form.menu2_1_panel_top_button_openclose, "閉じる");
             }
             else
             {
                 form.menu2_1_panel_main.Visible = false;
                 form.menu2_1_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_open.Image")));
+                form.tooltip.SetToolTip(form.menu2_1_panel_top_button_openclose, "開く");
             }
         }
 
@@ -232,11 +234,13 @@ namespace TaskManage.Main
             {
                 form.menu2_2_panel_main.Visible = true;
                 form.menu2_2_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_close.Image")));
+                form.tooltip.SetToolTip(form.menu2_2_panel_top_button_openclose, "閉じる");
             }
             else
             {
                 form.menu2_2_panel_main.Visible = false;
                 form.menu2_2_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_open.Image")));
+                form.tooltip.SetToolTip(form.menu2_2_panel_top_button_openclose, "開く");
             }
         }
 
