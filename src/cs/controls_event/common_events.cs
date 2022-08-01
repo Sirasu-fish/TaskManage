@@ -15,12 +15,12 @@ namespace TaskManage.controls_event
             if (form.WindowState == FormWindowState.Maximized) // 最大化されている時
             {
                 form.WindowState = FormWindowState.Normal; // 通常化
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_max.Image"))); ;
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_max.Image")));
             }
             else
             {
                 form.WindowState = FormWindowState.Maximized; // 最大化
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_dis_max.Image")));
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_dis_max.Image")));
             }
         }
 
@@ -37,12 +37,12 @@ namespace TaskManage.controls_event
             if (form.WindowState == FormWindowState.Maximized) // 最大化されている時
             {
                 form.WindowState = FormWindowState.Normal; // 通常化
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_max.Image"))); ;
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_max.Image")));
             }
             else
             {
                 form.WindowState = FormWindowState.Maximized; // 最大化
-                form.common_button_max.Image = ((System.Drawing.Image)(resources.GetObject("common_button_dis_max.Image")));
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_dis_max.Image")));
             }
         }
 
@@ -235,21 +235,35 @@ namespace TaskManage.controls_event
             Font main_font = new Font("Yu Gothic UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point); // 共通変数にする?
             Font sub_font = new Font("Yu Gothic UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
 
+            int sumtime = 0;
             for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
             {
+                sumtime = 0;
+
                 if ((int)firstdate - 1 < i && i < sub_day) // 当月
                 {
                     form.menu1_table_calender_panel_day_label_day[i].Text = days[i].ToString();　// 日付
                     form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent; // ラベル背景色
                     form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color2; // パネル背景色
                     form.menu1_table_calender_panel_day_label_day[i].Font = main_font; // フォント
+
+                    for (int j = 0; j < Properties.Settings.Default.done_name.Count; j++)
+                    {
+                        if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[j])
+                        && Properties.Settings.Default.done_day[j] == year.ToString() + "/" + month.ToString() + "/" + days[i].ToString())
+                        {
+                            sumtime += int.Parse(Properties.Settings.Default.done_time[j]);
+                        }
+                    }
                 }
                 else if (sub_day <= i) // 次月
                 {
                     int nextmonth = 0;
+                    int nextyear = year;
                     if (month == 12)
                     {
                         nextmonth = 1;
+                        nextyear = year + 1;
                     }
                     else
                     {
@@ -259,13 +273,24 @@ namespace TaskManage.controls_event
                     form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent; // ラベル背景色
                     form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5; // パネル背景色
                     form.menu1_table_calender_panel_day_label_day[i].Font = sub_font; // フォント
+
+                    for (int j = 0; j < Properties.Settings.Default.done_name.Count; j++)
+                    {
+                        if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[j])
+                        && Properties.Settings.Default.done_day[j] == nextyear.ToString() + "/" + nextmonth.ToString() + "/" + days[i].ToString())
+                        {
+                            sumtime += int.Parse(Properties.Settings.Default.done_time[j]);
+                        }
+                    }
                 }
                 else if (i <= (int)firstdate - 1) // 前月
                 {
                     int prevmonth = 0;
+                    int prevyear = year;
                     if (month == 1)
                     {
                         prevmonth = 12;
+                        prevyear = year - 1;
                     }
                     else
                     {
@@ -275,11 +300,42 @@ namespace TaskManage.controls_event
                     form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent; // ラベル背景色
                     form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5; // パネル背景色
                     form.menu1_table_calender_panel_day_label_day[i].Font = sub_font; // フォント
+
+                    for (int j = 0; j < Properties.Settings.Default.done_name.Count; j++)
+                    {
+                        if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[j])
+                        && Properties.Settings.Default.done_day[j] == prevyear.ToString() + "/" + prevmonth.ToString() + "/" + days[i].ToString())
+                        {
+                            sumtime += int.Parse(Properties.Settings.Default.done_time[j]);
+                        }
+                    }
                 }
 
                 if (i == today_int) // 現在日がカレンダーに存在する場合はパネルの色を変更する
                 {
                     form.menu1_table_calender_panel_day_label_day[today_int].BackColor = Main.Common_Const.color4; // ラベル背景色 黄色
+                }
+
+                // 実績時間を表示
+                form.menu1_table_calender_panel_day_label_done[i].Text = "";
+                form.menu1_table_calender_panel_day_label_done[i].Visible = false;
+                if (sumtime / 60 != 0)
+                {
+                    form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime / 60).ToString() + "h";
+                    form.menu1_table_calender_panel_day_label_done[i].Visible = true;
+                    if (sumtime / 60 >= 12)
+                    {
+                        form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done2;
+                    }
+                    else
+                    {
+                        form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
+                    }
+                }
+                if (sumtime % 60 != 0)
+                {
+                    form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime % 60).ToString() + "m";
+                    form.menu1_table_calender_panel_day_label_done[i].Visible = true;
                 }
             }
         }

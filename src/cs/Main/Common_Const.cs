@@ -12,6 +12,8 @@ namespace TaskManage.Main
         private static Color color3_ = Color.FromArgb(239, 239, 239);
         private static Color color4_ = Color.FromArgb(249, 207, 0);
         private static Color color5_ = Color.FromArgb(171, 171, 171);
+        private static Color color_done1_ = Color.FromArgb(144, 238, 144);
+        private static Color color_done2_ = Color.FromArgb(247, 100, 100);
 
         private static int menu2_num_ = 2; // menu2の項目数
         private static int memo_num_ = 99; // メモの保存数
@@ -50,6 +52,16 @@ namespace TaskManage.Main
         public static Color color5
         {
             get { return color5_; }
+        }
+
+        public static Color color_done1
+        {
+            get { return color_done1_; }
+        }
+
+        public static Color color_done2
+        {
+            get { return color_done2_; }
         }
 
         public static int menu2_num
