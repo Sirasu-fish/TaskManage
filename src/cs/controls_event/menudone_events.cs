@@ -106,10 +106,6 @@ namespace TaskManage.controls_event
             {
                 return false;
             }
-            if (int.Parse(str_hour) == 0 && int.Parse(str_minute) == 0)
-            {
-                return false;
-            }
             int sumtime = 0;
             for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
             {

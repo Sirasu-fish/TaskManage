@@ -17,7 +17,7 @@ namespace TaskManage.Main
         private static int menu1_done_day_ = 0; //開いている実績の日
         private static int menu1_done_ = 0; //実績数(全合計)
         private static int menu1_day_done_ = 0; //実績数(日)
-        private static int menu1_open_done_ = 0; //開いている実績の番号
+        private static int menu1_open_done_ = -1; //開いている実績の番号
         private static int menu1_delete_done_ = 0; //削除された実績の数
         private static int menu2_1_task_ = 0; //タスク数
         private static int menu2_1_open_task_ = -1; // 開いているタスクの番号

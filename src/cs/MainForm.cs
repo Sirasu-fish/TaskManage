@@ -107,6 +107,10 @@ namespace TaskManage
         {
             controls_event.menu1_events.menu1_table_calender_panel_day_label_day_MouseEnter(sender, e, this);
         }
+        private void menu1_table_calender_panel_day_label_done_MouseEnter(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_label_done_MouseEnter(sender, e, this);
+        }
         private void menu1_table_calender_panel_day_MouseLeave(object sender, EventArgs e)
         {
             controls_event.menu1_events.menu1_table_calender_panel_day_MouseLeave(sender, e, this);
@@ -115,6 +119,10 @@ namespace TaskManage
         {
             controls_event.menu1_events.menu1_table_calender_panel_day_label_day_MouseLeave(sender, e, this);
         }
+        private void menu1_table_calender_panel_day_label_done_MouseLeave(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_label_done_MouseLeave(sender, e, this);
+        }
         private void menu1_table_calender_panel_day_MouseClick(object sender, EventArgs e)
         {
             controls_event.menu1_events.menu1_table_calender_panel_day_MouseClick(sender, e, this);
@@ -122,6 +130,10 @@ namespace TaskManage
         private void menu1_table_calender_panel_day_label_day_MouseClick(object sender, EventArgs e)
         {
             controls_event.menu1_events.menu1_table_calender_panel_day_label_day_MouseClick(sender, e, this);
+        }
+        private void menu1_table_calender_panel_day_label_done_MouseClick(object sender, EventArgs e)
+        {
+            controls_event.menu1_events.menu1_table_calender_panel_day_label_done_MouseClick(sender, e, this);
         }
         private void menu1_done_top_prevday_Click(object sender, EventArgs e)
         {
@@ -143,14 +155,6 @@ namespace TaskManage
         {
             controls_event.menu2_1_events.menu2_1_panel_top_button_openclose_Click(sender, e, this);
         }
-        private void menu2_1_panel_top_button_moveup_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_top_button_moveup_Click(sender, e, this);
-        }
-        private void menu2_1_panel_top_button_movedown_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_1_events.menu2_1_panel_top_button_movedown_Click(sender, e, this);
-        }
         private void menu2_1_panel_top_button_add_Click(object sender, EventArgs e)
         {
             controls_event.menu2_1_events.menu2_1_panel_top_button_add_Click(sender, e, this);
@@ -162,14 +166,6 @@ namespace TaskManage
         private void menu2_2_panel_top_button_openclose_Click(object sender, EventArgs e)
         {
             controls_event.menu2_2_events.menu2_2_panel_top_button_openclose_Click(sender, e, this);
-        }
-        private void menu2_2_panel_top_button_moveup_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_top_button_moveup_Click(sender, e, this);
-        }
-        private void menu2_2_panel_top_button_movedown_Click(object sender, EventArgs e)
-        {
-            controls_event.menu2_2_events.menu2_2_panel_top_button_movedown_Click(sender, e, this);
         }
         private void menu2_2_panel_top_button_open_Click(object sender, EventArgs e)
         {
