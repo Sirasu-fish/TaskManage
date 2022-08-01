@@ -23,6 +23,8 @@ namespace TaskManage.Main
         #region private
 
         private static DAndDMoveForm common_MoveForm;
+        private static DAndDMoveMenu menu2_1_MoveMenu;
+        private static DAndDMoveMenu menu2_2_MoveMenu;
 
         // 設定値の初期化
         private void SetPropertiesValue()
@@ -175,7 +177,16 @@ namespace TaskManage.Main
         // Menu2 設定反映
         private void SetMenu2(MainForm form)
         {
-            controls_event.menu2_events.RefrectMoveControl(form);
+            if (Properties.Settings.Default.order[0] == "1")
+            {
+                form.menu2_1.BringToFront();
+                form.menu2_2.BringToFront();
+            }
+            else
+            {
+                form.menu2_2.BringToFront();
+                form.menu2_1.BringToFront();
+            }
         }
 
         // Menu2_1 設定反映
@@ -208,6 +219,8 @@ namespace TaskManage.Main
                 form.menu2_1_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_open.Image")));
                 form.tooltip.SetToolTip(form.menu2_1_panel_top_button_openclose, "開く");
             }
+
+            menu2_1_MoveMenu = new DAndDMoveMenu(form.menu2_1_panel_top, form);
         }
 
         // Menu2_2 設定反映
@@ -242,6 +255,8 @@ namespace TaskManage.Main
                 form.menu2_2_panel_top_button_openclose.BackgroundImage = ((Image)(resources.GetObject("menu2_1_panel_top_button_openclose_open.Image")));
                 form.tooltip.SetToolTip(form.menu2_2_panel_top_button_openclose, "開く");
             }
+
+            menu2_2_MoveMenu = new DAndDMoveMenu(form.menu2_2_panel_top, form);
         }
 
         // commonをタイトルバーにする初期化

@@ -78,8 +78,6 @@ namespace TaskManage
         public System.Collections.Generic.List<Label> menu2_1_panel_main_panel_label1;
         public Panel menu2_1_panel_top;
         public Button menu2_1_panel_top_button_add;
-        public Button menu2_1_panel_top_button_movedown;
-        public Button menu2_1_panel_top_button_moveup;
         public Button menu2_1_panel_top_button_openclose;
         public Circlelabel menu2_1_panel_top_label_num;
         public Label menu2_1_panel_top_label_title;
@@ -89,8 +87,6 @@ namespace TaskManage
         public Panel menu2_2_panel_main;
         public Panel menu2_2_panel_top;
         public Button menu2_2_panel_top_button_add;
-        public Button menu2_2_panel_top_button_movedown;
-        public Button menu2_2_panel_top_button_moveup;
         public Button menu2_2_panel_top_button_open;
         public Button menu2_2_panel_top_button_openclose;
         public Circlelabel menu2_2_panel_top_label_num;
@@ -205,8 +201,6 @@ namespace TaskManage
             this.menu2_1_panel = new TaskManage.PanelEx();
             this.menu2_1_panel_top = new System.Windows.Forms.Panel();
             this.menu2_1_panel_top_label_num = new TaskManage.Circlelabel();
-            this.menu2_1_panel_top_button_movedown = new System.Windows.Forms.Button();
-            this.menu2_1_panel_top_button_moveup = new System.Windows.Forms.Button();
             this.menu2_1_panel_top_label_title = new System.Windows.Forms.Label();
             this.menu2_1_panel_top_button_openclose = new System.Windows.Forms.Button();
             this.menu2_1_panel_top_button_add = new System.Windows.Forms.Button();
@@ -221,8 +215,6 @@ namespace TaskManage
             this.menu2_2_panel_top = new System.Windows.Forms.Panel();
             this.menu2_2_panel_top_button_open = new System.Windows.Forms.Button();
             this.menu2_2_panel_top_label_num = new TaskManage.Circlelabel();
-            this.menu2_2_panel_top_button_movedown = new System.Windows.Forms.Button();
-            this.menu2_2_panel_top_button_moveup = new System.Windows.Forms.Button();
             this.menu2_2_panel_top_button_add = new System.Windows.Forms.Button();
             this.menu2_2_panel_top_button_openclose = new System.Windows.Forms.Button();
             this.menu2_2_panel_top_label_title = new System.Windows.Forms.Label();
@@ -760,37 +752,17 @@ namespace TaskManage
             this.menu2_1_panel_top.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_label_num);
-            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_movedown);
-            this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_moveup);
             this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_label_title);
             this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_openclose);
             this.menu2_1_panel_top.Controls.Add(this.menu2_1_panel_top_button_add);
+            this.menu2_1_panel_top.Cursor = Cursors.SizeAll;
             this.menu2_1_panel_top.Location = new System.Drawing.Point(1, 1);
+            this.menu2_1_panel_top.Name = "1";
             this.menu2_1_panel_top.Size = new System.Drawing.Size(this.window_panel.Width - this.menu2_1_panel_top.Location.X * 2, 32);
-            // 
-            // menu2_1_panel_top_button_moveup
-            // 
-            this.menu2_1_panel_top_button_moveup.Cursor = Cursors.Hand;
-            this.menu2_1_panel_top_button_moveup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_1_panel_top_button_moveup.Location = new System.Drawing.Point(0, 0);
-            this.menu2_1_panel_top_button_moveup.Size = new System.Drawing.Size(16, 16);
-            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_moveup, "上に移動");
-            this.menu2_1_panel_top_button_moveup.UseVisualStyleBackColor = true;
-            this.menu2_1_panel_top_button_moveup.Click += new System.EventHandler(this.menu2_1_panel_top_button_moveup_Click);
-            // 
-            // menu2_1_panel_top_button_movedown
-            // 
-            this.menu2_1_panel_top_button_movedown.Cursor = Cursors.Hand;
-            this.menu2_1_panel_top_button_movedown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_1_panel_top_button_movedown.Location = new System.Drawing.Point(0, 16);
-            this.menu2_1_panel_top_button_movedown.Size = new System.Drawing.Size(16, 16);
-            this.tooltip.SetToolTip(this.menu2_1_panel_top_button_movedown, "下に移動");
-            this.menu2_1_panel_top_button_movedown.UseVisualStyleBackColor = true;
-            this.menu2_1_panel_top_button_movedown.Click += new System.EventHandler(this.menu2_1_panel_top_button_movedown_Click);
             // 
             // menu2_1_panel_top_label_title
             // 
-            this.menu2_1_panel_top_label_title.Location = new System.Drawing.Point(this.menu2_1_panel_top_button_movedown.Size.Width, 0);
+            this.menu2_1_panel_top_label_title.Location = new System.Drawing.Point(1, 0);
             this.menu2_1_panel_top_label_title.Size = new System.Drawing.Size(100, 32);
             this.menu2_1_panel_top_label_title.Text = "期間設定ありタスク";
             this.menu2_1_panel_top_label_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -810,7 +782,7 @@ namespace TaskManage
             this.menu2_1_panel_top_button_openclose.FlatAppearance.BorderSize = 0;
             this.menu2_1_panel_top_button_openclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.menu2_1_panel_top_button_openclose.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.menu2_1_panel_top_button_openclose.Location = new System.Drawing.Point(this.menu2_1_panel_top_button_movedown.Size.Width + this.menu2_1_panel_top_label_title.Width
+            this.menu2_1_panel_top_button_openclose.Location = new System.Drawing.Point(1 + this.menu2_1_panel_top_label_title.Width
                 + this.menu2_1_panel_top_label_num.Width, 0);
             this.menu2_1_panel_top_button_openclose.Size = new System.Drawing.Size(32, 32);
             this.menu2_1_panel_top_button_openclose.BackgroundImageLayout = ImageLayout.Center;
@@ -847,6 +819,7 @@ namespace TaskManage
             // 
             this.menu2_2.Controls.Add(this.menu2_2_panel);
             this.menu2_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menu2_2.Name = "2";
             this.menu2_2.Size = new System.Drawing.Size(this.window_panel.Width, 570);
             // 
             // menu2_2_panel
@@ -864,37 +837,17 @@ namespace TaskManage
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menu2_2_panel_top.Controls.Add(this.menu2_2_panel_top_button_open);
             this.menu2_2_panel_top.Controls.Add(this.menu2_2_panel_top_label_num);
-            this.menu2_2_panel_top.Controls.Add(this.menu2_2_panel_top_button_movedown);
-            this.menu2_2_panel_top.Controls.Add(this.menu2_2_panel_top_button_moveup);
             this.menu2_2_panel_top.Controls.Add(this.menu2_2_panel_top_button_add);
             this.menu2_2_panel_top.Controls.Add(this.menu2_2_panel_top_button_openclose);
             this.menu2_2_panel_top.Controls.Add(this.menu2_2_panel_top_label_title);
+            this.menu2_2_panel_top.Cursor = Cursors.SizeAll;
             this.menu2_2_panel_top.Location = new System.Drawing.Point(1, 1);
+            this.menu2_2_panel_top.Name = "2";
             this.menu2_2_panel_top.Size = new System.Drawing.Size(this.window_panel.Width - this.menu2_2_panel_top.Location.X * 2, 32);
-            // 
-            // menu2_2_panel_top_button_movedown
-            // 
-            this.menu2_2_panel_top_button_movedown.Cursor = Cursors.Hand;
-            this.menu2_2_panel_top_button_movedown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_top_button_movedown.Location = new System.Drawing.Point(0, 16);
-            this.menu2_2_panel_top_button_movedown.Size = new System.Drawing.Size(16, 16);
-            this.tooltip.SetToolTip(this.menu2_2_panel_top_button_movedown, "下に移動");
-            this.menu2_2_panel_top_button_movedown.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_top_button_movedown.Click += new System.EventHandler(this.menu2_2_panel_top_button_movedown_Click);
-            // 
-            // menu2_2_panel_top_button_moveup
-            // 
-            this.menu2_2_panel_top_button_moveup.Cursor = Cursors.Hand;
-            this.menu2_2_panel_top_button_moveup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu2_2_panel_top_button_moveup.Location = new System.Drawing.Point(0, 0);
-            this.menu2_2_panel_top_button_moveup.Size = new System.Drawing.Size(16, 16);
-            this.tooltip.SetToolTip(this.menu2_2_panel_top_button_moveup, "上に移動");
-            this.menu2_2_panel_top_button_moveup.UseVisualStyleBackColor = true;
-            this.menu2_2_panel_top_button_moveup.Click += new System.EventHandler(this.menu2_2_panel_top_button_moveup_Click);
             // 
             // menu2_2_panel_top_label_title
             // 
-            this.menu2_2_panel_top_label_title.Location = new System.Drawing.Point(this.menu2_2_panel_top_button_movedown.Width, 0);
+            this.menu2_2_panel_top_label_title.Location = new System.Drawing.Point(1, 0);
             this.menu2_2_panel_top_label_title.Size = new System.Drawing.Size(30, 32);
             this.menu2_2_panel_top_label_title.Text = "メモ";
             this.menu2_2_panel_top_label_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

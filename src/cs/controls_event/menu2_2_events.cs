@@ -55,58 +55,6 @@ namespace TaskManage.controls_event
             Properties.Settings.Default.Save();
         }
 
-        // 要素順を入れ替える
-        public static void menu2_2_panel_top_button_moveup_Click(object sender, EventArgs e, MainForm form)
-        {
-            int order_num = -1;
-
-            for (int i = 0; i < Main.Common_Const.menu2_num; i++)
-            {
-                if (Properties.Settings.Default.order[i] == "2")
-                {
-                    order_num = i;
-                    break;
-                }
-            }
-            if (!(order_num <= 0))
-            {
-                string tmp;
-                // 入れ替え
-                tmp = Properties.Settings.Default.order[order_num - 1];
-                Properties.Settings.Default.order[order_num - 1] = Properties.Settings.Default.order[order_num];
-                Properties.Settings.Default.order[order_num] = tmp;
-
-                Properties.Settings.Default.Save();
-
-                menu2_events.RefrectMoveControl(form);
-            }
-        }
-        public static void menu2_2_panel_top_button_movedown_Click(object sender, EventArgs e, MainForm form)
-        {
-            int order_num = -1;
-
-            for (int i = 0; i < Main.Common_Const.menu2_num; i++)
-            {
-                if (Properties.Settings.Default.order[i] == "2")
-                {
-                    order_num = i;
-                    break;
-                }
-            }
-            if (!(order_num >= Main.Common_Const.menu2_num - 1))
-            {
-                string tmp;
-                // 入れ替え
-                tmp = Properties.Settings.Default.order[order_num + 1];
-                Properties.Settings.Default.order[order_num + 1] = Properties.Settings.Default.order[order_num];
-                Properties.Settings.Default.order[order_num] = tmp;
-
-                Properties.Settings.Default.Save();
-
-                menu2_events.RefrectMoveControl(form);
-            }
-        }
-
         // menu2_2 ファイルを開くダイアログを開く
         public static void menu2_2_panel_top_button_open_Click(object sender, EventArgs e, MainForm form)
         {
