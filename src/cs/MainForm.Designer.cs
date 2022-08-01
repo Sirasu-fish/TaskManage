@@ -337,7 +337,7 @@ namespace TaskManage
             this.common.BackColor = Main.Common_Const.color1;
             this.common.BorderColor = Main.Common_Const.color2;
             this.common.Controls.Add(this.common_button_prevmenu);
-            this.common.Controls.Add(this.common_button_setting);
+            //this.common.Controls.Add(this.common_button_setting);
             this.common.Controls.Add(this.common_button_nextmenu);
             this.common.Controls.Add(this.common_button_min);
             this.common.Controls.Add(this.common_button_max);
@@ -498,7 +498,7 @@ namespace TaskManage
             this.menu1_panel_yearmonth_button_prevmonth.Dock = System.Windows.Forms.DockStyle.Left;
             this.menu1_panel_yearmonth_button_prevmonth.FlatAppearance.BorderSize = 0;
             this.menu1_panel_yearmonth_button_prevmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu1_panel_yearmonth_button_prevmonth.BackgroundImage = ((Image)(resources.GetObject("common_button_prevmenu.Image")));
+            this.menu1_panel_yearmonth_button_prevmonth.BackgroundImage = ((Image)(resources.GetObject("menu1_panel_yearmonth_button_prevmonth.Image")));
             this.menu1_panel_yearmonth_button_prevmonth.BackgroundImageLayout = ImageLayout.Center;
             this.menu1_panel_yearmonth_button_prevmonth.Size = new System.Drawing.Size(common_button_width, 0);
             this.tooltip.SetToolTip(this.menu1_panel_yearmonth_button_prevmonth, "前の月を表示");
@@ -530,7 +530,7 @@ namespace TaskManage
             this.menu1_panel_yearmonth_button_nextmonth.Dock = System.Windows.Forms.DockStyle.Left;
             this.menu1_panel_yearmonth_button_nextmonth.FlatAppearance.BorderSize = 0;
             this.menu1_panel_yearmonth_button_nextmonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu1_panel_yearmonth_button_nextmonth.BackgroundImage = ((Image)(resources.GetObject("common_button_nextmenu.Image")));
+            this.menu1_panel_yearmonth_button_nextmonth.BackgroundImage = ((Image)(resources.GetObject("menu1_panel_yearmonth_button_nextmonth.Image")));
             this.menu1_panel_yearmonth_button_nextmonth.BackgroundImageLayout = ImageLayout.Center;
             this.menu1_panel_yearmonth_button_nextmonth.Size = new System.Drawing.Size(common_button_width, 0);
             this.tooltip.SetToolTip(this.menu1_panel_yearmonth_button_nextmonth, "次の月を表示");
@@ -656,7 +656,7 @@ namespace TaskManage
             this.menu1_done_top_prevday.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.menu1_done_top_prevday.FlatAppearance.BorderSize = 0;
             this.menu1_done_top_prevday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu1_done_top_prevday.BackgroundImage = ((Image)(resources.GetObject("common_button_prevmenu.Image")));
+            this.menu1_done_top_prevday.BackgroundImage = ((Image)(resources.GetObject("menu1_panel_yearmonth_button_prevmonth.Image")));
             this.menu1_done_top_prevday.BackgroundImageLayout = ImageLayout.Center;
             this.menu1_done_top_prevday.Location = new System.Drawing.Point(0, 1);
             this.menu1_done_top_prevday.Size = new System.Drawing.Size(common_button_width, common_button_height);
@@ -679,7 +679,7 @@ namespace TaskManage
             this.menu1_done_top_nextday.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
             this.menu1_done_top_nextday.FlatAppearance.BorderSize = 0;
             this.menu1_done_top_nextday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu1_done_top_nextday.BackgroundImage = ((Image)(resources.GetObject("common_button_nextmenu.Image")));
+            this.menu1_done_top_nextday.BackgroundImage = ((Image)(resources.GetObject("menu1_panel_yearmonth_button_nextmonth.Image")));
             this.menu1_done_top_nextday.BackgroundImageLayout = ImageLayout.Center;
             this.menu1_done_top_nextday.Location = new System.Drawing.Point(this.menu1_done_top_label_day.Location.X + this.menu1_done_top_label_day.Width, 1);
             this.menu1_done_top_nextday.Size = new System.Drawing.Size(common_button_width, common_button_height);
