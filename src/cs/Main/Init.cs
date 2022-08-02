@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 
 namespace TaskManage.Main
@@ -292,7 +291,5 @@ namespace TaskManage.Main
         }
 
         #endregion private
-
-
     }
 }
