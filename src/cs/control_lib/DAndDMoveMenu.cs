@@ -87,7 +87,7 @@ namespace TaskManage
                 // 下 → 上(下から上の時は猶予を持たせる(topと同じ32)
                 if (Properties.Settings.Default.order[1] == "1" && ((Panel)sender).Name == "1")
                 {
-                    if (form.menu2_2.Location.Y + 32 > form.menu2_1.Location.Y + e.Y)
+                    if (form.menu2_2.Location.Y + form.menu2_2_panel_top.Height > form.menu2_1.Location.Y + e.Y)
                     {
                         string tmp;
                         tmp = Properties.Settings.Default.order[0];
@@ -111,7 +111,7 @@ namespace TaskManage
 
                 if (Properties.Settings.Default.order[1] == "2" && ((Panel)sender).Name == "2")
                 {
-                    if (form.menu2_1.Location.Y + 32 > form.menu2_2.Location.Y + e.Y)
+                    if (form.menu2_1.Location.Y + form.menu2_1_panel_top.Height > form.menu2_2.Location.Y + e.Y)
                     {
                         string tmp;
                         tmp = Properties.Settings.Default.order[0];

@@ -36,14 +36,11 @@ namespace TaskManage
             if (e.Button == MouseButtons.Left)
             {
                 int diffY = e.Y - lastMouseDownPoint.Y;
-                int num = int.Parse(((Label)sender).Name);
+                int num = int.Parse(((Control)sender).Name);
 
                 // 上 → 下
-                //Debug.WriteLine("form.menu2_1_panel_main_panel[num].Location.Y:" + form.menu2_1_panel_main_panel[num].Location.Y);
-                //Debug.WriteLine("form.menu2_1_panel_main_panel[num + 1].Location.Y:" + form.menu2_1_panel_main_panel[num + 1].Location.Y);
-                //Debug.WriteLine("e.Y:" + e.Y);
                 if (num + 1 < Main.Common_Var.menu2_1_task
-                    && form.menu2_1_panel_main_panel[num + 1].Location.Y < form.menu2_1_panel_main_panel[num].Location.Y + e.Y + 16)
+                    && form.menu2_1_panel_main_panel[num + 1].Location.Y < form.menu2_1_panel_main_panel[num].Location.Y + e.Y + form.menu2_1_panel_main_panel[num + 1].Height / 2)
                 {
                     string tmp;
                     tmp = Properties.Settings.Default.task_name[num];
@@ -58,8 +55,8 @@ namespace TaskManage
 
                     form.menu2.SuspendLayout();
                     form.menu2_1.SuspendLayout();
-                    form.menu2_2_panel.SuspendLayout();
-                    form.menu2_2_panel_main.SuspendLayout();
+                    form.menu2_1_panel.SuspendLayout();
+                    form.menu2_1_panel_main.SuspendLayout();
 
                     tmp = form.menu2_1_panel_main_panel_button_delete[num].Name;
                     form.menu2_1_panel_main_panel_button_delete[num].Name = form.menu2_1_panel_main_panel_button_delete[num + 1].Name;
@@ -98,14 +95,16 @@ namespace TaskManage
                     form.menu2_1_panel_main_panel[num].Location = new Point(form.menu2_1_panel_main_panel[num].Location.X, form.menu2_1_panel_main_panel[num + 1].Location.Y);
                     form.menu2_1_panel_main_panel[num + 1].Location = new Point(form.menu2_1_panel_main_panel[num + 1].Location.X, tmpy);
 
+                    form.menutask.Visible = false;
+
                     form.menu2.ResumeLayout();
                     form.menu2_1.ResumeLayout();
                     form.menu2_1_panel.ResumeLayout();
-                    form.menu2_2_panel_main.ResumeLayout();
+                    form.menu2_1_panel_main.ResumeLayout();
                 }
                 // 下 → 上
                 if (0 < num
-                    && form.menu2_1_panel_main_panel[num - 1].Location.Y + 16 > form.menu2_1_panel_main_panel[num].Location.Y + e.Y)
+                    && form.menu2_1_panel_main_panel[num - 1].Location.Y + form.menu2_1_panel_main_panel[num - 1].Height / 2 > form.menu2_1_panel_main_panel[num].Location.Y + e.Y)
                 {
                     string tmp;
                     tmp = Properties.Settings.Default.task_name[num];
@@ -120,8 +119,8 @@ namespace TaskManage
 
                     form.menu2.SuspendLayout();
                     form.menu2_1.SuspendLayout();
-                    form.menu2_2_panel.SuspendLayout();
-                    form.menu2_2_panel_main.SuspendLayout();
+                    form.menu2_1_panel.SuspendLayout();
+                    form.menu2_1_panel_main.SuspendLayout();
 
                     tmp = form.menu2_1_panel_main_panel_button_delete[num].Name;
                     form.menu2_1_panel_main_panel_button_delete[num].Name = form.menu2_1_panel_main_panel_button_delete[num - 1].Name;
@@ -160,10 +159,12 @@ namespace TaskManage
                     form.menu2_1_panel_main_panel[num].Location = new Point(form.menu2_1_panel_main_panel[num].Location.X, form.menu2_1_panel_main_panel[num - 1].Location.Y);
                     form.menu2_1_panel_main_panel[num - 1].Location = new Point(form.menu2_1_panel_main_panel[num - 1].Location.X, tmpy);
 
+                    form.menutask.Visible = false;
+
                     form.menu2.ResumeLayout();
                     form.menu2_1.ResumeLayout();
                     form.menu2_1_panel.ResumeLayout();
-                    form.menu2_2_panel_main.ResumeLayout();
+                    form.menu2_1_panel_main.ResumeLayout();
                 }
             }
         }
