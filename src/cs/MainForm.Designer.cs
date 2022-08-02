@@ -304,6 +304,7 @@ namespace TaskManage
             //
             this.ClientSize = new System.Drawing.Size(Main.Common_Const.form_x, Main.Common_Const.form_y);
             this.Controls.Add(this.window);
+            this.Icon = new Icon(@".\icon256.ico", 16, 16);
             this.Size = new System.Drawing.Size(Main.Common_Const.form_x, Main.Common_Const.form_y);
             this.MinimumSize = new Size(Main.Common_Const.form_x, Main.Common_Const.form_y);
             this.ControlBox = false;

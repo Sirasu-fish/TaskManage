@@ -4,11 +4,16 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>img\icon256.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="MainForm.Designer.cs~RF58d56a7d.TMP" />
     <None Remove="MainForm.resx~RF3ff1b0.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="img\icon256.ico" />
   </ItemGroup>
 
   <ItemGroup>

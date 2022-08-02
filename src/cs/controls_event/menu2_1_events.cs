@@ -202,6 +202,8 @@ namespace TaskManage.controls_event
             form.menu2_1_panel_main_panel_label1.Add(add_menu2_1_panel_main_panel_label1(form, text));
             form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task].Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
             form.menu2_1_panel_main.Controls.Add(form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task]);
+            DAndDMoveTask menu2_1_MoveTask;
+            menu2_1_MoveTask = new DAndDMoveTask(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task], form);
 
             form.ResumeLayout();
             form.menu2.ResumeLayout();

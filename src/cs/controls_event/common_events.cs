@@ -200,6 +200,8 @@ namespace TaskManage.controls_event
                     form.menudone.Visible = false;
                     form.common_button_prevmenu.Visible = false;
                     form.common_button_nextmenu.Visible = true;
+                    Main.Common_Var.menu2_1_open_task = -1;
+                    Main.Common_Var.menu2_1_delete_task = 0;
                     break;
                 case 2: //タスク画面
                     form.common_panel_setting.Visible = false;
@@ -213,6 +215,8 @@ namespace TaskManage.controls_event
                     }
                     form.common_button_prevmenu.Visible = true;
                     form.common_button_nextmenu.Visible = false;
+                    Main.Common_Var.menu1_open_done = -1;
+                    Main.Common_Var.menu1_delete_done = 0;
                     break;
                 default:
                     Main.Common_Var.menu = 1;
