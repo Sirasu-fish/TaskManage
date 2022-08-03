@@ -26,9 +26,6 @@ namespace TaskManage
 
         #region Windows Form Designer generated code
 
-        public PanelEx window;
-        public Panel window_panel;
-
         // ■■■■■■■■■■■■■■■■■■■■■　common　■■■■■■■■■■■■■■■■■■■■■
         public PanelBottom common;
         public Button common_button_close;
@@ -147,9 +144,6 @@ namespace TaskManage
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 
-            this.window = new TaskManage.PanelEx();
-            this.window_panel = new System.Windows.Forms.Panel();
-
             this.common = new TaskManage.PanelBottom();
             this.common_button_close = new Button();
             this.common_button_max = new System.Windows.Forms.Button();
@@ -260,9 +254,6 @@ namespace TaskManage
             // レイアウトロジック停止 子コントロールを持つコントロール全て
             this.SuspendLayout();
 
-            this.window.SuspendLayout();
-            this.window_panel.SuspendLayout();
-
             this.common.SuspendLayout();
             this.common_panel_setting.SuspendLayout();
             this.common_panel_setting_table_setting.SuspendLayout();
@@ -297,40 +288,21 @@ namespace TaskManage
             this.menudone_table2.SuspendLayout();
             this.menudone_table1.SuspendLayout();
 
-            
-
             // 
             // MainForm
             //
             this.ClientSize = new System.Drawing.Size(Main.Common_Const.form_x, Main.Common_Const.form_y);
-            this.Controls.Add(this.window);
+            this.Controls.Add(this.common_panel_setting);
+            this.Controls.Add(this.menutask);
+            this.Controls.Add(this.menu2);
+            this.Controls.Add(this.menu1);
+            this.Controls.Add(this.menudone);
+            this.Controls.Add(this.common);
             this.Icon = new Icon(@".\icon256.ico", 16, 16);
             this.Size = new System.Drawing.Size(Main.Common_Const.form_x, Main.Common_Const.form_y);
             this.MinimumSize = new Size(Main.Common_Const.form_x, Main.Common_Const.form_y);
             this.ControlBox = false;
-
-            //
-            // window
-            //
-            this.window.BorderColor = Main.Common_Const.color2;
-            this.window.BackColor = Main.Common_Const.color3;
-            this.window.Controls.Add(this.window_panel);
-            this.window.Dock = System.Windows.Forms.DockStyle.Fill;
-            //
-            // window_panel
-            //
-            this.window_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.window_panel.Controls.Add(this.common_panel_setting);
-            this.window_panel.Controls.Add(this.menutask);
-            this.window_panel.Controls.Add(this.menu2);
-            this.window_panel.Controls.Add(this.menu1);
-            this.window_panel.Controls.Add(this.menudone);
-            this.window_panel.Controls.Add(this.common);
-            this.window_panel.Location = new System.Drawing.Point(1, 1);
-            this.window_panel.Margin = new System.Windows.Forms.Padding(0);
-            this.window_panel.Size = new System.Drawing.Size(this.window.Width - 2, this.window.Height - 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 
             // 
             // common
@@ -344,7 +316,7 @@ namespace TaskManage
             this.common.Controls.Add(this.common_button_max);
             this.common.Controls.Add(this.common_button_close);
             this.common.Dock = System.Windows.Forms.DockStyle.Top;
-            this.common.Size = new System.Drawing.Size(this.window_panel.Width, common_button_height + 1);
+            this.common.Size = new System.Drawing.Size(this.Width, common_button_height + 1);
             this.common.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.common_MouseDoubleClick);
             // 
             // common_button_prevmenu
@@ -357,7 +329,7 @@ namespace TaskManage
             this.common_button_prevmenu.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.common_button_prevmenu.BackgroundImage = ((Image)(resources.GetObject("common_button_prevmenu.Image")));
             this.common_button_prevmenu.BackgroundImageLayout = ImageLayout.Center;
-            this.common_button_prevmenu.Location = new System.Drawing.Point(this.window_panel.Width - common_button_width * 5, 0);
+            this.common_button_prevmenu.Location = new System.Drawing.Point(this.Width - common_button_width * 5, 0);
             this.common_button_prevmenu.Margin = new System.Windows.Forms.Padding(0);
             this.common_button_prevmenu.Size = new System.Drawing.Size(common_button_width, common_button_height);
             this.tooltip.SetToolTip(this.common_button_prevmenu, "前のメニューに移動");
@@ -389,7 +361,7 @@ namespace TaskManage
             this.common_button_nextmenu.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.common_button_nextmenu.BackgroundImage = ((Image)(resources.GetObject("common_button_nextmenu.Image")));
             this.common_button_nextmenu.BackgroundImageLayout = ImageLayout.Center;
-            this.common_button_nextmenu.Location = new System.Drawing.Point(this.window_panel.Width - common_button_width * 4, 0);
+            this.common_button_nextmenu.Location = new System.Drawing.Point(this.Width - common_button_width * 4, 0);
             this.common_button_nextmenu.Margin = new System.Windows.Forms.Padding(0);
             this.common_button_nextmenu.Size = new System.Drawing.Size(common_button_width, common_button_height);
             this.tooltip.SetToolTip(this.common_button_nextmenu, "次のメニューに移動");
@@ -406,7 +378,7 @@ namespace TaskManage
             this.common_button_close.ForeColor = System.Drawing.Color.Red;
             this.common_button_close.BackgroundImage = ((Image)(resources.GetObject("common_button_close.Image")));
             this.common_button_close.BackgroundImageLayout = ImageLayout.Center;
-            this.common_button_close.Location = new System.Drawing.Point(this.window_panel.Width - common_button_width * 1, 0);
+            this.common_button_close.Location = new System.Drawing.Point(this.Width - common_button_width * 1, 0);
             this.common_button_close.Margin = new System.Windows.Forms.Padding(0);
             this.common_button_close.Size = new System.Drawing.Size(common_button_width, common_button_height);
             this.tooltip.SetToolTip(this.common_button_close, "閉じる");
@@ -424,7 +396,7 @@ namespace TaskManage
             this.common_button_max.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_max.Image")));
             this.common_button_max.BackgroundImageLayout = ImageLayout.Center;
-            this.common_button_max.Location = new System.Drawing.Point(this.window_panel.Width - common_button_width * 2, 0);
+            this.common_button_max.Location = new System.Drawing.Point(this.Width - common_button_width * 2, 0);
             this.common_button_max.Margin = new System.Windows.Forms.Padding(0);
             this.common_button_max.Size = new System.Drawing.Size(common_button_width, common_button_height);
             this.tooltip.SetToolTip(this.common_button_max, "最大化");
@@ -440,7 +412,7 @@ namespace TaskManage
             this.common_button_min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.common_button_min.BackgroundImage = ((Image)(resources.GetObject("common_button_min.Image")));
             this.common_button_min.BackgroundImageLayout = ImageLayout.Center;
-            this.common_button_min.Location = new System.Drawing.Point(this.window_panel.Width - common_button_width * 3, 0);
+            this.common_button_min.Location = new System.Drawing.Point(this.Width - common_button_width * 3, 0);
             this.common_button_min.Margin = new System.Windows.Forms.Padding(0);
             this.common_button_min.Size = new System.Drawing.Size(common_button_width, common_button_height);
             this.tooltip.SetToolTip(this.common_button_min, "最小化");
@@ -737,7 +709,7 @@ namespace TaskManage
             // 
             this.menu2_1.Controls.Add(this.menu2_1_panel);
             this.menu2_1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.menu2_1.Size = new System.Drawing.Size(this.window_panel.Width, 950);
+            this.menu2_1.Size = new System.Drawing.Size(this.Width, 950);
             // 
             // menu2_1_panel
             // 
@@ -746,7 +718,7 @@ namespace TaskManage
             this.menu2_1_panel.Controls.Add(this.menu2_1_panel_main);
             this.menu2_1_panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.menu2_1_panel.Margin = new System.Windows.Forms.Padding(0);
-            this.menu2_1_panel.Size = new System.Drawing.Size(this.window_panel.Width, 936);
+            this.menu2_1_panel.Size = new System.Drawing.Size(this.Width, 936);
             // 
             // menu2_1_panel_top
             // 
@@ -759,7 +731,7 @@ namespace TaskManage
             this.menu2_1_panel_top.Cursor = Cursors.SizeAll;
             this.menu2_1_panel_top.Location = new System.Drawing.Point(1, 1);
             this.menu2_1_panel_top.Name = "1";
-            this.menu2_1_panel_top.Size = new System.Drawing.Size(this.window_panel.Width - this.menu2_1_panel_top.Location.X * 2, 32);
+            this.menu2_1_panel_top.Size = new System.Drawing.Size(this.Width - this.menu2_1_panel_top.Location.X * 2, 32);
             // 
             // menu2_1_panel_top_label_title
             // 
@@ -813,7 +785,7 @@ namespace TaskManage
             | System.Windows.Forms.AnchorStyles.Left
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menu2_1_panel_main.Location = new System.Drawing.Point(1, 34);
-            this.menu2_1_panel_main.Size = new System.Drawing.Size(this.window_panel.Width - this.menu2_1_panel_main.Location.X * 2, 899);
+            this.menu2_1_panel_main.Size = new System.Drawing.Size(this.Width - this.menu2_1_panel_main.Location.X * 2, 899);
 
             // 
             // menu2_2
@@ -821,7 +793,7 @@ namespace TaskManage
             this.menu2_2.Controls.Add(this.menu2_2_panel);
             this.menu2_2.Dock = System.Windows.Forms.DockStyle.Top;
             this.menu2_2.Name = "2";
-            this.menu2_2.Size = new System.Drawing.Size(this.window_panel.Width, 570);
+            this.menu2_2.Size = new System.Drawing.Size(this.Width, 570);
             // 
             // menu2_2_panel
             // 
@@ -830,7 +802,7 @@ namespace TaskManage
             this.menu2_2_panel.BorderColor = System.Drawing.Color.Black;
             this.menu2_2_panel.Controls.Add(this.menu2_2_panel_top);
             this.menu2_2_panel.Controls.Add(this.menu2_2_panel_main);
-            this.menu2_2_panel.Size = new System.Drawing.Size(this.window_panel.Width, 580);
+            this.menu2_2_panel.Size = new System.Drawing.Size(this.Width, 580);
             // 
             // menu2_2_panel_top
             // 
@@ -844,7 +816,7 @@ namespace TaskManage
             this.menu2_2_panel_top.Cursor = Cursors.SizeAll;
             this.menu2_2_panel_top.Location = new System.Drawing.Point(1, 1);
             this.menu2_2_panel_top.Name = "2";
-            this.menu2_2_panel_top.Size = new System.Drawing.Size(this.window_panel.Width - this.menu2_2_panel_top.Location.X * 2, 32);
+            this.menu2_2_panel_top.Size = new System.Drawing.Size(this.Width - this.menu2_2_panel_top.Location.X * 2, 32);
             // 
             // menu2_2_panel_top_label_title
             // 
@@ -907,7 +879,7 @@ namespace TaskManage
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menu2_2_panel_main.Location = new System.Drawing.Point(1, 33);
-            this.menu2_2_panel_main.Size = new System.Drawing.Size(this.window_panel.Width - this.menu2_2_panel_main.Location.X * 2, 540);
+            this.menu2_2_panel_main.Size = new System.Drawing.Size(this.Width - this.menu2_2_panel_main.Location.X * 2, 540);
 
             // 
             // tooltip
@@ -944,7 +916,7 @@ namespace TaskManage
             this.menutask_table1.Location = new System.Drawing.Point(0, 4);
             this.menutask_table1.RowCount = 1;
             this.menutask_table1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menutask_table1.Size = new System.Drawing.Size(this.window_panel.Width - this.menutask_button_close.Width - 4, 38);
+            this.menutask_table1.Size = new System.Drawing.Size(this.Width - this.menutask_button_close.Width - 4, 38);
             // 
             // menutask_table1_label
             // 
@@ -972,7 +944,7 @@ namespace TaskManage
             this.menutask_table2.RowCount = 2;
             this.menutask_table2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.menutask_table2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.95652F));
-            this.menutask_table2.Size = new System.Drawing.Size(this.window_panel.Width, 100);
+            this.menutask_table2.Size = new System.Drawing.Size(this.Width, 100);
             // 
             // menutask_table2_label
             // 
@@ -993,7 +965,7 @@ namespace TaskManage
             // 
             this.menutask_button_save.Cursor = Cursors.Hand;
             this.menutask_button_save.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menutask_button_save.Size = new System.Drawing.Size(this.window_panel.Width, 28);
+            this.menutask_button_save.Size = new System.Drawing.Size(this.Width, 28);
             this.menutask_button_save.Text = "保存";
             this.menutask_button_save.UseVisualStyleBackColor = true;
             this.tooltip.SetToolTip(this.menutask_button_save, "保存");
@@ -1007,7 +979,7 @@ namespace TaskManage
             this.menutask.Controls.Add(this.menutask_button_save);
             this.menutask.Controls.Add(this.menutask_table1);
             this.menutask.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menutask.Size = new System.Drawing.Size(this.window_panel.Width, this.menutask_table1.Height + this.menutask_table2.Height + menutask_button_save.Height + 12);
+            this.menutask.Size = new System.Drawing.Size(this.Width, this.menutask_table1.Height + this.menutask_table2.Height + menutask_button_save.Height + 12);
 
             // 
             // menudone_button_close
@@ -1019,7 +991,7 @@ namespace TaskManage
             this.menudone_button_close.BackgroundImage = ((Image)(resources.GetObject("menu1_done_main_panel_button_delete.Image")));
             this.menudone_button_close.BackgroundImageLayout = ImageLayout.Center;
             this.menudone_button_close.Size = new System.Drawing.Size(32, 32);
-            this.menudone_button_close.Location = new System.Drawing.Point(this.window_panel.Width - this.menudone_button_close.Width, 1);
+            this.menudone_button_close.Location = new System.Drawing.Point(this.Width - this.menudone_button_close.Width, 1);
             this.menudone_button_close.UseVisualStyleBackColor = true;
             this.tooltip.SetToolTip(this.menudone_button_close, "閉じる");
             this.menudone_button_close.Click += new System.EventHandler(this.menudone_button_close_Click);
@@ -1037,7 +1009,7 @@ namespace TaskManage
             this.menudone_table1.Location = new System.Drawing.Point(0, 4);
             this.menudone_table1.RowCount = 1;
             this.menudone_table1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menudone_table1.Size = new System.Drawing.Size(this.window_panel.Width - this.menudone_button_close.Width - 4, 38);
+            this.menudone_table1.Size = new System.Drawing.Size(this.Width - this.menudone_button_close.Width - 4, 38);
             // 
             // menudone_table1_label
             // 
@@ -1071,7 +1043,7 @@ namespace TaskManage
             this.menudone_table2.Location = new System.Drawing.Point(0, this.menudone_table1.Location.Y + this.menudone_table1.Height + 4);
             this.menudone_table2.RowCount = 1;
             this.menudone_table2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menudone_table2.Size = new System.Drawing.Size(this.window_panel.Width, 26);
+            this.menudone_table2.Size = new System.Drawing.Size(this.Width, 26);
             // 
             // menudone_table2_label
             // 
@@ -1114,7 +1086,7 @@ namespace TaskManage
             this.menudone_table3.RowCount = 2;
             this.menudone_table3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.menudone_table3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.95652F));
-            this.menudone_table3.Size = new System.Drawing.Size(this.window_panel.Width, 100);
+            this.menudone_table3.Size = new System.Drawing.Size(this.Width, 100);
             // 
             // menudone_table3_label
             // 
@@ -1150,14 +1122,11 @@ namespace TaskManage
             this.menudone.Controls.Add(this.menudone_table1);
             this.menudone.Controls.Add(this.menudone_button_save);
             this.menudone.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menudone.Size = new System.Drawing.Size(this.window_panel.Width, this.menudone_table1.Height + this.menudone_table2.Height + this.menudone_table3.Height 
+            this.menudone.Size = new System.Drawing.Size(this.Width, this.menudone_table1.Height + this.menudone_table2.Height + this.menudone_table3.Height 
                 + this.menudone_button_save.Height + 16);
 
             // レイアウトロジック再開 子コントロールを持つコントロール全て
             this.ResumeLayout(false);
-
-            this.window.ResumeLayout(false);
-            this.window_panel.ResumeLayout(false);
 
             this.common.ResumeLayout(false);
             this.common_panel_setting.ResumeLayout(false);

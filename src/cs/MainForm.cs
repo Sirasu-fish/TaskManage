@@ -30,7 +30,6 @@ namespace TaskManage
         protected override void OnActivated(EventArgs ea)
         {
             base.OnActivated(ea);
-            // メモ帳データ再読み込み
         }
 
         #endregion override
