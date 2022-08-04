@@ -236,6 +236,11 @@ namespace TaskManage.controls_event
                 form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task].Controls.Add(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task]);
                 form.menu2_1_panel_main.Controls.Add(form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task]);
 
+                DAndDMoveTask menu2_1_MoveTask_label1;
+                menu2_1_MoveTask_label1 = new DAndDMoveTask(form.menu2_1_panel_main_panel_label1[Main.Common_Var.menu2_1_task], form);
+                DAndDMoveTask menu2_1_MoveTask_panel;
+                menu2_1_MoveTask_panel = new DAndDMoveTask(form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_task], form);
+
                 form.ResumeLayout();
                 form.menu2.ResumeLayout();
                 form.menu2_1.ResumeLayout();
@@ -508,10 +513,6 @@ namespace TaskManage.controls_event
             {
                 return;
             }
-            if (num == Main.Common_Var.menu2_1_task)
-            {
-                return;
-            }
             for (int i = 0; i < Main.Common_Var.menu2_1_task; i++)
             {
                 if (Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task == i)
@@ -527,6 +528,13 @@ namespace TaskManage.controls_event
         // タスクマウスホバーが離れた時
         private void MouseLeaveTask(int num)
         {
+            if (form.menutask.Visible == false && Main.Common_Var.menu2_1_open_task != -1)
+            {
+                form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task].BackColor = Color.Transparent;
+                form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task].Refresh();
+                Main.Common_Var.menu2_1_open_task = -1;
+                return;
+            }
             if (ExistClientContainState(form.menu2_1_panel_main_panel[num]))
             {
                 return;

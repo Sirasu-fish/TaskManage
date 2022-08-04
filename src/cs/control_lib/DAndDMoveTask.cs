@@ -166,8 +166,6 @@ namespace TaskManage
         void mouseListner_MouseUp(object sender, MouseEventArgs e)
         {
             mouseListner.Capture = false;
-
-
         }
     }
 }

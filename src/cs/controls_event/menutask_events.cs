@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TaskManage.controls_event
@@ -38,6 +39,8 @@ namespace TaskManage.controls_event
         public static void menutask_button_close_Click(object sender, EventArgs e, MainForm form)
         {
             form.menutask.Visible = false;
+            form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task].BackColor = Color.Transparent;
+            form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task].Refresh();
             Main.Common_Var.menu2_1_open_task = -1;
         }
 

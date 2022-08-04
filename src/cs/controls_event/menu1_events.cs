@@ -250,6 +250,13 @@ namespace TaskManage.controls_event
             form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
             form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
 
+            DAndDMoveDone menu1_MoveDone_label_name;
+            menu1_MoveDone_label_name = new DAndDMoveDone(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done], form);
+            DAndDMoveDone menu1_MoveDone_label_time;
+            menu1_MoveDone_label_time = new DAndDMoveDone(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done], form);
+            DAndDMoveDone menu1_MoveDone_panel;
+            menu1_MoveDone_panel = new DAndDMoveDone(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done], form);
+
             form.ResumeLayout();
             form.menu1.ResumeLayout();
             form.menu1_done_main.ResumeLayout();
@@ -274,6 +281,13 @@ namespace TaskManage.controls_event
                 form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
                 form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
                 form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
+
+                DAndDMoveDone menu1_MoveDone_label_name;
+                menu1_MoveDone_label_name = new DAndDMoveDone(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done], form);
+                DAndDMoveDone menu1_MoveDone_label_time;
+                menu1_MoveDone_label_time = new DAndDMoveDone(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done], form);
+                DAndDMoveDone menu1_MoveDone_panel;
+                menu1_MoveDone_panel = new DAndDMoveDone(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done], form);
 
                 form.ResumeLayout();
                 form.menu1.ResumeLayout();
@@ -1076,9 +1090,13 @@ namespace TaskManage.controls_event
             {
                 return;
             }
-            if (num == Main.Common_Var.menu1_open_done)
+            for (int i = 0; i < Main.Common_Var.menu1_day_done; i++)
             {
-                return;
+                if (Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done == i)
+                {
+                    continue;
+                }
+                form.menu1_done_main_panel[i].BackColor = Color.Transparent;
             }
             form.menu1_done_main_panel[num].BackColor = Main.Common_Const.color2;
             form.menu1_done_main_panel[num].Refresh();
@@ -1087,6 +1105,17 @@ namespace TaskManage.controls_event
         // 実績マウスホバーが離れた時
         private void MouseLeaveDone(int num)
         {
+            if (form.menudone.Visible == false && Main.Common_Var.menu1_open_done != -1)
+            {
+                form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].BackColor = Color.Transparent;
+                form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
+                Main.Common_Var.menu1_open_done = -1;
+                return;
+            }
+            if (ExistClientContainState(form.menu1_done_main_panel[num]))
+            {
+                return;
+            }
             if (num < 0 || Main.Common_Var.menu1_day_done <= num)
             {
                 return;
@@ -1095,8 +1124,28 @@ namespace TaskManage.controls_event
             {
                 return;
             }
-            form.menu1_done_main_panel[num].BackColor = Color.Transparent;
-            form.menu1_done_main_panel[num].Refresh();
+            if (Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done != num)
+            {
+                form.menu1_done_main_panel[num].BackColor = Color.Transparent;
+                form.menu1_done_main_panel[num].Refresh();
+            }
+        }
+
+        private bool ExistClientContainState(Control ctrl)
+        {
+            Rectangle rect = ctrl.ClientRectangle;
+            return GetContainState(ctrl, rect);
+        }
+
+        private bool GetContainState(Control ctrl, Rectangle rect)
+        {
+            // マウス座標（スクリーン座標系）の取得
+            Point mouseScreenPos = Control.MousePosition;
+            // マウス座標をクライアント座標系へ変換
+            Point mouseClientPos = ctrl.PointToClient(mouseScreenPos);
+            // マウス座標（クライアント座標系）が領域内かどうか
+            bool inside = rect.Contains(mouseClientPos);
+            return inside;
         }
 
         #endregion private
