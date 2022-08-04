@@ -179,6 +179,9 @@ namespace TaskManage.controls_event
             form.menu2_2_panel_main_panel[Main.Common_Var.menu2_2_memo].Controls.Add(form.menu2_2_panel_main_panel_table_memo[Main.Common_Var.menu2_2_memo]);
             form.menu2_2_panel_main.Controls.Add(form.menu2_2_panel_main_panel[Main.Common_Var.menu2_2_memo]);
 
+            DAndDMoveMemo menu2_1_MoveMemo_text;
+            menu2_1_MoveMemo_text = new DAndDMoveMemo(form.menu2_2_panel_main_panel_table_memo_panel_top_text[Main.Common_Var.menu2_2_memo], form);
+
             for (int i = Main.Common_Var.menu2_2_memo; i >= 0; i--)
             {
                 form.menu2_2_panel_main.Controls.Remove(form.menu2_2_panel_main_panel[i]);
@@ -528,6 +531,7 @@ namespace TaskManage.controls_event
             menu2_2_panel_main_panel_table_memo_panel_top_text.BackColor = Main.Common_Const.color3;
             menu2_2_panel_main_panel_table_memo_panel_top_text.Location = new Point(0, 0);
             menu2_2_panel_main_panel_table_memo_panel_top_text.ReadOnly = true;
+            menu2_2_panel_main_panel_table_memo_panel_top_text.Name = Main.Common_Var.menu2_2_memo.ToString();
             menu2_2_panel_main_panel_table_memo_panel_top_text.Text = memo_name;
 
             return menu2_2_panel_main_panel_table_memo_panel_top_text;

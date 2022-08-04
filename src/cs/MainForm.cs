@@ -30,7 +30,17 @@ namespace TaskManage
         protected override void OnActivated(EventArgs ea)
         {
             base.OnActivated(ea);
-            // メモ帳データ再読み込み
+            // カレンダー更新
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+            int day = DateTime.Now.Day;
+            if (year != Main.Common_Var.today_year || month != Main.Common_Var.today_month && day != Main.Common_Var.today_day)
+            {
+                Main.Common_Var.today_year = year;
+                Main.Common_Var.today_month = month;
+                Main.Common_Var.today_day = day;
+                controls_event.menu1_events.Change_YearMonth(this);
+            }
         }
 
         #endregion override

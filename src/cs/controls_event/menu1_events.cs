@@ -200,6 +200,41 @@ namespace TaskManage.controls_event
 
         // ********** public **********
         #region public
+        // 年月変更時イベント
+        public static void Change_YearMonth(MainForm form)
+        {
+            int year;
+            int month;
+            if (form.menu1_panel_yearmonth_combo_year.SelectedItem == null)
+            {
+                year = DateTime.Now.Year;
+            }
+            else
+            {
+                year = int.Parse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString());
+                if (!(int.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= int.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString())))
+                {
+                    year = DateTime.Now.Year;
+                }
+            }
+
+            if (form.menu1_panel_yearmonth_combo_month.SelectedItem == null)
+            {
+                month = DateTime.Now.Month;
+            }
+            else
+            {
+                month = int.Parse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString());
+                if (!(1 <= month && month <= 12))
+                {
+                    month = DateTime.Now.Month;
+                }
+            }
+            form.menu1_panel_yearmonth_combo_year.SelectedItem = year.ToString();
+            form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+            common_events.Set_Day(form, year, month);
+        }
+
         // 初期 実績追加
         public static void InitAddDone(MainForm form, String text, String time)
         {
@@ -214,6 +249,13 @@ namespace TaskManage.controls_event
             form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
             form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
             form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
+
+            DAndDMoveDone menu1_MoveDone_label_name;
+            menu1_MoveDone_label_name = new DAndDMoveDone(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done], form);
+            DAndDMoveDone menu1_MoveDone_label_time;
+            menu1_MoveDone_label_time = new DAndDMoveDone(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done], form);
+            DAndDMoveDone menu1_MoveDone_panel;
+            menu1_MoveDone_panel = new DAndDMoveDone(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done], form);
 
             form.ResumeLayout();
             form.menu1.ResumeLayout();
@@ -239,6 +281,13 @@ namespace TaskManage.controls_event
                 form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
                 form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
                 form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
+
+                DAndDMoveDone menu1_MoveDone_label_name;
+                menu1_MoveDone_label_name = new DAndDMoveDone(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done], form);
+                DAndDMoveDone menu1_MoveDone_label_time;
+                menu1_MoveDone_label_time = new DAndDMoveDone(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done], form);
+                DAndDMoveDone menu1_MoveDone_panel;
+                menu1_MoveDone_panel = new DAndDMoveDone(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done], form);
 
                 form.ResumeLayout();
                 form.menu1.ResumeLayout();
@@ -741,7 +790,7 @@ namespace TaskManage.controls_event
 
             int r = form.menu1_table_calender_panel_day[panel_num].ClientRectangle.Right - 1;
             int b = form.menu1_table_calender_panel_day[panel_num].ClientRectangle.Bottom - 1;
-            pen = new Pen(Main.Common_Var.sub_color);
+            pen = new Pen(Main.Common_Const.color1);
             g.DrawLine(pen, 0, 0, r, 0);
             g.DrawLine(pen, 0, 0, 0, b);
             g.DrawLine(pen, r, 0, r, b);
@@ -782,41 +831,6 @@ namespace TaskManage.controls_event
             {
                 month = DateTime.Now.Month; // 今月
             }
-        }
-
-        // 年月変更時イベント
-        private static void Change_YearMonth(MainForm form)
-        {
-            int year;
-            int month;
-            if (form.menu1_panel_yearmonth_combo_year.SelectedItem == null)
-            {
-                year = DateTime.Now.Year;
-            }
-            else
-            {
-                year = int.Parse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString());
-                if (!(int.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= int.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString())))
-                {
-                    year = DateTime.Now.Year;
-                }
-            }
-
-            if (form.menu1_panel_yearmonth_combo_month.SelectedItem == null)
-            {
-                month = DateTime.Now.Month;
-            }
-            else
-            {
-                month = int.Parse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString());
-                if (!(1 <= month && month <= 12))
-                {
-                    month = DateTime.Now.Month;
-                }
-            }
-            form.menu1_panel_yearmonth_combo_year.SelectedItem = year.ToString();
-            form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString();
-            common_events.Set_Day(form, year, month);
         }
 
         // カレンダーから実績の日付を設定
@@ -1076,9 +1090,13 @@ namespace TaskManage.controls_event
             {
                 return;
             }
-            if (num == Main.Common_Var.menu1_open_done)
+            for (int i = 0; i < Main.Common_Var.menu1_day_done; i++)
             {
-                return;
+                if (Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done == i)
+                {
+                    continue;
+                }
+                form.menu1_done_main_panel[i].BackColor = Color.Transparent;
             }
             form.menu1_done_main_panel[num].BackColor = Main.Common_Const.color2;
             form.menu1_done_main_panel[num].Refresh();
@@ -1087,6 +1105,17 @@ namespace TaskManage.controls_event
         // 実績マウスホバーが離れた時
         private void MouseLeaveDone(int num)
         {
+            if (form.menudone.Visible == false && Main.Common_Var.menu1_open_done != -1)
+            {
+                form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].BackColor = Color.Transparent;
+                form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
+                Main.Common_Var.menu1_open_done = -1;
+                return;
+            }
+            if (ExistClientContainState(form.menu1_done_main_panel[num]))
+            {
+                return;
+            }
             if (num < 0 || Main.Common_Var.menu1_day_done <= num)
             {
                 return;
@@ -1095,8 +1124,28 @@ namespace TaskManage.controls_event
             {
                 return;
             }
-            form.menu1_done_main_panel[num].BackColor = Color.Transparent;
-            form.menu1_done_main_panel[num].Refresh();
+            if (Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done != num)
+            {
+                form.menu1_done_main_panel[num].BackColor = Color.Transparent;
+                form.menu1_done_main_panel[num].Refresh();
+            }
+        }
+
+        private bool ExistClientContainState(Control ctrl)
+        {
+            Rectangle rect = ctrl.ClientRectangle;
+            return GetContainState(ctrl, rect);
+        }
+
+        private bool GetContainState(Control ctrl, Rectangle rect)
+        {
+            // マウス座標（スクリーン座標系）の取得
+            Point mouseScreenPos = Control.MousePosition;
+            // マウス座標をクライアント座標系へ変換
+            Point mouseClientPos = ctrl.PointToClient(mouseScreenPos);
+            // マウス座標（クライアント座標系）が領域内かどうか
+            bool inside = rect.Contains(mouseClientPos);
+            return inside;
         }
 
         #endregion private

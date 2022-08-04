@@ -6,11 +6,9 @@ namespace TaskManage.Main
     {
         private static int menu_; //閲覧中のメニュー
         private static int clickpanel_ = -1; //カレンダーでクリックされたパネル
-
-        private static Color main_color_ = Color.FromArgb(40, 40, 40); //ダークモード 基本色;
-        private static Color sub_color_ = Color.FromArgb(240, 240, 240); //ライトモード 基本色
-        private static Color submain_color_ = Color.FromArgb(80, 80, 80); //ダークモード サブ色
-        private static Color subsub_color_ = Color.FromArgb(220, 220, 220); //ライトモード サブ色
+        private static int today_year_ = 0; // 今日の日付(年)
+        private static int today_month_ = 0; // 今日の日付(月)
+        private static int today_day_ = 0; // 今日の日付(日)
 
         private static int menu1_done_year_ = 0; //開いている実績の年
         private static int menu1_done_month_ = 0; //開いている実績の月
@@ -52,52 +50,42 @@ namespace TaskManage.Main
             }
         }
 
-        // メインカラー
-        public static Color main_color
+        // 今日の日付(年)
+        public static int today_year
         {
             set
             {
-                main_color_ = value;
+                today_year_ = value;
             }
             get
             {
-                return main_color_;
+                return today_year_;
             }
         }
 
-        public static Color sub_color
+        // 今日の日付(月)
+        public static int today_month
         {
             set
             {
-                sub_color_ = value;
+                today_month_ = value;
             }
             get
             {
-                return sub_color_;
+                return today_month_;
             }
         }
 
-        public static Color submain_color
+        // 今日の日付(日)
+        public static int today_day
         {
             set
             {
-                submain_color_ = value;
+                today_day_ = value;
             }
             get
             {
-                return submain_color_;
-            }
-        }
-
-        public static Color subsub_color
-        {
-            set
-            {
-                subsub_color_ = value;
-            }
-            get
-            {
-                return subsub_color_;
+                return today_day_;
             }
         }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 
 namespace TaskManage.Main
@@ -30,28 +29,29 @@ namespace TaskManage.Main
         private void SetPropertiesValue()
         {
             //Properties.Settings.Default.first_start = false;
-            // 初回起動時は初期化
-            if (!Properties.Settings.Default.first_start)
-            {
-                Properties.Settings.Default.first_start = true;
 
-                Properties.Settings.Default.common_mode = false;
-                Properties.Settings.Default.menu2_open1 = true;
-                Properties.Settings.Default.menu2_open2 = true;
-                Properties.Settings.Default.form_x = Common_Const.form_x;
-                Properties.Settings.Default.form_y = Common_Const.form_y;
-                Properties.Settings.Default.order = new System.Collections.Specialized.StringCollection { "1", "2" };
-                Properties.Settings.Default.menu = 1;
-                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.task_name = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.task_memo = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_name = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_memo = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_time = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.done_day = new System.Collections.Specialized.StringCollection();
-                Properties.Settings.Default.memo_wrap = new System.Collections.Specialized.StringCollection();
-            }
+            // 初回起動時は初期化
+            //if (!Properties.Settings.Default.first_start)
+            //{
+            //    Properties.Settings.Default.first_start = true;
+
+            //    Properties.Settings.Default.common_mode = false;
+            //    Properties.Settings.Default.menu2_open1 = true;
+            //    Properties.Settings.Default.menu2_open2 = true;
+            //    Properties.Settings.Default.form_x = Common_Const.form_x;
+            //    Properties.Settings.Default.form_y = Common_Const.form_y;
+            //    Properties.Settings.Default.order = new System.Collections.Specialized.StringCollection { "1", "2" };
+            //    Properties.Settings.Default.menu = 1;
+            //    Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+            //    Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
+            //    Properties.Settings.Default.task_name = new System.Collections.Specialized.StringCollection();
+            //    Properties.Settings.Default.task_memo = new System.Collections.Specialized.StringCollection();
+            //    Properties.Settings.Default.done_name = new System.Collections.Specialized.StringCollection();
+            //    Properties.Settings.Default.done_memo = new System.Collections.Specialized.StringCollection();
+            //    Properties.Settings.Default.done_time = new System.Collections.Specialized.StringCollection();
+            //    Properties.Settings.Default.done_day = new System.Collections.Specialized.StringCollection();
+            //    Properties.Settings.Default.memo_wrap = new System.Collections.Specialized.StringCollection();
+            //}
 
             // フォームサイズ x
             if (Properties.Settings.Default.form_x < Common_Const.form_x)
@@ -270,6 +270,10 @@ namespace TaskManage.Main
         {
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
+            int day = DateTime.Now.Day;
+            Common_Var.today_year = year;
+            Common_Var.today_month = month;
+            Common_Var.today_day = day;
             controls_event.common_events.Set_Day(form, year, month);
         }
 
@@ -292,7 +296,5 @@ namespace TaskManage.Main
         }
 
         #endregion private
-
-
     }
 }

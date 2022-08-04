@@ -65,7 +65,10 @@ namespace TaskManage.controls_event
             Properties.Settings.Default.form_y = form.Height;
             for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
             {
-                Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
+                if (form.menu2_2_panel_main_panel[i].Height > 34)
+                {
+                    Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
+                }
             }
             Properties.Settings.Default.Save();
             form.Close(); // formを閉じる
@@ -200,6 +203,8 @@ namespace TaskManage.controls_event
                     form.menudone.Visible = false;
                     form.common_button_prevmenu.Visible = false;
                     form.common_button_nextmenu.Visible = true;
+                    Main.Common_Var.menu2_1_open_task = -1;
+                    Main.Common_Var.menu2_1_delete_task = 0;
                     break;
                 case 2: //タスク画面
                     form.common_panel_setting.Visible = false;
@@ -213,6 +218,8 @@ namespace TaskManage.controls_event
                     }
                     form.common_button_prevmenu.Visible = true;
                     form.common_button_nextmenu.Visible = false;
+                    Main.Common_Var.menu1_open_done = -1;
+                    Main.Common_Var.menu1_delete_done = 0;
                     break;
                 default:
                     Main.Common_Var.menu = 1;
