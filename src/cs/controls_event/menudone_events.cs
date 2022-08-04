@@ -38,6 +38,7 @@ namespace TaskManage.controls_event
         public static void menudone_button_close_Click(object sender, EventArgs e, MainForm form)
         {
             form.menudone.Visible = false;
+            Main.Common_Var.menu1_open_done = -1;
         }
 
         public static void menudone_button_save_Click(object sender, EventArgs e, MainForm form)

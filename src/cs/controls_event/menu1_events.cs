@@ -200,6 +200,41 @@ namespace TaskManage.controls_event
 
         // ********** public **********
         #region public
+        // 年月変更時イベント
+        public static void Change_YearMonth(MainForm form)
+        {
+            int year;
+            int month;
+            if (form.menu1_panel_yearmonth_combo_year.SelectedItem == null)
+            {
+                year = DateTime.Now.Year;
+            }
+            else
+            {
+                year = int.Parse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString());
+                if (!(int.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= int.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString())))
+                {
+                    year = DateTime.Now.Year;
+                }
+            }
+
+            if (form.menu1_panel_yearmonth_combo_month.SelectedItem == null)
+            {
+                month = DateTime.Now.Month;
+            }
+            else
+            {
+                month = int.Parse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString());
+                if (!(1 <= month && month <= 12))
+                {
+                    month = DateTime.Now.Month;
+                }
+            }
+            form.menu1_panel_yearmonth_combo_year.SelectedItem = year.ToString();
+            form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString();
+            common_events.Set_Day(form, year, month);
+        }
+
         // 初期 実績追加
         public static void InitAddDone(MainForm form, String text, String time)
         {
@@ -741,7 +776,7 @@ namespace TaskManage.controls_event
 
             int r = form.menu1_table_calender_panel_day[panel_num].ClientRectangle.Right - 1;
             int b = form.menu1_table_calender_panel_day[panel_num].ClientRectangle.Bottom - 1;
-            pen = new Pen(Main.Common_Var.sub_color);
+            pen = new Pen(Main.Common_Const.color1);
             g.DrawLine(pen, 0, 0, r, 0);
             g.DrawLine(pen, 0, 0, 0, b);
             g.DrawLine(pen, r, 0, r, b);
@@ -782,41 +817,6 @@ namespace TaskManage.controls_event
             {
                 month = DateTime.Now.Month; // 今月
             }
-        }
-
-        // 年月変更時イベント
-        private static void Change_YearMonth(MainForm form)
-        {
-            int year;
-            int month;
-            if (form.menu1_panel_yearmonth_combo_year.SelectedItem == null)
-            {
-                year = DateTime.Now.Year;
-            }
-            else
-            {
-                year = int.Parse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString());
-                if (!(int.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= year && year <= int.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString())))
-                {
-                    year = DateTime.Now.Year;
-                }
-            }
-
-            if (form.menu1_panel_yearmonth_combo_month.SelectedItem == null)
-            {
-                month = DateTime.Now.Month;
-            }
-            else
-            {
-                month = int.Parse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString());
-                if (!(1 <= month && month <= 12))
-                {
-                    month = DateTime.Now.Month;
-                }
-            }
-            form.menu1_panel_yearmonth_combo_year.SelectedItem = year.ToString();
-            form.menu1_panel_yearmonth_combo_month.SelectedItem = month.ToString();
-            common_events.Set_Day(form, year, month);
         }
 
         // カレンダーから実績の日付を設定

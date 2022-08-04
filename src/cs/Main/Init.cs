@@ -269,6 +269,10 @@ namespace TaskManage.Main
         {
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
+            int day = DateTime.Now.Day;
+            Common_Var.today_year = year;
+            Common_Var.today_month = month;
+            Common_Var.today_day = day;
             controls_event.common_events.Set_Day(form, year, month);
         }
 

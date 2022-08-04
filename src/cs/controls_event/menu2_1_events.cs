@@ -512,6 +512,14 @@ namespace TaskManage.controls_event
             {
                 return;
             }
+            for (int i = 0; i < Main.Common_Var.menu2_1_task; i++)
+            {
+                if (Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task == i)
+                {
+                    continue;
+                }
+                form.menu2_1_panel_main_panel[i].BackColor = Color.Transparent;
+            }
             form.menu2_1_panel_main_panel[num].BackColor = Main.Common_Const.color2;
             form.menu2_1_panel_main_panel[num].Refresh();
         }
@@ -519,6 +527,10 @@ namespace TaskManage.controls_event
         // タスクマウスホバーが離れた時
         private void MouseLeaveTask(int num)
         {
+            if (ExistClientContainState(form.menu2_1_panel_main_panel[num]))
+            {
+                return;
+            }
             if (!CheckTaskNum(num))
             {
                 return;
@@ -526,10 +538,26 @@ namespace TaskManage.controls_event
             if (Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task != num)
             {
                 form.menu2_1_panel_main_panel[num].BackColor = Color.Transparent;
+                form.menu2_1_panel_main_panel[num].Refresh();
             }
-            form.menu2_1_panel_main_panel[num].Refresh();
         }
 
+        private bool ExistClientContainState(Control ctrl)
+        {
+            Rectangle rect = ctrl.ClientRectangle;
+            return GetContainState(ctrl, rect);
+        }
+
+        private bool GetContainState(Control ctrl, Rectangle rect)
+        {
+            // マウス座標（スクリーン座標系）の取得
+            Point mouseScreenPos = Control.MousePosition;
+            // マウス座標をクライアント座標系へ変換
+            Point mouseClientPos = ctrl.PointToClient(mouseScreenPos);
+            // マウス座標（クライアント座標系）が領域内かどうか
+            bool inside = rect.Contains(mouseClientPos);
+            return inside;
+        }
 
         #endregion private
         // ********** private **********

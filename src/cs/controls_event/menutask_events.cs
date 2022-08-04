@@ -38,6 +38,7 @@ namespace TaskManage.controls_event
         public static void menutask_button_close_Click(object sender, EventArgs e, MainForm form)
         {
             form.menutask.Visible = false;
+            Main.Common_Var.menu2_1_open_task = -1;
         }
 
         // 保存するボタン

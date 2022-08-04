@@ -736,8 +736,8 @@ namespace TaskManage
             // menu2_1_panel_top_label_title
             // 
             this.menu2_1_panel_top_label_title.Location = new System.Drawing.Point(1, 0);
-            this.menu2_1_panel_top_label_title.Size = new System.Drawing.Size(100, 32);
-            this.menu2_1_panel_top_label_title.Text = "期間設定ありタスク";
+            this.menu2_1_panel_top_label_title.Size = new System.Drawing.Size(34, 32);
+            this.menu2_1_panel_top_label_title.Text = "タスク";
             this.menu2_1_panel_top_label_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // menu2_1_panel_top_label_num
@@ -898,7 +898,7 @@ namespace TaskManage
             this.menutask_button_close.BackgroundImage = ((Image)(resources.GetObject("menu1_done_main_panel_button_delete.Image")));
             this.menutask_button_close.BackgroundImageLayout = ImageLayout.Center;
             this.menutask_button_close.Size = new System.Drawing.Size(32, 32);
-            this.menutask_button_close.Location = new System.Drawing.Point(this.menutask.Width - this.menutask_button_close.Width, 1);
+            this.menutask_button_close.Location = new System.Drawing.Point(this.Width - this.menutask_button_close.Width, 1);
             this.tooltip.SetToolTip(this.menutask_button_close, "閉じる");
             this.menutask_button_close.UseVisualStyleBackColor = true;
             this.menutask_button_close.Click += new System.EventHandler(this.menutask_button_close_Click);
