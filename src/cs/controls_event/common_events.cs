@@ -339,6 +339,10 @@ namespace TaskManage.controls_event
                         form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
                     }
                 }
+                else if (sumtime > 0)
+                {
+                    form.menu1_table_calender_panel_day_label_done[i].BackColor = Main.Common_Const.color_done1;
+                }
                 if (sumtime % 60 != 0)
                 {
                     form.menu1_table_calender_panel_day_label_done[i].Text += (sumtime % 60).ToString() + "m";
