@@ -175,7 +175,7 @@ namespace TaskManage.controls_event
         // 実績追加ボタン押下
         public static void menu1_done_top_button_add_Click(object sender, EventArgs e, MainForm form)
         {
-            OpenDone(form, Main.Common_Var.menu1_done);
+            OpenDone(form, Main.Common_Var.menu1_day_done);
         }
         // 実績押下
         public void menu1_done_main_panel_Click(object sender, EventArgs e)
@@ -304,7 +304,7 @@ namespace TaskManage.controls_event
                 Main.Common_Var.menu1_done += 1;
                 Main.Common_Var.menu1_day_done += 1;
 
-                Main.Common_Var.menu1_open_done = -1;
+                Main.Common_Var.menu1_open_done = Main.Common_Var.menu1_day_done;
 
                 ChangeDoneNum(form);
 
@@ -357,7 +357,7 @@ namespace TaskManage.controls_event
                 UpdateDoneTime(form, sumtime);
 
                 form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].BackColor = Color.Transparent;
-                Main.Common_Var.menu1_open_done = -1;
+                Main.Common_Var.menu1_open_done = Main.Common_Var.menu1_day_done;
                 Main.Common_Var.menu1_delete_done = 0;
             }
         }
@@ -871,7 +871,7 @@ namespace TaskManage.controls_event
         // 実績マウスホバーが離れた時
         private void MouseLeaveDone(int num)
         {
-            if (Main.Common_Var.menu1_open_done >= Main.Common_Var.menu1_day_done)
+            if (Main.Common_Var.menu1_open_done > Main.Common_Var.menu1_day_done)
             {
                 return;
             }
@@ -884,6 +884,12 @@ namespace TaskManage.controls_event
             }
             if (ExistClientContainState(form.menu1_done_main_panel[num]))
             {
+                return;
+            }
+            if (form.menudone.Visible == true && Main.Common_Var.menu1_open_done == Main.Common_Var.menu1_day_done)
+            {
+                form.menu1_done_main_panel[num].BackColor = Color.Transparent;
+                form.menu1_done_main_panel[num].Refresh();
                 return;
             }
             if (num < 0 || Main.Common_Var.menu1_day_done <= num)

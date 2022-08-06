@@ -254,7 +254,7 @@ namespace TaskManage.controls_event
 
                 Main.Common_Var.menu2_1_task += 1;
 
-                Main.Common_Var.menu2_1_open_task = -1;
+                Main.Common_Var.menu2_1_open_task = Main.Common_Var.menu2_1_task;
 
                 ChangeTaskNum(form);
             }
@@ -266,7 +266,7 @@ namespace TaskManage.controls_event
 
                 form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task].BackColor = Color.Transparent;
 
-                Main.Common_Var.menu2_1_open_task = -1;
+                Main.Common_Var.menu2_1_open_task = Main.Common_Var.menu2_1_task;
 
                 Properties.Settings.Default.Save();
             }
@@ -532,7 +532,7 @@ namespace TaskManage.controls_event
         // タスクマウスホバーが離れた時
         private void MouseLeaveTask(int num)
         {
-            if (Main.Common_Var.menu2_1_open_task >= Main.Common_Var.menu2_1_task)
+            if (Main.Common_Var.menu2_1_open_task > Main.Common_Var.menu2_1_task)
             {
                 return;
             }
@@ -545,6 +545,12 @@ namespace TaskManage.controls_event
             }
             if (ExistClientContainState(form.menu2_1_panel_main_panel[num]))
             {
+                return;
+            }
+            if (form.menutask.Visible == true && Main.Common_Var.menu2_1_open_task == Main.Common_Var.menu2_1_task)
+            {
+                form.menu2_1_panel_main_panel[num].BackColor = Color.Transparent;
+                form.menu2_1_panel_main_panel[num].Refresh();
                 return;
             }
             if (!CheckTaskNum(num))
