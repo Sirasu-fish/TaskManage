@@ -1,12 +1,23 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Text.Json;
+using System.Windows.Forms;
 
 namespace TaskManage.Main
 {
     internal class Init
     {
+        MainForm form;
+
         public void initialize(MainForm form)
         {
+            this.form = form;
+            // アップデート確認
+            CheckUpdate();
             // 設定値の初期化
             SetPropertiesValue();
             // commonをタイトルバー化する
@@ -24,6 +35,71 @@ namespace TaskManage.Main
         private static DAndDMoveForm common_MoveForm;
         private static DAndDMoveMenu menu2_1_MoveMenu;
         private static DAndDMoveMenu menu2_2_MoveMenu;
+
+        // アップデート確認
+        private async void CheckUpdate()
+        {
+            // GitHub API
+            string url = "https://api.github.com/repos/Sirasu-fish/TaskManage/releases/latest";
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("User-Agent", "ToDoList");
+            HttpResponseMessage result = new HttpResponseMessage();
+            string json = "";
+            string version = "";
+            try
+            {
+                result = await client.GetAsync(url);
+                json = await result.Content.ReadAsStringAsync();
+                version = (JsonSerializer.Deserialize<git_info>(json).tag_name).Replace("v", "");
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            // バージョンが同じ場合は抜ける
+            if (version == Properties.Settings.Default.version)
+            {
+                return;
+            }
+
+            // exeのパス取得
+            string currentpath = (Application.ExecutablePath).Replace(Path.GetFileName(Application.ExecutablePath), "");
+            // zipのダウンロードURL
+            Uri zipurl = new Uri("https://github.com/Sirasu-fish/TaskManage/releases/download/v" + version + "/TaskManage.zip");
+
+            WebClient webClient = new WebClient();
+            webClient.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(webClient_DownLoadFileCompleted);
+
+            webClient.DownloadFileAsync(zipurl, currentpath + "\\TaskManage.zip");
+        }
+
+        private class git_info
+        {
+            public string tag_name { get; set; }
+        }
+
+        private void webClient_DownLoadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+            if (e.Error != null) // エラー
+            {
+                return;
+            }
+            else // ダウンロード正常完了
+            {
+                DialogResult result = MessageBox.Show("アップデートがあります。適用しますか？", "TaskManage", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    string currentpath = (Application.ExecutablePath).Replace(Path.GetFileName(Application.ExecutablePath), "");
+                    Process.Start(currentpath + "\\UpdateTaskManage.exe");
+                    form.Close();
+                }
+            }
+        }
 
         // 設定値の初期化
         private void SetPropertiesValue()
@@ -70,7 +146,7 @@ namespace TaskManage.Main
                 Properties.Settings.Default.menu = 1;
             }
 
-            for(int i = Properties.Settings.Default.memo_path.Count - 1; i >= 0;  i--)
+            for (int i = Properties.Settings.Default.memo_path.Count - 1; i >= 0; i--)
             {
                 if (string.IsNullOrEmpty(Properties.Settings.Default.memo_path[i]))
                 {
