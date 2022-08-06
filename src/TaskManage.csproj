@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon>img\icon256.ico</ApplicationIcon>
+    <ApplicationIcon>img\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="img\icon256.ico" />
+    <Content Include="img\icon.ico" />
   </ItemGroup>
 
   <ItemGroup>

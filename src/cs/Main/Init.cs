@@ -162,6 +162,10 @@ namespace TaskManage.Main
                     form.menu1_done_top_label_hour.BackColor = Common_Const.color_done1;
                 }
             }
+            else if (sumtime > 0)
+            {
+                form.menu1_done_top_label_hour.BackColor = Main.Common_Const.color_done1;
+            }
             if (sumtime % 60 != 0)
             {
                 form.menu1_done_top_label_hour.Text += (sumtime % 60).ToString() + "m";
