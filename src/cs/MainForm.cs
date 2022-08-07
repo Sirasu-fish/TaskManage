@@ -48,6 +48,10 @@ namespace TaskManage
         // Event common
         #region Event Common
 
+        private void common_panel_setting_button_checkupdate_Click(object sender, EventArgs e)
+        {
+            controls_event.common_events.common_panel_setting_button_checkupdate_Click(sender, e, this);
+        }
         private void common_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             controls_event.common_events.common_MouseDoubleClick(sender, e, this);
@@ -75,10 +79,6 @@ namespace TaskManage
         private void common_button_setting_Click(object sender, EventArgs e)
         {
             controls_event.common_events.common_button_setting_Click(sender, e, this);
-        }
-        private void common_panel_setting_table_check1_CheckedChanged(object sender, EventArgs e)
-        {
-            controls_event.common_events.common_panel_setting_table_check1_CheckedChanged(sender, e, this);
         }
         private void common_button_prevmenu_Click(object sender, EventArgs e)
         {

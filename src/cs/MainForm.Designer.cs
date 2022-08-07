@@ -35,9 +35,7 @@ namespace TaskManage
         public Button common_button_prevmenu;
         public Button common_button_setting;
         public PanelEx common_panel_setting;
-        public CheckBox common_panel_setting_table_check1;
-        public Label common_panel_setting_table_label1;
-        public TableLayoutPanel common_panel_setting_table_setting;
+        public Button common_panel_setting_button_checkupdate;
 
         // ■■■■■■■■■■■■■■■■■■■■■　menu1　■■■■■■■■■■■■■■■■■■■■■
         public Panel menu1;
@@ -152,9 +150,7 @@ namespace TaskManage
             this.common_button_setting = new System.Windows.Forms.Button();
             this.common_button_nextmenu = new System.Windows.Forms.Button();
             this.common_panel_setting = new TaskManage.PanelEx();
-            this.common_panel_setting_table_setting = new System.Windows.Forms.TableLayoutPanel();
-            this.common_panel_setting_table_check1 = new System.Windows.Forms.CheckBox();
-            this.common_panel_setting_table_label1 = new System.Windows.Forms.Label();
+            this.common_panel_setting_button_checkupdate = new Button();
 
             this.menu1 = new System.Windows.Forms.Panel();
             this.menu1_panel_yearmonth = new System.Windows.Forms.Panel();
@@ -256,7 +252,6 @@ namespace TaskManage
 
             this.common.SuspendLayout();
             this.common_panel_setting.SuspendLayout();
-            this.common_panel_setting_table_setting.SuspendLayout();
             
             this.menu1.SuspendLayout();
             this.menu1_panel_yearmonth.SuspendLayout();
@@ -423,38 +418,20 @@ namespace TaskManage
             // 
             this.common_panel_setting.BorderColor = Color.Black;
             this.common_panel_setting.BackColor = System.Drawing.Color.Transparent;
-            this.common_panel_setting.Controls.Add(this.common_panel_setting_table_setting);
+            this.common_panel_setting.Controls.Add(this.common_panel_setting_button_checkupdate);
             this.common_panel_setting.Location = new System.Drawing.Point(2, 35);
             this.common_panel_setting.Size = new System.Drawing.Size(120, 32);
             this.common_panel_setting.Visible = false;
-            // 
-            // common_panel_setting_table_setting
-            // 
-            this.common_panel_setting_table_setting.BackColor = System.Drawing.Color.Transparent;
-            this.common_panel_setting_table_setting.ColumnCount = 2;
-            this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.common_panel_setting_table_setting.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_label1, 0, 0);
-            this.common_panel_setting_table_setting.Controls.Add(this.common_panel_setting_table_check1, 1, 0);
-            this.common_panel_setting_table_setting.Location = new System.Drawing.Point(1, 1);
-            this.common_panel_setting_table_setting.RowCount = 1;
-            this.common_panel_setting_table_setting.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.common_panel_setting_table_setting.Size = new System.Drawing.Size(118, 30);
-            // 
-            // common_panel_setting_table_label1
-            // 
-            this.common_panel_setting_table_label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.common_panel_setting_table_label1.Text = "ダークモード";
-            this.common_panel_setting_table_label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // common_panel_setting_table_check1
-            // 
-            this.common_panel_setting_table_check1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.common_panel_setting_table_check1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.common_panel_setting_table_check1.UseVisualStyleBackColor = true;
-            this.common_panel_setting_table_check1.CheckedChanged += new System.EventHandler(this.common_panel_setting_table_check1_CheckedChanged);
-
-
+            //
+            // common_panel_setting_button_checkupdate
+            //
+            this.common_panel_setting_button_checkupdate.Cursor = Cursors.Hand;
+            this.common_panel_setting_button_checkupdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.common_panel_setting_button_checkupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.common_panel_setting_button_checkupdate.Text = "アップデート確認";
+            this.tooltip.SetToolTip(this.common_panel_setting_button_checkupdate, "前の月を表示");
+            this.common_panel_setting_button_checkupdate.UseVisualStyleBackColor = true;
+            this.common_panel_setting_button_checkupdate.Click += new System.EventHandler(this.common_panel_setting_button_checkupdate_Click);
             // 
             // menu1
             // 
@@ -1132,8 +1109,6 @@ namespace TaskManage
 
             this.common.ResumeLayout(false);
             this.common_panel_setting.ResumeLayout(false);
-            this.common_panel_setting_table_setting.ResumeLayout(false);
-            this.common_panel_setting_table_setting.PerformLayout();
 
             this.menu1.ResumeLayout(false);
             this.menu1_panel_yearmonth.ResumeLayout(false);

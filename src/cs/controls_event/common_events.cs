@@ -1,13 +1,25 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace TaskManage.controls_event
 {
     class common_events
     {
+        MainForm form;
         // ********** form event **********
         #region form event
+
+        public static void common_panel_setting_button_checkupdate_Click(object sender, EventArgs e, MainForm form)
+        {
+            common_events common_Events = new common_events();
+            common_Events.CheckUpdate(form);
+        }
         // ダブルクリック時の動作
         public static void common_MouseDoubleClick(object sender, MouseEventArgs e, MainForm form)
         {
@@ -99,20 +111,6 @@ namespace TaskManage.controls_event
             }
         }
 
-        // ダークモード切り替え
-        public static void common_panel_setting_table_check1_CheckedChanged(object sender, EventArgs e, MainForm form)
-        {
-            if (form.common_panel_setting_table_check1.Checked)
-            {
-                Properties.Settings.Default.dark_mode = true;
-            }
-            else
-            {
-                Properties.Settings.Default.dark_mode = false;
-            }
-            ChangeDarkMode(form);
-        }
-
         // 前メニューへ移動する時の動作
         public static void common_button_prevmenu_Click(object sender, EventArgs e, MainForm form)
         {
@@ -132,59 +130,6 @@ namespace TaskManage.controls_event
 
         // ********** public **********
         #region public
-
-        // 表示モード切り替え
-        public static void ChangeDarkMode(MainForm form)
-        {
-            //if (Properties.Settings.Default.common_mode)
-            //{
-            //    Main.Common_Var.main_color = Properties.Settings.Default.dark;
-            //    Main.Common_Var.sub_color = Properties.Settings.Default.white;
-            //    Main.Common_Var.submain_color = Properties.Settings.Default.subdark;
-            //    Main.Common_Var.subsub_color = Properties.Settings.Default.subwhite;
-            //}
-            //else
-            //{
-            //    Main.Common_Var.main_color = Properties.Settings.Default.white;
-            //    Main.Common_Var.sub_color = Properties.Settings.Default.dark;
-            //    Main.Common_Var.submain_color = Properties.Settings.Default.subwhite;
-            //    Main.Common_Var.subsub_color = Properties.Settings.Default.subdark;
-            //}
-
-            //// 全体
-            //form.BackColor = Main.Common_Var.main_color;
-
-            //// common
-            //form.common_panel_setting_table_setting.BackColor = Main.Common_Var.main_color;
-            //form.common_panel_setting.BackColor = Main.Common_Var.sub_color;
-            //form.common_panel_setting_table_label1.ForeColor = Main.Common_Var.sub_color;
-            //form.common_panel_setting_table_label2.ForeColor = Main.Common_Var.sub_color;
-
-            //// 〇menu1
-            //// カレンダーの日にちの背景色を変更
-
-            //for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
-            //{
-            //    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Var.submain_color;
-            //}
-
-            //// カレンダーの曜日の文字色を変更
-            //for (int i = 0; i < 7; i++)
-            //{
-            //    form.menu1_table_calender_label_dow[i].ForeColor = Main.Common_Var.sub_color;
-            //}
-
-            //int year = DateTime.Now.Year;
-            //int month = DateTime.Now.Month;
-            //Set_Day(form, year, month);
-
-            //// menu2
-            //form.menu2_1_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
-
-            ////menu2_1_panel_main_panel_label1 , menu2_1_panel_main_panel_label2 , menu2_1_panel_main_panelの色変更を入れる
-
-            //form.menu2_2_panel_top_label_title.ForeColor = Main.Common_Var.sub_color;
-        }
 
         // メニュー切り替え
         public static void ChangeMenu(MainForm form)
@@ -393,5 +338,98 @@ namespace TaskManage.controls_event
 
         #endregion public
         // ********** public **********
+
+        // ********** private **********
+        // アップデート確認
+        private async void CheckUpdate(MainForm form)
+        {
+            this.form = form;
+            // GitHub API
+            string url = "https://api.github.com/repos/Sirasu-fish/TaskManage/releases/latest";
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("User-Agent", "ToDoList");
+            HttpResponseMessage result = new HttpResponseMessage();
+            string json = "";
+            string version = "";
+            try
+            {
+                result = await client.GetAsync(url);
+                json = await result.Content.ReadAsStringAsync();
+                version = (JsonSerializer.Deserialize<git_info>(json).tag_name).Replace("v", "");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("最新版です。", "確認", MessageBoxButtons.OK);
+                return;
+            }
+
+            // バージョンが同じ場合は抜ける
+            if (version == Properties.Settings.Default.version)
+            {
+                MessageBox.Show("最新版です。", "確認", MessageBoxButtons.OK);
+                return;
+            }
+
+            // exeのパス取得
+            string currentpath = (Application.ExecutablePath).Replace(Path.GetFileName(Application.ExecutablePath), "");
+            // zipのダウンロードURL
+            Uri zipurl = new Uri("https://github.com/Sirasu-fish/TaskManage/releases/download/v" + version + "/TaskManage.zip");
+
+            WebClient webClient = new WebClient();
+            webClient.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(webClient_DownLoadFileCompleted);
+
+            webClient.DownloadFileAsync(zipurl, currentpath + "\\TaskManage.zip");
+        }
+
+        private class git_info
+        {
+            public string tag_name { get; set; }
+        }
+
+        private void webClient_DownLoadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+            if (e.Error != null) // エラー
+            {
+                return;
+            }
+            else // ダウンロード正常完了
+            {
+                DialogResult result = MessageBox.Show("アップデートがあります。適用しますか？", "TaskManage", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    // 保存されていないメモの確認
+                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                    {
+                        if (!Main.Common_Var.memo_save[i])
+                        {
+                            if (!menu2_2_events.FormCloseMemo(form, i))
+                            {
+                                return;
+                            }
+                        }
+                    }
+
+                    Properties.Settings.Default.form_x = form.Width;
+                    Properties.Settings.Default.form_y = form.Height;
+                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                    {
+                        if (form.menu2_2_panel_main_panel[i].Height > 34)
+                        {
+                            Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
+                        }
+                    }
+                    Properties.Settings.Default.Save();
+
+                    string currentpath = (Application.ExecutablePath).Replace(Path.GetFileName(Application.ExecutablePath), "");
+                    Process.Start(currentpath + "\\UpdateTaskManage.exe");
+                    form.Close();
+                }
+            }
+        }
+
     }
 }

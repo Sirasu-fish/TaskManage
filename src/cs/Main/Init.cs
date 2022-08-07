@@ -91,6 +91,29 @@ namespace TaskManage.Main
                 }
                 else
                 {
+                    // 保存されていないメモの確認
+                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                    {
+                        if (!Main.Common_Var.memo_save[i])
+                        {
+                            if (!controls_event.menu2_2_events.FormCloseMemo(form, i))
+                            {
+                                return;
+                            }
+                        }
+                    }
+
+                    Properties.Settings.Default.form_x = form.Width;
+                    Properties.Settings.Default.form_y = form.Height;
+                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                    {
+                        if (form.menu2_2_panel_main_panel[i].Height > 34)
+                        {
+                            Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
+                        }
+                    }
+                    Properties.Settings.Default.Save();
+
                     string currentpath = (Application.ExecutablePath).Replace(Path.GetFileName(Application.ExecutablePath), "");
                     Process.Start(currentpath + "\\UpdateTaskManage.exe");
                     form.Close();
@@ -156,19 +179,8 @@ namespace TaskManage.Main
 
         private void SetCommon(MainForm form)
         {
-            // ダークモード
-            if (Properties.Settings.Default.dark_mode)
-            {
-                form.common_panel_setting_table_check1.Checked = true;
-            }
-            else
-            {
-                form.common_panel_setting_table_check1.Checked = false;
-            }
             // メニュー切り替え
             controls_event.common_events.ChangeMenu(form);
-            // 表示モード切り替え
-            controls_event.common_events.ChangeDarkMode(form);
         }
 
         private void SetMenu1(MainForm form)
