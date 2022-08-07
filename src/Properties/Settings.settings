@@ -2,9 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TaskManage.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="common_mode" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="menu2_open1" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -59,6 +56,9 @@
     </Setting>
     <Setting Name="version" Type="System.String" Scope="User">
       <Value Profile="(Default)">1.04</Value>
+    </Setting>
+    <Setting Name="dark_mode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

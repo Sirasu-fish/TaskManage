@@ -18,23 +18,21 @@ namespace TaskManage
         DAndDArea status;
         int sizeChangeAreaWidth;
         Cursor defaultCursor;
-        Control sizeChangeParent;
-        Control sizeChangeParentChild;
-        Size lastMouseDownSizeParent;
-        Size lastMouseDownsizeParentChild;
+        MainForm form;
+        Size lastMouseDownSize2_2;
+        Size lastMouseDownSize2_2_panel;
 
         /// <param name="mouseListner">マウス入力を受け取るコントロール</param>
         /// <param name="sizeChangeCtrl">マウス入力によってサイズが変更されるコントロール</param>
         /// <param name="sizeChangeArea">上下左右のサイズ変更が有効になる範囲を指定</param>
         /// <param name="sizeChangeAreaWidth">サイズ変更が有効になる範囲の幅を指定</param>
-        public DAndDSizeChanger(Control mouseListner, Control sizeChangeCtrl, DAndDArea sizeChangeArea, int sizeChangeAreaWidth, Control sizeChangeParent, Control sizeChangeParentChild)
+        public DAndDSizeChanger(Control mouseListner, Control sizeChangeCtrl, MainForm form, DAndDArea sizeChangeArea, int sizeChangeAreaWidth)
         {
             this.mouseListner = mouseListner;
             this.sizeChangeCtrl = sizeChangeCtrl;
             this.sizeChangeAreaWidth = sizeChangeAreaWidth;
             this.sizeChangeArea = sizeChangeArea;
-            this.sizeChangeParent = sizeChangeParent;
-            this.sizeChangeParentChild = sizeChangeParentChild;
+            this.form = form;
             defaultCursor = mouseListner.Cursor;
 
             mouseListner.MouseDown += new MouseEventHandler(mouseListner_MouseDown);
@@ -46,8 +44,8 @@ namespace TaskManage
         {
             lastMouseDownPoint = e.Location;
             lastMouseDownSize = sizeChangeCtrl.Size;
-            lastMouseDownSizeParent = sizeChangeParent.Size;
-            lastMouseDownsizeParentChild = sizeChangeParentChild.Size;
+            lastMouseDownSize2_2 = form.menu2_2.Size;
+            lastMouseDownSize2_2_panel = form.menu2_2_panel.Size;
 
             //動作を決定
             status = DAndDArea.None;
@@ -130,8 +128,8 @@ namespace TaskManage
                     else
                     {
                         sizeChangeCtrl.Height = lastMouseDownSize.Height + diffY;
-                        sizeChangeParent.Height = lastMouseDownSizeParent.Height + diffY;
-                        sizeChangeParentChild.Height = lastMouseDownsizeParentChild.Height + diffY;
+                        form.menu2_2.Height = lastMouseDownSize2_2.Height + diffY;
+                        form.menu2_2_panel.Height = lastMouseDownSize2_2_panel.Height + diffY;
                     }
                 }
                 if ((status & DAndDArea.Left) == DAndDArea.Left)

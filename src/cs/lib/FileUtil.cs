@@ -121,7 +121,7 @@ namespace TaskManage
                     string[] path = new string[Main.Common_Const.memo_num];
 
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = path[num];
-                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = Main.Common_Const.color3;
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = Main.Common_Const.color_gray2;
                     Properties.Settings.Default.Save();
                 }
             }

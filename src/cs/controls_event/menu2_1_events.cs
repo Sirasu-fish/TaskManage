@@ -6,10 +6,11 @@ namespace TaskManage.controls_event
 {
     class menu2_1_events
     {
-        MainForm form;
-        static int task_x = 4; // タスクのX位置
-        static int task_height = 32;
-        static int task_space = -1; // タスクとタスクの隙間
+        private MainForm form;
+        static private int task_x = 4; // タスクのX位置
+        static private int task_height = 32;
+        static private int task_space = -1; // タスクとタスクの隙間
+        static private Color color_select_task = Main.Common_Const.color_gray1; // 選択、ホバーしたタスクの色
 
         // コンストラクタ
         public menu2_1_events(MainForm form)
@@ -399,7 +400,7 @@ namespace TaskManage.controls_event
             }
             else // 既存タスク
             {
-                form.menu2_1_panel_main_panel[task_num].BackColor = Main.Common_Const.color2;
+                form.menu2_1_panel_main_panel[task_num].BackColor = color_select_task;
                 form.menutask_table1_text.Text = Properties.Settings.Default.task_name[task_num];
                 form.menutask_table2_text.Text = Properties.Settings.Default.task_memo[task_num];
                 form.menutask.Visible = true;
@@ -525,7 +526,7 @@ namespace TaskManage.controls_event
                 }
                 form.menu2_1_panel_main_panel[i].BackColor = Color.Transparent;
             }
-            form.menu2_1_panel_main_panel[num].BackColor = Main.Common_Const.color2;
+            form.menu2_1_panel_main_panel[num].BackColor = color_select_task;
             form.menu2_1_panel_main_panel[num].Refresh();
         }
 

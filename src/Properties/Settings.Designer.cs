@@ -26,18 +26,6 @@ namespace TaskManage.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool common_mode {
-            get {
-                return ((bool)(this["common_mode"]));
-            }
-            set {
-                this["common_mode"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool menu2_open1 {
             get {
                 return ((bool)(this["menu2_open1"]));
@@ -229,6 +217,18 @@ namespace TaskManage.Properties {
             }
             set {
                 this["version"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool dark_mode {
+            get {
+                return ((bool)(this["dark_mode"]));
+            }
+            set {
+                this["dark_mode"] = value;
             }
         }
     }

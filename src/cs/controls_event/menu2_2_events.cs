@@ -6,7 +6,7 @@ namespace TaskManage.controls_event
 {
     class menu2_2_events
     {
-        MainForm form;
+        private MainForm form;
 
         // コンストラクタ
         public menu2_2_events(MainForm form)
@@ -112,7 +112,7 @@ namespace TaskManage.controls_event
             if (Main.Common_Var.memo_save[int.Parse(((TextBox)sender).Name)] == true)
             {
                 form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].Text += " *";
-                form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].BackColor = Main.Common_Const.color5;
+                form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].BackColor = Main.Common_Const.color_calender_out;
                 Main.Common_Var.memo_save[int.Parse(((TextBox)sender).Name)] = false;
             }
         }
@@ -195,7 +195,8 @@ namespace TaskManage.controls_event
             form.menu2_2_panel_main_panel_table_memo[Main.Common_Var.menu2_2_memo].SuspendLayout();
             form.menu2_2_panel_main_panel_table_memo_panel_top[Main.Common_Var.menu2_2_memo].SuspendLayout();
 
-            Main.Common_Var.menu2_2_panel_main_table_memo_sizeChanger.Add(new DAndDSizeChanger(form.menu2_2_panel_main_panel_table_memo_text[Main.Common_Var.menu2_2_memo], form.menu2_2_panel_main_panel[Main.Common_Var.menu2_2_memo], DAndDArea.Bottom, 12, form.menu2_2, form.menu2_2_panel));
+            DAndDSizeChanger menu2_2_panel_main_table_memo_sizeChanger;
+            menu2_2_panel_main_table_memo_sizeChanger = new DAndDSizeChanger(form.menu2_2_panel_main_panel_table_memo_text[Main.Common_Var.menu2_2_memo], form.menu2_2_panel_main_panel[Main.Common_Var.menu2_2_memo], form, DAndDArea.Bottom, 12);
 
             form.ResumeLayout();
             form.menu2.ResumeLayout();
@@ -329,13 +330,15 @@ namespace TaskManage.controls_event
                 return true;
             }
 
+            Color memo_text = Main.Common_Const.color_gray2;
+
             // パスが空の時 = 新規ファイルなので、名前をつけて保存ダイアログを表示して保存する
             if (String.IsNullOrEmpty(Properties.Settings.Default.memo_path[num]))
             {
                 if (fu.OpenDialog(form, text, num))
                 {
                     Main.Common_Var.memo_save[num] = true;
-                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = Main.Common_Const.color3;
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = memo_text;
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = Properties.Settings.Default.memo_path[num];
                 }
             }
@@ -345,7 +348,7 @@ namespace TaskManage.controls_event
                 if (fu.WriteFile(Properties.Settings.Default.memo_path[num], text))
                 {
                     Main.Common_Var.memo_save[num] = true;
-                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = Main.Common_Const.color3;
+                    form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].BackColor = memo_text;
                     form.menu2_2_panel_main_panel_table_memo_panel_top_text[num].Text = Properties.Settings.Default.memo_path[num];
                 }
             }
@@ -528,7 +531,7 @@ namespace TaskManage.controls_event
             TextBox menu2_2_panel_main_panel_table_memo_panel_top_text = new TextBox();
 
             menu2_2_panel_main_panel_table_memo_panel_top_text.Dock = DockStyle.Fill;
-            menu2_2_panel_main_panel_table_memo_panel_top_text.BackColor = Main.Common_Const.color3;
+            menu2_2_panel_main_panel_table_memo_panel_top_text.BackColor = Main.Common_Const.color_gray2;
             menu2_2_panel_main_panel_table_memo_panel_top_text.Location = new Point(0, 0);
             menu2_2_panel_main_panel_table_memo_panel_top_text.ReadOnly = true;
             menu2_2_panel_main_panel_table_memo_panel_top_text.Name = Main.Common_Var.menu2_2_memo.ToString();

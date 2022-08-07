@@ -6,10 +6,11 @@ namespace TaskManage.controls_event
 {
     class menu1_events
     {
-        MainForm form;
-        static int done_x = 4; // 実績のX位置
-        static int done_height = 32; // 実績の高さ
-        static int done_space = -1; // 実績と実績の隙間
+        private MainForm form;
+        static private int done_x = 4; // 実績のX位置
+        static private int done_height = 32; // 実績の高さ
+        static private int done_space = -1; // 実績と実績の隙間
+        static private Color color_select_done = Main.Common_Const.color_gray1; // 選択、ホバーした実績の色
 
         // コンストラクタ
         public menu1_events(MainForm form)
@@ -487,7 +488,7 @@ namespace TaskManage.controls_event
 
             int r = panel.ClientRectangle.Right - 1;
             int b = panel.ClientRectangle.Bottom - 1;
-            pen = new Pen(Main.Common_Const.color1);
+            pen = new Pen(Main.Common_Const.color_main);
             g.DrawLine(pen, 0, 0, r, 0);
             g.DrawLine(pen, 0, 0, 0, b);
             g.DrawLine(pen, r, 0, r, b);
@@ -521,7 +522,7 @@ namespace TaskManage.controls_event
 
             int r = form.menu1_table_calender_panel_day[Main.Common_Var.clickpanel].ClientRectangle.Right - 1;
             int b = form.menu1_table_calender_panel_day[Main.Common_Var.clickpanel].ClientRectangle.Bottom - 1;
-            pen = new Pen(Main.Common_Const.color4);
+            pen = new Pen(Main.Common_Const.color_main);
             g.DrawLine(pen, 0, 0, r, 0);
             g.DrawLine(pen, 0, 0, 0, b);
             g.DrawLine(pen, r, 0, r, b);
@@ -538,7 +539,7 @@ namespace TaskManage.controls_event
 
             int r = form.menu1_table_calender_panel_day[panel_num].ClientRectangle.Right - 1;
             int b = form.menu1_table_calender_panel_day[panel_num].ClientRectangle.Bottom - 1;
-            pen = new Pen(Main.Common_Const.color1);
+            pen = new Pen(Main.Common_Const.color_main);
             g.DrawLine(pen, 0, 0, r, 0);
             g.DrawLine(pen, 0, 0, 0, b);
             g.DrawLine(pen, r, 0, r, b);
@@ -734,7 +735,7 @@ namespace TaskManage.controls_event
                         form.menudone_table2_text_m.Text = (int.Parse(Properties.Settings.Default.done_time[i]) % 60).ToString();
                         form.menudone_table3_text.Text = Properties.Settings.Default.done_memo[i];
                         form.menudone.Visible = true;
-                        form.menu1_done_main_panel[done_num].BackColor = Main.Common_Const.color2;
+                        form.menu1_done_main_panel[done_num].BackColor = color_select_done;
 
                         form.ResumeLayout();
                         form.menu1.ResumeLayout();
@@ -864,7 +865,7 @@ namespace TaskManage.controls_event
                 }
                 form.menu1_done_main_panel[i].BackColor = Color.Transparent;
             }
-            form.menu1_done_main_panel[num].BackColor = Main.Common_Const.color2;
+            form.menu1_done_main_panel[num].BackColor = color_select_done;
             form.menu1_done_main_panel[num].Refresh();
         }
 

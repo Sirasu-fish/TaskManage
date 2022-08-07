@@ -104,11 +104,11 @@ namespace TaskManage.controls_event
         {
             if (form.common_panel_setting_table_check1.Checked)
             {
-                Properties.Settings.Default.common_mode = true;
+                Properties.Settings.Default.dark_mode = true;
             }
             else
             {
-                Properties.Settings.Default.common_mode = false;
+                Properties.Settings.Default.dark_mode = false;
             }
             ChangeDarkMode(form);
         }
@@ -251,7 +251,7 @@ namespace TaskManage.controls_event
                 {
                     form.menu1_table_calender_panel_day_label_day[i].Text = days[i].ToString();　// 日付
                     form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent; // ラベル背景色
-                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color2; // パネル背景色
+                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color_gray1; // パネル背景色
                     form.menu1_table_calender_panel_day_label_day[i].Font = main_font; // フォント
 
                     for (int j = 0; j < Properties.Settings.Default.done_name.Count; j++)
@@ -278,7 +278,7 @@ namespace TaskManage.controls_event
                     }
                     form.menu1_table_calender_panel_day_label_day[i].Text = nextmonth.ToString() + "/" + days[i].ToString(); // 日付 次月の場合は月の表示も追加
                     form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent; // ラベル背景色
-                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5; // パネル背景色
+                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color_calender_out; // パネル背景色
                     form.menu1_table_calender_panel_day_label_day[i].Font = sub_font; // フォント
 
                     for (int j = 0; j < Properties.Settings.Default.done_name.Count; j++)
@@ -305,7 +305,7 @@ namespace TaskManage.controls_event
                     }
                     form.menu1_table_calender_panel_day_label_day[i].Text = prevmonth.ToString() + "/" + days[i].ToString(); // 日付 前月の場合は月の表示も追加
                     form.menu1_table_calender_panel_day_label_day[i].BackColor = Color.Transparent; // ラベル背景色
-                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color5; // パネル背景色
+                    form.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color_calender_out; // パネル背景色
                     form.menu1_table_calender_panel_day_label_day[i].Font = sub_font; // フォント
 
                     for (int j = 0; j < Properties.Settings.Default.done_name.Count; j++)
@@ -320,7 +320,7 @@ namespace TaskManage.controls_event
 
                 if (i == today_int) // 現在日がカレンダーに存在する場合はパネルの色を変更する
                 {
-                    form.menu1_table_calender_panel_day_label_day[today_int].BackColor = Main.Common_Const.color4; // ラベル背景色 黄色
+                    form.menu1_table_calender_panel_day_label_day[today_int].BackColor = Main.Common_Const.color_calender_today; // ラベル背景色 黄色
                 }
 
                 // 実績時間を表示

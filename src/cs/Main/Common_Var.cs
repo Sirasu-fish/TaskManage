@@ -21,7 +21,6 @@ namespace TaskManage.Main
         private static int menu2_1_open_task_ = -1; // 開いているタスクの番号
         private static int menu2_1_delete_task_ = 0; // 削除されたタスクの数
         private static int menu2_2_memo_ = 0; //メモ数
-        private static System.Collections.Generic.List<DAndDSizeChanger> menu2_2_panel_main_table_memo_sizeChanger_ = new System.Collections.Generic.List<DAndDSizeChanger>();
         private static System.Collections.Generic.List<bool> memo_save_ = new System.Collections.Generic.List<bool>(); //ファイルの保存状況 true:保存済み false:未保存
 
         // 現在のmenuの取得、設定
@@ -218,18 +217,6 @@ namespace TaskManage.Main
             get
             {
                 return menu2_2_memo_;
-            }
-        }
-
-        public static System.Collections.Generic.List<DAndDSizeChanger> menu2_2_panel_main_table_memo_sizeChanger
-        {
-            set
-            {
-                menu2_2_panel_main_table_memo_sizeChanger_ = value;
-            }
-            get
-            {
-                return menu2_2_panel_main_table_memo_sizeChanger_;
             }
         }
 

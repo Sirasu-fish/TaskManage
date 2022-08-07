@@ -7,13 +7,14 @@ namespace TaskManage.Main
         private static int form_x_ = 600; // フォームのデフォルトサイズ x
         private static int form_y_ = 600; // フォームのデフォルトサイズ y
 
-        private static Color color1_ = Color.FromArgb(241, 159, 77);
-        private static Color color2_ = Color.FromArgb(205, 205, 205);
-        private static Color color3_ = Color.FromArgb(239, 239, 239);
-        private static Color color4_ = Color.FromArgb(249, 207, 0);
-        private static Color color5_ = Color.FromArgb(171, 171, 171);
-        private static Color color_done1_ = Color.FromArgb(144, 238, 144);
-        private static Color color_done2_ = Color.FromArgb(247, 100, 100);
+        private static Color color_main_ = Color.FromArgb(241, 159, 77); // オレンジ
+        private static Color color_calender_today_ = Color.FromArgb(249, 207, 0); // 黄色
+        private static Color color_calender_out_ = Color.FromArgb(171, 171, 171); // カレンダーで使う濃いグレー(カレンダー)
+        private static Color color_gray1_ = Color.FromArgb(205, 205, 205); // 薄いグレー
+        private static Color color_gray2_ = Color.FromArgb(239, 239, 239); // 濃いグレー(タスク実績、カレンダー)
+
+        private static Color color_done1_ = Color.FromArgb(144, 238, 144); // 緑
+        private static Color color_done2_ = Color.FromArgb(247, 100, 100); // 赤
 
         private static int menu2_num_ = 2; // menu2の項目数
         private static int memo_num_ = 99; // メモの保存数
@@ -29,29 +30,29 @@ namespace TaskManage.Main
             get { return form_y_; }
         }
 
-        public static Color color1
+        public static Color color_main
         {
-            get { return color1_; }
+            get { return color_main_; }
         }
 
-        public static Color color2
+        public static Color color_calender_today
         {
-            get { return color2_; }
+            get { return color_calender_today_; }
         }
 
-        public static Color color3
+        public static Color color_calender_out
         {
-            get { return color3_; }
+            get { return color_calender_out_; }
         }
 
-        public static Color color4
+        public static Color color_gray1
         {
-            get { return color4_; }
+            get { return color_gray1_; }
         }
 
-        public static Color color5
+        public static Color color_gray2
         {
-            get { return color5_; }
+            get { return color_gray2_; }
         }
 
         public static Color color_done1

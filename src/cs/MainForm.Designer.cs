@@ -307,10 +307,10 @@ namespace TaskManage
             // 
             // common
             // 
-            this.common.BackColor = Main.Common_Const.color1;
-            this.common.BorderColor = Main.Common_Const.color2;
+            this.common.BackColor = Main.Common_Const.color_main;
+            this.common.BorderColor = Main.Common_Const.color_gray1;
             this.common.Controls.Add(this.common_button_prevmenu);
-            //this.common.Controls.Add(this.common_button_setting);
+            this.common.Controls.Add(this.common_button_setting);
             this.common.Controls.Add(this.common_button_nextmenu);
             this.common.Controls.Add(this.common_button_min);
             this.common.Controls.Add(this.common_button_max);
@@ -561,7 +561,7 @@ namespace TaskManage
                 //
                 this.menu1_table_calender_panel_day[i].Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                 | System.Windows.Forms.AnchorStyles.Right)));
-                this.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color2;
+                this.menu1_table_calender_panel_day[i].BackColor = Main.Common_Const.color_gray1;
                 this.menu1_table_calender_panel_day[i].Controls.Add(this.menu1_table_calender_panel_day_label_day[i]);
                 this.menu1_table_calender_panel_day[i].Controls.Add(this.menu1_table_calender_panel_day_label_done[i]);
                 this.menu1_table_calender_panel_day[i].Location = new System.Drawing.Point(1 + 94 * (i % 7), 21 + (73 * (i / 7)));
@@ -614,7 +614,7 @@ namespace TaskManage
             //
             this.menu1_done_top.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                 | System.Windows.Forms.AnchorStyles.Right)));
-            this.menu1_done_top.BorderColor = Main.Common_Const.color2;
+            this.menu1_done_top.BorderColor = Main.Common_Const.color_gray1;
             this.menu1_done_top.Controls.Add(this.menu1_done_top_prevday);
             this.menu1_done_top.Controls.Add(this.menu1_done_top_label_day);
             this.menu1_done_top.Controls.Add(this.menu1_done_top_nextday);
@@ -973,7 +973,7 @@ namespace TaskManage
             // 
             // menutask
             // 
-            this.menutask.BorderColor = Main.Common_Const.color2;
+            this.menutask.BorderColor = Main.Common_Const.color_gray1;
             this.menutask.Controls.Add(this.menutask_button_close);
             this.menutask.Controls.Add(this.menutask_table2);
             this.menutask.Controls.Add(this.menutask_button_save);
@@ -1043,7 +1043,7 @@ namespace TaskManage
             this.menudone_table2.Location = new System.Drawing.Point(0, this.menudone_table1.Location.Y + this.menudone_table1.Height + 4);
             this.menudone_table2.RowCount = 1;
             this.menudone_table2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menudone_table2.Size = new System.Drawing.Size(this.Width, 26);
+            this.menudone_table2.Size = new System.Drawing.Size(this.Width, 24);
             // 
             // menudone_table2_label
             // 
@@ -1067,11 +1067,13 @@ namespace TaskManage
             // 
             this.menudone_table2_text_h.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menudone_table2_text_h.Margin = new System.Windows.Forms.Padding(0);
+            this.menudone_table2_text_h.KeyDown += new KeyEventHandler(this.menudone_table2_text_h_KeyDown);
             // 
             // menudone_table2_text_m
             // 
             this.menudone_table2_text_m.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menudone_table2_text_m.Margin = new System.Windows.Forms.Padding(0);
+            this.menudone_table2_text_m.KeyDown += new KeyEventHandler(this.menudone_table2_text_m_KeyDown);
             // 
             // menudone_table3
             // 
@@ -1115,7 +1117,7 @@ namespace TaskManage
             // 
             // menudone
             // 
-            this.menudone.BorderColor = Main.Common_Const.color2;
+            this.menudone.BorderColor = Main.Common_Const.color_gray1;
             this.menudone.Controls.Add(this.menudone_table3);
             this.menudone.Controls.Add(this.menudone_button_close);
             this.menudone.Controls.Add(this.menudone_table2);
