@@ -99,8 +99,11 @@ namespace TaskManage.controls_event
         public static void menudone_button_close_Click(object sender, EventArgs e, MainForm form)
         {
             form.menudone.Visible = false;
-            form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].BackColor = Color.Transparent;
-            form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
+            if (Main.Common_Var.menu1_open_done < Main.Common_Var.menu1_day_done)
+            {
+                form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].BackColor = Color.Transparent;
+                form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
+            }
             Main.Common_Var.menu1_open_done = -1;
         }
 

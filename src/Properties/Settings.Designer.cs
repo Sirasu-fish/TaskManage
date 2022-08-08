@@ -210,7 +210,7 @@ namespace TaskManage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.05")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.07")]
         public string version {
             get {
                 return ((string)(this["version"]));

@@ -55,7 +55,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1.05</Value>
+      <Value Profile="(Default)">1.07</Value>
     </Setting>
     <Setting Name="dark_mode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
