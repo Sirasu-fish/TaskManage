@@ -106,9 +106,15 @@ namespace TaskManage
         public TableLayoutPanel menudone_table2;
         public TextBox menudone_table2_text_h;
         public TextBox menudone_table2_text_m;
+        public TextBox menudone_table2_text_year;
+        public TextBox menudone_table2_text_month;
+        public TextBox menudone_table2_text_day;
         public Label menudone_table2_label;
         public Label menudone_table2_label_h;
         public Label menudone_table2_label_m;
+        public Label menudone_table2_label_year;
+        public Label menudone_table2_label_month;
+        public Label menudone_table2_label_day;
         public TableLayoutPanel menudone_table3;
         public Label menudone_table3_label;
         public TextBox menudone_table3_text;
@@ -240,8 +246,14 @@ namespace TaskManage
             this.menudone_table2_label = new System.Windows.Forms.Label();
             this.menudone_table2_label_h = new System.Windows.Forms.Label();
             this.menudone_table2_label_m = new System.Windows.Forms.Label();
+            this.menudone_table2_label_year = new System.Windows.Forms.Label();
+            this.menudone_table2_label_month = new System.Windows.Forms.Label();
+            this.menudone_table2_label_day = new System.Windows.Forms.Label();
             this.menudone_table2_text_h = new System.Windows.Forms.TextBox();
             this.menudone_table2_text_m = new System.Windows.Forms.TextBox();
+            this.menudone_table2_text_year = new System.Windows.Forms.TextBox();
+            this.menudone_table2_text_month = new System.Windows.Forms.TextBox();
+            this.menudone_table2_text_day = new System.Windows.Forms.TextBox();
             this.menudone_table1 = new System.Windows.Forms.TableLayoutPanel();
             this.menudone_table1_label = new System.Windows.Forms.Label();
             this.menudone_table1_text = new System.Windows.Forms.TextBox();
@@ -1006,8 +1018,14 @@ namespace TaskManage
             this.menudone_table2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menudone_table2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menudone_table2.ColumnCount = 5;
+            this.menudone_table2.ColumnCount = 11;
             this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.menudone_table2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -1017,10 +1035,16 @@ namespace TaskManage
             this.menudone_table2.Controls.Add(this.menudone_table2_label_h, 2, 0);
             this.menudone_table2.Controls.Add(this.menudone_table2_text_m, 3, 0);
             this.menudone_table2.Controls.Add(this.menudone_table2_label_m, 4, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_text_year, 5, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_label_year, 6, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_text_month, 7, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_label_month, 8, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_text_day, 9, 0);
+            this.menudone_table2.Controls.Add(this.menudone_table2_label_day, 10, 0);
             this.menudone_table2.Location = new System.Drawing.Point(0, this.menudone_table1.Location.Y + this.menudone_table1.Height + 4);
             this.menudone_table2.RowCount = 1;
             this.menudone_table2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.menudone_table2.Size = new System.Drawing.Size(this.Width, 24);
+            this.menudone_table2.Size = new System.Drawing.Size(this.Width, 25);
             // 
             // menudone_table2_label
             // 
@@ -1040,6 +1064,24 @@ namespace TaskManage
             this.menudone_table2_label_m.Text = "m";
             this.menudone_table2_label_m.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // menudone_table2_label_year
+            // 
+            this.menudone_table2_label_year.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_label_year.Text = "年";
+            this.menudone_table2_label_year.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menudone_table2_label_month
+            // 
+            this.menudone_table2_label_month.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_label_month.Text = "月";
+            this.menudone_table2_label_month.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menudone_table2_label_day
+            // 
+            this.menudone_table2_label_day.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_label_day.Text = "日";
+            this.menudone_table2_label_day.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // menudone_table2_text_h
             // 
             this.menudone_table2_text_h.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1051,6 +1093,24 @@ namespace TaskManage
             this.menudone_table2_text_m.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menudone_table2_text_m.Margin = new System.Windows.Forms.Padding(0);
             this.menudone_table2_text_m.KeyDown += new KeyEventHandler(this.menudone_table2_text_m_KeyDown);
+            // 
+            // menudone_table2_text_year
+            // 
+            this.menudone_table2_text_year.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_text_year.Margin = new System.Windows.Forms.Padding(0);
+            this.menudone_table2_text_year.KeyDown += new KeyEventHandler(this.menudone_table2_text_year_KeyDown);
+            // 
+            // menudone_table2_text_month
+            // 
+            this.menudone_table2_text_month.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_text_month.Margin = new System.Windows.Forms.Padding(0);
+            this.menudone_table2_text_month.KeyDown += new KeyEventHandler(this.menudone_table2_text_month_KeyDown);
+            // 
+            // menudone_table2_text_day
+            // 
+            this.menudone_table2_text_day.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menudone_table2_text_day.Margin = new System.Windows.Forms.Padding(0);
+            this.menudone_table2_text_day.KeyDown += new KeyEventHandler(this.menudone_table2_text_day_KeyDown);
             // 
             // menudone_table3
             // 

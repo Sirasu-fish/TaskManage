@@ -267,43 +267,49 @@ namespace TaskManage.controls_event
 
             ChangeDoneNum(form);
         }
-        public static void AddDone(MainForm form, int hour, int minute)
+        public static void AddDone(MainForm form, int hour, int minute, int year, int month, int day)
         {
             if (Main.Common_Var.menu1_day_done <= Main.Common_Var.menu1_open_done) // 新規追加
             {
-                form.SuspendLayout();
-                form.menu1.SuspendLayout();
-                form.menu1_done_main.SuspendLayout();
+                if (year == Main.Common_Var.menu1_done_year && month == Main.Common_Var.menu1_done_month && day == Main.Common_Var.menu1_done_day)
+                {
+                    form.SuspendLayout();
+                    form.menu1.SuspendLayout();
+                    form.menu1_done_main.SuspendLayout();
 
-                form.menu1_done_main_panel_button_delete.Add(add_menu1_done_main_panel_button_delete(form));
-                form.menu1_done_main_panel.Add(add_menu1_done_main_panel(form));
-                form.menu1_done_main_panel_label_name.Add(add_menu1_done_main_panel_label_name(form, form.menudone_table1_text.Text));
-                form.menu1_done_main_panel_label_time.Add(add_menu1_done_main_panel_label_time(form, (hour * 60 + minute).ToString()));
-                form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
-                form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
-                form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
+                    form.menu1_done_main_panel_button_delete.Add(add_menu1_done_main_panel_button_delete(form));
+                    form.menu1_done_main_panel.Add(add_menu1_done_main_panel(form));
+                    form.menu1_done_main_panel_label_name.Add(add_menu1_done_main_panel_label_name(form, form.menudone_table1_text.Text));
+                    form.menu1_done_main_panel_label_time.Add(add_menu1_done_main_panel_label_time(form, (hour * 60 + minute).ToString()));
+                    form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
+                    form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
+                    form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
 
-                DAndDMoveDone menu1_MoveDone_label_name;
-                menu1_MoveDone_label_name = new DAndDMoveDone(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done], form);
-                DAndDMoveDone menu1_MoveDone_label_time;
-                menu1_MoveDone_label_time = new DAndDMoveDone(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done], form);
-                DAndDMoveDone menu1_MoveDone_panel;
-                menu1_MoveDone_panel = new DAndDMoveDone(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done], form);
+                    DAndDMoveDone menu1_MoveDone_label_name;
+                    menu1_MoveDone_label_name = new DAndDMoveDone(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done], form);
+                    DAndDMoveDone menu1_MoveDone_label_time;
+                    menu1_MoveDone_label_time = new DAndDMoveDone(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done], form);
+                    DAndDMoveDone menu1_MoveDone_panel;
+                    menu1_MoveDone_panel = new DAndDMoveDone(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done], form);
 
-                form.ResumeLayout();
-                form.menu1.ResumeLayout();
-                form.menu1_done_main.ResumeLayout();
+                    form.ResumeLayout();
+                    form.menu1.ResumeLayout();
+                    form.menu1_done_main.ResumeLayout();
+                }
 
                 Properties.Settings.Default.done_name.Add(form.menudone_table1_text.Text);
                 Properties.Settings.Default.done_time.Add((hour * 60 + minute).ToString());
                 Properties.Settings.Default.done_memo.Add(form.menudone_table3_text.Text);
-                Properties.Settings.Default.done_day.Add(Main.Common_Var.menu1_done_year.ToString() + "/"
-                    + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString());
+                Properties.Settings.Default.done_day.Add(year.ToString() + "/"
+                    + month.ToString() + "/" + day.ToString());
 
                 Properties.Settings.Default.Save();
 
                 Main.Common_Var.menu1_done += 1;
-                Main.Common_Var.menu1_day_done += 1;
+                if (year == Main.Common_Var.menu1_done_year && month == Main.Common_Var.menu1_done_month && day == Main.Common_Var.menu1_done_day)
+                {
+                    Main.Common_Var.menu1_day_done += 1;
+                }
 
                 Main.Common_Var.menu1_open_done = Main.Common_Var.menu1_day_done;
 
@@ -323,41 +329,98 @@ namespace TaskManage.controls_event
             }
             else // 既存更新
             {
-                form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = form.menudone_table1_text.Text;
-                form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = "";
-                if (hour != 0)
+                if (year == Main.Common_Var.menu1_done_year && month == Main.Common_Var.menu1_done_month && day == Main.Common_Var.menu1_done_day)
                 {
-                    form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text += hour + "h";
-                }
-                if (minute != 0)
-                {
-                    form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text += minute + "m";
-                }
-                form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
-                form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
-
-                int cnt = -1;
-                int sumtime = 0;
-                for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
-                {
-                    if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
-                    && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                    form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = form.menudone_table1_text.Text;
+                    form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text = "";
+                    if (hour != 0)
                     {
-                        cnt++;
+                        form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text += hour + "h";
+                    }
+                    if (minute != 0)
+                    {
+                        form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Text += minute + "m";
+                    }
+                    form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
+                    form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].Refresh();
+
+                    int cnt = -1;
+                    int sumtime = 0;
+                    for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
+                    {
+                        if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                        && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                        {
+                            cnt++;
+                            if (cnt == Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done)
+                            {
+                                Properties.Settings.Default.done_name[i] = form.menudone_table1_text.Text;
+                                Properties.Settings.Default.done_time[i] = (hour * 60 + minute).ToString();
+                                Properties.Settings.Default.done_memo[i] = form.menudone_table3_text.Text;
+                                Properties.Settings.Default.done_day[i] = (year.ToString() + "/"
+                                + month.ToString() + "/" + day.ToString());
+                                Properties.Settings.Default.Save();
+                            }
+                            sumtime += int.Parse(Properties.Settings.Default.done_time[i]);
+                        }
+                    }
+
+                    UpdateDoneTime(form, sumtime);
+
+                    form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].BackColor = Color.Transparent;
+                }
+                else
+                {
+                    int cnt = -1;
+                    for (int i = 0; i < Properties.Settings.Default.done_name.Count; i++)
+                    {
+                        if (!string.IsNullOrEmpty(Properties.Settings.Default.done_name[i])
+                        && Properties.Settings.Default.done_day[i] == Main.Common_Var.menu1_done_year.ToString() + "/" + Main.Common_Var.menu1_done_month.ToString() + "/" + Main.Common_Var.menu1_done_day.ToString())
+                        {
+                            cnt++;
+                        }
                         if (cnt == Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done)
                         {
                             Properties.Settings.Default.done_name[i] = form.menudone_table1_text.Text;
                             Properties.Settings.Default.done_time[i] = (hour * 60 + minute).ToString();
                             Properties.Settings.Default.done_memo[i] = form.menudone_table3_text.Text;
+                            Properties.Settings.Default.done_day[i] = (year.ToString() + "/"
+                            + month.ToString() + "/" + day.ToString());
                             Properties.Settings.Default.Save();
+
+                            break;
                         }
-                        sumtime += int.Parse(Properties.Settings.Default.done_time[i]);
                     }
+
+                    form.SuspendLayout();
+                    form.menu1.SuspendLayout();
+                    form.menu1_done_main.SuspendLayout();
+
+                    for (int i = cnt; i < Main.Common_Var.menu1_day_done; i++)
+                    {
+                        // 位置更新
+                        form.menu1_done_main_panel[i].Location = new Point(done_x, (form.menu1_done_main_panel[i].Size.Height + done_space) * (i - 1));
+                        // コントロール名更新
+                        form.menu1_done_main_panel_label_name[i].Name = (i - 1).ToString();
+                        form.menu1_done_main_panel_label_time[i].Name = (i - 1).ToString();
+                        form.menu1_done_main_panel_button_delete[i].Name = (i - 1).ToString();
+                        form.menu1_done_main_panel[i].Name = (i - 1).ToString();
+                    }
+
+                    // コントロール削除
+                    form.menu1_done_main.Controls.Remove(form.menu1_done_main_panel[cnt]);
+                    form.menu1_done_main_panel_label_name.RemoveAt(cnt);
+                    form.menu1_done_main_panel_label_time.RemoveAt(cnt);
+                    form.menu1_done_main_panel_button_delete.RemoveAt(cnt);
+                    form.menu1_done_main_panel.RemoveAt(cnt);
+
+                    form.ResumeLayout();
+                    form.menu1.ResumeLayout();
+                    form.menu1_done_main.ResumeLayout();
+
+                    Main.Common_Var.menu1_day_done -= 1;
                 }
 
-                UpdateDoneTime(form, sumtime);
-
-                form.menu1_done_main_panel[Main.Common_Var.menu1_open_done - Main.Common_Var.menu1_delete_done].BackColor = Color.Transparent;
                 Main.Common_Var.menu1_open_done = Main.Common_Var.menu1_day_done;
                 Main.Common_Var.menu1_delete_done = 0;
             }
@@ -733,6 +796,9 @@ namespace TaskManage.controls_event
                         form.menudone_table1_text.Text = Properties.Settings.Default.done_name[i];
                         form.menudone_table2_text_h.Text = (int.Parse(Properties.Settings.Default.done_time[i]) / 60).ToString();
                         form.menudone_table2_text_m.Text = (int.Parse(Properties.Settings.Default.done_time[i]) % 60).ToString();
+                        form.menudone_table2_text_year.Text = Main.Common_Var.menu1_done_year.ToString();
+                        form.menudone_table2_text_month.Text = Main.Common_Var.menu1_done_month.ToString();
+                        form.menudone_table2_text_day.Text = Main.Common_Var.menu1_done_day.ToString();
                         form.menudone_table3_text.Text = Properties.Settings.Default.done_memo[i];
                         form.menudone.Visible = true;
                         form.menu1_done_main_panel[done_num].BackColor = color_select_done;
@@ -751,8 +817,11 @@ namespace TaskManage.controls_event
             if (done_num >= Main.Common_Var.menu1_day_done) // 新規実績
             {
                 form.menudone_table1_text.Text = "";
-                form.menudone_table2_text_h.Text = "";
-                form.menudone_table2_text_m.Text = "";
+                form.menudone_table2_text_h.Text = "0";
+                form.menudone_table2_text_m.Text = "0";
+                form.menudone_table2_text_year.Text = Main.Common_Var.menu1_done_year.ToString();
+                form.menudone_table2_text_month.Text = Main.Common_Var.menu1_done_month.ToString();
+                form.menudone_table2_text_day.Text = Main.Common_Var.menu1_done_day.ToString();
                 form.menudone_table3_text.Text = "";
                 form.menudone.Visible = true;
             }
@@ -783,11 +852,10 @@ namespace TaskManage.controls_event
                     form.menu1_done_main_panel[i].BackColor = Color.Transparent;
                 }
             }
+
             form.SuspendLayout();
             form.menu1.SuspendLayout();
             form.menu1_done_main.SuspendLayout();
-
-            menu1_events events = new menu1_events(form);
 
             for (int i = num; i < Main.Common_Var.menu1_day_done; i++)
             {

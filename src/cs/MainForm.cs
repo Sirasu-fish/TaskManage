@@ -217,6 +217,18 @@ namespace TaskManage
         {
             controls_event.menudone_events.menudone_table2_text_m_KeyDown(sender, e, this);
         }
+        private void menudone_table2_text_year_KeyDown(object sender, KeyEventArgs e)
+        {
+            controls_event.menudone_events.menudone_table2_text_year_KeyDown(sender, e, this);
+        }
+        private void menudone_table2_text_month_KeyDown(object sender, KeyEventArgs e)
+        {
+            controls_event.menudone_events.menudone_table2_text_month_KeyDown(sender, e, this);
+        }
+        private void menudone_table2_text_day_KeyDown(object sender, KeyEventArgs e)
+        {
+            controls_event.menudone_events.menudone_table2_text_day_KeyDown(sender, e, this);
+        }
         private void menudone_button_close_Click(object sender, EventArgs e)
         {
             controls_event.menudone_events.menudone_button_close_Click(sender, e, this);
