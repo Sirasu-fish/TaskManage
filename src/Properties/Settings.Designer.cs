@@ -210,7 +210,7 @@ namespace TaskManage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.08")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.09")]
         public string version {
             get {
                 return ((string)(this["version"]));
@@ -222,13 +222,25 @@ namespace TaskManage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool dark_mode {
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        public int done_delete_month {
             get {
-                return ((bool)(this["dark_mode"]));
+                return ((int)(this["done_delete_month"]));
             }
             set {
-                this["dark_mode"] = value;
+                this["done_delete_month"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool maximum {
+            get {
+                return ((bool)(this["maximum"]));
+            }
+            set {
+                this["maximum"] = value;
             }
         }
     }

@@ -47,7 +47,10 @@ namespace TaskManage.Main
             {
                 result = await client.GetAsync(url);
                 json = await result.Content.ReadAsStringAsync();
-                version = (JsonSerializer.Deserialize<git_info>(json).tag_name).Replace("v", "");
+                if (JsonSerializer.Deserialize<git_info>(json).tag_name != null)
+                {
+                    version = (JsonSerializer.Deserialize<git_info>(json).tag_name).Replace("v", "");
+                }
             }
             catch (Exception)
             {
@@ -55,7 +58,7 @@ namespace TaskManage.Main
             }
 
             // バージョンが同じ場合は抜ける
-            if (version == Properties.Settings.Default.version)
+            if (version == Properties.Settings.Default.version || string.IsNullOrEmpty(version))
             {
                 return;
             }
@@ -65,60 +68,56 @@ namespace TaskManage.Main
             // zipのダウンロードURL
             Uri zipurl = new Uri("https://github.com/Sirasu-fish/TaskManage/releases/download/v" + version + "/TaskManage.zip");
 
-            WebClient webClient = new WebClient();
-            webClient.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(webClient_DownLoadFileCompleted);
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage res = await httpClient.GetAsync(zipurl, HttpCompletionOption.ResponseHeadersRead);
 
-            webClient.DownloadFileAsync(zipurl, currentpath + "\\TaskManage.zip");
+            using (var fileStream = File.Create(currentpath + "\\TaskManage.zip"))
+            {
+                using (var httpStream = await res.Content.ReadAsStreamAsync())
+                {
+                    httpStream.CopyTo(fileStream);
+                    fileStream.Flush();
+
+                    DialogResult result2 = MessageBox.Show("アップデートがあります。適用しますか？", "TaskManage", MessageBoxButtons.YesNo);
+                    if (result2 == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        // 保存されていないメモの確認
+                        for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                        {
+                            if (!Main.Common_Var.memo_save[i])
+                            {
+                                if (!controls_event.menu2_2_events.FormCloseMemo(form, i))
+                                {
+                                    return;
+                                }
+                            }
+                        }
+
+                        Properties.Settings.Default.form_x = form.Width;
+                        Properties.Settings.Default.form_y = form.Height;
+                        for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                        {
+                            if (form.menu2_2_panel_main_panel[i].Height > 34)
+                            {
+                                Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
+                            }
+                        }
+                        Properties.Settings.Default.Save();
+
+                        Process.Start(currentpath + "\\UpdateTaskManage.exe");
+                        form.Close();
+                    }
+                }
+            }
         }
 
         private class git_info
         {
             public string tag_name { get; set; }
-        }
-
-        private void webClient_DownLoadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {
-            if (e.Error != null) // エラー
-            {
-                return;
-            }
-            else // ダウンロード正常完了
-            {
-                DialogResult result = MessageBox.Show("アップデートがあります。適用しますか？", "TaskManage", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
-                {
-                    return;
-                }
-                else
-                {
-                    // 保存されていないメモの確認
-                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
-                    {
-                        if (!Main.Common_Var.memo_save[i])
-                        {
-                            if (!controls_event.menu2_2_events.FormCloseMemo(form, i))
-                            {
-                                return;
-                            }
-                        }
-                    }
-
-                    Properties.Settings.Default.form_x = form.Width;
-                    Properties.Settings.Default.form_y = form.Height;
-                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
-                    {
-                        if (form.menu2_2_panel_main_panel[i].Height > 34)
-                        {
-                            Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
-                        }
-                    }
-                    Properties.Settings.Default.Save();
-
-                    string currentpath = (Application.ExecutablePath).Replace(Path.GetFileName(Application.ExecutablePath), "");
-                    Process.Start(currentpath + "\\UpdateTaskManage.exe");
-                    form.Close();
-                }
-            }
         }
 
         // 設定値の初期化
@@ -136,9 +135,46 @@ namespace TaskManage.Main
             }
 
             // メニュー
-            if (Properties.Settings.Default.menu < 1 || 3 < Properties.Settings.Default.menu)
+            if (Properties.Settings.Default.menu < 1 || 2 < Properties.Settings.Default.menu)
             {
                 Properties.Settings.Default.menu = 1;
+            }
+
+            if (Properties.Settings.Default.memo_path == null)
+            {
+                Properties.Settings.Default.memo_path = new System.Collections.Specialized.StringCollection();
+            }
+            if (Properties.Settings.Default.memo_height == null)
+            {
+                Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
+            }
+            if (Properties.Settings.Default.task_name == null)
+            {
+                Properties.Settings.Default.task_name = new System.Collections.Specialized.StringCollection();
+            }
+            if (Properties.Settings.Default.task_memo == null)
+            {
+                Properties.Settings.Default.task_memo = new System.Collections.Specialized.StringCollection();
+            }
+            if (Properties.Settings.Default.done_name == null)
+            {
+                Properties.Settings.Default.done_name = new System.Collections.Specialized.StringCollection();
+            }
+            if (Properties.Settings.Default.done_memo == null)
+            {
+                Properties.Settings.Default.done_memo = new System.Collections.Specialized.StringCollection();
+            }
+            if (Properties.Settings.Default.done_time == null)
+            {
+                Properties.Settings.Default.done_time = new System.Collections.Specialized.StringCollection();
+            }
+            if (Properties.Settings.Default.done_day == null)
+            {
+                Properties.Settings.Default.done_day = new System.Collections.Specialized.StringCollection();
+            }
+            if (Properties.Settings.Default.memo_wrap == null)
+            {
+                Properties.Settings.Default.memo_wrap = new System.Collections.Specialized.StringCollection();
             }
 
             for (int i = Properties.Settings.Default.memo_path.Count - 1; i >= 0; i--)
@@ -175,16 +211,44 @@ namespace TaskManage.Main
         {
             form.Width = Properties.Settings.Default.form_x;
             form.Height = Properties.Settings.Default.form_y;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            if (Properties.Settings.Default.maximum)
+            {
+                form.WindowState = FormWindowState.Maximized; // 最大化
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_dis_max.Image")));
+            }
+            else
+            {
+                form.WindowState = FormWindowState.Normal; // 通常化
+                form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_max.Image")));
+            }
         }
 
         private void SetCommon(MainForm form)
         {
             // メニュー切り替え
             controls_event.common_events.ChangeMenu(form);
+            form.common_panel_setting_combobox_delete.SelectedItem = Properties.Settings.Default.done_delete_month.ToString();
+            form.common_panel_setting_combobox_delete.Refresh();
         }
 
         private void SetMenu1(MainForm form)
         {
+            // 指定期間以上経過している実績を削除
+            DateTime deletedate = DateTime.Now.AddMonths(-1 * Properties.Settings.Default.done_delete_month);
+            for (int i = Properties.Settings.Default.done_name.Count - 1; i >= 0; i--)
+            {
+                if (DateTime.Parse(Properties.Settings.Default.done_day[i]) < deletedate)
+                {
+                    Properties.Settings.Default.done_name.RemoveAt(i);
+                    Properties.Settings.Default.done_time.RemoveAt(i);
+                    Properties.Settings.Default.done_memo.RemoveAt(i);
+                    Properties.Settings.Default.done_day.RemoveAt(i);
+                }
+            }
+
+            Properties.Settings.Default.Save();
+
             string[] date = { "日", "月", "火", "水", "木", "金", "土" };
             DateTime now = DateTime.Now;
             DayOfWeek dow = now.DayOfWeek;

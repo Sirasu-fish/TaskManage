@@ -80,6 +80,10 @@ namespace TaskManage
         {
             controls_event.common_events.common_button_setting_Click(sender, e, this);
         }
+        private void common_panel_setting_combobox_delete_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controls_event.common_events.common_panel_setting_combobox_delete_SelectedIndexChanged(sender, e, this);
+        }
         private void common_button_prevmenu_Click(object sender, EventArgs e)
         {
             controls_event.common_events.common_button_prevmenu_Click(sender, e, this);

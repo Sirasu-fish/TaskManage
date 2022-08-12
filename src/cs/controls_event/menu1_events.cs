@@ -628,36 +628,50 @@ namespace TaskManage.controls_event
         // セレクトボックスの年、月を取得
         private static void Get_YearMonth(MainForm form, ref int year, ref int month)
         {
-            if (int.TryParse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString(), out int y)) // 年が整数に変換可能な時
-            {
-                if (!(int.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= y && y <= int.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString()))) // 範囲外の年
-                {
-                    year = DateTime.Now.Year; // 今年
-                }
-                else
-                {
-                    year = y; // 入力された年
-                }
-            }
-            else
+            if (form.menu1_panel_yearmonth_combo_year.SelectedItem == null)
             {
                 year = DateTime.Now.Year; // 今年
             }
-
-            if (int.TryParse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString(), out int m)) // 月が整数に変換可能な時
+            else
             {
-                if (!(1 <= m && m <= 12)) // 範囲外の月
+                if (int.TryParse(form.menu1_panel_yearmonth_combo_year.SelectedItem.ToString(), out int y)) // 年が整数に変換可能な時
                 {
-                    month = DateTime.Now.Month; // 今月
+                    if (!(int.Parse(form.menu1_panel_yearmonth_combo_year.Items[0].ToString()) <= y && y <= int.Parse(form.menu1_panel_yearmonth_combo_year.Items[4].ToString()))) // 範囲外の年
+                    {
+                        year = DateTime.Now.Year; // 今年
+                    }
+                    else
+                    {
+                        year = y; // 入力された年
+                    }
                 }
                 else
                 {
-                    month = m; // 入力された月
+                    year = DateTime.Now.Year; // 今年
                 }
+            }
+
+            if (form.menu1_panel_yearmonth_combo_month.SelectedItem == null)
+            {
+                month = DateTime.Now.Month; // 今月
             }
             else
             {
-                month = DateTime.Now.Month; // 今月
+                if (int.TryParse(form.menu1_panel_yearmonth_combo_month.SelectedItem.ToString(), out int m)) // 月が整数に変換可能な時
+                {
+                    if (!(1 <= m && m <= 12)) // 範囲外の月
+                    {
+                        month = DateTime.Now.Month; // 今月
+                    }
+                    else
+                    {
+                        month = m; // 入力された月
+                    }
+                }
+                else
+                {
+                    month = DateTime.Now.Month; // 今月
+                }
             }
         }
 

@@ -36,6 +36,8 @@ namespace TaskManage
         public Button common_button_setting;
         public PanelEx common_panel_setting;
         public Button common_panel_setting_button_checkupdate;
+        public ComboBox common_panel_setting_combobox_delete;
+        public Label common_panel_setting_label_delete;
 
         // ■■■■■■■■■■■■■■■■■■■■■　menu1　■■■■■■■■■■■■■■■■■■■■■
         public Panel menu1;
@@ -157,6 +159,8 @@ namespace TaskManage
             this.common_button_nextmenu = new System.Windows.Forms.Button();
             this.common_panel_setting = new TaskManage.PanelEx();
             this.common_panel_setting_button_checkupdate = new Button();
+            this.common_panel_setting_combobox_delete = new ComboBox();
+            this.common_panel_setting_label_delete = new Label();
 
             this.menu1 = new System.Windows.Forms.Panel();
             this.menu1_panel_yearmonth = new System.Windows.Forms.Panel();
@@ -431,19 +435,42 @@ namespace TaskManage
             this.common_panel_setting.BorderColor = Color.Black;
             this.common_panel_setting.BackColor = System.Drawing.Color.Transparent;
             this.common_panel_setting.Controls.Add(this.common_panel_setting_button_checkupdate);
+            this.common_panel_setting.Controls.Add(this.common_panel_setting_combobox_delete);
+            this.common_panel_setting.Controls.Add(this.common_panel_setting_label_delete);
             this.common_panel_setting.Location = new System.Drawing.Point(2, 35);
-            this.common_panel_setting.Size = new System.Drawing.Size(120, 32);
+            this.common_panel_setting.Size = new System.Drawing.Size(160, 64);
             this.common_panel_setting.Visible = false;
             //
             // common_panel_setting_button_checkupdate
             //
             this.common_panel_setting_button_checkupdate.Cursor = Cursors.Hand;
-            this.common_panel_setting_button_checkupdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.common_panel_setting_button_checkupdate.Dock = System.Windows.Forms.DockStyle.Top;
             this.common_panel_setting_button_checkupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.common_panel_setting_button_checkupdate.Text = "アップデート確認";
-            this.tooltip.SetToolTip(this.common_panel_setting_button_checkupdate, "前の月を表示");
+            this.common_panel_setting_button_checkupdate.Text = "アップデート確認(現在:v" + Properties.Settings.Default.version + ")";
+            this.common_panel_setting_button_checkupdate.Size = new System.Drawing.Size(1, 32);
             this.common_panel_setting_button_checkupdate.UseVisualStyleBackColor = true;
             this.common_panel_setting_button_checkupdate.Click += new System.EventHandler(this.common_panel_setting_button_checkupdate_Click);
+            //
+            // common_panel_setting_combobox_delete
+            //
+            this.common_panel_setting_combobox_delete.Location = new System.Drawing.Point(111, 33);
+            this.common_panel_setting_combobox_delete.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.common_panel_setting_combobox_delete.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.common_panel_setting_combobox_delete.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.common_panel_setting_combobox_delete.FormattingEnabled = true;
+            this.common_panel_setting_combobox_delete.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
+            this.common_panel_setting_combobox_delete.Size = new System.Drawing.Size(38, 32);
+            this.common_panel_setting_combobox_delete.SelectedIndexChanged += new System.EventHandler(this.common_panel_setting_combobox_delete_SelectedIndexChanged);
+            //
+            // common_panel_setting_label_delete
+            //
+            this.common_panel_setting_label_delete.BackColor = System.Drawing.Color.Transparent;
+            this.common_panel_setting_label_delete.Margin = new System.Windows.Forms.Padding(0);
+            this.common_panel_setting_label_delete.Location = new System.Drawing.Point(11, 33);
+            this.common_panel_setting_label_delete.Size = new System.Drawing.Size(90, 30);
+            this.common_panel_setting_label_delete.Text = "実績削除(月)：";
+            this.tooltip.SetToolTip(this.common_panel_setting_label_delete, "ソフト起動時、指定期間以上経過した実績が削除されます。");
+            this.common_panel_setting_label_delete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // menu1
             // 
@@ -962,7 +989,8 @@ namespace TaskManage
             // 
             // menutask
             // 
-            this.menutask.BorderColor = Main.Common_Const.color_gray1;
+            this.menutask.BorderColor = Color.Black;
+            this.menutask.BackColor = Main.Common_Const.color_calender_out;
             this.menutask.Controls.Add(this.menutask_button_close);
             this.menutask.Controls.Add(this.menutask_table2);
             this.menutask.Controls.Add(this.menutask_button_save);
@@ -1154,7 +1182,8 @@ namespace TaskManage
             // 
             // menudone
             // 
-            this.menudone.BorderColor = Main.Common_Const.color_gray1;
+            this.menudone.BorderColor = Color.Black;
+            this.menudone.BackColor = Main.Common_Const.color_calender_out;
             this.menudone.Controls.Add(this.menudone_table3);
             this.menudone.Controls.Add(this.menudone_button_close);
             this.menudone.Controls.Add(this.menudone_table2);

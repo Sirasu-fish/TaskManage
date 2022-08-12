@@ -55,9 +55,12 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1.08</Value>
+      <Value Profile="(Default)">1.09</Value>
     </Setting>
-    <Setting Name="dark_mode" Type="System.Boolean" Scope="User">
+    <Setting Name="done_delete_month" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="maximum" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

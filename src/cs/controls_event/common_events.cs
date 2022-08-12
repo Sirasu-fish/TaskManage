@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace TaskManage.controls_event
 {
@@ -31,6 +32,10 @@ namespace TaskManage.controls_event
             }
             else
             {
+                Properties.Settings.Default.form_x = form.Width;
+                Properties.Settings.Default.form_y = form.Height;
+                Properties.Settings.Default.maximum = true;
+                Properties.Settings.Default.Save();
                 form.WindowState = FormWindowState.Maximized; // 最大化
                 form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_dis_max.Image")));
             }
@@ -53,6 +58,10 @@ namespace TaskManage.controls_event
             }
             else
             {
+                Properties.Settings.Default.form_x = form.Width;
+                Properties.Settings.Default.form_y = form.Height;
+                Properties.Settings.Default.maximum = true;
+                Properties.Settings.Default.Save();
                 form.WindowState = FormWindowState.Maximized; // 最大化
                 form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_dis_max.Image")));
             }
@@ -73,8 +82,12 @@ namespace TaskManage.controls_event
                 }
             }
 
-            Properties.Settings.Default.form_x = form.Width;
-            Properties.Settings.Default.form_y = form.Height;
+            if (form.WindowState != FormWindowState.Maximized)
+            {
+                Properties.Settings.Default.form_x = form.Width;
+                Properties.Settings.Default.form_y = form.Height;
+            }
+
             for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
             {
                 if (form.menu2_2_panel_main_panel[i].Height > 34)
@@ -111,17 +124,39 @@ namespace TaskManage.controls_event
             }
         }
 
+        // 削除期間変更
+        public static void common_panel_setting_combobox_delete_SelectedIndexChanged(object sender, EventArgs e, MainForm form)
+        {
+            int month = 0;
+            if (form.common_panel_setting_combobox_delete.SelectedItem == null)
+            {
+                month = 12;
+            }
+            else
+            {
+                month = int.Parse(form.common_panel_setting_combobox_delete.SelectedItem.ToString());
+                if (!(1 <= month && month <= 12))
+                {
+                    month = 12;
+                }
+            }
+            form.common_panel_setting_combobox_delete.SelectedItem = month.ToString();
+            form.common_panel_setting_combobox_delete.Refresh();
+            Properties.Settings.Default.done_delete_month = month;
+            Properties.Settings.Default.Save();
+        }
+
         // 前メニューへ移動する時の動作
         public static void common_button_prevmenu_Click(object sender, EventArgs e, MainForm form)
         {
-            Main.Common_Var.menu -= 1;
+            Properties.Settings.Default.menu -= 1;
             ChangeMenu(form);
         }
 
         // 次メニューへ移動する時の動作
         public static void common_button_nextmenu_Click(object sender, EventArgs e, MainForm form)
         {
-            Main.Common_Var.menu += 1;
+            Properties.Settings.Default.menu += 1;
             ChangeMenu(form);
         }
         #endregion form event
@@ -134,7 +169,7 @@ namespace TaskManage.controls_event
         // メニュー切り替え
         public static void ChangeMenu(MainForm form)
         {
-            switch (Main.Common_Var.menu)
+            switch (Properties.Settings.Default.menu)
             {
                 case 1: //メイン画面
                     form.common_panel_setting.Visible = false;
@@ -375,61 +410,56 @@ namespace TaskManage.controls_event
             // zipのダウンロードURL
             Uri zipurl = new Uri("https://github.com/Sirasu-fish/TaskManage/releases/download/v" + version + "/TaskManage.zip");
 
-            WebClient webClient = new WebClient();
-            webClient.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(webClient_DownLoadFileCompleted);
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage res = await httpClient.GetAsync(zipurl, HttpCompletionOption.ResponseHeadersRead);
 
-            webClient.DownloadFileAsync(zipurl, currentpath + "\\TaskManage.zip");
+            using (var fileStream = File.Create(currentpath + "\\TaskManage.zip"))
+            {
+                using (var httpStream = await res.Content.ReadAsStreamAsync())
+                {
+                    httpStream.CopyTo(fileStream);
+                    fileStream.Flush();
+
+                    DialogResult result2 = MessageBox.Show("アップデートがあります。適用しますか？", "TaskManage", MessageBoxButtons.YesNo);
+                    if (result2 == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        // 保存されていないメモの確認
+                        for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                        {
+                            if (!Main.Common_Var.memo_save[i])
+                            {
+                                if (!menu2_2_events.FormCloseMemo(form, i))
+                                {
+                                    return;
+                                }
+                            }
+                        }
+
+                        Properties.Settings.Default.form_x = form.Width;
+                        Properties.Settings.Default.form_y = form.Height;
+                        for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
+                        {
+                            if (form.menu2_2_panel_main_panel[i].Height > 34)
+                            {
+                                Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
+                            }
+                        }
+                        Properties.Settings.Default.Save();
+
+                        Process.Start(currentpath + "\\UpdateTaskManage.exe");
+                        form.Close();
+                    }
+                }
+            }
         }
 
         private class git_info
         {
             public string tag_name { get; set; }
         }
-
-        private void webClient_DownLoadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {
-            if (e.Error != null) // エラー
-            {
-                return;
-            }
-            else // ダウンロード正常完了
-            {
-                DialogResult result = MessageBox.Show("アップデートがあります。適用しますか？", "TaskManage", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
-                {
-                    return;
-                }
-                else
-                {
-                    // 保存されていないメモの確認
-                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
-                    {
-                        if (!Main.Common_Var.memo_save[i])
-                        {
-                            if (!menu2_2_events.FormCloseMemo(form, i))
-                            {
-                                return;
-                            }
-                        }
-                    }
-
-                    Properties.Settings.Default.form_x = form.Width;
-                    Properties.Settings.Default.form_y = form.Height;
-                    for (int i = 0; i < Main.Common_Var.menu2_2_memo; i++)
-                    {
-                        if (form.menu2_2_panel_main_panel[i].Height > 34)
-                        {
-                            Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
-                        }
-                    }
-                    Properties.Settings.Default.Save();
-
-                    string currentpath = (Application.ExecutablePath).Replace(Path.GetFileName(Application.ExecutablePath), "");
-                    Process.Start(currentpath + "\\UpdateTaskManage.exe");
-                    form.Close();
-                }
-            }
-        }
-
     }
 }
