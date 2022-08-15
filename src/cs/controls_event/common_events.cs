@@ -27,6 +27,8 @@ namespace TaskManage.controls_event
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             if (form.WindowState == FormWindowState.Maximized) // 最大化されている時
             {
+                Properties.Settings.Default.maximum = false;
+                Properties.Settings.Default.Save();
                 form.WindowState = FormWindowState.Normal; // 通常化
                 form.common_button_max.BackgroundImage = ((Image)(resources.GetObject("common_button_max.Image")));
             }

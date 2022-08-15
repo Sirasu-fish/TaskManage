@@ -230,6 +230,8 @@ namespace TaskManage.Main
             controls_event.common_events.ChangeMenu(form);
             form.common_panel_setting_combobox_delete.SelectedItem = Properties.Settings.Default.done_delete_month.ToString();
             form.common_panel_setting_combobox_delete.Refresh();
+
+            form.common_panel_setting.BringToFront();
         }
 
         private void SetMenu1(MainForm form)

@@ -402,7 +402,7 @@ namespace TaskManage.controls_event
             {
                 form.menu2_1_panel_main_panel[task_num].BackColor = color_select_task;
                 form.menutask_table1_text.Text = Properties.Settings.Default.task_name[task_num];
-                form.menutask_table2_text.Text = Properties.Settings.Default.task_memo[task_num];
+                form.menutask_table2_text.Text = Properties.Settings.Default.task_memo[task_num].Replace("\n", "\r\n");
                 form.menutask.Visible = true;
                 return;
             }

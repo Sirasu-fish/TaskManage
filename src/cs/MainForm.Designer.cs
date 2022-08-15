@@ -990,7 +990,7 @@ namespace TaskManage
             // menutask
             // 
             this.menutask.BorderColor = Color.Black;
-            this.menutask.BackColor = Main.Common_Const.color_calender_out;
+            this.menutask.BackColor = Main.Common_Const.color_gray1;
             this.menutask.Controls.Add(this.menutask_button_close);
             this.menutask.Controls.Add(this.menutask_table2);
             this.menutask.Controls.Add(this.menutask_button_save);
@@ -1183,7 +1183,7 @@ namespace TaskManage
             // menudone
             // 
             this.menudone.BorderColor = Color.Black;
-            this.menudone.BackColor = Main.Common_Const.color_calender_out;
+            this.menudone.BackColor = Main.Common_Const.color_gray1;
             this.menudone.Controls.Add(this.menudone_table3);
             this.menudone.Controls.Add(this.menudone_button_close);
             this.menudone.Controls.Add(this.menudone_table2);
