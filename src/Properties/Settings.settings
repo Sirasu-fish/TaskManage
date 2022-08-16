@@ -55,7 +55,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1.10</Value>
+      <Value Profile="(Default)">1.11</Value>
     </Setting>
     <Setting Name="done_delete_month" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">12</Value>
