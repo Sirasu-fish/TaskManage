@@ -613,6 +613,15 @@ namespace TaskManage.controls_event
         {
             Main.Common_Var.clickpanel = panel_num;
 
+            for (int i = 0; i < form.menu1_table_calender_panel_day.Length; i++)
+            {
+                if (Main.Common_Var.clickpanel == i)
+                {
+                    continue;
+                }
+                form.menu1_table_calender_panel_day[i].Refresh();
+            }
+
             Graphics g = form.menu1_table_calender_panel_day[panel_num].CreateGraphics();
             Pen pen;
 
@@ -829,7 +838,7 @@ namespace TaskManage.controls_event
                         form.menudone_table2_text_year.Text = Main.Common_Var.menu1_done_year.ToString();
                         form.menudone_table2_text_month.Text = Main.Common_Var.menu1_done_month.ToString();
                         form.menudone_table2_text_day.Text = Main.Common_Var.menu1_done_day.ToString();
-                        form.menudone_table3_text.Text = Properties.Settings.Default.done_memo[i].Replace("\n", "\r\n");
+                        form.menudone_table3_text.Text = Properties.Settings.Default.done_memo[i].Replace("\n", "\r\n").Replace("\r\r", "\r");
                         form.menudone.Visible = true;
                         form.menu1_done_main_panel[done_num].BackColor = color_select_done;
 
@@ -970,7 +979,7 @@ namespace TaskManage.controls_event
         // 実績マウスホバーが離れた時
         private void MouseLeaveDone(int num)
         {
-            if (Main.Common_Var.menu1_open_done >= Main.Common_Var.menu1_day_done)
+            if (Main.Common_Var.menu1_open_done > Main.Common_Var.menu1_day_done)
             {
                 return;
             }

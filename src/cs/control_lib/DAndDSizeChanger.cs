@@ -65,7 +65,6 @@ namespace TaskManage
             {
                 status |= DAndDArea.Right;
             }
-
             if (status != DAndDArea.None)
             {
                 mouseListner.Capture = true;
@@ -116,8 +115,22 @@ namespace TaskManage
                 if ((status & DAndDArea.Top) == DAndDArea.Top)
                 {
                     int h = sizeChangeCtrl.Height;
-                    sizeChangeCtrl.Height -= diffY;
-                    sizeChangeCtrl.Top += h - sizeChangeCtrl.Height;
+                    if (sizeChangeCtrl.Height - diffY < 207 && sizeChangeCtrl.Name == "done")
+                    {
+                        sizeChangeCtrl.Height = 207;
+                    }
+                    else if (sizeChangeCtrl.Height - diffY < 178 && sizeChangeCtrl.Name == "task")
+                    {
+                        sizeChangeCtrl.Height = 178;
+                    }
+                    else if (sizeChangeCtrl.Height - diffY > 300)
+                    {
+                        sizeChangeCtrl.Height = 300;
+                    }
+                    else
+                    {
+                        sizeChangeCtrl.Height -= diffY;
+                    }
                 }
                 if ((status & DAndDArea.Bottom) == DAndDArea.Bottom)
                 {

@@ -138,22 +138,29 @@ namespace TaskManage.controls_event
 
             RemoveTask(form, int.Parse(((Button)sender).Name));
 
-            form.SuspendLayout();
-            form.menu1.SuspendLayout();
-            form.menu1_done_main.SuspendLayout();
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+            int day_i = DateTime.Now.Day;
 
-            form.menu1_done_main_panel_button_delete.Add(menu1_events.add_menu1_done_main_panel_button_delete(form));
-            form.menu1_done_main_panel.Add(menu1_events.add_menu1_done_main_panel(form));
-            form.menu1_done_main_panel_label_time.Add(menu1_events.add_menu1_done_main_panel_label_time(form, "0"));
-            form.menu1_done_main_panel_label_name.Add(menu1_events.add_menu1_done_main_panel_label_name(form, name));
-            form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
-            form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
-            form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
+            if (year == Main.Common_Var.menu1_done_year && month == Main.Common_Var.menu1_done_month && day_i == Main.Common_Var.menu1_done_day)
+            {
+                form.SuspendLayout();
+                form.menu1.SuspendLayout();
+                form.menu1_done_main.SuspendLayout();
 
-            form.ResumeLayout();
-            form.menu1.ResumeLayout();
-            form.menu1_done_main.ResumeLayout();
-            form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].ResumeLayout();
+                form.menu1_done_main_panel_button_delete.Add(menu1_events.add_menu1_done_main_panel_button_delete(form));
+                form.menu1_done_main_panel.Add(menu1_events.add_menu1_done_main_panel(form));
+                form.menu1_done_main_panel_label_time.Add(menu1_events.add_menu1_done_main_panel_label_time(form, "0"));
+                form.menu1_done_main_panel_label_name.Add(menu1_events.add_menu1_done_main_panel_label_name(form, name));
+                form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_time[Main.Common_Var.menu1_day_done]);
+                form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].Controls.Add(form.menu1_done_main_panel_label_name[Main.Common_Var.menu1_day_done]);
+                form.menu1_done_main.Controls.Add(form.menu1_done_main_panel[Main.Common_Var.menu1_day_done]);
+
+                form.ResumeLayout();
+                form.menu1.ResumeLayout();
+                form.menu1_done_main.ResumeLayout();
+                form.menu1_done_main_panel[Main.Common_Var.menu1_day_done].ResumeLayout();
+            }
 
             Properties.Settings.Default.done_name.Add(name);
             Properties.Settings.Default.done_time.Add("0");
@@ -163,9 +170,10 @@ namespace TaskManage.controls_event
             Properties.Settings.Default.Save();
 
             Main.Common_Var.menu1_done += 1;
-            Main.Common_Var.menu1_day_done += 1;
-
-            Main.Common_Var.menu1_open_done += 1;
+            if (year == Main.Common_Var.menu1_done_year && month == Main.Common_Var.menu1_done_month && day_i == Main.Common_Var.menu1_done_day)
+            {
+                Main.Common_Var.menu1_day_done += 1;
+            }
 
             menu1_events.ChangeDoneNum(form);
         }
@@ -402,7 +410,7 @@ namespace TaskManage.controls_event
             {
                 form.menu2_1_panel_main_panel[task_num].BackColor = color_select_task;
                 form.menutask_table1_text.Text = Properties.Settings.Default.task_name[task_num];
-                form.menutask_table2_text.Text = Properties.Settings.Default.task_memo[task_num].Replace("\n", "\r\n");
+                form.menutask_table2_text.Text = Properties.Settings.Default.task_memo[task_num].Replace("\n", "\r\n").Replace("\r\r", "\r");
                 form.menutask.Visible = true;
                 return;
             }

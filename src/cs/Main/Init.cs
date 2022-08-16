@@ -20,8 +20,6 @@ namespace TaskManage.Main
             CheckUpdate();
             // 設定値の初期化
             SetPropertiesValue();
-            // commonをタイトルバー化する
-            SetMoveForm(form);
             // 設定を反映
             RefrectSetting(form);
         }
@@ -204,6 +202,10 @@ namespace TaskManage.Main
             SetMenu2_1(form);
 
             SetMenu2_2(form);
+
+            SetMenuDone(form);
+
+            SetMenuTask(form);
         }
 
         // Form 設定反映
@@ -226,6 +228,8 @@ namespace TaskManage.Main
 
         private void SetCommon(MainForm form)
         {
+            // commonをタイトルバー化する
+            SetMoveForm(form);
             // メニュー切り替え
             controls_event.common_events.ChangeMenu(form);
             form.common_panel_setting_combobox_delete.SelectedItem = Properties.Settings.Default.done_delete_month.ToString();
@@ -390,6 +394,18 @@ namespace TaskManage.Main
             }
 
             menu2_2_MoveMenu = new DAndDMoveMenu(form.menu2_2_panel_top, form);
+        }
+
+        private void SetMenuDone(MainForm form)
+        {
+            DAndDSizeChanger menudone_sizeChanger;
+            menudone_sizeChanger = new DAndDSizeChanger(form.menudone, form.menudone, form, DAndDArea.Top, 20);
+        }
+
+        private void SetMenuTask(MainForm form)
+        {
+            DAndDSizeChanger menutask_sizeChanger;
+            menutask_sizeChanger = new DAndDSizeChanger(form.menutask, form.menutask, form, DAndDArea.Top, 20);
         }
 
         // commonをタイトルバーにする初期化

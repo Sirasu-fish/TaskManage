@@ -949,7 +949,8 @@ namespace TaskManage
             // 
             // menutask_table2
             // 
-            this.menutask_table2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.menutask_table2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menutask_table2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.menutask_table2.ColumnCount = 1;
@@ -995,6 +996,7 @@ namespace TaskManage
             this.menutask.Controls.Add(this.menutask_table2);
             this.menutask.Controls.Add(this.menutask_button_save);
             this.menutask.Controls.Add(this.menutask_table1);
+            this.menutask.Name = "task";
             this.menutask.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.menutask.Size = new System.Drawing.Size(this.Width, this.menutask_table1.Height + this.menutask_table2.Height + menutask_button_save.Height + 12);
 
@@ -1142,7 +1144,8 @@ namespace TaskManage
             // 
             // menudone_table3
             // 
-            this.menudone_table3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.menudone_table3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left
             | System.Windows.Forms.AnchorStyles.Right)));
             this.menudone_table3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.menudone_table3.ColumnCount = 1;
@@ -1174,7 +1177,7 @@ namespace TaskManage
             // 
             this.menudone_button_save.Cursor = Cursors.Hand;
             this.menudone_button_save.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menudone_button_save.Size = new System.Drawing.Size(682, 32);
+            this.menudone_button_save.Size = new System.Drawing.Size(682, 28);
             this.menudone_button_save.Text = "保存";
             this.menudone_button_save.UseVisualStyleBackColor = true;
             this.tooltip.SetToolTip(this.menudone_button_save, "保存");
@@ -1189,6 +1192,7 @@ namespace TaskManage
             this.menudone.Controls.Add(this.menudone_table2);
             this.menudone.Controls.Add(this.menudone_table1);
             this.menudone.Controls.Add(this.menudone_button_save);
+            this.menudone.Name = "done";
             this.menudone.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.menudone.Size = new System.Drawing.Size(this.Width, this.menudone_table1.Height + this.menudone_table2.Height + this.menudone_table3.Height 
                 + this.menudone_button_save.Height + 16);

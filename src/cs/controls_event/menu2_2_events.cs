@@ -143,7 +143,7 @@ namespace TaskManage.controls_event
                 Properties.Settings.Default.memo_height[i] = form.menu2_2_panel_main_panel[i].Height.ToString();
                 Properties.Settings.Default.Save();
                 form.menu2_2_panel_main_panel_table_memo_text[i].Visible = false;
-                form.menu2_2_panel_main_panel[i].Height = 34;
+                form.menu2_2_panel_main_panel[i].Height = 35;
             }
         }
 
