@@ -134,9 +134,10 @@ namespace TaskManage.controls_event
         {
             string name = Properties.Settings.Default.task_name[int.Parse(((Button)sender).Name)];
             string memo = Properties.Settings.Default.task_memo[int.Parse(((Button)sender).Name)];
-            DateTime day = DateTime.Now;
 
             RemoveTask(form, int.Parse(((Button)sender).Name));
+
+            DateTime day = DateTime.Now;
 
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;

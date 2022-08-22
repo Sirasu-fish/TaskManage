@@ -759,6 +759,7 @@ namespace TaskManage.controls_event
             Main.Common_Var.menu1_done_day = day;
 
             Main.Common_Var.menu1_day_done = 0;
+            Main.Common_Var.menu1_open_done = -1;
 
             int sumtime = 0;
 
@@ -930,6 +931,7 @@ namespace TaskManage.controls_event
                 if (cnt == num)
                 {
                     Properties.Settings.Default.done_name.RemoveAt(i);
+                    Properties.Settings.Default.done_memo.RemoveAt(i);
                     Properties.Settings.Default.done_time.RemoveAt(i);
                     Properties.Settings.Default.done_day.RemoveAt(i);
 
