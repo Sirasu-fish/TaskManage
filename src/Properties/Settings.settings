@@ -55,13 +55,16 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1.12</Value>
+      <Value Profile="(Default)">1.13</Value>
     </Setting>
     <Setting Name="done_delete_month" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">12</Value>
     </Setting>
     <Setting Name="maximum" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="memo_text" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

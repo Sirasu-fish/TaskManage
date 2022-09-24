@@ -210,7 +210,7 @@ namespace TaskManage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.13")]
         public string version {
             get {
                 return ((string)(this["version"]));
@@ -241,6 +241,17 @@ namespace TaskManage.Properties {
             }
             set {
                 this["maximum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection memo_text {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["memo_text"]));
+            }
+            set {
+                this["memo_text"] = value;
             }
         }
     }

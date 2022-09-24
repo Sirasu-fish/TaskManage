@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TaskManage
@@ -22,6 +23,8 @@ namespace TaskManage
         protected override void OnDeactivate(EventArgs ea)
         {
             base.OnDeactivate(ea);
+            CheckExistsScreen(this);
+
             // 設定画面非表示
             this.common_panel_setting.Visible = false;
         }
@@ -30,11 +33,14 @@ namespace TaskManage
         protected override void OnActivated(EventArgs ea)
         {
             base.OnActivated(ea);
+
+            CheckExistsScreen(this);
+
             // カレンダー更新
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
             int day = DateTime.Now.Day;
-            if (year != Main.Common_Var.today_year || month != Main.Common_Var.today_month && day != Main.Common_Var.today_day)
+            if (year != Main.Common_Var.today_year || month != Main.Common_Var.today_month || day != Main.Common_Var.today_day)
             {
                 Main.Common_Var.today_year = year;
                 Main.Common_Var.today_month = month;
@@ -44,6 +50,29 @@ namespace TaskManage
         }
 
         #endregion override
+
+        private void CheckExistsScreen(MainForm form)
+        {
+            bool isScreen = false;
+
+            foreach (Screen scr in Screen.AllScreens)
+            {
+                if (scr.WorkingArea.Contains(form.Left, form.Top) == true)
+                {
+                    isScreen = true;
+                    break;
+                }
+                else
+                {
+
+                }
+            }
+
+            if (isScreen == true)
+            {
+                form.Location = new Point(form.Left, form.Top);
+            }
+        }
 
         // Event common
         #region Event Common

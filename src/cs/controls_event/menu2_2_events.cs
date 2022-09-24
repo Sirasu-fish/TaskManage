@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Windows.Forms;
+using static UndoRedo.History;
 
 namespace TaskManage.controls_event
 {
     class menu2_2_events
     {
         private MainForm form;
+        private String text;
 
         // コンストラクタ
         public menu2_2_events(MainForm form)
@@ -82,6 +86,7 @@ namespace TaskManage.controls_event
                 Properties.Settings.Default.memo_path.Add(ofd.FileName); // ファイル名を保存
                 Properties.Settings.Default.memo_height.Add(Main.Common_Const.memo_height.ToString()); // メモの高さ保存
                 Properties.Settings.Default.memo_wrap.Add("true"); // メモの折り返し保存
+                Properties.Settings.Default.memo_text.Add(fu.ReadFileAll(ofd.FileName));
                 Properties.Settings.Default.Save();
             }
         }
@@ -94,6 +99,7 @@ namespace TaskManage.controls_event
             Properties.Settings.Default.memo_path.Add(""); // ファイル名を保存
             Properties.Settings.Default.memo_height.Add(Main.Common_Const.memo_height.ToString()); // メモの高さ保存
             Properties.Settings.Default.memo_wrap.Add("true"); // メモの折り返し保存
+            Properties.Settings.Default.memo_text.Add("");
             Properties.Settings.Default.Save();
         }
 
@@ -104,11 +110,27 @@ namespace TaskManage.controls_event
             {
                 SaveMemo(form, ((TextBox)sender).Text, int.Parse(((TextBox)sender).Name));
             }
+            if (e.Control && e.KeyCode == Keys.Z) // Ctrl + Z
+            {
+                Undo();
+                form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].Text = text;
+            }
+            if (e.Control && e.KeyCode == Keys.Y) // Ctrl + Y
+            {
+                Redo();
+                form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].Text = text;
+            }
         }
 
         // テキスト変更時イベント
         public void menu2_2_panel_main_panel_table_memo_text_TextChanged(object sender, EventArgs e)
         {
+            string beforestr = Properties.Settings.Default.memo_text[int.Parse(((TextBox)sender).Name)];
+            string str = form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].Text;
+            text = str;
+            Record(() => { text = str; }, () => { text = beforestr; });
+            Properties.Settings.Default.memo_text[int.Parse(((TextBox)sender).Name)] = str;
+
             if (Main.Common_Var.memo_save[int.Parse(((TextBox)sender).Name)] == true)
             {
                 form.menu2_2_panel_main_panel_table_memo_panel_top_text[int.Parse(((TextBox)sender).Name)].Text += " *";
@@ -409,6 +431,7 @@ namespace TaskManage.controls_event
             Properties.Settings.Default.memo_path.RemoveAt(num);
             Properties.Settings.Default.memo_height.RemoveAt(num);
             Properties.Settings.Default.memo_wrap.RemoveAt(num);
+            Properties.Settings.Default.memo_text.RemoveAt(num);
             Main.Common_Var.memo_save.RemoveAt(num);
 
             Main.Common_Var.menu2_2_memo -= 1;

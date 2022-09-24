@@ -18,6 +18,8 @@ namespace TaskManage.Main
             this.form = form;
             // アップデート確認
             CheckUpdate();
+            // モニタ内に存在するか確認
+            CheckExistsScreen(form);
             // 設定値の初期化
             SetPropertiesValue();
             // 設定を反映
@@ -118,6 +120,29 @@ namespace TaskManage.Main
             public string tag_name { get; set; }
         }
 
+        private void CheckExistsScreen(MainForm form)
+        {
+            bool isScreen = false;
+
+            foreach (Screen scr in Screen.AllScreens)
+            {
+                if (scr.WorkingArea.Contains(form.Left, form.Top) == true)
+                {
+                    isScreen = true;
+                    break;
+                }
+                else
+                {
+
+                }
+            }
+
+            if (isScreen == true)
+            {
+                form.Location = new Point(form.Left, form.Top);
+            }
+        }
+
         // 設定値の初期化
         private void SetPropertiesValue()
         {
@@ -145,6 +170,10 @@ namespace TaskManage.Main
             if (Properties.Settings.Default.memo_height == null)
             {
                 Properties.Settings.Default.memo_height = new System.Collections.Specialized.StringCollection();
+            }
+            if (Properties.Settings.Default.memo_text == null)
+            {
+                Properties.Settings.Default.memo_text = new System.Collections.Specialized.StringCollection();
             }
             if (Properties.Settings.Default.task_name == null)
             {
@@ -182,6 +211,7 @@ namespace TaskManage.Main
                     Properties.Settings.Default.memo_path.RemoveAt(i);
                     Properties.Settings.Default.memo_height.RemoveAt(i);
                     Properties.Settings.Default.memo_wrap.RemoveAt(i);
+                    Properties.Settings.Default.memo_text.RemoveAt(i);
                 }
             }
 

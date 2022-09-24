@@ -546,7 +546,7 @@ namespace TaskManage.controls_event
             {
                 return;
             }
-            if (form.menutask.Visible == false && Main.Common_Var.menu2_1_open_task != -1)
+            if (form.menutask.Visible == false && Main.Common_Var.menu2_1_open_task != -1 && Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task >= 0)
             {
                 form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task].BackColor = Color.Transparent;
                 form.menu2_1_panel_main_panel[Main.Common_Var.menu2_1_open_task - Main.Common_Var.menu2_1_delete_task].Refresh();

@@ -49,6 +49,10 @@ namespace TaskManage
                     Properties.Settings.Default.memo_wrap[num] = Properties.Settings.Default.memo_wrap[num + 1];
                     Properties.Settings.Default.memo_wrap[num + 1] = tmp;
 
+                    tmp = Properties.Settings.Default.memo_text[num];
+                    Properties.Settings.Default.memo_text[num] = Properties.Settings.Default.memo_text[num + 1];
+                    Properties.Settings.Default.memo_text[num + 1] = tmp;
+
                     Properties.Settings.Default.Save();
 
                     form.menu2.SuspendLayout();
@@ -160,6 +164,10 @@ namespace TaskManage
                     tmp = Properties.Settings.Default.memo_wrap[num];
                     Properties.Settings.Default.memo_wrap[num] = Properties.Settings.Default.memo_wrap[num - 1];
                     Properties.Settings.Default.memo_wrap[num - 1] = tmp;
+
+                    tmp = Properties.Settings.Default.memo_text[num];
+                    Properties.Settings.Default.memo_text[num] = Properties.Settings.Default.memo_text[num - 1];
+                    Properties.Settings.Default.memo_text[num - 1] = tmp;
 
                     Properties.Settings.Default.Save();
 
